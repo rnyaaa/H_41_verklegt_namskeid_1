@@ -1,0 +1,64 @@
+Happy path:
+-----------------------------------
+1.	Mótshaldari
+2.	Fyrirliði
+3.	Sjá upplýsingar um viðureignir
+-----------------------------------
+
+	Mótshaldari:
+
+1.	Skrá lið
+2.	Skrá leikmenn
+3.	Stofna mót
+4.	Breyta dagsetningu á viðureign
+5.	Breyta skráningu úrslita
+
+-----------------------------------------------------------------------------------------------------
+
+	Skrá lið:
+
+o	Nafn liðs:
+o	Heimilisfang:
+o	Símanúmer:
+
+
+-----------------------------------------------------------------------------------------------------
+
+	Skrá leikmenn:
+
+o	Nafn:
+o	Kennitala:
+o	Heimilisfang:
+o	Heimasími:
+o	GSM:
+o	Netfang:
+o	Lið sem leikmaðurinn tilheyrir:
+	- Hvað ef liðið er ekki nú þegar skráð?
+
+-----------------------------------------------------------------------------------------------------
+
+	Stofna mót:
+
+o	Nafn mótar:
+o	Nafn skipuleggjanda:
+o	Símanúmer:
+o	Lið sem keppa:
+	- Heimalið
+	- Útilið
+
+-----------------------------------------------------------------------------------------------------
+
+	Breyta dagsetningu á viðureign:
+
+o	Hvaða dagsetningu viltu breyta?:
+o	Skrá nýja dagsetningu:
+
+-----------------------------------------------------------------------------------------------------
+
+	Breyta skráningu úrslita:
+
+o	Nafn á móti:
+o	Nafn á liði:
+o	Dagsetning:
+o	Ný úrslit:
+
