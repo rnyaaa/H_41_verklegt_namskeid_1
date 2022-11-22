@@ -19,9 +19,10 @@ Happy path:
 
 1.	Skrá lið
 2.	Skrá leikmenn
-3.	Stofna mót
-4.	Breyta dagsetningu á viðureign
-5.	Breyta skráningu úrslita
+3.	Val á fyrirliðum
+4.	Stofna mót
+5.	Breyta dagsetningu á viðureign
+6.	Breyta skráningu úrslita
 
 -----------------------------------------------------------------------------------------------------
 
@@ -44,7 +45,15 @@ o	GSM:
 o	Netfang:
 o	Lið sem leikmaðurinn tilheyrir:
 	- Hvað ef liðið er ekki nú þegar skráð?
-o	Fyrirliði? (y/n)
+
+
+-----------------------------------------------------------------------------------------------------
+
+	Assign-a fyrirliða:
+
+o	Birta (númeraðan) lista yfir alla leikmenn liðs (hjá einu liði í einu)
+o	Veljið fyrirliða:
+
 
 -----------------------------------------------------------------------------------------------------
 
