@@ -1,3 +1,13 @@
+┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈
+┈┈┃┏┗┛┓┃┈┈
+┈┈╰┓▋▋┏╯┈┈┈┈┈┈┈┈
+┈╭━┻╮╲┗━━━━━╮╭╮┈
+┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈
+┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈
+┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈
+┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈
+
+
 Happy path:
 -----------------------------------
 1.	Mótshaldari
@@ -34,14 +44,17 @@ o	GSM:
 o	Netfang:
 o	Lið sem leikmaðurinn tilheyrir:
 	- Hvað ef liðið er ekki nú þegar skráð?
+o	Fyrirliði? (y/n)
 
 -----------------------------------------------------------------------------------------------------
 
 	Stofna mót:
 
-o	Nafn mótar:
+o	Nafn móts:
+ 	- engin tvö mót mega heita eins
 o	Nafn skipuleggjanda:
-o	Símanúmer:
+o	Símanúmer skipuleggjanda:
+o	Tegund móts:
 o	Lið sem keppa:
 	- Heimalið
 	- Útilið
@@ -61,4 +74,5 @@ o	Nafn á móti:
 o	Nafn á liði:
 o	Dagsetning:
 o	Ný úrslit:
+
 
