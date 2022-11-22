@@ -1,8 +1,60 @@
 Happy path:
 -----------------------------------
+
+                        ___
+                      /\ _ /\
+  >>>----            / /\ /\ \
+>>>----             |---(*)---|
+                     \ \/_\/ /
+         >>>----      \/___\/
+         
+        Pílukasts kerfið
+         
 1.	Mótshaldari
 2.	Fyrirliði
 3.	Sjá upplýsingar um viðureignir
+q.  Quit
+
 -----------------------------------
 
-2. Fyrirliði
+                        ___
+                      /\ _ /\
+  >>>----            / /\ /\ \
+>>>----             |---(*)---|
+                     \ \/_\/ /
+         >>>----      \/___\/
+         
+        Halló, Fyrirliði!
+  
+  1.  Skrá úrslit viðureignar
+  b.  Back
+  q.  Quit
+  
+  -------------------------------
+  
+  Skrá úrslit viðureignar
+  
+  
+  * form eins og kemur fram í pdf á verkefnalýsingu *
+  
+  
+  
+  1. Skrá
+  b. back
+  q. Quit
+  
+  -------------------------------
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
