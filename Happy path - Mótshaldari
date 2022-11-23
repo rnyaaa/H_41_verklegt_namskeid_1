@@ -7,15 +7,18 @@ Happy path - Mótshaldari:
 
 _____________Main Menu____________________
 
+
 1.	Mótshaldari
 2.	Fyrirliði
 3.	Aðrir notendur / Skoða Tölfræði
+
+
 -----------------------------------
      
      *** Velkomin/nn Mótshaldari ***
 
 
-	Mótshaldari:
+	Valmynd:
 
 1.	Skrá lið
 2.	Stofna mót
@@ -23,9 +26,9 @@ _____________Main Menu____________________
 4.	#Val á fyrirliðum
 5.	Breyta dagsetningu á viðureign
 6.	Breyta skráningu úrslita
-7. 	Til baka
+B/b. 	Til baka
 
-Veldu númer:
+Veldu einn af valmöguleikunum hér að ofan: 
 
 -----------------------------------------------------------------------------------------------------
 
