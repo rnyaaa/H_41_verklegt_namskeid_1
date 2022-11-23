@@ -13,7 +13,7 @@ ________________________________________________________________________________
 |												|
 |_______________________________________________________________________________________________|
 |							|	┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈		|
-|	Main Menu					|	┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈		|
+|	➢ Main Menu					|	┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈		|
 |							|	┈┈╰┓▋▋┏╯┈┈┈┈┈┈		|
 |	1.	Mótshaldari				|	┈╭━┻╮╲┗━━━━━╮╭╮┈		|
 |	2.	Fyrirliði				|	┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈		|
@@ -23,19 +23,12 @@ ________________________________________________________________________________
 |_______________________________________________________|________________________________________|
 
 
-1.	Mótshaldari
-2.	Fyrirliði
-3.	Aðrir notendur / Skoða Tölfræði
-q. 	Quit
-
------------------------------------
-
-**** Skoða Tölfræði ****
+*** Verið velkomin í Tölfræðivalmyndina! ***
    
-Valmynd:
+➢ Valmynd:
 
 	1. 	Listi yfir þá sem hafa skorað flest afreksstig.
-			# - Hversu margir á listanum? 5 hæstu?
+			# Hversu margir á listanum? 5 hæstu? 10 hæstu?
 	2.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni.
 	3.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni.
 	4.	Tölfræði fyrir ákveðna leikmenn
@@ -45,3 +38,42 @@ Valmynd:
 Veldu einn af valmöguleikunum hér að ofan: 
 
 ----------------------------------------------------------------------------------------------------
+
+	
+
+
+	➢ Þeir sem hafa [blank] (Top 10) _______________________________
+	|								|
+	|	1. 🥇	{Player_name}					|
+	|								|
+	|	2. 🥈	{Player_name}					|
+	|								|
+	|	3. 🥉	{Player_name}					|	
+	|								|
+	|		4. 	{Player_name}				|
+	|		5. 	{Player_name}				|	
+	|		6. 	{Player_name}				|
+	|		7.	{Player_name}				|
+	|		8.	{Player_name}				|
+	|		9.	{Player_name}				|
+	|		10.  	{Player_name}				|
+	|_______________________________________________________________|
+
+----------------------------------------------------------------------------------------------------
+	
+	➢ Skoða tölfræði fyrir leikmann
+	
+	Sláið inn nafn leikmanns:
+
+
+	➢ Tölfræði fyrir leikmann {player_name} ________________________
+	|								|
+	|	Quality Points:						|
+	|	Hæsta innskot:						|
+	|	Hæsta útskot:						|
+	|	Vinningshlutfall:					|
+	|								|
+	|	Quality Points safnað á síðasta móti:			|
+	
+	# þarf að klára þetta
+	
