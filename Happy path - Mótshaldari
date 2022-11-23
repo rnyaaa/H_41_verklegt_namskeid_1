@@ -20,8 +20,8 @@
 
 	Mótshaldari:
 
-1.	Stofna mót
-2.	Skrá lið
+1.	Skrá lið
+2.	Stofna mót
 3.	Skrá leikmenn
 4.	Val á fyrirliðum
 5.	Breyta dagsetningu á viðureign
@@ -31,11 +31,25 @@ Veldu númer:
 
 -----------------------------------------------------------------------------------------------------
 
+
 	Skrá lið:
 
 o	Nafn liðs:
 o	Heimilisfang:
 o	Símanúmer:
+
+-----------------------------------------------------------------------------------------------------
+
+	Stofna mót:
+
+o	Nafn móts:
+ 	- engin tvö mót mega heita eins
+o	Nafn skipuleggjanda:
+o	Símanúmer skipuleggjanda:
+o	Tegund móts:
+o	Lið sem keppa:
+	- Heimalið
+	- Útilið
 
 
 -----------------------------------------------------------------------------------------------------
@@ -58,20 +72,6 @@ o	Lið sem leikmaðurinn tilheyrir:
 
 o	Birta (númeraðan) lista yfir alla leikmenn liðs (hjá einu liði í einu)
 o	Veljið fyrirliða:
-
-
------------------------------------------------------------------------------------------------------
-
-	Stofna mót:
-
-o	Nafn móts:
- 	- engin tvö mót mega heita eins
-o	Nafn skipuleggjanda:
-o	Símanúmer skipuleggjanda:
-o	Tegund móts:
-o	Lið sem keppa:
-	- Heimalið
-	- Útilið
 
 -----------------------------------------------------------------------------------------------------
 
