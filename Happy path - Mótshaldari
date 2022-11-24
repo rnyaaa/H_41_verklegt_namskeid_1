@@ -64,30 +64,70 @@ o		Lið sem keppa:
 
 ➢	Skrá leikmenn:
 
+	Veldu Lið:
+	
+	1. KR
+	2. Valur
+	3. Þróttur
+
+  b. back
+  q. Quit
+  
+-----------------------------------------------------------------------------
+
+➢	Skrá leikmenn:
+
 o	Nafn:
 o	Kennitala:
 o	Heimilisfang:
 o	Netfang:
 o	GSM:
 o	Netfang:
-o	Lið sem leikmaðurinn tilheyrir:
 
+
+-----------------------------------------------------------------------------
+
+➢	Breyta dagsetningu á viðureign:
+	
+	Veldu viðureign:
+  
+  	1. 27/09/22 | KR vs. Val
+  	2. 27/09/22 | Val vs. Afturelding
+ 	3. 28/09/22 | KR vs. Þróttur
+  
+  b. back
+  q. Quit
 
 -----------------------------------------------------------------------------
 
 ➢	Breyta dagsetningu á viðureign:
 
 o
-o	Hvaða dagsetningu viltu breyta?:
 o	Skrá nýja dagsetningu:
 
 -----------------------------------------------------------------------------
 
 ➢	Breyta skráningu úrslita:
+	
+	Veldu úrslit:
+  
+  	1. 27/09/22 | KR vs. Val		| 7/4 fyrir KR
+  	2. 27/09/22 | Val vs. Afturelding	| 3/0 fyrir Val
+ 	3. 28/09/22 | KR vs. Þróttur		| 2/0 fyrir KR
 
-o	Nafn á móti:
-o	Nafn á liði:
-o	Dagsetning:
-o	Ný úrslit:
+
+-----------------------------------------------------------------------------
+	
+	Breyta úrslit viðureignar
+  
+  
+  *skráð form eins og kemur fram í pdf á verkefnalýsingu *
+  
+  
+  
+  1. Skrá
+  b. back
+  q. Quit
+  
 
 
