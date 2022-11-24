@@ -18,13 +18,22 @@ ________________________________________________________________________________
 |							|	┈┈╰┓▋▋┏╯┈┈┈┈┈┈			|
 |	1.	Mótshaldari				|	┈╭━┻╮╲┗━━━━━╮╭╮┈		|
 |	2.	Fyrirliði				|	┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈		|
-|	3.	Birta lista yfir viðureignir	        |	┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈		|    |	4.	Aðrir notendur / Skoða Tölfræði		|	┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈		|    |	q. 	Quit					|	┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈ 	        |
+|	3.	Birta lista yfir viðureignir	        |	┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈		|    
+|	4.	Aðrir notendur / Skoða Tölfræði		|	┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈		|    
+|	q. 	Quit					|	┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈ 	        |
 |							|					|
 |							|	  v. 0.0.1			|
 |_______________________________________________________|_______________________________________|
 
 	
 >	Birta lista yfir viðureignir
+
+	SHOWDOWN MÓTIÐ
+  27/09/22 | KR vs. Val
+  27/09/22 | Val vs. Afturelding
+  28/09/22 | KR vs. Þróttur
+
+
 	Valmynd:
 
 1.	Listi yfir komandi viðureignir
