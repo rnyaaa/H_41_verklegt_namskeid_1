@@ -17,7 +17,8 @@ ________________________________________________________________________________
 |							|	┈┈╰┓▋▋┏╯┈┈┈┈┈┈		|
 |	1.	Mótshaldari				|	┈╭━┻╮╲┗━━━━━╮╭╮┈		|
 |	2.	Fyrirliði				|	┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈		|
-|	3.	Aðrir notendur / Skoða Tölfræði		|	┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈		|
+|	3.	Birta lista yfir viðureignir
+	4.	Aðrir notendur / Skoða Tölfræði		|	┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈		|
 |	q. 	Quit					|	┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈		|
 |							|	┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈    v. 0.0.1	|
 |_______________________________________________________|________________________________________|
@@ -30,7 +31,7 @@ ________________________________________________________________________________
 2.	Stofna deild
 3.	Skrá leikmenn
 4.	Breyta dagsetningu á viðureign
-5.	Breyta skráningu úrslita
+5.	Breyta skráningu úrslitaa
 B/b. 	Til baka
 
 Veldu einn af valmöguleikunum hér að ofan: 
