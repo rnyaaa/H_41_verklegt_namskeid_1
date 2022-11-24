@@ -32,30 +32,44 @@ ________________________________________________________________________________
    
 ➢ Valmynd:
 
-	1. 	Listi yfir viðureignir
-	2. 	Listi yfir þá sem hafa skorað flest afreksstig.
-	3.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni.
-	4.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni.
-	5.	Tölfræði fyrir ákveðna leikmenn
+	1.	Listi yfir liðum
+	2.	Staða móts
+	3. 	Listi yfir þá sem hafa skorað flest afreksstig.
+	4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni.
+	5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni.
+	6.	Tölfræði fyrir ákveðna leikmenn
 	B/b.	Til baka
 
 Veldu einn af valmöguleikunum hér að ofan: 
 
+----------------------------------------------------------------------------------------------------
+>	Birta lista yfir Liðum
+
+	KR
+		Ronja Jóhannsdóttir
+		Rebekka Logadóttir 
+		Sigurður Atli Guðmundsson 
+		Sigurður Ingi Sigurðarson
+		
+	Valur 
+		Ronja Jóhannsdóttir
+		Rebekka Logadóttir 
+		Sigurður Atli Guðmundsson 
+		Sigurður Ingi Sigurðarson
+		
+	Þróttur 
+		Ronja Jóhannsdóttir
+		Rebekka Logadóttir 
+		Sigurður Atli Guðmundsson 
+		Sigurður Ingi Sigurðarson
 
 ----------------------------------------------------------------------------------------------------
->	Birta lista yfir viðureignir
+>	Birta stöðu móts
+	
+	1. KR	   |  9 stig  |  9 leggir unnir
+	2. Valur   |  9 stig  |  8 leggir unnir
+	2. Þróttur |  7 stig  |  5 leggir unnir
 
-		SHOWDOWN MÓTIÐ
-	  27/09/22 | KR vs. Val
-	  27/09/22 | Val vs. Afturelding
-	  28/09/22 | KR vs. Þróttur
-
-
-	Valmynd:
-
-	1.	Listi yfir komandi viðureignir
-	2.	Listi yfir yfirstaðnar viðureignir
-	B/b.	Til baka
 
 ----------------------------------------------------------------------------------------------------
 
