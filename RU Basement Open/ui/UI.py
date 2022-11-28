@@ -52,3 +52,50 @@ class viewerUI:
 
     def showPlayerHighscoreViewer():
         None
+
+
+class TeamViewer():
+
+    def showTeams():
+        None
+
+
+class PlayerViewer():
+
+    def enterPlayerName():
+        None
+
+    def showPlayer():
+        None
+
+    def showPlayerScoreByDate():
+        None
+
+
+class TournamentInfoUI():
+
+    def displayTournamentInfo():
+        None
+
+    def showTournamentScores():
+        None
+
+    def showGamesFinished():
+        None
+
+    def showUpcomingGames():
+        None
+
+
+class PlayerHighScoreViewer():
+
+    def showPlayerHighscore():
+        None
+
+    def sortPlayerHighscore():
+        None
+
+
+# CAPTAIN UI --------------------------------------------
+
+class CaptainUI
