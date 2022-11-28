@@ -16,12 +16,12 @@ ________________________________________________________________________________
 |_______________________________________________________________________________________________|
 |							|					|
 |							|	┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈		|
-|	Main Menu					|	┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈		|
+|	Aðalvalmynd					|	┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈		|
 |							|	┈┈╰┓▋▋┏╯┈┈┈┈┈┈			|
 |	1.	Mótshaldari				|	┈╭━┻╮╲┗━━━━━╮╭╮┈		|
 |	2.	Fyrirliði				|	┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈		|
 |	4.	Aðrir notendur / Skoða Tölfræði	        |	┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈		|    
-|	q. 	Quit					|	┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈		|    
+|	q. 	Hætta					|	┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈		|    
 |							|	┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈ 	        |
 |							|					|
 |							|	  v. 0.0.1			|
@@ -38,7 +38,7 @@ ________________________________________________________________________________
 	4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni.
 	5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni.
 	6.	Tölfræði fyrir ákveðna leikmenn
-	B/b.	Til baka
+	b.	Til baka
 
 Veldu einn af valmöguleikunum hér að ofan: 
 
@@ -63,7 +63,7 @@ Veldu einn af valmöguleikunum hér að ofan:
 		Sigurður Atli Guðmundsson 
 		Sigurður Ingi Sigurðarson
 
-	b. - back
+	b. - Til baka
 
 ----------------------------------------------------------------------------------------------------
 >	Birta stöðu móts
@@ -72,7 +72,7 @@ Veldu einn af valmöguleikunum hér að ofan:
 	2. Valur   |  9 stig  |  8 leggir unnir
 	2. Þróttur |  7 stig  |  5 leggir unnir
 
-	b. - back
+	b. - Til baka
 
 
 ----------------------------------------------------------------------------------------------------
@@ -97,7 +97,8 @@ Veldu einn af valmöguleikunum hér að ofan:
 	|		10.  	{Player_name}				|
 	|_______________________________________________________________|
 
-	b. - back
+	b. - Til baka
+	
 ----------------------------------------------------------------------------------------------------
 	
 	➢ Skoða tölfræði fyrir leikmann
