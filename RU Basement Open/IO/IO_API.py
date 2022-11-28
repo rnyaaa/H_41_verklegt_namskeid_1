@@ -2,8 +2,6 @@ class IO_API:
 
     def getAllPlayers():
         playerstream = playerIO.loadPlayersFile()
-        for line in playerstream:
-            print(line)
         return playerstream
 
     def getAllTeams():
