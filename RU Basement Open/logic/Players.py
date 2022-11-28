@@ -1,11 +1,12 @@
-class Viewer():
+class PlayersLL():
     def getPlayers():
         raise NotImplementedError
     
-    def getTeam():
-        raise NotImplementedError
-
-    def getTournament():
+    def getResults():
         raise NotImplementedError
     
-    de
+    def addPlayers():
+        raise NotImplementedError
+    
+    def updatePlayers():
+        raise NotImplementedError

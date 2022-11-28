@@ -1,18 +1,32 @@
+
+from IO_API import IO_API
+
 class LL_API():
     def getPlayers(self):
-        raise NotImplementedError
+        playerstream = IO_API.getAllPlayers()
+        return playerstream
 
     def getTeams():
-        raise NotImplementedError
+        teamstream = IO_API.getAllTeams()
+        return teamstream
 
     def getGames():
-        raise NotImplementedError
+        gamestream = IO_API.getAllGames()
+        return gamestream
 
     def getTournament():
-        raise NotImplementedError
+        tournamentstream = IO_API.getAllTournaments()
+        return tournamentstream
 
-    def getPlayerScore():
-        raise NotImplementedError
+    def getResults():
+        resultstream = IO_API.getResults()
+        return resultstream
+
+    def getPlayerScore(playername = str):
+        for line in playerstream.split(","):
+            if line[0] == playername:
+                scores = [line[8], line[9], line[10], line[11], line[12], line[13], line[14], line[15], line[16], line[17], line[18], line[19]]
+        return scores
 
     def getPlayerScoreByDate():
         raise NotImplementedError
@@ -39,13 +53,10 @@ class LL_API():
         raise NotImplementedError
 
     def addTeam():
-        raise NotImplementedError
+        IO_API.updateTeams(newteam=str)
 
     def addGame():
-        raise NotImplementedError
-
-    def getResults():
-        raise NotImplementedError
+        IO_API.updateGames(gamesupdate=str)
 
     def changeResults():
         raise NotImplementedError
@@ -54,16 +65,16 @@ class LL_API():
         raise NotImplementedError
 
     def updatePlayers():
-        raise NotImplementedError
+        IO_API.updatePlayers(playerupdate)
 
     def updateTeams():
-        raise NotImplementedError
+        IO_API.updateTeams(teamsupdate=str)
 
     def updateGames():
-        raise NotImplementedError
+        IO_API.updateGames(gamesupdate=str)
 
     def updateTournament():
-        raise NotImplementedError
+        IO_API.updateTournaments(tournamentupdate=str)
 
     def updateResults():
-        raise NotImplementedError
+        IO_API.updateResults(newresults=str, resultsID=str)

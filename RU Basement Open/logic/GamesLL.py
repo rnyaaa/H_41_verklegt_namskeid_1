@@ -1,4 +1,6 @@
-class Game():
+from LL_API import LL_API
+
+class GameLL():
     def getTournament():
         raise NotImplementedError
     
