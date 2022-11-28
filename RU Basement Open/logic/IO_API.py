@@ -1,5 +1,10 @@
-class Viewer():    
-    def getPlayers():
+class Viewer(): 
+
+    def __init__(self) -> None:
+        pass 
+    
+      
+    def getPlayers(self):
         raise NotImplementedError
 
     def getTeams():
@@ -87,4 +92,25 @@ class Game():
     def getResults():
         raise NotImplementedError
     
-    def 
+    def addGame():
+        raise NotImplementedError
+
+    def changeDate():
+        raise NotImplementedError
+    
+    def updateGames():
+        raise NotImplementedError
+
+    def updateTournament():
+        raise NotImplementedError
+    
+
+class Results():
+    def getResults():
+        raise NotImplementedError
+
+    def changeResults():
+        raise NotImplementedError
+
+    def updateResults():
+        raise NotImplementedError
