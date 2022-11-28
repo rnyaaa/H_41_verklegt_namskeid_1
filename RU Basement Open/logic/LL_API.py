@@ -28,18 +28,10 @@ class Viewer():
     def getTournamentScores():
         raise NotImplementedError
     
-    def getTournamentScores():
-        raise NotImplementedError
-    
     def getGamesFinished():
         raise NotImplementedError
     
     def getUpcomingGames():
-        raise NotImplementedError
-
-
-class PlayerList():
-    def getPlayer():
         raise NotImplementedError
     
     def getPlayerSortQP():
@@ -51,11 +43,6 @@ class PlayerList():
     def getPlayerSortOutshot():
         raise NotImplementedError
     
-
-class Players():
-    def getPlayers():
-        raise NotImplementedError
-    
     def getResults():
         raise NotImplementedError
     
@@ -65,8 +52,6 @@ class Players():
     def updatePlayers():
         raise NotImplementedError
 
-    
-class Tournament():
     def getTournament():
         raise NotImplementedError
     
@@ -82,7 +67,6 @@ class Tournament():
     def updateGames():
         raise NotImplementedError
 
-class Game():
     def getTournament():
         raise NotImplementedError
     
@@ -104,8 +88,6 @@ class Game():
     def updateTournament():
         raise NotImplementedError
     
-
-class Results():
     def getResults():
         raise NotImplementedError
 
