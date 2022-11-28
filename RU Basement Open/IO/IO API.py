@@ -1,15 +1,23 @@
 class IO_API():
     def getAllPlayers():
-        raise NotImplementedError
+        playerstream = playerIO.loadPlayersFile()
+        return playerstream
 
     def getAllTeams():
-        raise NotImplementedError
+        teamstream = teamIO.loadTeamsFile()
+        return teamstream
 
     def getAllGames():
-        raise NotImplementedError
+        gamestream = gameIO.loadGamesFile()
+        return gamestream
 
     def getAllTournaments():
-        raise NotImplementedError
+        tournamentstream = tournamentIO.loadGamesFile()
+        return tournamentstream
+
+    def getResults():
+        resultstream = resultsIO.loadResultsFile()
+        return resultstream
 
     def updatePlayers():
         raise NotImplementedError
@@ -26,35 +34,40 @@ class IO_API():
 
 class playerIO():
     def loadPlayersFile():
-        raise NotImplementedError
+        playerstream = open("/models/players.csv", "r")
+        return playerstream
 
     def storePlayersFile():
         raise NotImplementedError
 
 class teamIO():
     def loadTeamsFile():
-        raise NotImplementedError
+        teamstream = open("/models/teams.csv", "r")
+        return teamstream
 
     def storeTeamsFile():
         raise NotImplementedError
 
 class gameIO():
     def loadGamesFile():
-        raise NotImplementedError
+        gamestream = open("/models/games.csv", "r")
+        return gamestream
 
     def storeGamesFile():
         raise NotImplementedError
 
 class tournamentIO():
     def loadTournamentFile():
-        raise NotImplementedError
+        tournamentstream = open("/models/tournaments.csv", "r")
+        return tournamentstream
 
     def storeTournamentFile():
         raise NotImplementedError
 
 class resultsIO():
     def loadResultsFile():
-        raise NotImplementedError
+        resultstream = open("/models/results.csv", "r")
+        return resultstream
 
     def storeResultsFile():
         raise NotImplementedError
