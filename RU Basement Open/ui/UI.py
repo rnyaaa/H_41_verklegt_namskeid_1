@@ -2,56 +2,55 @@
 class Main_Menu():
 
     def displayMainMenu():
-        print(
-            " ______________________________________________________________________________ \n"
-            "|                                     ____                                     |\n"
-            "|                                   /\ _ /\                                    |\n"
-            "|               >>>----            / /\ /\ \                                   |\n"
-            "|             >>>----             |---(*)---|                                  |\n"
-            "|                                  \ \/_\/ /                                   |\n"
-            "|                       >>>----     \/___\/                                    |\n"
-            "|                                                                              |\n"
-            "|                                                                              |\n"
-            "|        █▀█ █ █  █▄▄ ▄▀█ █▀ █▀▀ █▀▄▀█ █▀▀ █▄ █ ▀█▀  █▀█ █▀█ █▀▀ █▄ █          |\n"
-            "|        █▀▄ █▄█  █▄█ █▀█ ▄█ ██▄ █ ▀ █ ██▄ █ ▀█  █   █▄█ █▀▀ ██▄ █ ▀█          |\n"
-            "|                                                                              |\n"
-            "|______________________________________________________________________________|\n"
-            "|                                                  |                           |\n"
-            "|                                                  |   ┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈        |\n"
-            "|   Aðalvalmynd                                    |   ┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈        |\n"
-            "|                                                  |   ┈┈╰┓▋▋┏╯┈┈┈┈┈┈┈┈        |\n"
-            "|  1.  Mótshaldari                                 |   ┈╭━┻╮╲┗━━━━━╮╭╮┈        |\n"
-            "|  2.  Fyrirliði                                   |   ┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈        |\n"
-            "|  3.  Birta lista yfir viðureignir                |   ┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈        |\n"  		
-            "|  4.  Aðrir notendur / Skoða Tölfræði             |   ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        |\n"
-            "|  q.  Hætta                                       |   ┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈        |\n"
-            "|                                                  |                           |\n"
-            "|                                                  |     v. 0.0.1              |\n"
-            "|__________________________________________________|___________________________|\n"
-            )
+        print(input(
+        " ______________________________________________________________________________ \n"
+        "|                                     ____                                     |\n"
+        "|                                   /\ _ /\                                    |\n"
+        "|               >>>----            / /\ /\ \                                   |\n"
+        "|             >>>----             |---(*)---|                                  |\n"
+        "|                                  \ \/_\/ /                                   |\n"
+        "|                       >>>----     \/___\/                                    |\n"
+        "|                                                                              |\n"
+        "|                                                                              |\n"
+        "|        █▀█ █ █  █▄▄ ▄▀█ █▀ █▀▀ █▀▄▀█ █▀▀ █▄ █ ▀█▀  █▀█ █▀█ █▀▀ █▄ █          |\n"
+        "|        █▀▄ █▄█  █▄█ █▀█ ▄█ ██▄ █ ▀ █ ██▄ █ ▀█  █   █▄█ █▀▀ ██▄ █ ▀█          |\n"
+        "|                                                                              |\n"
+        "|______________________________________________________________________________|\n"
+        "|                                                  |                           |\n"
+        "|                                                  |   ┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈        |\n"
+        "|   Aðalvalmynd                                    |   ┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈        |\n"
+        "|                                                  |   ┈┈╰┓▋▋┏╯┈┈┈┈┈┈┈┈        |\n"
+        "|  1.  Mótshaldari                                 |   ┈╭━┻╮╲┗━━━━━╮╭╮┈        |\n"
+        "|  2.  Fyrirliði                                   |   ┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈        |\n"
+        "|  3.  Birta lista yfir viðureignir                |   ┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈        |\n"  		
+        "|  4.  Aðrir notendur / Skoða Tölfræði             |   ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        |\n"
+        "|  q.  Hætta                                       |   ┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈        |\n"
+        "|                                                  |                           |\n"
+        "|                                                  |     v. 0.0.1              |\n"
+        "|__________________________________________________|___________________________|\n"
+        "\n"
+        "Veldu einn af valmöguleikunum hér að ofan: "
+        ))
 
     def openOrganizerMenu():
-        print("Velkominn, mótshaldari."
+        raise NotImplementedError
 
-                    "Valmynd:"
-
-                "1.	Skrá lið"
-                "2.	Stofna deild"
-                "3.	Skrá leikmenn"
-                "4.	Breyta dagsetningu á viðureign"
-                "5.	Breyta skráningu úrslitaa"
-                "b. 	Til baka"
-            
-                    "Veldu einn af valmöguleikunum hér að ofan: "
-                ) 
     def openViewerMenu():
         raise NotImplementedError
 
     def openCaptainMenu():
-        raise NotImplementedError
+       raise NotImplementedError
 
     def openShowGamesMenu():
-        raise NotImplementedError
+        print(input(
+        "Valmynd:\n"
+        "\n"
+        "1.	Listi yfir komandi viðureignir\n"
+        "2.	Listi yfir yfirstaðnar viðureignir\n"
+        "b.	Til baka\n"
+        "\n"
+        "Veldu einn af valmöguleikunum hér að ofan: "
+        ))
 
     def language():
         # C-Requirement functionality to be implemented
@@ -62,7 +61,20 @@ class Main_Menu():
 class OrganizerUI():
 
     def displayOrganizerMenu():
-        pass
+        print(input(  
+        "   *** Velkominn, mótshaldari! ***\n"
+        "\n"
+        "Valmynd:\n"
+        "\n"
+        "1.	Skrá lið\n"
+        "2.	Stofna deild\n"
+        "3.	Skrá leikmenn\n"
+        "4.	Breyta dagsetningu á viðureign\n"
+        "5.	Breyta skráningu úrslita\n"
+        "b. Til baka\n"
+        "\n"
+        "Veldu einn af valmöguleikunum hér að ofan: "
+        )) 
 
     def addPlayer():
         pass
@@ -207,7 +219,21 @@ class ShowGamesUI():
 class viewerUI:
 
     def displayViewer():
-        None
+        print(input(
+        "*** Verið velkomin í Tölfræðivalmyndina! ***\n"
+        "\n"
+        "➢ Valmynd:\n"
+        "\n"
+        "1.	Listi yfir liðum\n"
+        "2.	Staða móts\n"
+        "3. 	Listi yfir þá sem hafa skorað flest afreksstig\n"
+        "4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni\n"
+        "5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni\n"
+        "6.	Tölfræði fyrir ákveðna leikmenn\n"
+        "b.	Til baka\n"
+        "\n"
+        "Veldu einn af valmöguleikunum hér að ofan: "
+        ))
 
     def showTournamentInfo():
         None
@@ -268,7 +294,22 @@ class PlayerHighScoreViewer():
 
 class CaptainUI():
     def displayCaptainUI():
-        None
+        print(input(
+        "                      ___     \n"
+        "                    /\ _ /\   \n"
+        "    >>>----        / /\ /\ \  \n"
+        ">>>----           |---(*)---| \n"
+        "                   \ \/_\/ /  \n"
+        "        >>>----     \/___\/   \n"
+        "\n"    
+        "     *** Halló, Fyrirliði! ***\n"
+        "\n"
+        "1.  Skrá úrslit viðureignar\n"
+        "b.  Til baka\n"
+        "q.  Hætta\n"
+        "\n"
+        "Veldu einn af valmöguleikunum hér að ofan: "
+        ))
 
     def openResultsMenu():
         None
