@@ -21,6 +21,7 @@ class Main_Menu():
         raise NotImplementedError
 
 # Organizer UI --------------------------------------------
+
 class OrganizerUI():
 
     def displayOrganizerMenu():
