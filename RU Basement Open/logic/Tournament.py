@@ -1,4 +1,3 @@
-from LL_API import LL_API
 class TournamentLL():
     def getTournament():
         raise NotImplementedError
