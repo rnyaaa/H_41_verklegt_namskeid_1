@@ -20,6 +20,136 @@ class Main_Menu():
         # C-Requirement functionality to be implemented
         raise NotImplementedError
 
+# Organizer UI --------------------------------------------
+class OrganizerUI():
+
+    def displayOrganizerMenu():
+        pass
+
+    def addPlayer():
+        pass
+
+    def addTeamPage():
+        pass
+
+    def addTournament():
+        pass
+
+    def changeTournamentDates():
+        pass
+
+    def changeResults():
+        pass
+
+
+class ChangeTournamentDatesUI():
+
+    def showUpcomingGamesSel():
+        pass
+
+    def openTournamentForm():
+        pass
+
+class ChangeTournamentFormUI():
+
+    def changeTournament():
+        pass
+
+    def updateGames():
+        pass
+
+    def updateTournaments():
+        pass
+    
+
+class AddTournamentPageUI():
+
+    def showUpcomingGames():
+        pass
+
+    def openTournamentForm():
+        pass
+
+class AddtournamentFormUI():
+
+    def addTournament():
+        pass
+
+    def upadateGames():
+        pass
+
+    def updateTournaments():
+        pass
+
+
+class ChangeResultsPageUI():
+
+    def showGamesFinishedSel():
+        pass
+
+    def openResultsForm():
+        pass
+
+class ChangeResultsFormUI():
+
+    def changeResults():
+        pass
+
+    def updatePlayers():
+        pass
+
+    def updateTeams():
+        pass
+
+    def updateGames():
+        pass
+
+    def updateTournaments():
+        pass
+
+    def updateResults():
+        pass
+
+class AddteamPageUI():
+
+    def showTeams():
+        pass
+    
+    def openTeamsForm():
+        pass
+
+class AddteamFormUI():
+    
+    def addTeam():
+        pass
+
+    def updatePlayers():
+        pass
+
+    def updateTeams():
+        pass
+
+class AddPlayerUI():
+
+    def showTeams():
+        pass
+
+    def openPlayerForm():
+        pass
+
+class AddPlayerFormUI():
+    
+    def addPlayer():
+        pass
+
+    def updatePlayers():
+        pass
+
+    def updateTeams():
+        pass
+
+
+
 
 class ShowGamesUI():
 
@@ -35,6 +165,8 @@ class ShowGamesUI():
     def showUpcomingGames():
         raise NotImplementedError
 
+
+# Viewer UI --------------------------------------------
 
 class viewerUI:
 
@@ -96,6 +228,38 @@ class PlayerHighScoreViewer():
         None
 
 
-# CAPTAIN UI --------------------------------------------
+# Captain UI --------------------------------------------
 
-class CaptainUI
+class CaptainUI():
+    def displayCaptainUI():
+        None
+
+    def openResultsMenu():
+        None
+    
+class EnterResults():
+    def showUpcomingGamesSel():
+        None
+
+    def openResultsForm():
+        None
+    
+
+class ResultsForm():
+    def AddResults():
+        None
+    
+    def updatePlayers():
+        None
+    
+    def updateTeams():
+        None
+    
+    def updateGames():
+        None
+    
+    def updateTournaments():
+        None
+    
+    def updateResults():
+        None
