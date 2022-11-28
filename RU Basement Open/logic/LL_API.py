@@ -1,8 +1,11 @@
 class Viewer(): 
+
+    def __init__(self) -> None:
+        pass 
     
       
     def getPlayers(self):
-        return PlayerLL.getPlayers()
+        raise NotImplementedError
 
     def getTeams():
         raise NotImplementedError
@@ -35,7 +38,7 @@ class Viewer():
         raise NotImplementedError
 
 
-class PlayerListLL():
+class PlayerList():
     def getPlayer():
         raise NotImplementedError
     
@@ -49,9 +52,9 @@ class PlayerListLL():
         raise NotImplementedError
     
 
-class PlayersLL():
+class Players():
     def getPlayers():
-        return IO_API.getPlayers()
+        raise NotImplementedError
     
     def getResults():
         raise NotImplementedError

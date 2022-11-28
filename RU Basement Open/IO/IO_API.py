@@ -1,23 +1,15 @@
 class IO_API():
     def getAllPlayers():
-        playerstream = playerIO.loadPlayersFile()
-        return playerstream
+        raise NotImplementedError
 
     def getAllTeams():
-        teamstream = teamIO.loadTeamsFile()
-        return teamstream
+        raise NotImplementedError
 
     def getAllGames():
-        gamestream = gameIO.loadGamesFile()
-        return gamestream
+        raise NotImplementedError
 
     def getAllTournaments():
-        tournamentstream = tournamentIO.loadGamesFile()
-        return tournamentstream
-
-    def getResults():
-        resultstream = resultsIO.loadResultsFile()
-        return resultstream
+        raise NotImplementedError
 
     def updatePlayers():
         raise NotImplementedError
@@ -34,40 +26,38 @@ class IO_API():
 
 class playerIO():
     def loadPlayersFile():
-        playerstream = open("/models/players.csv", "r")
-        return playerstream
+        players_list = []
 
+        with open("players.csv") as file:
+            return
+            
     def storePlayersFile():
         raise NotImplementedError
 
 class teamIO():
     def loadTeamsFile():
-        teamstream = open("/models/teams.csv", "r")
-        return teamstream
+        raise NotImplementedError
 
     def storeTeamsFile():
         raise NotImplementedError
 
 class gameIO():
     def loadGamesFile():
-        gamestream = open("/models/games.csv", "r")
-        return gamestream
+        raise NotImplementedError
 
     def storeGamesFile():
         raise NotImplementedError
 
 class tournamentIO():
     def loadTournamentFile():
-        tournamentstream = open("/models/tournaments.csv", "r")
-        return tournamentstream
+        raise NotImplementedError
 
     def storeTournamentFile():
         raise NotImplementedError
 
 class resultsIO():
     def loadResultsFile():
-        resultstream = open("/models/results.csv", "r")
-        return resultstream
+        raise NotImplementedError
 
     def storeResultsFile():
         raise NotImplementedError
