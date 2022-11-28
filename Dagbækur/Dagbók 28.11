@@ -18,8 +18,8 @@ Common L mánudagur, frost og hrímaðar framrúður.
 Verkefni dagsins:-----------------------------------------------------
 
 - Byrja að leggja grunninn að forritinu
-- Siggi (ingi) og Rebekka byrja á Main Menu klasanum
-- Byrja að modela og gera database klasa
+- Siggi (ingi) og Rebekka byrja á Main Menu klasanum í UI layer
+- Byrja að modela og gera logic layer
 
 
 Live, laugh, love,
