@@ -2,11 +2,48 @@
 class Main_Menu():
 
     def displayMainMenu():
-        raise NotImplementedError
+        print(
+            " ______________________________________________________________________________ \n"
+            "|                                     ____                                     |\n"
+            "|                                   /\ _ /\                                    |\n"
+            "|               >>>----            / /\ /\ \                                   |\n"
+            "|             >>>----             |---(*)---|                                  |\n"
+            "|                                  \ \/_\/ /                                   |\n"
+            "|                       >>>----     \/___\/                                    |\n"
+            "|                                                                              |\n"
+            "|                                                                              |\n"
+            "|        █▀█ █ █  █▄▄ ▄▀█ █▀ █▀▀ █▀▄▀█ █▀▀ █▄ █ ▀█▀  █▀█ █▀█ █▀▀ █▄ █          |\n"
+            "|        █▀▄ █▄█  █▄█ █▀█ ▄█ ██▄ █ ▀ █ ██▄ █ ▀█  █   █▄█ █▀▀ ██▄ █ ▀█          |\n"
+            "|                                                                              |\n"
+            "|______________________________________________________________________________|\n"
+            "|                                                  |                           |\n"
+            "|                                                  |   ┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈        |\n"
+            "|   Aðalvalmynd                                    |   ┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈        |\n"
+            "|                                                  |   ┈┈╰┓▋▋┏╯┈┈┈┈┈┈┈┈        |\n"
+            "|  1.  Mótshaldari                                 |   ┈╭━┻╮╲┗━━━━━╮╭╮┈        |\n"
+            "|  2.  Fyrirliði                                   |   ┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈        |\n"
+            "|  3.  Birta lista yfir viðureignir                |   ┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈        |\n"  		
+            "|  4.  Aðrir notendur / Skoða Tölfræði             |   ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        |\n"
+            "|  q.  Hætta                                       |   ┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈        |\n"
+            "|                                                  |                           |\n"
+            "|                                                  |     v. 0.0.1              |\n"
+            "|__________________________________________________|___________________________|\n"
+            )
 
     def openOrganizerMenu():
-        raise NotImplementedError
+        print("Velkominn, mótshaldari."
 
+                    "Valmynd:"
+
+                "1.	Skrá lið"
+                "2.	Stofna deild"
+                "3.	Skrá leikmenn"
+                "4.	Breyta dagsetningu á viðureign"
+                "5.	Breyta skráningu úrslitaa"
+                "b. 	Til baka"
+            
+                    "Veldu einn af valmöguleikunum hér að ofan: "
+                ) 
     def openViewerMenu():
         raise NotImplementedError
 
@@ -148,8 +185,6 @@ class AddPlayerFormUI():
 
     def updateTeams():
         pass
-
-
 
 
 class ShowGamesUI():
