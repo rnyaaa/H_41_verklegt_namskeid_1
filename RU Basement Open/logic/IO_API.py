@@ -76,3 +76,15 @@ class Tournament():
     
     def updateGames():
         raise NotImplementedError
+
+class Game():
+    def getTournament():
+        raise NotImplementedError
+    
+    def getGames():
+        raise NotImplementedError
+
+    def getResults():
+        raise NotImplementedError
+    
+    def 
