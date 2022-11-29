@@ -4,7 +4,7 @@ from ui.UI import Main_Menu, OrganizerUI
 
 user_input = Main_Menu.displayMainMenu()
 if user_input == "1":
-    selection = Main_Menu.openOrganizerMenu()
+    selection = OrganizerUI.openOrganizerMenu()
     if selection == "1":
         OrganizerUI.addTeamPage()
     elif selection == "2":

@@ -36,13 +36,14 @@ class Main_Menu():
         return user_input
 
     def openOrganizerMenu():
-        OrganizerUI.displayOrganizerMenu()
+        return OrganizerUI.displayOrganizerMenu()
+
 
     def openViewerMenu():
-        ViewerUI.displayViewer()
+        return ViewerUI.displayViewer()
 
     def openCaptainMenu():
-        CaptainUI.displayCaptainUI()
+        return CaptainUI.displayCaptainUI()
 
     def openShowGamesMenu():
         print(
@@ -81,18 +82,18 @@ class OrganizerUI():
 
     def displayOrganizerMenu():
         print()
-        print(
-            "   *** Velkominn, mótshaldari! ***\n"
-            "\n"
-            "Valmynd:\n"
-            "\n"
-            "1.	Skrá lið\n"
-            "2.	Stofna deild\n"
-            "3.	Skrá leikmenn\n"
-            "4.	Breyta dagsetningu á viðureign\n"
-            "5.	Breyta skráningu úrslita\n")
-
-        user_input = Main_Menu.menuFooter(True)
+        print( 
+        "   *** Velkominn, mótshaldari! ***\n"
+        "\n"
+        "Valmynd:\n"
+        "\n"
+        "1.	Skrá lið\n"
+        "2.	Stofna deild\n"
+        "3.	Skrá leikmenn\n"
+        "4.	Breyta dagsetningu á viðureign\n"
+        "5.	Breyta skráningu úrslita\n")
+        
+        user_input = Main_Menu.backQuitMenu(True)
         return user_input
 
     def addPlayer():
@@ -107,8 +108,7 @@ class OrganizerUI():
             f"Liðið sem leikmaðurinn tilheyrir:\n"
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
-        LL_API.addPlayer(name, id_number, home_address,
-                         phone_number1, phone_number2, registered_team)
+        LL_API.addPlayer(name, id_number, home_address,phone_number1, phone_number2, registered_team)
 
     def addTeamPage():
         print("➢   Skrá lið:")
@@ -135,8 +135,7 @@ class OrganizerUI():
 
         # Má gera lista að ofan til að geyma dagsetingar?
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
-        LL_API.addTournament(tournament_name, organizer_name,
-                             organizer_number, tournament_type, dates)
+        LL_API.addTournament(tournament_name, organizer_name,organizer_number, tournament_type, dates)
 
     def changeTournamentDates():
         print("➢	Breyta dagsetningu á viðureign: \n")

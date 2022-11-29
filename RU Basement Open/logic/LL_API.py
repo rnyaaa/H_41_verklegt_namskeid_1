@@ -1,5 +1,9 @@
 from IO.IO_API import IO_API
 from logic.PlayersLL import PlayersLL
+from logic.ViewerLL import ViewerLL
+from logic.TournamentLL import TournamentLL
+from logic.ResultsLL import ResultsLL
+from logic.GamesLL import GameLL
 
 class LL_API:
     def getPlayers():
@@ -18,97 +22,50 @@ class LL_API:
         tournamentstream = IO_API.getAllTournaments()
         return tournamentstream
 
-    def getResults():
-        resultstream = IO_API.getResults()
+    def getResults(resultsID):
+        resultstream = IO_API.getResults(resultsID)
         return resultstream
 
     def getPlayerScore(playername = str):
-        """ Takes the playerstream, finds the player and takes the values from 8-19 and puts them in an array and returns it """
-        playerstream = getPlayers()
-        for line in playerstream.split(","):
-            if line[0] == playername:
-                scores = [line[8], line[9], line[10], line[11], line[12], line[13], line[14], line[15], line[16], line[17], line[18], line[19]]
-                """ 501 Einmenn, unnir, tap, 301 Duo, unnir, tap, Cricket, unnir, tap,501 Fjormenn, unnir, tap"""
+        scores = ViewerLL.getPlayerScore
         return scores
 
     def getPlayerScoreByDate():
         raise NotImplementedError
 
-    def sort(item):
-        """ function to implement keysort for the playersort functions """
-        return item[1]
-
-    def getPlayerSortQPInshotsOutshots(sortkey):
-        """ sorts the players according to QPs, Inshots or Outshots. The attribute this functions gets called by should be either of those"""
-        players = []
-        playerstream = getPlayers()
-        if sortkey == QP:
-            sortkey = 5
-            """ goes to the item in the list that tracks QPs"""
-        if sortkey == inshots:
-            sortkey = 6
-        if sortkey == outshots:
-            sortkey = 7
-        for line in playerstream.split(","):
-            players[line].append([line[0], line[sortkey]])
-            """ gets a list like [[playername, QPs]]"""
-        players.sort(key=sort)
-        return players
 
     def getTournamentScores():
-        """ gets all teams in tournament and sorts by games won and rounds won """
-        """ NOTE: Implement the sorting so that it sorts by both, as it is it only sorts by games won"""
-        tournamentranklist = []
-        teamstream = getTeams()
-        for line in teamstream:
-            tournamentranklist.append(line[0], line[p])
-
-
-
+        tournamentscorelist = ViewerLL.getTournamentScore()
         return tournamentscorelist
                 
 
     def getTournamentDates():
-        """ sækir tournament skrá, fer í línu 2 með dagsetningum og liðum sem spila þann dag og setur í lista """
-        tournamentdatelist = []
-        gamestring = ""
-        tournamentstream = getTournament()
-        for line in tournamentstream:
-            if line == 1:
-                line.split(",")
-                """ google svartagaldur, pls finna betri leið til að taka hvert 3 gildi og setja í list """
-                tournamentdatelist = zip(*[iter(line)]*3)
+        tournamentdatelist = ViewerLL.getTournamentDates()
         return tournamentdatelist
 
     def getGamesFinished():
-        """ Gets finished games by checking whether results have been added. Adds games with results to list"""
-        gamestream = getGames()
-        gamesfinished = []
-        for line in gamestream.split(","):
-            if line[4] != None:
-                gamesfinished.append([line[0], line[1], line[3], line[4], line[5], line[6]])
-                """ Team 1, Team 2, Date, Winner, ScoreWinner, ScoreLoser"""
+        gamesfinished = ViewerLL.getGameFinished()
         return gamesfinished
 
     def getUpcomingGames():
-        """ Gets upcoming games by checking whether results have been added. Adds games with no results to list"""
-        gamestream = getGames()
-        gamesupcoming = []
-        for line in gamestream.split(","):
-            if line[4] == None:
-                gamesupcoming.apepend([line[0],line[1],line[3]])
-                """ Team 1, Team 2, Date"""
+        gamesupcoming = ViewerLL.getUpcomingGames()
         return gamesupcoming
         
+    def getPlayerList():
+        players = ViewerLL.getPlayerList
+        return players
 
     def addTeam(newteam):
         IO_API.updateTeams(newteam=str)
+    
+    def addTournament(tournamentinfo=str):
+        TournamentLL.addTournament(tournamentinfo=str)
 
     def addGame(gamesupdate):
         IO_API.updateGames(gamesupdate=str)
         
-    def addPlayer(name, id_number, home_address, phone_number1, phone_number2, registered_team):
-        PlayersLL.addPlayers(name, id_number, home_address, phone_number1, phone_number2, registered_team)
+    def addPlayer(playeradd=str):
+        PlayersLL.addPlayers(playeradd=str)
 
     def changeResults():
         raise NotImplementedError
@@ -116,8 +73,8 @@ class LL_API:
     def changeDate():
         raise NotImplementedError
 
-    def updatePlayers(playerupdate):
-        IO_API.updatePlayers(playerupdate)
+    def updatePlayers(playerupdate=str):
+        IO_API.updatePlayers(playerupdate=str)
 
     def updateTeams(teamsupdate):
         IO_API.updateTeams(teamsupdate=str)

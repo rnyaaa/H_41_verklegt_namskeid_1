@@ -1,12 +1,19 @@
 from LL_API import LL_API
 class TournamentLL():
+
     def getTournament():
-        raise NotImplementedError
-    
+        tournamentstream = LL_API.getTournaments()
+        return tournamentstream
+        
     def getGames():
-        raise NotImplementedError
+        gamestream = LL_API.getGames()
+        return gamestream
     
-    def getResults():
+    def getResults(resultsID):
+        resultstream = LL_API.getResults(resultsID)
+        return resultstream
+
+    def addTournament():
         raise NotImplementedError
 
     def updateTournament():
