@@ -2,8 +2,7 @@ from IO.IO_API import IO_API
 from logic.PlayersLL import PlayersLL
 from logic.ViewerLL import ViewerLL
 from logic.TournamentLL import TournamentLL
-from logic.ResultsLL import ResultsLL
-from logic.GamesLL import GameLL
+
 
 class LL_API:
     def getPlayers():

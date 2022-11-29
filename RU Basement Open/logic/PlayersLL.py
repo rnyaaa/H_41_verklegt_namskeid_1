@@ -36,5 +36,6 @@ class PlayersLL():
         for player in players
             for item in resultline:
                 if item == player[0] and resultline[item+1] > playerline[6]:
+                    player
 
 

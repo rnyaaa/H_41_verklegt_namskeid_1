@@ -1,4 +1,4 @@
-from ui.UI import Main_Menu, OrganizerUI
+from ui.UI import CaptainUI, Main_Menu, OrganizerUI
 
 
 
@@ -19,7 +19,8 @@ if user_input == "1":
         ("Ekki gildur valmöguleiki!") # Á eftir að útfæra loopu
 
 elif user_input == "2":
-    selection = Main_Menu.openCaptainMenu()
+    selection = CaptainUI.openCaptainMenu()
+    
 
 elif user_input == "3":
     Main_Menu.openShowGamesMenu()
