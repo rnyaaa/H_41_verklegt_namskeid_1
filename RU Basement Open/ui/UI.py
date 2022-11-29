@@ -3,6 +3,7 @@ from logic.LL_API import LL_API
 
 class Main_Menu():
     def displayMainMenu():
+        "Displays Main menu screen."
         print(
             " ______________________________________________________________________________ \n"
             "|                                     ____                                     |\n"
@@ -36,34 +37,40 @@ class Main_Menu():
         return user_input
 
     def openOrganizerMenu():
-        return OrganizerUI.displayOrganizerMenu()
-
+        OrganizerUI.displayOrganizerMenu()
 
     def openViewerMenu():
-        return ViewerUI.displayViewer()
+        ViewerUI.displayViewer()
 
     def openCaptainMenu():
-        return CaptainUI.displayCaptainUI()
+        CaptainUI.displayCaptainUI()
 
     def openShowGamesMenu():
+        """Displays game overview menu."""
+        print(78*"_")
+        print()
         print(
-            "Valmynd:\n"
+            "➢  Valmynd:\n"
             "\n"
             "1.	Listi yfir komandi viðureignir\n"
-            "2.	Listi yfir yfirstaðnar viðureignir\n"
-            "b.	Til baka\n")
-        print()
+            "2.	Listi yfir yfirstaðnar viðureignir\n")
 
-        user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")
+        user_input = Main_Menu.menuFooter(False)
         return user_input
 
     def language():
+        """Multiple language funcionality."""
+
         # C-Requirement functionality to be implemented
         raise NotImplementedError
 
-    def menuFooter(display_quit):
-        """Prints the last two options of a menu selection (b for Back and q for Quit).
-        Also asks user for their selection and returns it."""
+    def menuFooter(display_quit=False):
+        """Prints the last two options of a menu selection.
+
+        If False: Only displays back option (ex. "b. Til baka")   <- False is the default
+        If True: Also displays quit option (ex. "q. Quit")
+
+        Finally asks the user for their selection and returns it."""
 
         print()
         print("b.	Til baka")
@@ -81,22 +88,27 @@ class Main_Menu():
 class OrganizerUI():
 
     def displayOrganizerMenu():
+        """Displays the organizer submenu."""
+
+        print(78*"_")
         print()
-        print( 
-        "   *** Velkominn, mótshaldari! ***\n"
-        "\n"
-        "Valmynd:\n"
-        "\n"
-        "1.	Skrá lið\n"
-        "2.	Stofna deild\n"
-        "3.	Skrá leikmenn\n"
-        "4.	Breyta dagsetningu á viðureign\n"
-        "5.	Breyta skráningu úrslita\n")
-        
-        user_input = Main_Menu.backQuitMenu(True)
+        print(
+            "Velkominn, mótshaldari!\n"
+            "\n"
+            "➢  Valmynd:\n"
+            "\n"
+            "1.	Skrá lið\n"
+            "2.	Stofna deild\n"
+            "3.	Skrá leikmenn\n"
+            "4.	Breyta dagsetningu á viðureign\n"
+            "5.	Breyta skráningu úrslita\n")
+
+        user_input = Main_Menu.menuFooter(True)
         return user_input
 
     def addPlayer():
+        """Organizer player addition form."""
+
         print("➢   Skrá leikmenn")
         name = input("o Nafn: ")
         id_number = input("o    Kennitala: ")
@@ -108,7 +120,8 @@ class OrganizerUI():
             f"Liðið sem leikmaðurinn tilheyrir:\n"
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
-        LL_API.addPlayer(name, id_number, home_address,phone_number1, phone_number2, registered_team)
+        LL_API.addPlayer(name, id_number, home_address,
+                         phone_number1, phone_number2, registered_team)
 
     def addTeamPage():
         print("➢   Skrá lið:")
@@ -135,7 +148,8 @@ class OrganizerUI():
 
         # Má gera lista að ofan til að geyma dagsetingar?
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
-        LL_API.addTournament(tournament_name, organizer_name,organizer_number, tournament_type, dates)
+        LL_API.addTournament(tournament_name, organizer_name,
+                             organizer_number, tournament_type, dates)
 
     def changeTournamentDates():
         print("➢	Breyta dagsetningu á viðureign: \n")
@@ -294,22 +308,22 @@ class ShowGamesUI():
 class ViewerUI:
 
     def displayViewer():
-        print(input(
-            "*** Verið velkomin í Tölfræðivalmyndina! ***\n"
+        print(78*"_")
+        print()
+        print(
+            "Verið velkomin í Tölfræðivalmyndina!\n"
             "\n"
-            "➢ Valmynd:\n"
+            "➢  Valmynd:\n"
             "\n"
-            "1.	Listi yfir liðum\n"
+            "1.	Listi yfir lið\n"
             "2.	Staða móts\n"
-            "3. Listi yfir þá sem hafa skorað flest afreksstig\n"
+            "3.	Listi yfir þá sem hafa skorað flest afreksstig\n"
             "4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni\n"
             "5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni\n"
-            "6.	Tölfræði fyrir ákveðna leikmenn\n"
-            "b.	Til baka\n"
-            "\n"
-        ))
-        selection = print(input("Veldu einn af valmöguleikunum hér að ofan: "))
-        return selection
+            "6.	Tölfræði fyrir ákveðna leikmenn")
+
+        user_input = Main_Menu.menuFooter(False)
+        return user_input
 
     def showTournamentInfo():
         None
@@ -336,12 +350,8 @@ class TeamViewer():
         #  "lið"
         #       Nafn   )
 
-        print()
-
-        user_input = input("b. til baka")
-
-        if user_input.lower() == "b":
-            return
+        user_input = Main_Menu.menuFooter(False)
+        return user_input
 
 
 class PlayerViewer():
@@ -366,10 +376,8 @@ class TournamentInfoUI():
         #   3. Þróttur |  7 stig  |  5 leggir unnir
         print()
 
-        user_input = input("b. til baka")
-
-        if user_input.lower() == "b":
-            return
+        user_input = Main_Menu.menuFooter(False)
+        return user_input
 
     def showTournamentScores():
         None
@@ -405,10 +413,8 @@ class PlayerHighScoreViewer():
 
         print()
 
-        user_input = input("b. til baka")
-
-        if user_input.lower() == "b":
-            return
+        user_input = Main_Menu.menuFooter(False)
+        return user_input
 
     def sortPlayerHighscore():
         None
@@ -419,17 +425,20 @@ class PlayerHighScoreViewer():
 class CaptainUI():
     def displayCaptainUI():
 
+        print(78*"_")
+        print("                      ___     \n"
+              "                    /\ _ /\   \n"
+              "    >>>----        / /\ /\ \  \n"
+              ">>>----           |---(*)---| \n"
+              "                   \ \/_\/ /  \n"
+              "        >>>----     \/___\/   \n"
+              "\n")
         print(
-            "                      ___     \n"
-            "                    /\ _ /\   \n"
-            "    >>>----        / /\ /\ \  \n"
-            ">>>----           |---(*)---| \n"
-            "                   \ \/_\/ /  \n"
-            "        >>>----     \/___\/   \n"
+            "Velkominn, Fyrirliði.\n"
+            "\n\n"
+            "➢  Valmynd:\n"
             "\n"
-            "Halló, Fyrirliði!\n"
-            "\n"
-            "1.  Skrá úrslit viðureignar\n")
+            "1.  Skrá úrslit viðureignar")
         user_input = Main_Menu.menuFooter(True)
         return user_input
 
@@ -442,12 +451,11 @@ class EnterResults():
         None
 
     def openResultsForm():
-        input(
-            "Veldu viðureign\n"
+        print()
+        print("Veldu viðureign:\n")
 
-            "b. Til baka\n"
-            "q. Hætta\n"
-        )
+        user_input = Main_Menu.menuFooter(True)
+        return user_input
 
 
 class ResultsForm():
