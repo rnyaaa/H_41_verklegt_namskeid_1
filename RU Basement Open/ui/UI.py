@@ -1,35 +1,35 @@
 
 class Main_Menu():
 
-    def displayMainMenu():
+    def displayMainMenu(self):
         print(input(
-        " ______________________________________________________________________________ \n"
-        "|                                     ____                                     |\n"
-        "|                                   /\ _ /\                                    |\n"
-        "|               >>>----            / /\ /\ \                                   |\n"
-        "|             >>>----             |---(*)---|                                  |\n"
-        "|                                  \ \/_\/ /                                   |\n"
-        "|                       >>>----     \/___\/                                    |\n"
-        "|                                                                              |\n"
-        "|                                                                              |\n"
-        "|        █▀█ █ █  █▄▄ ▄▀█ █▀ █▀▀ █▀▄▀█ █▀▀ █▄ █ ▀█▀  █▀█ █▀█ █▀▀ █▄ █          |\n"
-        "|        █▀▄ █▄█  █▄█ █▀█ ▄█ ██▄ █ ▀ █ ██▄ █ ▀█  █   █▄█ █▀▀ ██▄ █ ▀█          |\n"
-        "|                                                                              |\n"
-        "|______________________________________________________________________________|\n"
-        "|                                                  |                           |\n"
-        "|                                                  |   ┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈        |\n"
-        "|   Aðalvalmynd                                    |   ┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈        |\n"
-        "|                                                  |   ┈┈╰┓▋▋┏╯┈┈┈┈┈┈┈┈        |\n"
-        "|  1.  Mótshaldari                                 |   ┈╭━┻╮╲┗━━━━━╮╭╮┈        |\n"
-        "|  2.  Fyrirliði                                   |   ┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈        |\n"
-        "|  3.  Birta lista yfir viðureignir                |   ┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈        |\n"  		
-        "|  4.  Aðrir notendur / Skoða Tölfræði             |   ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        |\n"
-        "|  q.  Hætta                                       |   ┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈        |\n"
-        "|                                                  |                           |\n"
-        "|                                                  |     v. 0.0.1              |\n"
-        "|__________________________________________________|___________________________|\n"
-        "\n"
-        "Veldu einn af valmöguleikunum hér að ofan: "
+            " ______________________________________________________________________________ \n"
+            "|                                     ____                                     |\n"
+            "|                                   /\ _ /\                                    |\n"
+            "|               >>>----            / /\ /\ \                                   |\n"
+            "|             >>>----             |---(*)---|                                  |\n"
+            "|                                  \ \/_\/ /                                   |\n"
+            "|                       >>>----     \/___\/                                    |\n"
+            "|                                                                              |\n"
+            "|                                                                              |\n"
+            "|        █▀█ █ █  █▄▄ ▄▀█ █▀ █▀▀ █▀▄▀█ █▀▀ █▄ █ ▀█▀  █▀█ █▀█ █▀▀ █▄ █          |\n"
+            "|        █▀▄ █▄█  █▄█ █▀█ ▄█ ██▄ █ ▀ █ ██▄ █ ▀█  █   █▄█ █▀▀ ██▄ █ ▀█          |\n"
+            "|                                                                              |\n"
+            "|______________________________________________________________________________|\n"
+            "|                                                  |                           |\n"
+            "|                                                  |   ┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈        |\n"
+            "|   Aðalvalmynd                                    |   ┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈        |\n"
+            "|                                                  |   ┈┈╰┓▋▋┏╯┈┈┈┈┈┈┈┈        |\n"
+            "|  1.  Mótshaldari                                 |   ┈╭━┻╮╲┗━━━━━╮╭╮┈        |\n"
+            "|  2.  Fyrirliði                                   |   ┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈        |\n"
+            "|  3.  Birta lista yfir viðureignir                |   ┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈        |\n"
+            "|  4.  Aðrir notendur / Skoða Tölfræði             |   ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        |\n"
+            "|  q.  Hætta                                       |   ┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈        |\n"
+            "|                                                  |                           |\n"
+            "|                                                  |     v. 0.0.1              |\n"
+            "|__________________________________________________|___________________________|\n"
+            "\n"
+            "Veldu einn af valmöguleikunum hér að ofan: "
         ))
 
     def openOrganizerMenu():
@@ -39,17 +39,17 @@ class Main_Menu():
         raise NotImplementedError
 
     def openCaptainMenu():
-       raise NotImplementedError
+        raise NotImplementedError
 
     def openShowGamesMenu():
         print(input(
-        "Valmynd:\n"
-        "\n"
-        "1.	Listi yfir komandi viðureignir\n"
-        "2.	Listi yfir yfirstaðnar viðureignir\n"
-        "b.	Til baka\n"
-        "\n"
-        "Veldu einn af valmöguleikunum hér að ofan: "
+            "Valmynd:\n"
+            "\n"
+            "1.	Listi yfir komandi viðureignir\n"
+            "2.	Listi yfir yfirstaðnar viðureignir\n"
+            "b.	Til baka\n"
+            "\n"
+            "Veldu einn af valmöguleikunum hér að ofan: "
         ))
 
     def language():
@@ -58,23 +58,24 @@ class Main_Menu():
 
 # Organizer UI --------------------------------------------
 
+
 class OrganizerUI():
 
     def displayOrganizerMenu():
-        print(input(  
-        "   *** Velkominn, mótshaldari! ***\n"
-        "\n"
-        "Valmynd:\n"
-        "\n"
-        "1.	Skrá lið\n"
-        "2.	Stofna deild\n"
-        "3.	Skrá leikmenn\n"
-        "4.	Breyta dagsetningu á viðureign\n"
-        "5.	Breyta skráningu úrslita\n"
-        "b. Til baka\n"
-        "\n"
-        "Veldu einn af valmöguleikunum hér að ofan: "
-        )) 
+        print(input(
+            "   *** Velkominn, mótshaldari! ***\n"
+            "\n"
+            "Valmynd:\n"
+            "\n"
+            "1.	Skrá lið\n"
+            "2.	Stofna deild\n"
+            "3.	Skrá leikmenn\n"
+            "4.	Breyta dagsetningu á viðureign\n"
+            "5.	Breyta skráningu úrslita\n"
+            "b. Til baka\n"
+            "\n"
+            "Veldu einn af valmöguleikunum hér að ofan: "
+        ))
 
     def addPlayer():
         pass
@@ -100,6 +101,7 @@ class ChangeTournamentDatesUI():
     def openTournamentForm():
         pass
 
+
 class ChangeTournamentFormUI():
 
     def changeTournament():
@@ -110,7 +112,7 @@ class ChangeTournamentFormUI():
 
     def updateTournaments():
         pass
-    
+
 
 class AddTournamentPageUI():
 
@@ -119,6 +121,7 @@ class AddTournamentPageUI():
 
     def openTournamentForm():
         pass
+
 
 class AddtournamentFormUI():
 
@@ -140,6 +143,7 @@ class ChangeResultsPageUI():
     def openResultsForm():
         pass
 
+
 class ChangeResultsFormUI():
 
     def changeResults():
@@ -160,16 +164,18 @@ class ChangeResultsFormUI():
     def updateResults():
         pass
 
+
 class AddteamPageUI():
 
     def showTeams():
         pass
-    
+
     def openTeamsForm():
         pass
 
+
 class AddteamFormUI():
-    
+
     def addTeam():
         pass
 
@@ -179,6 +185,7 @@ class AddteamFormUI():
     def updateTeams():
         pass
 
+
 class AddPlayerUI():
 
     def showTeams():
@@ -187,8 +194,9 @@ class AddPlayerUI():
     def openPlayerForm():
         pass
 
+
 class AddPlayerFormUI():
-    
+
     def addPlayer():
         pass
 
@@ -220,19 +228,19 @@ class viewerUI:
 
     def displayViewer():
         print(input(
-        "*** Verið velkomin í Tölfræðivalmyndina! ***\n"
-        "\n"
-        "➢ Valmynd:\n"
-        "\n"
-        "1.	Listi yfir liðum\n"
-        "2.	Staða móts\n"
-        "3. 	Listi yfir þá sem hafa skorað flest afreksstig\n"
-        "4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni\n"
-        "5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni\n"
-        "6.	Tölfræði fyrir ákveðna leikmenn\n"
-        "b.	Til baka\n"
-        "\n"
-        "Veldu einn af valmöguleikunum hér að ofan: "
+            "*** Verið velkomin í Tölfræðivalmyndina! ***\n"
+            "\n"
+            "➢ Valmynd:\n"
+            "\n"
+            "1.	Listi yfir liðum\n"
+            "2.	Staða móts\n"
+            "3. 	Listi yfir þá sem hafa skorað flest afreksstig\n"
+            "4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni\n"
+            "5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni\n"
+            "6.	Tölfræði fyrir ákveðna leikmenn\n"
+            "b.	Til baka\n"
+            "\n"
+            "Veldu einn af valmöguleikunum hér að ofan: "
         ))
 
     def showTournamentInfo():
@@ -295,48 +303,49 @@ class PlayerHighScoreViewer():
 class CaptainUI():
     def displayCaptainUI():
         print(input(
-        "                      ___     \n"
-        "                    /\ _ /\   \n"
-        "    >>>----        / /\ /\ \  \n"
-        ">>>----           |---(*)---| \n"
-        "                   \ \/_\/ /  \n"
-        "        >>>----     \/___\/   \n"
-        "\n"    
-        "     *** Halló, Fyrirliði! ***\n"
-        "\n"
-        "1.  Skrá úrslit viðureignar\n"
-        "b.  Til baka\n"
-        "q.  Hætta\n"
-        "\n"
-        "Veldu einn af valmöguleikunum hér að ofan: "
+            "                      ___     \n"
+            "                    /\ _ /\   \n"
+            "    >>>----        / /\ /\ \  \n"
+            ">>>----           |---(*)---| \n"
+            "                   \ \/_\/ /  \n"
+            "        >>>----     \/___\/   \n"
+            "\n"
+            "     *** Halló, Fyrirliði! ***\n"
+            "\n"
+            "1.  Skrá úrslit viðureignar\n"
+            "b.  Til baka\n"
+            "q.  Hætta\n"
+            "\n"
+            "Veldu einn af valmöguleikunum hér að ofan: "
         ))
 
     def openResultsMenu():
         None
-    
+
+
 class EnterResults():
     def showUpcomingGamesSel():
         None
 
     def openResultsForm():
         None
-    
+
 
 class ResultsForm():
     def AddResults():
         None
-    
+
     def updatePlayers():
         None
-    
+
     def updateTeams():
         None
-    
+
     def updateGames():
         None
-    
+
     def updateTournaments():
         None
-    
+
     def updateResults():
         None
