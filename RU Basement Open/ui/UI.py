@@ -415,7 +415,7 @@ class PlayerHighScoreViewer():
 class CaptainUI():
     def displayCaptainUI():
 
-        print(input(
+        print(
         "                      ___     \n"
         "                    /\ _ /\   \n"
         "    >>>----        / /\ /\ \  \n"
@@ -425,7 +425,7 @@ class CaptainUI():
         "\n"    
         "     *** Halló, Fyrirliði! ***\n"
         "\n"
-        "1.  Skrá úrslit viðureignar\n"
+        "1.  Skrá úrslit viðureignar\n")
         user_input = Main_Menu.backQuitMenu(True)
         return user_input
 
