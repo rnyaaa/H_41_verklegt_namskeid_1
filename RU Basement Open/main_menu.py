@@ -1,7 +1,5 @@
 from ui.UI import CaptainUI, Main_Menu, OrganizerUI
 
-
-
 user_input = Main_Menu.displayMainMenu()
 if user_input == "1":
     selection = OrganizerUI.openOrganizerMenu()
@@ -20,7 +18,7 @@ if user_input == "1":
 
 elif user_input == "2":
     selection = CaptainUI.openCaptainMenu()
-    
+
 
 elif user_input == "3":
     Main_Menu.openShowGamesMenu()
