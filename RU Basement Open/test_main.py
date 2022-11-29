@@ -1,6 +1,6 @@
 from UI import Main_Menu
 
-()
+Displaymainmenu()
 
 
 
