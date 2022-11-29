@@ -1,13 +1,8 @@
-
 from logic.LL_API import LL_API
 
 
 class Main_Menu():
-
-    def __init__(self) -> None:
-        pass
-
-    def displayMainMenu(self):
+    def displayMainMenu():
         print(
         " ______________________________________________________________________________ \n"
         "|                                     ____                                     |\n"
@@ -36,24 +31,20 @@ class Main_Menu():
         "|__________________________________________________|___________________________|\n"
         "\n")
         
-        user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")
-
-        #ekki viss hvort þetta ætti að vera hér? Ef ekki, hvar þá?        
-        if user_input.lower() == "q":
-            quit()
+        user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")       
         
         return user_input
         
-    def openOrganizerMenu(self):
+    def openOrganizerMenu():
         OrganizerUI.displayOrganizerMenu()
 
-    def openViewerMenu(self):
+    def openViewerMenu():
         ViewerUI.displayViewer()
 
-    def openCaptainMenu(self):
+    def openCaptainMenu():
        CaptainUI.displayCaptainUI()
 
-    def openShowGamesMenu(self):
+    def openShowGamesMenu():
         print(
         "Valmynd:\n"
         "\n"
@@ -65,15 +56,31 @@ class Main_Menu():
         user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")
         return user_input
 
-    def language(self):
+
+    def language():
         # C-Requirement functionality to be implemented
         raise NotImplementedError
+
+    def backQuitMenu(display_quit):
+        """Prints the last two options of a menu selection (b for Back and q for Quit).
+        Also asks user for their selection and returns it."""
+
+        print()
+        print("b.	Til baka")
+        if display_quit is True:
+            print("q.	Hætta")
+
+        print() 
+        user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")
+        return user_input  
+        
 
 # Organizer UI --------------------------------------------
 
 class OrganizerUI():
 
-    def displayOrganizerMenu(self):
+    def displayOrganizerMenu():
+        print()
         print( 
         "   *** Velkominn, mótshaldari! ***\n"
         "\n"
@@ -83,20 +90,18 @@ class OrganizerUI():
         "2.	Stofna deild\n"
         "3.	Skrá leikmenn\n"
         "4.	Breyta dagsetningu á viðureign\n"
-        "5.	Breyta skráningu úrslita\n"
-        "b. Til baka\n"
-        "\n"
-        )
-        user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")
+        "5.	Breyta skráningu úrslita\n")
+        
+        user_input = Main_Menu.backQuitMenu(True)
         return user_input
         
 
-    def addPlayer(self):
+    def addPlayer():
         print("➢   Skrá leikmenn")
         name = input("o Nafn: ")
         id_number = input("o    Kennitala: ")
-        home_address = input("o Heimilisfang: ")
-        phone_number1 = input("o GSM: ")
+        home_address = input("o     Heimilisfang: ")
+        phone_number1 = input("o    GSM: ")
         phone_number2 = input("o    Heimasími: ")
         #email = input("o    Netfang: ")
         registered_team = input(
@@ -106,16 +111,18 @@ class OrganizerUI():
         LL_API.addPlayer(name, id_number, home_address, phone_number1, phone_number2, registered_team)
         
         
-    def addTeamPage(self):
+    def addTeamPage():
         print("➢   Skrá lið:")
         print()
         team_name = input("o   Nafn liðs: ")
         home_address = input("o   Heimilisfang: ")
+        team_organiser = input("o   Nafn félags: ")
         phone_number = input("o   Símanúmer: ")
         
-        return team_name, home_address, phone_number
+         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
+        LL_API.addTeam(team_name, home_address, team_organiser, phone_number)
 
-    def addTournament(self):
+    def addTournament():
         print("➢	Stofna deild:")
         print()
         tournament_name = input("o     Nafn deildar: ")
@@ -126,155 +133,154 @@ class OrganizerUI():
             dates = input("o    Dagsetningar: ")
             if dates == "":
                 break
+        
+        # Má gera lista að ofan til að geyma dagsetingar?
+        # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
+        LL_API.addTournament(tournament_name, organizer_name, organizer_number, tournament_type, dates)
 
-        return tournament_name, organizer_name, organizer_number, tournament_type, dates
 
-
-    def changeTournamentDates(self):
+    def changeTournamentDates():
         print("➢	Breyta dagsetningu á viðureign: \n")
         print()
         print("     Veldu viðureign\n")
         print()
         #print(hér koma viðureignirnar)
         print()
-        back = input("b. Til baka")
-        quits = input("q. Hætta")
 
-        return back, quits
-        
+        user_input = Main_Menu.backQuitMenu(True)
+        return user_input      
 
-    def changeResults(self):
+    def changeResults():
         print("➢	Breyta skráningu úrslita:\n ")
         print()
-        print("     Veldu úrslit: ")
+        print("	Veldu úrslit: ")
         print()
-        #print(hér kemur tafla með úrslitum )
-        print()
-        back = input("b. Til baka")
-        quits = input("q. Hætta")
 
-        return back, quits
+        #print(hér kemur tafla með úrslitum )
+        
+        user_input = Main_Menu.backQuitMenu(True)
+        return user_input 
 
 
 class ChangeTournamentDatesUI():
 
-    def showUpcomingGamesSel(self):
+    def showUpcomingGamesSel():
         pass
 
-    def openTournamentForm(self):
+    def openTournamentForm():
         pass
 
 class ChangeTournamentFormUI():
 
-    def changeTournament(self):
+    def changeTournament():
         pass
 
-    def updateGames(self):
+    def updateGames():
         pass
 
-    def updateTournaments(self):
+    def updateTournaments():
         pass
     
 
 class AddTournamentPageUI():
 
-    def showUpcomingGames(self):
+    def showUpcomingGames():
         pass
 
-    def openTournamentForm(self):
+    def openTournamentForm():
         pass
 
 class AddtournamentFormUI():
 
-    def addTournament(self):
+    def addTournament():
         pass
 
-    def upadateGames(self):
+    def upadateGames():
         pass
 
-    def updateTournaments(self):
+    def updateTournaments():
         pass
 
 
 class ChangeResultsPageUI():
 
-    def showGamesFinishedSel(self):
+    def showGamesFinishedSel():
         pass
 
-    def openResultsForm(self):
+    def openResultsForm():
         pass
 
 class ChangeResultsFormUI():
 
-    def changeResults(self):
+    def changeResults():
         pass
 
-    def updatePlayers(self):
+    def updatePlayers():
         pass
 
-    def updateTeams(self):
+    def updateTeams():
         pass
 
-    def updateGames(self):
+    def updateGames():
         pass
 
-    def updateTournaments(self):
+    def updateTournaments():
         pass
 
-    def updateResults(self):
+    def updateResults():
         pass
 
 class AddteamPageUI():
 
-    def showTeams(self):
+    def showTeams():
         pass
     
-    def openTeamsForm(self):
+    def openTeamsForm():
         pass
 
 class AddteamFormUI():
     
-    def addTeam(self):
+    def addTeam():
         pass
 
-    def updatePlayers(self):
+    def updatePlayers():
         pass
 
-    def updateTeams(self):
+    def updateTeams():
         pass
 
 class AddPlayerUI():
 
-    def showTeams(self):
+    def showTeams():
         pass
 
-    def openPlayerForm(self):
+    def openPlayerForm():
         pass
 
 class AddPlayerFormUI():
     
-    def addPlayer(self):
+    def addPlayer():
         pass
 
-    def updatePlayers(self):
+    def updatePlayers():
         pass
 
-    def updateTeams(self):
+    def updateTeams():
         pass
 
 
 class ShowGamesUI():
 
-    def showGamesPage(self):
+    def showGamesPage():
         raise NotImplementedError
 
-    def showTournamentDates(self):
+    def showTournamentDates():
         raise NotImplementedError
 
-    def showGamesFinished(self):
+    def showGamesFinished():
         raise NotImplementedError
 
-    def showUpcomingGames(self):
+    def showUpcomingGames():
         raise NotImplementedError
 
 
@@ -282,7 +288,7 @@ class ShowGamesUI():
 
 class ViewerUI:
 
-    def displayViewer(self):
+    def displayViewer():
         print(input(
         "*** Verið velkomin í Tölfræðivalmyndina! ***\n"
         "\n"
@@ -300,22 +306,22 @@ class ViewerUI:
         selection = print(input("Veldu einn af valmöguleikunum hér að ofan: "))
         return selection
         
-    def showTournamentInfo(self):
+    def showTournamentInfo():
         None
 
-    def showTeamViewer(self):
+    def showTeamViewer():
         None
 
-    def showPlayerViewer(self):
+    def showPlayerViewer():
         None
 
-    def showPlayerHighscoreViewer(self):
+    def showPlayerHighscoreViewer():
         None
 
 
 class TeamViewer():
 
-    def showTeams(self):
+    def showTeams():
         print(">	Birta lista yfir Liðum\n")
         print()
         #print("lið"
@@ -335,19 +341,19 @@ class TeamViewer():
 
 class PlayerViewer():
 
-    def enterPlayerName(self):
+    def enterPlayerName():
         None
 
-    def showPlayer(self):
+    def showPlayer():
         None
 
-    def showPlayerScoreByDate(self):
+    def showPlayerScoreByDate():
         None
 
 
 class TournamentInfoUI():
 
-    def displayTournamentInfo(self):
+    def displayTournamentInfo():
         print(">	Birta stöðu móts")
         print()
         #print( 1. KR	   |  9 stig  |  9 leggir unnir
@@ -361,19 +367,19 @@ class TournamentInfoUI():
             return
 
 
-    def showTournamentScores(self):
+    def showTournamentScores():
         None
 
-    def showGamesFinished(self):
+    def showGamesFinished():
         None
 
-    def showUpcomingGames(self):
+    def showUpcomingGames():
         None
 
 
 class PlayerHighScoreViewer():
 
-    def showPlayerHighscore(self):
+    def showPlayerHighscore():
         print(">	Listi yfir þá sem hafa skorað flest afreksstig.")
         print()
 #      print(➢ Þeir sem hafa [blank] (Top 10) _______________________________
@@ -400,14 +406,14 @@ class PlayerHighScoreViewer():
         if user_input.lower() == "b":
             return
         
-    def sortPlayerHighscore(self):
+    def sortPlayerHighscore():
         None
 
 
 # Captain UI --------------------------------------------
 
 class CaptainUI():
-    def displayCaptainUI(self):
+    def displayCaptainUI():
 
         print(input(
         "                      ___     \n"
@@ -426,14 +432,14 @@ class CaptainUI():
         "Veldu einn af valmöguleikunum hér að ofan: "
         ))
 
-    def openResultsMenu(self):
+    def openResultsMenu():
         None
     
 class EnterResults():
-    def showUpcomingGamesSel(self):
+    def showUpcomingGamesSel():
         None
 
-    def openResultsForm(self):
+    def openResultsForm():
         input(
         "Veldu viðureign\n"
   
@@ -443,20 +449,20 @@ class EnterResults():
         
 
 class ResultsForm():
-    def AddResults(self):
+    def AddResults():
         None
     
-    def updatePlayers(self):
+    def updatePlayers():
         None
     
-    def updateTeams(self):
+    def updateTeams():
         None
     
-    def updateGames(self):
+    def updateGames():
         None
     
-    def updateTournaments(self):
+    def updateTournaments():
         None
     
-    def updateResults(self):
+    def updateResults():
         None

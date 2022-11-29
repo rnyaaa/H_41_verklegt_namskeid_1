@@ -1,15 +1,23 @@
-from ui.UI import Main_Menu
+from ui.UI import Main_Menu, OrganizerUI
 
 
-ui = Main_Menu()
-user_input = ui.displayMainMenu()
+
+user_input = Main_Menu.displayMainMenu()
 if user_input == "1":
-    ui.openOrganizerMenu()
+    Main_Menu.openOrganizerMenu()
 elif user_input == "2":
-    ui.openCaptainMenu()
+    selection = Main_Menu.openCaptainMenu()
+    if selection == "1":
+        OrganizerUI.addTeamPage()
+    elif selection == "2":
+        OrganizerUI.addTournament
 elif user_input == "3":
-    ui.openShowGamesMenu()
+    Main_Menu.openShowGamesMenu()
 elif user_input == "4":
-    ui.openViewerMenu()
+    Main_Menu.openViewerMenu()
+elif user_input.lower() == "q":
+    print()
+    print("Bless 🥲")
+    quit()
 else: 
-    ("Ekki gildur valmöguleiki! Reyndu aftur")
+    print("Ekki gildur valmöguleiki! Reyndu aftur")

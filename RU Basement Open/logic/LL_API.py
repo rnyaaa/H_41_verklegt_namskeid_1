@@ -1,4 +1,4 @@
-from IO_API import IO_API
+from IO.IO_API import IO_API
 from logic.PlayersLL import PlayersLL
 
 class LL_API:
@@ -39,45 +39,47 @@ class LL_API:
         return item[1]
 
     def getPlayerSortQPInshotsOutshots(sortkey):
-        """ sorts the players according to Quality Points """
+        """ sorts the players according to QPs, Inshots or Outshots. The attribute this functions gets called by should be either of those"""
         players = []
         playerstream = getPlayers()
         if sortkey == QP:
             sortkey = 5
+            """ goes to the item in the list that tracks QPs"""
         if sortkey == inshots:
             sortkey = 6
         if sortkey == outshots:
             sortkey = 7
         for line in playerstream.split(","):
-            players[line].append(line[0], line[sortkey])
+            players[line].append([line[0], line[sortkey]])
+            """ gets a list like [[playername, QPs]]"""
         players.sort(key=sort)
         return players
 
     def getTournamentScores():
-        """ sækir tournament skrá, fer í línu 2 með dagsetningum og liðum sem spila þann dag og setur í lista """
-        tournamentscorelist = []
-        gamestring = ""
-        tournamentstream = getTournament()
-        for line in tournamentstream:
-            if line == 1:
-                line.split(",")
-                """ google svartagaldur, pls finna betri leið til að taka hvert 3 gildi og setja í list """
-                tournamentscorelist = zip(*[iter(line)]*3)
+        """ gets all teams in tournament and sorts by games won and rounds won """
+        """ NOTE: Implement the sorting so that it sorts by both, as it is it only sorts by games won"""
+        tournamentranklist = []
+        teamstream = getTeams()
+        for line in teamstream:
+            tournamentranklist.append(line[0], line[p])
+
+
+
         return tournamentscorelist
                 
 
     def getTournamentDates():
         """ sækir tournament skrá, fer í línu 2 með dagsetningum og liðum sem spila þann dag og setur í lista """
-        tournamentscorelist = []
+        tournamentdatelist = []
         gamestring = ""
         tournamentstream = getTournament()
         for line in tournamentstream:
             if line == 1:
                 line.split(",")
                 """ google svartagaldur, pls finna betri leið til að taka hvert 3 gildi og setja í list """
-                tournamentscorelist = zip(*[iter(line)]*3)
-        return tournamentscorelist
-        
+                tournamentdatelist = zip(*[iter(line)]*3)
+        return tournamentdatelist
+
     def getGamesFinished():
         """ Gets finished games by checking whether results have been added. Adds games with results to list"""
         gamestream = getGames()
