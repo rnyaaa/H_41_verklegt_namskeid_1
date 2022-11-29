@@ -380,11 +380,12 @@ class EnterResults():
         None
 
     def openResultsForm(self):
-        print(input(
+        input(
         "Veldu viðureign\n"
   
-  "b. Til baka\n"
-  "q. Hætta\n"))
+        "b. Til baka\n"
+        "q. Hætta\n" 
+        )
         
 
 class ResultsForm():
