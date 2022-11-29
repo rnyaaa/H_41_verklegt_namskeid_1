@@ -137,12 +137,12 @@ class OrganizerUI():
     def addTournament():
         print("➢	Stofna deild:")
         print()
-        tournament_name = input("o     Nafn deildar: ")
-        organizer_name = input("o    Nafn Skipuleggjanda: ")
-        organizer_number = input("o     Símanúmer skipuleggjanda: ")
-        tournament_type = input("o     Tegund móts: ")
+        tournament_name = input("o	Nafn deildar: ")
+        organizer_name = input("o	Nafn Skipuleggjanda: ")
+        organizer_number = input("o	Símanúmer skipuleggjanda: ")
+        tournament_type = input("o	Tegund móts: ")
         while True:
-            dates = input("o    Dagsetningar: ")
+            dates = input("o	Dagsetningar: ")
             if dates == "":
                 break
 
