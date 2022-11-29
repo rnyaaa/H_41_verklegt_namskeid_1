@@ -1,4 +1,7 @@
 
+from logic.LL_API import LL_API
+
+
 class Main_Menu():
 
     def __init__(self) -> None:
@@ -41,15 +44,14 @@ class Main_Menu():
         
         return user_input
         
-        
     def openOrganizerMenu(self):
-        raise NotImplementedError
+        OrganizerUI.displayOrganizerMenu()
 
     def openViewerMenu(self):
-        raise NotImplementedError
+        ViewerUI.displayViewer()
 
     def openCaptainMenu(self):
-       raise NotImplementedError
+       CaptainUI.displayCaptainUI()
 
     def openShowGamesMenu(self):
         print(
@@ -94,13 +96,15 @@ class OrganizerUI():
         name = input("o Nafn: ")
         id_number = input("o    Kennitala: ")
         home_address = input("o Heimilisfang: ")
-        phone_number = input("o GSM: ")
-        email = input("o    Netfang: ")
+        phone_number1 = input("o GSM: ")
+        phone_number2 = input("o    Heimasími: ")
+        #email = input("o    Netfang: ")
         registered_team = input(
             f"Liðið sem leikmaðurinn tilheyrir:\n"
-            # Hér kemur listi af liðum sem hafa verið skráð/á eftir að úfæra
+            # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
-        return name, id_number, home_address, phone_number, email, registered_team
+        LL_API.addPlayer(name, id_number, home_address, phone_number1, phone_number2, registered_team)
+        
         
     def addTeamPage(self):
         print("➢   Skrá lið:")
@@ -276,7 +280,7 @@ class ShowGamesUI():
 
 # Viewer UI --------------------------------------------
 
-class viewerUI:
+class ViewerUI:
 
     def displayViewer(self):
         print(input(
@@ -294,7 +298,8 @@ class viewerUI:
         "\n"
         ))
         selection = print(input("Veldu einn af valmöguleikunum hér að ofan: "))
-    
+        return selection
+        
     def showTournamentInfo(self):
         None
 
@@ -311,7 +316,21 @@ class viewerUI:
 class TeamViewer():
 
     def showTeams(self):
-        None
+        print(">	Birta lista yfir Liðum\n")
+        print()
+        #print("lið"
+        #       Nafn
+        #       Nafn
+        #       Nafn
+        #  "lið"  
+        #       Nafn   )
+        
+        print()
+        
+        user_input = input("b. til baka")
+        
+        if user_input.lower() == "b":
+            return
 
 
 class PlayerViewer():
@@ -329,7 +348,18 @@ class PlayerViewer():
 class TournamentInfoUI():
 
     def displayTournamentInfo(self):
-        None
+        print(">	Birta stöðu móts")
+        print()
+        #print( 1. KR	   |  9 stig  |  9 leggir unnir
+	        #   2. Valur   |  9 stig  |  8 leggir unnir
+	        #   3. Þróttur |  7 stig  |  5 leggir unnir
+        print()
+        
+        user_input = input("b. til baka")
+        
+        if user_input.lower() == "b":
+            return
+
 
     def showTournamentScores(self):
         None
@@ -344,8 +374,32 @@ class TournamentInfoUI():
 class PlayerHighScoreViewer():
 
     def showPlayerHighscore(self):
-        None
+        print(">	Listi yfir þá sem hafa skorað flest afreksstig.")
+        print()
+#      print(➢ Þeir sem hafa [blank] (Top 10) _______________________________
+#	|								|
+#	|	1. 🥇	{Player_name}					|
+#	|								|
+#	|	2. 🥈	{Player_name}					|
+#	|								|
+#	|	3. 🥉	{Player_name}					|	
+#	|								|
+#	|		4. 	{Player_name}				|
+#	|		5. 	{Player_name}				|	
+#	|		6. 	{Player_name}				|
+#	|		7.	{Player_name}				|
+#	|		8.	{Player_name}				|
+#	|		9.	{Player_name}				|
+#	|		10. {Player_name}				|
+#	|_______________________________________________________________|
 
+        print()
+        
+        user_input = input("b. til baka")
+        
+        if user_input.lower() == "b":
+            return
+        
     def sortPlayerHighscore(self):
         None
 

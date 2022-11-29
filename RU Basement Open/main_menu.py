@@ -1,27 +1,17 @@
-print(
-" ______________________________________________________________________________ \n"
-"|                                     ____                                     |\n"
-"|                                   /\ _ /\                                    |\n"
-"|               >>>----            / /\ /\ \                                   |\n"
-"|             >>>----             |---(*)---|                                  |\n"
-"|                                  \ \/_\/ /                                   |\n"
-"|                       >>>----     \/___\/                                    |\n"
-"|                                                                              |\n"
-"|                                                                              |\n"
-"|        █▀█ █ █  █▄▄ ▄▀█ █▀ █▀▀ █▀▄▀█ █▀▀ █▄ █ ▀█▀  █▀█ █▀█ █▀▀ █▄ █          |\n"
-"|        █▀▄ █▄█  █▄█ █▀█ ▄█ ██▄ █ ▀ █ ██▄ █ ▀█  █   █▄█ █▀▀ ██▄ █ ▀█          |\n"
-"|                                                                              |\n"
-"|______________________________________________________________________________|\n"
-"|                                                  |                           |\n"
-"|                                                  |   ┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈        |\n"
-"|   Aðalvalmynd                                    |   ┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈        |\n"
-"|                                                  |   ┈┈╰┓▋▋┏╯┈┈┈┈┈┈┈┈        |\n"
-"|  1.  Mótshaldari                                 |   ┈╭━┻╮╲┗━━━━━╮╭╮┈        |\n"
-"|  2.  Fyrirliði                                   |   ┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈        |\n"
-"|  3.  Birta lista yfir viðureignir                |   ┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈        |\n"  		
-"|  4.  Aðrir notendur / Skoða Tölfræði             |   ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        |\n"
-"|  q.  Hætta                                       |   ┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈        |\n"
-"|                                                  |                           |\n"
-"|                                                  |     v. 0.0.1              |\n"
-"|__________________________________________________|___________________________|\n"
-)
+from ui.UI import Main_Menu
+
+
+ui = Main_Menu()
+user_input = ui.displayMainMenu()
+if user_input == "1":
+    ui.openOrganizerMenu()
+elif user_input == "2":
+    ui.openCaptainMenu()
+elif user_input == "3":
+    ui.openShowGamesMenu()
+elif user_input == "4":
+    ui.openViewerMenu()
+elif user_input == "q":
+    quit()
+else: 
+    ("Ekki gildur valmöguleiki! Reyndu aftur")
