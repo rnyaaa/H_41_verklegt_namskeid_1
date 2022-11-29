@@ -57,6 +57,8 @@ class LL_API():
 
     def addGame():
         IO_API.updateGames(gamesupdate=str)
+        
+    def addPlayer():
 
     def changeResults():
         raise NotImplementedError
