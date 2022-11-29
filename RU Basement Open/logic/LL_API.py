@@ -54,24 +54,30 @@ class LL_API:
         return players
 
     def getTournamentScores():
+        """ sækir tournament skrá, fer í línu 2 með dagsetningum og liðum sem spila þann dag og setur í lista """
         tournamentscorelist = []
         gamestring = ""
         tournamentstream = getTournament()
         for line in tournamentstream:
             if line == 1:
                 line.split(",")
-                for item in line
-                    """ svartagaldur, pls finnið betri leið til að taka hvert 3 gildi og setja í list """
-                    list(zip(*[iter(line)]*3))
-                    tournamentscorelist.append(item)
+                """ google svartagaldur, pls finna betri leið til að taka hvert 3 gildi og setja í list """
+                tournamentscorelist = zip(*[iter(line)]*3)
         return tournamentscorelist
                 
 
-
-
     def getTournamentDates():
-        raise NotImplementedError
-
+        """ sækir tournament skrá, fer í línu 2 með dagsetningum og liðum sem spila þann dag og setur í lista """
+        tournamentscorelist = []
+        gamestring = ""
+        tournamentstream = getTournament()
+        for line in tournamentstream:
+            if line == 1:
+                line.split(",")
+                """ google svartagaldur, pls finna betri leið til að taka hvert 3 gildi og setja í list """
+                tournamentscorelist = zip(*[iter(line)]*3)
+        return tournamentscorelist
+        
     def getGamesFinished():
         """ Gets finished games by checking whether results have been added. Adds games with results to list"""
         gamestream = getGames()
@@ -108,16 +114,16 @@ class LL_API:
     def changeDate():
         raise NotImplementedError
 
-    def updatePlayers():
+    def updatePlayers(playerupdate):
         IO_API.updatePlayers(playerupdate)
 
-    def updateTeams():
+    def updateTeams(teamsupdate):
         IO_API.updateTeams(teamsupdate=str)
 
-    def updateGames():
+    def updateGames(gamesupdate):
         IO_API.updateGames(gamesupdate=str)
 
-    def updateTournament():
+    def updateTournament(tournamentupdate):
         IO_API.updateTournaments(tournamentupdate=str)
 
     def updateResults():

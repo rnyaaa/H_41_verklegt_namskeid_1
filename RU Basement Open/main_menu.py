@@ -11,7 +11,5 @@ elif user_input == "3":
     ui.openShowGamesMenu()
 elif user_input == "4":
     ui.openViewerMenu()
-elif user_input == "q":
-    quit()
 else: 
     ("Ekki gildur valmöguleiki! Reyndu aftur")
