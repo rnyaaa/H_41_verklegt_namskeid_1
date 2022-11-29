@@ -426,11 +426,8 @@ class CaptainUI():
         "     *** Halló, Fyrirliði! ***\n"
         "\n"
         "1.  Skrá úrslit viðureignar\n"
-        "b.  Til baka\n"
-        "q.  Hætta\n"
-        "\n"
-        "Veldu einn af valmöguleikunum hér að ofan: "
-        ))
+        user_input = Main_Menu.backQuitMenu(True)
+        return user_input
 
     def openResultsMenu():
         None
