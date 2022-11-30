@@ -10,6 +10,7 @@ TEAMS = "models/teams.csv"
 TOURNAMENTS = "models/tournaments.csv"
 
 class LL_API():
+
     def __init__(self):
         self.playerll = PlayersLL()
         self.tournamentLL = TournamentLL()
@@ -85,16 +86,16 @@ class LL_API():
         raise NotImplementedError
 
     def updatePlayers(playerupdate=list):
-        IO_API.Update(playerupdate=list, PLAYERS)
+        IO_API.Update(PLAYERS, playerupdate=list)
 
     def updateTeams(teamsupdate=list):
-        IO_API.Update(teamsupdate=list, TEAMS)
+        IO_API.Update(PLAYERS, teamsupdate=list)
 
     def updateGames(gamesupdate=list):
-        IO_API.Update(gamesupdate=list, GAMES)
+        IO_API.Update(GAMES, gamesupdate=list)
 
     def updateTournament(tournamentupdate=list):
-        IO_API.Update(tournamentupdate=list, TOURNAMENTS)
+        IO_API.Update(TOURNAMENTS, tournamentupdate=list)
 
     def updateResults(newresults=list, resultsID=str):
         IO_API.updateResults(newresults=list, resultsID=str)

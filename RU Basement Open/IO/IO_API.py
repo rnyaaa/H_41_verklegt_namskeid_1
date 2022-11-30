@@ -1,8 +1,8 @@
 class IO_API:
 
     def getAll(type=str):
-        filestream = Loader(type)
-        file = Decoder(filestream)
+        filestream = IO_API.Loader(type)
+        file = IO_API.Decoder(filestream)
         return file
         
     def Loader(filename):
@@ -20,14 +20,14 @@ class IO_API:
         linestr = ""
         for line in update:
             for item in line:
-                linestr += items + ","
+                linestr += item + ","
             linestr += '\n'
         file = open(type, "w")
         file.write(linestr)
         file.close
 
     def getResults(resultsID):
-        resultstream = loader(resultsID=str)
+        resultstream = IO_API.Loader(resultsID=str)
         resultsfile = [[]]
         for line in resultstream:
             for item in line.split():
@@ -36,9 +36,9 @@ class IO_API:
 
     def updateResults(newresults, resultsID):
         linestr = ""
-        create_new_results = open(resultsID.csv, "x", newline=' ', encoding=UTF-8)
+        create_new_results = open(resultsID.csv, "x", newline=' ', encoding="UTF-8")
         create_new_results.close()
-        write_new_results = open(resultsID.csv, "w", newline=' ', encoding=UTF-8)
+        write_new_results = open(resultsID.csv, "w", newline=' ', encoding="UTF-8")
         for line in newresults:
             for items in line:
                 linestr += items + ","

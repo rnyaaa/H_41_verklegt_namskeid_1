@@ -1,55 +1,107 @@
 from logic.LL_API import LL_API
 
 class ResultsLL():
-    def getResults(results=list, resultsID=list):
-        resultstream = LL_API.getResults(resultsID)
 
-    def changeResults():
-        """ TODO: Fatta hvernig við tökum results úr gagnagrunni, breytum þeim og vistum nýrri útgáfu"""
-        """ Þetta þarf líka að geta uppfært player, team og tournament gildi."""
-        raise NotImplementedError
+    def changeResults(resultsID):
+        LL_API.getResults(resultsID)
 
-    def updateResults(newresults, resultsID):
+        # Senda svo til UI og fá ný results (newResults) til baka
+
+        ResultsLL.updateResults(newResults, resultsID)
+
+    def updateResults(results, resultsID):
+        ResultsLL.updatePlayers(results)
+        ResultsLL.updateGames(results)
+        ResultsLL.updateTeams(results)
+        LL_API.updateResults(results, resultsID)
+
+    def updatePlayers(results):
         players = LL_API.getPlayers()
-        games = LL_API.getGames()
-        teams = LL_API.getTeams()
-        tournament = LL_API.getTournament()
-
-        """ UPDATE QPs """
         for player in players:
-            for item in newresults[0]:
+            for item in results[0]:
                 if item == players[player][0]:
-                    players[player][5] += newresults[0][item+1]
+                    players[player][5] += results[0][item+1]
 
-        """ Update Innskot """
-            for item in newresults[1]:
-                if item == players[player][0] and players[player][6] < newresults[1][item]:
-                    players[player][6] = newresults[1][item]
+            # Update Innskot
+            for item in results[1]:
+                if item == players[player][0] and players[player][6] < results[1][item]:
+                    players[player][6] = results[1][item]
+
+            # Update Utskot
+            for item in results[2]:
+                if item == players[player][0] and players[player][7] < results[2][item]:
+                    players[player][7] = results[2][item]
+
+            # Update Player Win/Lose Ratio
+            # 501 Singles Winners
+            for item in results[6]:
+                if results[6][item] == players[player][0]:
+                    players[player][9] += 1
+
+            # 501 Singles Losers
+            for item in results[7]:
+                if results[7][item] == players[player][0]:
+                    players[player][10] += 1
+
+            # 301 Duo Winners
+            for item in results[8]:
+                if results[8][item] == players[player][0]:
+                    players[player][12] += 1
+
+            # 301 Duo Losers
+            for item in results[9]:
+                if results[9][item] == players[player][0]:
+                    players[player][13] += 1
+
+            # Cricket Winners
+            for item in results[10]:
+                if results[10][item] == players[player][0]:
+                    players[player][15] += 1
+
+            # Cricket Losers
+            for item in results[11]:
+                if results[11][item] == players[player][0]:
+                    players[player][16] += 1
+
+            # 501 Fours Winners
+            for item in results[12]:
+                if results[10][item] == players[player][0]:
+                    players[player][18] += 1
+                    
+            # 501 Fours Losers
+            for item in results[13]:
+                if results[11][item] == players[player][0]:
+                    players[player][19] += 1
         
-        """ Update Utskot """
-            for item in newresults[2]:
-                if item == players[player][0] and players[player][7] < newresults[2][item]:
-                    players[player][7] = newresults[2][item]
+        LL_API.updatePlayers(players)
 
-        """ Update Tournament """
-            
+    def updateGames(results):
+        games = LL_API.getGames()
+            # Update Games
+            # Ok. NÝTT ATTRIBUTE: RESULTS_ID sem tengir við í GAMES og TOURNAMENT modelið
+        for game in games:
+            if results[14] == games[game][8]:
+                # Winner String Update
+                games[game][4] = results[5]
 
-        """TODO: Fatta hvernig við fáum inn results í LL og hvernig við geymum ný"""
-        """ Hvernig á að uppfæra playerr, team og tournament gagnagrunninn út frá þessu?"""
-        LL_API.updateResults(newresults, resultsID)
+                # Winning Score Update
+                games[game][5] = results[4][0]
+
+                # Losing Score update
+                games[game][6] = results[4][1]
         
+        LL_API.updateGames(games)
 
+    def updateTeams(results):
+        teams = LL_API.getTeams()
+        # Update Team Score
+        # Ok ný regla, winning teamið kemur alltaf fyrst í results á línu 4
+        for team in teams:
+            if results[3][0] == teams[team][0]:
+                teams[team][4] += results[4][0]
+                teams[team][5] += results[5][0]
 
-
-
-        """ uppfæra win ratio, 501 einmenn"""
-        resultline = resultstream.readlines()[7:11]
-        for player in players:
-            for line in resultline:
-                for item in resultline:
-                    if item == player[0]:
-                        player[10] = int(player[10]) + 1
-
-        """ uppfæra win ratio, 301 duo"""
-        """ uppfæra win ratio, cricket"""
-        """ uppfæra win ratio, 501 fjormenn"""
+            if results[3][1] == teams[team][0]:
+                teams[team][4] += results[4][1]
+                teams[team][5] += results[5][0]
+        LL_API.updateTeams(teams)
