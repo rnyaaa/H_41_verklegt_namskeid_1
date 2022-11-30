@@ -1,7 +1,5 @@
 from logic.LL_API import LL_API
-
-
-class Main_Menu():
+lass Main_Menu():
     
     def displayMainMenu():
         "Displays Main menu screen."

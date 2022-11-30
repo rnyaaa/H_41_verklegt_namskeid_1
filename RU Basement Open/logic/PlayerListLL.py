@@ -12,4 +12,5 @@ class PlayerListLL():
     
     def getPlayerSortOutshot():
         raise NotImplementedError
-    
+
+    def updatePlayers():

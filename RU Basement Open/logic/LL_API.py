@@ -75,7 +75,7 @@ class LL_API():
         IO_API.updateGames(gamesupdate=str)
         
     def addPlayer(playeradd=str):
-        #PlayersLL.addPlayers(playeradd=str)
+        PlayersLL.addPlayers(playeradd=str)
         raise
 
     def changeResults():
@@ -84,17 +84,17 @@ class LL_API():
     def changeDate():
         raise NotImplementedError
 
-    def updatePlayers(playerupdate=str):
-        IO_API.Update(playerupdate=str, PLAYERS)
+    def updatePlayers(playerupdate=list):
+        IO_API.Update(playerupdate=list, PLAYERS)
 
-    def updateTeams(teamsupdate):
-        IO_API.Update(teamsupdate=str, TEAMS)
+    def updateTeams(teamsupdate=list):
+        IO_API.Update(teamsupdate=list, TEAMS)
 
-    def updateGames(gamesupdate):
-        IO_API.Update(gamesupdate=str, GAMES)
+    def updateGames(gamesupdate=list):
+        IO_API.Update(gamesupdate=list, GAMES)
 
-    def updateTournament(tournamentupdate, ):
-        IO_API.Update(tournamentupdate=str, TOURNAMENTS)
+    def updateTournament(tournamentupdate=list):
+        IO_API.Update(tournamentupdate=list, TOURNAMENTS)
 
-    def updateResults(newresults, resultsID):
-        IO_API.updateResults(newresults=str, resultsID=str)
+    def updateResults(newresults=list, resultsID=str):
+        IO_API.updateResults(newresults=list, resultsID=str)
