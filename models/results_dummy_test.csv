@@ -4,11 +4,11 @@ OUTSHOTS                  : Ægir Jarl,U95,Hallur Hansson,U105,Kjartan Finnbogas
 WINNINGTEAM/LOSING TEAM   : KR,Valur
 WINNINGSCORE/LOSINGSCORE  : 7,5
 ROUNDSWONWIN/ROUNDSWONLOSE: 16,8
-WINNINGTEAM, WINNINGPLAYER: KR,Ægir Jarl                                                      LOSINGTEAM LOSINGPLAYER: Valur, Blablabla
-WINNINGTEAM, WINNINGPLAYER: KR,Hallur Hansson                                                 LOSINGTEAM LOSINGPLAYER: Valur, bla
-WINNINGTEAM, WINNINGPLAYER: KR,Kjartan Finnbogason                                            LOSINGTEAM LOSINGPLAYER: Valur, bla
-WINNINGTEAM, WINNINGPLAYER: KR,Beitir Ólafsson                                                LOSINGTEAM LOSINGPLAYER: Valur, bla
-WINNINGTEAM, WINNINGPLAYER: KR,Ægir Jarl,Hallur Hansson                                       LOSINGTEAM LOSINGPLAYER: Valur, bla, bla
-WINNINGTEAM, WINNINGPLAYER: KR,Kjartan Finnbogason,Beitir Ólafsson                            LOSINGTEAM LOSINGPLAYER: Valur, bla, bla
-WINNINGTEAM, WINNINGPLAYER: KR,Ægir Jarl,Hallur Hansson,Kjartan Finnbogason,Beitir Ólafsson   LOSINGTEAM LOSINGPLAYER: Valur, bla, bla, bla, bla
+WINNINGPLAYER: Ægir Jarl                                                       LOSINGPLAYER:  Blablabla
+WINNINGPLAYER: Hallur Hansson                                                  LOSINGPLAYER:  bla
+WINNINGPLAYER: Kjartan Finnbogason                                             LOSINGPLAYER:  bla
+WINNINGPLAYER: Beitir Ólafsson                                                 LOSINGPLAYER:  bla
+WINNINGPLAYER: Ægir Jarl,Hallur Hansson                                        LOSINGPLAYER:  bla, bla
+WINNINGPLAYER: Kjartan Finnbogason,Beitir Ólafsson                             LOSINGPLAYER:  bla, bla
+WINNINGPLAYER: Ægir Jarl,Hallur Hansson,Kjartan Finnbogason,Beitir Ólafsson    LOSINGPLAYER:  bla, bla, bla, bla
 RESULTSID
