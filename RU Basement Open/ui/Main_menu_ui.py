@@ -1,18 +1,16 @@
 
-from OrganizerUI import OrganizerUI
-from CaptainUI import CaptainUI
-from ShowGamesUI import ShowGamesUI
-from ViewerUI import ViewerUI
+from ui.OrganizerUI import OrganizerUI
+from ui.CaptainUI import CaptainUI
+from ui.ShowGamesUI import ShowGamesUI
+from ui.ViewerUI import ViewerUI
 
 
 class Main_Menu_UI():
 
-    def __init__(self) -> None:
-        pass
-    
     def displayMainMenu():
         "Displays Main menu screen."
-        print(
+        while True:
+            print(
             " ______________________________________________________________________________ \n"
             "|                                     ____                                     |\n"
             "|                                   /\ _ /\                                    |\n"
@@ -40,24 +38,21 @@ class Main_Menu_UI():
             "|__________________________________________________|___________________________|\n"
             "\n")
 
-    def input_prompt():
-        while True:
             user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")
             user_input = user_input.lower()
             
             if user_input == "q":
                 break
             elif user_input == "1":
-                menu = OrganizerUI()
-                menu.displayOrganizerMenu()
+                OrganizerUI.displayOrganizerMenu()
             elif user_input == "2":
-                menu = CaptainUI()
-                menu.displayCaptainUI()
+                CaptainUI.displayCaptainUI()
             elif user_input == "3":
-                menu = ShowGamesUI()
-                menu.showGamesPage()
+                ShowGamesUI.showGamesPage()
             elif user_input == "4":
-                menu = ViewerUI
-                menu.displayViewerUI()
+                ViewerUI.displayViewerUI()
             else:
                 print("Ekki gildur valmöguleiki!")
+
+
+Main_Menu_UI.displayMainMenu()
