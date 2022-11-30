@@ -1,4 +1,5 @@
-from ui.UI import CaptainUI, Main_Menu, OrganizerUI
+from ui.UI import Main_Menu, OrganizerUI
+from ui.UI import CaptainUI
 
 user_input = Main_Menu.displayMainMenu()
 if user_input == "1":

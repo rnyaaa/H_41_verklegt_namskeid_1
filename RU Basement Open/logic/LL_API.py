@@ -1,7 +1,7 @@
 from IO.IO_API import IO_API
 from logic.PlayersLL import PlayersLL
-from logic.ViewerLL import ViewerLL
 from logic.TournamentLL import TournamentLL
+from logic.ViewerLL import ViewerLL
 
 
 class LL_API:
@@ -65,6 +65,7 @@ class LL_API:
         
     def addPlayer(playeradd=str):
         PlayersLL.addPlayers(playeradd=str)
+        raise
 
     def changeResults():
         raise NotImplementedError
