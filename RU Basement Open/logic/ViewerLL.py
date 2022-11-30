@@ -3,10 +3,6 @@ from logic.LL_API import LL_API
 
 class ViewerLL:
 
-    def getGames():
-        games = LL_API.getGames()
-        return games
-
     def sort(item):
         """ function to implement keysort for the playersort functions """
         return item[1]
@@ -72,7 +68,7 @@ class ViewerLL:
 
     def getUpcomingGames():
         """ Gets upcoming games by checking whether results have been added. Adds games with no results to list"""
-        games = ViewerLL.getGames()
+        games = LL_API.getGames()
         gamesupcoming = []
         for game in games:
             if games[game][4] == None:
