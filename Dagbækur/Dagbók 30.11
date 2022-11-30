@@ -1,0 +1,15 @@
+Kæra dagbók,
+
+Í dag er 30.11 eða áttundi virki dagur námskeiðsins.
+
+Öll mætt í dag.
+
+Dagurinn í gær var mjög productive, og við náðum að klára stóran part af UI-layernum og erum komin langt með LL.
+
+Í dag þarf að:
+  - Implementa "Til baka" í UI-layer
+  - Halda áfram að vinna í LL
+  - Laga circular imports
+  - Byrja að vinna á data-layer
+  
+ 
