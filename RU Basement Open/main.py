@@ -8,6 +8,7 @@ mainmenu.input_prompt()
 
 
 
+
 # Þetta má taka út, erum búin að implementa í Main_menu_ui.py
 """user_input = Main_Menu.displayMainMenu()
 if user_input == "1":

@@ -1,17 +1,18 @@
 
 from ui.UI import Menu_prompt
 
+
 class CaptainUI():
     def displayCaptainUI():
         while True:
             print(78*"_")
             print("                      ___     \n"
-                "                    /\ _ /\   \n"
-                "    >>>----        / /\ /\ \  \n"
-                ">>>----           |---(*)---| \n"
-                "                   \ \/_\/ /  \n"
-                "        >>>----     \/___\/   \n"
-                "\n")
+                  "                    /\ _ /\   \n"
+                  "    >>>----        / /\ /\ \  \n"
+                  ">>>----           |---(*)---| \n"
+                  "                   \ \/_\/ /  \n"
+                  "        >>>----     \/___\/   \n"
+                  "\n")
             print(
                 "Velkominn, Fyrirliði.\n"
                 "\n\n"
@@ -23,5 +24,3 @@ class CaptainUI():
 
     def openResultsMenu():
         None
-
-

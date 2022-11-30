@@ -27,9 +27,9 @@ class ViewerUI:
 
     def showTeams():
         '''Shows list of teams and their players'''
-        
-        print(">	Birta lista yfir Liðum\n") 
-        result = LL_API.getTeams() 
+
+        print(">	Birta lista yfir Liðum\n")
+        result = LL_API.getTeams()
         for name in result:
             print(f"{name[0]}:")
             print(f"{name[6]:>6}:")
@@ -37,9 +37,9 @@ class ViewerUI:
             print(f"{name[8]:>6}:")
             print(f"{name[9]:>6}:")
             print()
-        
+
         user_input = Menu_prompt.menuFooter(False)
-        
+
     def showPlayerViewer():
         None
 

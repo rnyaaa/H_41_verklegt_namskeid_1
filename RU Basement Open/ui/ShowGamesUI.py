@@ -1,5 +1,6 @@
 from ui.UI import Menu_prompt
 
+
 class ShowGamesUI():
 
     def showGamesPage():

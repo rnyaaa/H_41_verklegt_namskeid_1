@@ -1,6 +1,5 @@
 from logic.LL_API import LL_API
 from ui.UI import Menu_prompt
-
 from UI import Menu_prompt
 
 
@@ -38,7 +37,8 @@ class OrganizerUI():
             elif user_input == "b":
                 break
             else:
-                ("Ekki gildur valmöguleiki, reyndu aftur") # Á eftir að útfæra loopu
+                # Á eftir að útfæra loopu
+                ("Ekki gildur valmöguleiki, reyndu aftur")
 
     def addPlayer():
         """Organizer player addition form."""
@@ -54,8 +54,8 @@ class OrganizerUI():
             f"Liðið sem leikmaðurinn tilheyrir:\n"
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
-        #LL_API.addPlayer(name, id_number, home_address,
-                         #phone_number1, phone_number2, registered_team)
+        # LL_API.addPlayer(name, id_number, home_address,
+        # phone_number1, phone_number2, registered_team)
 
     def addTeamPage():
         print("➢   Skrá lið:")
@@ -82,11 +82,12 @@ class OrganizerUI():
 
         # Má gera lista að ofan til að geyma dagsetingar?
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
-        #LL_API.addTournament(tournament_name, organizer_name,
-                             #organizer_number, tournament_type, dates)
+        # LL_API.addTournament(tournament_name, organizer_name,
+                # organizer_number, tournament_type, dates)
 
     def changeTournamentDates():
-        print("➢	Breyta dagsetningu á viðureign: \n") # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
+        # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
+        print("➢	Breyta dagsetningu á viðureign: \n")
         print()
         print("     Veldu viðureign\n")
         print()
@@ -97,7 +98,8 @@ class OrganizerUI():
         return user_input
 
     def changeResults():
-        print("➢	Breyta skráningu úrslita:\n ") # Hér þarf að sækja úrslit í IO sem userinn vill breyta
+        # Hér þarf að sækja úrslit í IO sem userinn vill breyta
+        print("➢	Breyta skráningu úrslita:\n ")
         print()
         print("	Veldu úrslit: ")
         print()

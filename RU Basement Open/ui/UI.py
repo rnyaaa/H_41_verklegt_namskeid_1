@@ -1,6 +1,8 @@
 from logic.LL_API import LL_API
+
+
 class Menu_prompt:
-    
+
     def menuFooter(display_quit=False):
         """Prints the last two options of a menu selection.
 
@@ -19,16 +21,7 @@ class Menu_prompt:
         user_input = user_input.lower()
         return user_input
 
-
-#----------------------------------------------------------------------------------------------------
-
 # Viewer UI --------------------------------------------
-
-
-
-#---------------------------------------------------------------------------------------------------
-
-#----------------------------------------------------------------------------------------------------
 
 
 class PlayerViewer():
@@ -54,12 +47,9 @@ class TournamentInfoUI():
         #   3. Þróttur |  7 stig  |  5 leggir unnir
         print()
 
-
-        
         user_input = Menu_prompt.menuFooter(False)
- 
-        return user_input
 
+        return user_input
 
     def showTournamentScores():
         None
@@ -70,7 +60,8 @@ class TournamentInfoUI():
     def showUpcomingGames():
         None
 
-#----------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------
+
 
 class PlayerHighScoreViewer():
 
@@ -147,7 +138,8 @@ class CaptainUI():
     def openResultsMenu():
         None
 
-#----------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------
+
 
 class EnterResults():
     def showUpcomingGamesSel():
@@ -160,7 +152,8 @@ class EnterResults():
         user_input = Menu_prompt.menuFooter(True)
         return user_input
 
-#----------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------
+
 
 class ResultsForm():
     def AddResults():

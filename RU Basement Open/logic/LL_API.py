@@ -4,6 +4,9 @@ from logic.TournamentLL import TournamentLL
 from logic.ViewerLL import ViewerLL
 from logic.ResultsLL import ResultsLL
 
+# verðum að hætta að importa LL_API inn í hina LL klasana, annars fáum við circular import
+# Megum bara importa hinum LL klösunum inn í LL_API en ekki öfugt!
+
 PLAYERS = "models/players.csv"
 GAMES = "models/teams.csv"
 TEAMS = "models/teams.csv"
