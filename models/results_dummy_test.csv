@@ -3,7 +3,7 @@ INSHOTS                   : Ægir Jarl,I130,Hallur Hansson,I120,Kjartan Finnboga
 OUTSHOTS                  : Ægir Jarl,U95,Hallur Hansson,U105,Kjartan Finnbogason,U115,Beitir Ólafsson,U125
 WINNINGTEAM/LOSING TEAM   : KR,Valur
 WINNINGSCORE/LOSINGSCORE  : 7,5
-ROUNDSWONWIN/ROUNDSWONLOSE: KR,16,Valur,8
+ROUNDSWONWIN/ROUNDSWONLOSE: 16,8
 WINNINGTEAM, WINNINGPLAYER: KR,Ægir Jarl                                                      LOSINGTEAM LOSINGPLAYER: Valur, Blablabla
 WINNINGTEAM, WINNINGPLAYER: KR,Hallur Hansson                                                 LOSINGTEAM LOSINGPLAYER: Valur, bla
 WINNINGTEAM, WINNINGPLAYER: KR,Kjartan Finnbogason                                            LOSINGTEAM LOSINGPLAYER: Valur, bla
