@@ -1,7 +1,8 @@
-from LL_API import LL_API
+
+
 class PlayerListLL():
     def getPlayer():
-        raise NotImplementedError
+        return IO_API.getPlayer()
     
     def getPlayerSortQP():
         raise NotImplementedError

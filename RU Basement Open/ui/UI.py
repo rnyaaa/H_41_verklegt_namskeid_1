@@ -2,6 +2,7 @@ from logic.LL_API import LL_API
 
 
 class Main_Menu():
+    
     def displayMainMenu():
         "Displays Main menu screen."
         print(
@@ -37,26 +38,16 @@ class Main_Menu():
         return user_input
 
     def openOrganizerMenu():
-        OrganizerUI.displayOrganizerMenu()
+        return OrganizerUI.displayOrganizerMenu()
 
     def openViewerMenu():
-        ViewerUI.displayViewer()
+        return ViewerUI.displayViewer()
 
     def openCaptainMenu():
-        CaptainUI.displayCaptainUI()
+        return CaptainUI.displayCaptainUI()
 
     def openShowGamesMenu():
-        """Displays game overview menu."""
-        print(78*"_")
-        print()
-        print(
-            "➢  Valmynd:\n"
-            "\n"
-            "1.	Listi yfir komandi viðureignir\n"
-            "2.	Listi yfir yfirstaðnar viðureignir\n")
-
-        user_input = Main_Menu.menuFooter(False)
-        return user_input
+        return ShowGamesUI.showGamesPage()
 
     def language():
         """Multiple language funcionality."""
@@ -291,7 +282,17 @@ class AddPlayerFormUI():
 class ShowGamesUI():
 
     def showGamesPage():
-        raise NotImplementedError
+        """Displays game overview menu."""
+        print(78*"_")
+        print()
+        print(
+            "➢  Valmynd:\n"
+            "\n"
+            "1.	Listi yfir komandi viðureignir\n"
+            "2.	Listi yfir yfirstaðnar viðureignir\n")
+
+        user_input = Main_Menu.menuFooter(False)
+        return user_input
 
     def showTournamentDates():
         raise NotImplementedError
@@ -339,24 +340,28 @@ class ViewerUI:
 
 
 class TeamViewer():
-
+    
+    
     def showTeams():
+        '''Shows list of teams and their players'''
+        
         print(">	Birta lista yfir Liðum\n")
-        print()
-        # print("lið"
-        #       Nafn
-        #       Nafn
-        #       Nafn
-        #  "lið"
-        #       Nafn   )
-
+        result = LL_API.getTeams() 
+        for name in result:
+            print(f"{name[0]}:")
+            print(f"{name[6]:>6}:")
+            print(f"{name[7]:>6}:")
+            print(f"{name[8]:>6}:")
+            print(f"{name[9]:>6}:")
+            print()
+        
         user_input = Main_Menu.menuFooter(False)
         return user_input
-
 
 class PlayerViewer():
 
     def enterPlayerName():
+
         None
 
     def showPlayer():

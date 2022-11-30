@@ -1,20 +1,23 @@
-from logic.LL_API import LL_API
+
+
+from logic.ResultsLL import ResultsLL
+from IO.IO_API import IO_API
 
 class PlayersLL():
     def getPlayers():
-        playerstream = LL_API.getPlayers()
+        playerstream = IO_API.getPlayers()
         return playerstream
     
     def getResults():
-        resultstream = LL_API.getResults()
+        resultstream = IO_API.getResults()
         return resultstream
     
     def addPlayers(playeradd):
-        LL_API.updatePlayers(playeradd)
+        IO_API.updatePlayers(playeradd)
 
     def updatePlayers():
-        playerstream = PlayersLL.getPlayers()
-        resultstream = PlayersLL.getResults()
+        playerstream = IO_API.getPlayers()
+        resultstream = IO_API.getResults()
         players = []
 
         """ bý til array af öllum players """

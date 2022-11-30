@@ -2,34 +2,45 @@ from IO.IO_API import IO_API
 from logic.PlayersLL import PlayersLL
 from logic.TournamentLL import TournamentLL
 from logic.ViewerLL import ViewerLL
+from logic.ResultsLL import ResultsLL
 
+PLAYERS = "models/players.csv"
+GAMES = "models/teams.csv"
+TEAMS = "models/teams.csv"
+TOURNAMENTS = "models/tournaments.csv"
 
-class LL_API:
-    def getPlayers():
-        playerstream = IO_API.getAllPlayers()
-        return playerstream
+class LL_API():
+    def __init__(self):
+        self.playerll = PlayersLL()
+        self.tournamentLL = TournamentLL()
+        self.viewerLL = ViewerLL()
+        self.resultsLL = ResultsLL()
 
-    def getTeams():
-        teamstream = IO_API.getAllTeams()
-        return teamstream
+    def getPlayers(self):
+        playersfile = IO_API.getAll(PLAYERS)
+        return playersfile
 
-    def getGames():
-        gamestream = IO_API.getAllGames()
-        return gamestream
+    def getTeams(self):
+        teamsfile = IO_API.getAll(TEAMS)
+        return teamsfile
 
-    def getTournament():
-        tournamentstream = IO_API.getAllTournaments()
-        return tournamentstream
+    def getGames(self):
+        gamesfile = IO_API.getAll(GAMES)
+        return gamesfile
 
-    def getResults(resultsID):
+    def getTournament(self):
+        tournamentsfile = IO_API.getAll(TOURNAMENTS)
+        return tournamentsfile
+
+    def getResults(self, resultsID):
         resultstream = IO_API.getResults(resultsID)
         return resultstream
 
-    def getPlayerScore(playername = str):
+    def getPlayerScore(self, playername = str):
         scores = ViewerLL.getPlayerScore
         return scores
 
-    def getPlayerScoreByDate():
+    def getPlayerScoreByDate(self):
         raise NotImplementedError
 
 
@@ -64,7 +75,7 @@ class LL_API:
         IO_API.updateGames(gamesupdate=str)
         
     def addPlayer(playeradd=str):
-        PlayersLL.addPlayers(playeradd=str)
+        #PlayersLL.addPlayers(playeradd=str)
         raise
 
     def changeResults():
@@ -74,16 +85,16 @@ class LL_API:
         raise NotImplementedError
 
     def updatePlayers(playerupdate=str):
-        IO_API.updatePlayers(playerupdate=str)
+        IO_API.Update(playerupdate=str, PLAYERS)
 
     def updateTeams(teamsupdate):
-        IO_API.updateTeams(teamsupdate=str)
+        IO_API.Update(teamsupdate=str, TEAMS)
 
     def updateGames(gamesupdate):
-        IO_API.updateGames(gamesupdate=str)
+        IO_API.Update(gamesupdate=str, GAMES)
 
-    def updateTournament(tournamentupdate):
-        IO_API.updateTournaments(tournamentupdate=str)
+    def updateTournament(tournamentupdate, ):
+        IO_API.Update(tournamentupdate=str, TOURNAMENTS)
 
-    def updateResults():
+    def updateResults(newresults, resultsID):
         IO_API.updateResults(newresults=str, resultsID=str)
