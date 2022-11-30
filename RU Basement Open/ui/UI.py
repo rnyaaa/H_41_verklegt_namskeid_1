@@ -51,7 +51,6 @@ class Main_Menu():
 
     def language():
         """Multiple language funcionality."""
-
         # C-Requirement functionality to be implemented
         raise NotImplementedError
 
@@ -149,6 +148,10 @@ class OrganizerUI():
         print()
         # print(hér koma viðureignirnar)
         print()
+
+        LL_API.getTournament
+
+        LL_API.changeDate()
 
         user_input = Main_Menu.menuFooter(True)
         return user_input

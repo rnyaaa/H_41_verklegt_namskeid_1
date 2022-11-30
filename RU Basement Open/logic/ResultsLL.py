@@ -1,6 +1,7 @@
 from logic.LL_API import LL_API
 
 class ResultsLL():
+
     def getResults(resultsID):
         resultstream = LL_API.getResults(resultsID)
 
