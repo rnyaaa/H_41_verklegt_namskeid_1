@@ -1,3 +1,7 @@
+
+"""id,name,birth_year,phone_nr,email
+1,Friðrik,1995,1234567,a@b.is
+2,Anna,1995,1234568,a@c.is"""
 import os
 import csv
 filedict = {
