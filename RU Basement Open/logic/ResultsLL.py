@@ -1,9 +1,13 @@
-# from logic.LL_API import LL_API
+#from logic.LL_API import LL_API
 
 # verðum að hætta að importa LL_API inn í hina LL klasana, annars fáum við circular import
 # Megum bara importa hinum LL klösunum inn í LL_API en ekki öfugt!
 
+
 class ResultsLL:
+
+    def __init__(self, ) -> None:
+        self.playerll = None
 
     def changeResults(resultsID):
         LL_API.getResults(resultsID)
@@ -70,18 +74,18 @@ class ResultsLL:
             for item in results[12]:
                 if results[10][item] == players[player][0]:
                     players[player][18] += 1
-                    
+
             # 501 Fours Losers
             for item in results[13]:
                 if results[11][item] == players[player][0]:
                     players[player][19] += 1
-        
+
         LL_API.updatePlayers(players)
 
     def updateGames(results):
         games = LL_API.getGames()
-            # Update Games
-            # Ok. NÝTT ATTRIBUTE: RESULTS_ID sem tengir við í GAMES og TOURNAMENT modelið
+        # Update Games
+        # Ok. NÝTT ATTRIBUTE: RESULTS_ID sem tengir við í GAMES og TOURNAMENT modelið
         for game in games:
             if results[14] == games[game][8]:
                 # Winner String Update
@@ -92,7 +96,7 @@ class ResultsLL:
 
                 # Losing Score update
                 games[game][6] = results[4][1]
-        
+
         LL_API.updateGames(games)
 
     def updateTeams(results):

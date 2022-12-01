@@ -1,6 +1,5 @@
-from logic.LL_API import LL_API
+# from logic.LL_API import LL_API
 from ui.UI import Menu_prompt
-from UI import Menu_prompt
 
 
 class OrganizerUI():

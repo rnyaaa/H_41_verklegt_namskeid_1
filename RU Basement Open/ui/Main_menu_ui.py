@@ -73,4 +73,4 @@ class Main_Menu_UI():
                 print("Ekki gildur valmöguleiki!")
 
 
-Main_Menu_UI.displayMainMenu()
+# Main_Menu_UI.displayMainMenu()

@@ -12,17 +12,21 @@ GAMES = "models/teams.csv"
 TEAMS = "models/teams.csv"
 TOURNAMENTS = "models/tournaments.csv"
 
-class LL_API():
+
+class LL_API:
 
     def __init__(self):
-        self.playerll = PlayersLL()
+        self.ioapi = IO_API()
+        self.playerll = PlayersLL(self.ioapi)
         self.tournamentLL = TournamentLL()
         self.viewerLL = ViewerLL()
         self.resultsLL = ResultsLL()
 
     def getPlayers(self):
-        playersfile = IO_API.getAll(PLAYERS)
-        return playersfile
+        return self.playerll.get_all_players()
+
+    def createPlayer(self, player):
+        return self.playerll.createPlayer(player)
 
     def getTeams(self):
         teamsfile = IO_API.getAll(TEAMS)
@@ -40,18 +44,16 @@ class LL_API():
         resultstream = IO_API.getResults(resultsID)
         return resultstream
 
-    def getPlayerScore(self, playername = str):
+    def getPlayerScore(self, playername=str):
         scores = ViewerLL.getPlayerScore
         return scores
 
     def getPlayerScoreByDate(self):
         raise NotImplementedError
 
-
     def getTournamentScores():
         tournamentscorelist = ViewerLL.getTournamentScore()
         return tournamentscorelist
-                
 
     def getTournamentDates():
         tournamentdatelist = ViewerLL.getTournamentDates()
@@ -64,23 +66,23 @@ class LL_API():
     def getUpcomingGames():
         gamesupcoming = ViewerLL.getUpcomingGames()
         return gamesupcoming
-        
+
     def getPlayerList():
         players = ViewerLL.getPlayerList
         return players
 
     def addTeam(newteam):
         IO_API.updateTeams(newteam=str)
-    
+
     def addTournament(tournamentinfo=str):
         TournamentLL.addTournament(tournamentinfo=str)
 
     def addGame(gamesupdate):
         IO_API.updateGames(gamesupdate=str)
-        
-    def addPlayer(playeradd=str):
-        PlayersLL.addPlayers(playeradd=str)
-        raise
+
+    # def addPlayer(playeradd=str):
+    #    PlayersLL.addPlayers(playeradd=str)
+    #    raise
 
     def changeResults():
         raise NotImplementedError

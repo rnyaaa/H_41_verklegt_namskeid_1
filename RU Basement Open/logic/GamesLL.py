@@ -1,4 +1,5 @@
-from LL_API import LL_API
+import LL_API
+
 
 class GameLL():
 
