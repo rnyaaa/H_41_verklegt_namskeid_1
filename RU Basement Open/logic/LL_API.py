@@ -74,7 +74,7 @@ class LL_API:
         return players
 
     def addTeam(self, newteam):
-        self.ioapi.updateTeams(newteam=str)
+        self.teamLL.addTeams(newteam=str)
 
     def addTournament(self, tournamentinfo=str):
         self.tournamentLL.addTournament(tournamentinfo=str)
