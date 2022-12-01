@@ -7,6 +7,9 @@ class TeamsLL:
     def __init__(self, ioapi: IO_API):
         self.ioapi = ioapi
 
-    def get_all_teams(self):
+    def getAllTeams(self):
         return self.ioapi.return_model(Team)
+
+    def addTeam(self):
+        return self.ioapi.create_model(Team)
         

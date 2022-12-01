@@ -7,8 +7,11 @@ class TournamentLL():
     def __init__(self, ioapi: IO_API):
         self.ioapi = ioapi
 
+    def getAllTournaments(self):
+        return self.ioapi.return_model(Tournament)
+
     def addTournament(self):
-        tournaments = self.ioapi.getTournament()
+        raise NotImplementedError
 
     def getTournamentScore(self):
         teams = self.ioapi.return_model(Team)

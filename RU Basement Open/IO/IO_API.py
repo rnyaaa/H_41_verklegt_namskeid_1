@@ -57,7 +57,7 @@ class IO_API:
 
 
     def create_model(self, model):
-        with self.Loader(model.__class__, mode="w") as csvfile:
+        with self.Loader(model.__class__, mode="a") as csvfile:
             fnames = self.fieldnames[model.__class__]
             writer = csv.writer(csvfile)
             print(model.listify())
