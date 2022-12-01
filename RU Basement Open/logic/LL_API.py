@@ -16,19 +16,21 @@ TOURNAMENTS = "models/tournaments.csv"
 
 class LL_API:
 
-    def __init__(self):
+    def __init__(self, player=str, fields=str):
         self.ioapi = IO_API()
         self.playerLL = PlayersLL(self.ioapi)
         self.tournamentLL = TournamentLL(self.ioapi)
         self.teamLL = TeamsLL(self.ioapi)
         self.viewerLL = ViewerLL(self.ioapi)
         self.resultsLL = ResultsLL(self.ioapi)
+        self.player = player
+        self.fields = fields
 
     def getPlayers(self):
         return self.playerLL.get_all_players()
 
-    def createPlayer(self, player):
-        return self.playerLL.createPlayer(player)
+    def createPlayer(self, player, fields):
+        self.playerLL.createPlayer(self.player, self.fields)
 
     def getTeams(self):
         return self.teamLL.get_all_teams()

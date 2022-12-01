@@ -20,34 +20,37 @@ class ViewerLL:
         """ function to implement keysort for the playersort functions """
         return item[1]
 
-    def getPlayerList(self, sortkey):
-        """ Sorts the players according to QPs, Inshots or Outshots. 
-            The attribute this functions gets called by should be either of those."""
-        players = self.ioapi.getAll("players")
-        playerscores = self.ioapi.getAll("playerscore")
-        list = []
-        if sortkey == QP:
-            sortkey = 5
-            # goes to the item in the list that tracks QPs
-        if sortkey == inshots:
-            sortkey = 6
-        if sortkey == outshots:
-            sortkey = 7
-        for player in players:
-            list.append([players[player], players[player][sortkey]])
-            # gets a list like [[playername, QPs]]
-        list.sort(key=sort)
-        return list
+    def getPlayerScores(self):
+        playerscores = self.ioapi.getAll("playerscores")
+        scores = []
+        for score in playerscores:
+            scores.append(PlayerScore(score[0], score[1], score[2], score[3], score[3]))
+        return scores
+            
 
-    def getPlayerScore(self):
+    def getPlayerList(self, sortkey):
+        players = PlayersLL.getAllPlayers()
+        playerlist = []
+        for player in players:
+            playerlist.append(player.name)
+
+    def getPlayerScore(self, name):
         """ Takes the playerstream, finds the player and takes the values from 8-19 and puts them in an array and returns it """
         players = self.ioapi.getPlayers()
         scores = []
-        for player in players:
-            if players[player][0] == playername:
-                scores = [line[8], line[9], line[10], line[11], line[12], line[13],
-                          line[14], line[15], line[16], line[17], line[18], line[19]]
-                """ 501 Einmenn, unnir, tap, 301 Duo, unnir, tap, Cricket, unnir, tap,501 Fjormenn, unnir, tap"""
+        player = None
+        for p in players:
+            if p.name == name:
+                player = p
+        
+        scores = self.ioapi.getAllScores()
+        
+        scores = self.ioapi.getScoreByPlayerId(player.id)
+
+            # if players[player][0] == playername:
+            #     scores = [line[8], line[9], line[10], line[11], line[12], line[13],
+            #               line[14], line[15], line[16], line[17], line[18], line[19]]
+            #     """ 501 Einmenn, unnir, tap, 301 Duo, unnir, tap, Cricket, unnir, tap,501 Fjormenn, unnir, tap"""
         return scores
 
     def getPlayerScoreByDate():

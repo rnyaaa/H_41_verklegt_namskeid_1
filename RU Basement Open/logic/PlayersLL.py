@@ -6,12 +6,11 @@ class PlayersLL:
     def __init__(self, ioapi_connection: IO_API):
         self.ioapi = ioapi_connection
 
-    def get_all_players(self):
+    def getAllPlayers(self):
         players = self.ioapi.getAll("players")
         player_models = []
-        for lis in players:
-            player_models.append(
-                Player(lis[0], lis[1], lis[2], lis[3], lis[4]))
+        for player in players:
+            Player(row[0], row[1], row[2], row[3], row[4])
         return player_models
 
     def getAllPlayerScore(self):
