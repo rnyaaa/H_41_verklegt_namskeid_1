@@ -17,28 +17,30 @@ class LL_API:
 
     def __init__(self):
         self.ioapi = IO_API()
-        self.playerll = PlayersLL(self.ioapi)
-        self.tournamentLL = TournamentLL()
-        self.viewerLL = ViewerLL()
-        self.resultsLL = ResultsLL()
+        self.playerLL = PlayersLL(self.ioapi)
+        self.tournamentLL = TournamentLL(self.ioapi)
+        self.viewerLL = ViewerLL(self.ioapi)
+        self.resultsLL = ResultsLL(self.ioapi)
 
     def getPlayers(self):
-        return self.playerll.get_all_players()
+        return self.playerLL.get_all_players()
 
     def createPlayer(self, player):
-        return self.playerll.createPlayer(player)
+        return self.playerLL.createPlayer(player)
 
     def getTeams(self):
-        teamsfile = IO_API.getAll(TEAMS)
-        return teamsfile
+        return self.
+        # teamsfile = IO_API.getAll(TEAMS)
+        # return teamsfile
 
     def getGames(self):
         gamesfile = IO_API.getAll(GAMES)
         return gamesfile
 
     def getTournament(self):
-        tournamentsfile = IO_API.getAll(TOURNAMENTS)
-        return tournamentsfile
+        return self.tournamentLL
+        # tournamentsfile = IO_API.getAll(TOURNAMENTS)
+        # return tournamentsfile
 
     def getResults(self, resultsID):
         resultstream = IO_API.getResults(resultsID)

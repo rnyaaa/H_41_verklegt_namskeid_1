@@ -1,13 +1,14 @@
 class Player:
-    def __init__(self, id="", name="", birth_year="", phone_nr="", email=""):
-        self.id = id
+    def __INIT__(self, playerid, name, mobile, home_phone, address):
+        self.playerid = playerid
         self.name = name
-        self.birth_year = birth_year
-        self.phone_nr = phone_nr
-        self.email = email
+        self.mobile = mobile
+        self.home_phone = home_phone
+        self.address = address
 
     def listify(self):
-        return [self.id, self.name, self.birth_year, self.phone_nr, self.email]
+        return [self.playerid, self.name, self.mobile, self.home_phone, self.address]
+
 
     def model(self):
         return "players"

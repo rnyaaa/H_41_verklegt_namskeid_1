@@ -1,13 +1,10 @@
-#from logic.LL_API import LL_API
-
-# verðum að hætta að importa LL_API inn í hina LL klasana, annars fáum við circular import
-# Megum bara importa hinum LL klösunum inn í LL_API en ekki öfugt!
+from IO_API import IO_API
 
 
 class ResultsLL:
 
-    def __init__(self, ) -> None:
-        self.playerll = None
+    def __init__(self, ioapi_connection: IO_API):
+        self.ioapi = ioapi_connection
 
     def changeResults(resultsID):
         LL_API.getResults(resultsID)
