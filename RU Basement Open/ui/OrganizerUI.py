@@ -44,7 +44,7 @@ class OrganizerUI():
         """Organizer player addition form."""
 
         print("➢   Skrá leikmenn")
-        name = input("o Nafn: ")
+        name = input("o    Nafn: ")
         id_number = input("o    Kennitala: ")
         home_address = input("o     Heimilisfang: ")
         phone_number1 = input("o    GSM: ")
