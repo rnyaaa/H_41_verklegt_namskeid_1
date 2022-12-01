@@ -9,6 +9,5 @@ class Player:
     def listify(self):
         return [self.playerid, self.name, self.mobile, self.home_phone, self.address]
 
-
     def model(self):
         return "players"

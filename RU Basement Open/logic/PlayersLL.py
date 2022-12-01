@@ -1,8 +1,5 @@
 from IO.IO_API import IO_API
-from logic.ResultsLL import ResultsLL
 from models.player import Player
-# from LL_API import LL_API
-
 
 class PlayersLL:
 
@@ -17,6 +14,9 @@ class PlayersLL:
                 Player(lis[0], lis[1], lis[2], lis[3], lis[4]))
         return player_models
 
+    def getAllPlayerScore(self):
+        playerscore = self.ioapi.getAll("PlayerScore")
+
     def createPlayer(self, player):
         self.ioapi.create_model(player)
 
@@ -28,4 +28,3 @@ class PlayersLL:
         for player in players:
             self.players.append(player)
 
-        # LL_API.updatePlayers(players)

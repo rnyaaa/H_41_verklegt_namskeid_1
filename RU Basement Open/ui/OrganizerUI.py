@@ -1,4 +1,4 @@
-# from logic.LL_API import LL_API
+from logic.LL_API import LL_API
 from ui.UI import Menu_prompt
 
 
@@ -53,8 +53,8 @@ class OrganizerUI():
             f"Liðið sem leikmaðurinn tilheyrir:\n"
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
-        # LL_API.addPlayer(name, id_number, home_address,
-        # phone_number1, phone_number2, registered_team)
+        LL_API.addPlayer(name, id_number, home_address,
+                         phone_number1, phone_number2, registered_team)
 
     def addTeamPage():
         print("➢   Skrá lið:")
@@ -65,7 +65,7 @@ class OrganizerUI():
         phone_number = input("o   Símanúmer: ")
 
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
-        #LL_API.addTeam(team_name, home_address, team_organiser, phone_number)
+        LL_API.addTeam(team_name, home_address, team_organiser, phone_number)
 
     def addTournament():
         print("➢	Stofna deild:")

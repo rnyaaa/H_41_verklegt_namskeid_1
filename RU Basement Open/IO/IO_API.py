@@ -5,11 +5,15 @@ filedict = {
     "players": "models/players.csv",
     "games": "models/teams.csv",
     "teams": "models/teams.csv",
-    "tournaments": "models/tournaments.csv"
+    "tournaments": "models/tournaments.csv",
+    "playerscore": "models/playerscore.csv"
 }
 
 fieldnames = {
-    "players": ["id", "name", "birth_year", "phone_nr", "email"]
+    "players": ["id", "name", "birth_year", "phone_nr", "email"],
+    "teams": ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won",["player1", "player2", "player3", "player4"]],
+    "tournaments": [""],
+    "playerscore":[["gameid", "playerid"], "QPs", "inshots", "outshots", ("win501_1", "lose501_1"), ("win301", "los301"), ("wincricket", "losecricket"), ("win501_4,lose501_4")]
 }
 
 
@@ -38,7 +42,6 @@ class IO_API:
         return players
 
     def create_model(self, model):
-        print("hello")
         file_name = filedict[model.model()]
         print(file_name)
         with open(file=file_name, mode="a", encoding="utf-8", newline="") as csvfile:

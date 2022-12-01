@@ -1,4 +1,9 @@
 from IO.IO_API import IO_API
+from models.player import Player
+from models.playerscore import PlayerScore
+from models.team import Team
+from models.tournament import Tournament
+
 
 
 # from logic.LL_API import LL_API
@@ -8,15 +13,18 @@ from IO.IO_API import IO_API
 
 
 class ViewerLL:
+    def __init__(self, ioapi_connection: IO_API):
+        self.ioapi = ioapi_connection
 
     def sort(item):
         """ function to implement keysort for the playersort functions """
         return item[1]
 
-    def getPlayerList(sortkey):
+    def getPlayerList(self, sortkey):
         """ Sorts the players according to QPs, Inshots or Outshots. 
             The attribute this functions gets called by should be either of those."""
-        players = LL_API.getPlayers()
+        players = self.ioapi.getAll("players")
+        playerscores = self.ioapi.getAll("playerscore")
         list = []
         if sortkey == QP:
             sortkey = 5
@@ -31,9 +39,9 @@ class ViewerLL:
         list.sort(key=sort)
         return list
 
-    def getPlayerScore():
+    def getPlayerScore(self):
         """ Takes the playerstream, finds the player and takes the values from 8-19 and puts them in an array and returns it """
-        players = LL_API.getPlayers()
+        players = self.ioapi.getPlayers()
         scores = []
         for player in players:
             if players[player][0] == playername:
@@ -45,8 +53,8 @@ class ViewerLL:
     def getPlayerScoreByDate():
         raise NotImplementedError
 
-    def getTournamentScore():
-        teams = LL_API.getTeams()
+    def getTournamentScore(self):
+        teams = self.ioapi.getTeams()
         """ gets all teams in tournament and sorts by games won and rounds won """
         # NOTE: Implement the sorting so that it sorts by both, as it is it only sorts by games won
         tournamentranklist = []
@@ -56,17 +64,17 @@ class ViewerLL:
         tournamentranklist.sort()
         return tournamentranklist
 
-    def getTournamentDates():
+    def getTournamentDates(self):
         """ sækir tournament skrá, fer í línu 2 með dagsetningum og liðum sem spila þann dag og setur í lista """
         tournamentdatelist = []
-        tournaments = LL_API.getTournament()
+        tournaments = self.ioapi.getTournament()
         """ google svartagaldur, pls finna betri leið til að taka hvert 3 gildi og setja í list """
         tournamentdatelist = zip(*[iter(tournaments[1])]*3)
         return tournamentdatelist
 
-    def getGameFinished():
+    def getGameFinished(self):
         """ Gets finished games by checking whether results have been added. Adds games with results to list"""
-        games = LL_API.getGames()
+        games = self.ioapi.getGames()
         gamesfinished = []
         for game in games:
             if games[game][4] != None:
@@ -75,9 +83,9 @@ class ViewerLL:
                 """ Team 1, Team 2, Date, Winner, ScoreWinner, ScoreLoser"""
         return gamesfinished
 
-    def getUpcomingGames():
+    def getUpcomingGames(self):
         """ Gets upcoming games by checking whether results have been added. Adds games with no results to list"""
-        games = LL_API.getGames()
+        games = self.ioapi.getGames()
         gamesupcoming = []
         for game in games:
             if games[game][4] == None:

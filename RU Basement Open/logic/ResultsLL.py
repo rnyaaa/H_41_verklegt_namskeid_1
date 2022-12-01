@@ -1,4 +1,4 @@
-from IO_API import IO_API
+from IO.IO_API import IO_API
 
 
 class ResultsLL:
@@ -6,12 +6,12 @@ class ResultsLL:
     def __init__(self, ioapi_connection: IO_API):
         self.ioapi = ioapi_connection
 
-    def changeResults(resultsID):
-        LL_API.getResults(resultsID)
+    def changeResults(self, resultsID):
+        self.ioapi.getResults(resultsID)
 
         # Senda svo til UI og fá ný results (newResults) til baka
 
-        ResultsLL.updateResults(newResults, resultsID)
+        self.ioapi.updateResults(newResults, resultsID)
 
     def updateResults(results, resultsID):
         ResultsLL.updatePlayers(results)
@@ -79,7 +79,7 @@ class ResultsLL:
 
         LL_API.updatePlayers(players)
 
-    def updateGames(results):
+    def updateGames(self, results):
         games = LL_API.getGames()
         # Update Games
         # Ok. NÝTT ATTRIBUTE: RESULTS_ID sem tengir við í GAMES og TOURNAMENT modelið
@@ -94,7 +94,7 @@ class ResultsLL:
                 # Losing Score update
                 games[game][6] = results[4][1]
 
-        LL_API.updateGames(games)
+        self.ioapi.updateGames(games)
 
     def updateTeams(results):
         teams = LL_API.getTeams()

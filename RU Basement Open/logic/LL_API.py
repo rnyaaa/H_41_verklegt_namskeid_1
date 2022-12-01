@@ -73,7 +73,7 @@ class LL_API:
         players = ViewerLL.getPlayerList
         return players
 
-    def addTeam(self.newteam):
+    def addTeam(self, newteam):
         self.ioapi.updateTeams(newteam=str)
 
     def addTournament(self, tournamentinfo=str):

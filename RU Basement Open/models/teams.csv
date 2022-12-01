@@ -1,2 +1,2 @@
-id,team_name,address,phone_nr,total_games_won,total_rounds_won,player1,player2,player3,player4
+id,team_name,address,association_name,phone_nr,total_games_won,total_rounds_won,player1,player2,player3,player4
 1,KR,Frostaskjól 2,Knattspyrnufélag Reykjavíkur,823-3443,999,999999,Ægir Jarl,Hallur Hansson,Kjartan Finnbogason,Beitir Ólafsson
