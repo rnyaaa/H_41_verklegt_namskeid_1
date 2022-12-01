@@ -1,21 +1,27 @@
 import os
 import csv
 
+from models.game import Game
+from models.player import Player
+from models.playerscore import PlayerScore
+from models.tournament import Tournament
+from models.team import Team
+
 class IO_API:
 
     def __init__(self):
         self.filedict = {
-            "players": "models/players.csv",
-            "games": "models/games.csv",
-            "teams": "models/teams.csv",
-            "tournaments": "models/tournaments.csv",
-            "playerscore": "models/playerscore.csv"
+            Player: "models/players.csv",
+            Game: "models/games.csv",
+            Team: "models/teams.csv",
+            Tournament: "models/tournaments.csv",
+            PlayerScore: "models/playerscore.csv"
         }
         self.fieldnames = {
-            "players": ["id", "name", "birth_year", "phone_nr", "email"],
-            "teams": ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
-            "tournaments": [""],
-            "playerscore": ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1", "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"]
+            Player: ["id", "name", "birth_year", "phone_nr", "email"],
+            Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
+            Tournament: [""],
+            PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1", "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"]
         }
 
     def getAll(self, type=str):
@@ -25,8 +31,8 @@ class IO_API:
         filestream.close()
         return file
 
-    def Loader(self, model):
-        filestream = open(self.filedict[model], "r", newline='', encoding="UTF-8")
+    def Loader(self, model, mode="r"):
+        filestream = open(self.filedict[model], mode, newline='', encoding="UTF-8")
         return filestream
 
     def Decoder(self, filestream):
@@ -40,24 +46,22 @@ class IO_API:
             players.append(row)
         return players
 
+    def return_model(self, model_type):
+        model_return = []
+        with self.Loader(model_type) as csvfile:
+            reader = csv.reader(csvfile)
+            for row in reader:
+                model_return.append([item for item in row])
+        """ Dark magic pls do not touch """
+        model_return = list(map(lambda x: model_type(*x), model_return))
+
+
     def create_model(self, model):
-        file_name = self.filedict[model.model()]
-        print(file_name)
-        with open(file=file_name, mode="a", encoding="utf-8", newline="") as csvfile:
-            fnames = self.fieldnames[model.model()]
+        with self.Loader(model.__class__, mode="w") as csvfile:
+            fnames = self.fieldnames[model.__class__]
             writer = csv.writer(csvfile)
             print(model.listify())
             writer.writerow(model.listify())
-
-    def Update(self, update, type):
-        linestr = ""
-        for line in update:
-            for item in line:
-                linestr += item + ","
-            linestr += '\n'
-        file = open(type, "w")
-        file.write(linestr)
-        file.close
 
     def getResults(self, resultsID):
         resultstream = IO_API.Loader(resultsID=str)

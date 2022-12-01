@@ -1,5 +1,6 @@
 from IO.IO_API import IO_API
 from models.player import Player
+from models.playerscore import PlayerScore
 
 class PlayersLL:
 
@@ -7,28 +8,20 @@ class PlayersLL:
         self.ioapi = ioapi
 
     def getAllPlayers(ioapi):
-        players = ioapi.getAll("players")
+        players = ioapi.getAll(Player)
         player_models = []
         for player in players:
             player_models.append(Player(player[0], player[1], player[2], player[3], player[4]))
         return player_models
 
     def getAllPlayerScore(self):
-        playerscore = self.ioapi.getAll("PlayerScore")
+        scores = self.ioapi.return_model(PlayerScore)
 
     def createPlayer(self, player):
         self.ioapi.create_model(player)
 
-    def addPlayers(self, players):
-        # players = LL_API.getPlayers()
-        # player = []
-        players = []
-        for player in players:
-            self.players.append(player)
-
-
     def getPlayerScores(self):
-        playerscores = self.ioapi.getAll("playerscores")
+        playerscores = self.ioapi.getAll(PlayerScore)
         scores = []
         for score in playerscores:
             scores.append(PlayerScore(score[0], score[1], score[2], score[3], score[3]))
@@ -36,7 +29,7 @@ class PlayersLL:
             
 
     def getPlayerList(self, sortkey):
-        players = self.ioapi.getAll("players")
+        players = self.ioapi.getAll(Player)
         playerlist = []
         for player in players:
             playerlist.append(player.name)

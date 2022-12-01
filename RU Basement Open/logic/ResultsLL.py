@@ -8,19 +8,16 @@ class ResultsLL:
 
     def changeResults(self, resultsID):
         self.ioapi.getResults(resultsID)
-
         # Senda svo til UI og fá ný results (newResults) til baka
 
-        self.ioapi.updateResults(newResults, resultsID)
-
-    def updateResults(results, resultsID):
+    def updateResults(self, results, resultsID):
         ResultsLL.updatePlayers(results)
         ResultsLL.updateGames(results)
         ResultsLL.updateTeams(results)
-        LL_API.updateResults(results, resultsID)
+        self.ioapi.updateResults(results, resultsID)
 
-    def updatePlayers(results):
-        players = LL_API.getPlayers()
+    def updatePlayers(self, results):
+        players = self.ioapi.getPlayers()
         for player in players:
             for item in results[0]:
                 if item == players[player][0]:
@@ -76,11 +73,10 @@ class ResultsLL:
             for item in results[13]:
                 if results[11][item] == players[player][0]:
                     players[player][19] += 1
-
-        LL_API.updatePlayers(players)
+        self.ioapi.updatePlayers(players)
 
     def updateGames(self, results):
-        games = LL_API.getGames()
+        games = self.ioapi.getGames()
         # Update Games
         # Ok. NÝTT ATTRIBUTE: RESULTS_ID sem tengir við í GAMES og TOURNAMENT modelið
         for game in games:
@@ -93,11 +89,10 @@ class ResultsLL:
 
                 # Losing Score update
                 games[game][6] = results[4][1]
-
         self.ioapi.updateGames(games)
 
-    def updateTeams(results):
-        teams = LL_API.getTeams()
+    def updateTeams(self, results):
+        teams = self.ioapi.getTeams()
         # Update Team Score
         # Ok ný regla, winning teamið kemur alltaf fyrst í results á línu 4
         for team in teams:
@@ -108,4 +103,4 @@ class ResultsLL:
             if results[3][1] == teams[team][0]:
                 teams[team][4] += results[4][1]
                 teams[team][5] += results[5][0]
-        LL_API.updateTeams(teams)
+        self.ioapi.updateTeams(teams)
