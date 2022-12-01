@@ -53,8 +53,8 @@ class OrganizerUI():
             f"Liðið sem leikmaðurinn tilheyrir:\n"
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
-        LL_API.addPlayer(name, id_number, home_address,
-                         phone_number1, phone_number2, registered_team)
+        player = name + id_number + home_address + phone_number1 + phone_number2 + registered_team
+        LL_API.createPlayer(player)
 
     def addTeamPage():
         print("➢   Skrá lið:")
