@@ -1,0 +1,11 @@
+Allir mættu í dag
+
+Planið var að implementa betri data strúktúra og laga IO vesenið og að gera fyrstu run tests á forritinu
+
+Við fengum TA til að hjálpa okkur og kom í ljós að við gleymdum að implementa model classes, að nota þá í logic layer til að vinna upplýsingar og að við routuðum allt þriggja layer kerfið vitlaust.
+
+Við löguðum það af bestu geti og komumst að niðurstöðu með hvernig við gátum í staðinn notað model classes til að gera úrvinnslu í Logic Layer.
+Það á ennþá eftir að laga helling af því samt og implementa logic layer model class úrvinnsluna
+
+Markmið morgundagsins er að implementa allt í logic layer með model classes, fá IOið til að taka við nýjum hlutum og að finna út úr
+því hvar við setjum störtum model classes með gögnunum(LL_API? IO_API? hverjum Logic class fyrir sig?)
