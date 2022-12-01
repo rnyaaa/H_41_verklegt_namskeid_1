@@ -1,15 +1,19 @@
 from IO.IO_API import IO_API
+from models.game import Game
 
 class GamesLL():
 
     def __init__(self, ioapi: IO_API):
         self.ioapi = ioapi
 
-    def addGame():
+    def addGame(self):
+        self.ioapi.create_model(Game)
+
+    def changeDate(self):
         None
 
-    def changeDate():
-        None
+    def getAllGames(self):
+        return self.ioapi.return_model(Game)
 
     def getGameFinished(self):
         """ Gets finished games by checking whether results have been added. Adds games with results to list"""

@@ -58,7 +58,7 @@ class OrganizerUI():
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
         player = Player(id_number, name, phone_number1, phone_number2, home_address)
-        self.llapi.createPlayer(player)
+        self.llapi.addPlayer(player)
 
     def addTeamPage(self):
         print("➢   Skrá lið:")
