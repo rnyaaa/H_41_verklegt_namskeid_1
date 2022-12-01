@@ -5,22 +5,23 @@ from ui.UI import Menu_prompt
 class ViewerUI:
 
     def displayViewerUI():
-        print(78*"_")
-        print()
-        print(
-            "Verið velkomin í Tölfræðivalmyndina!\n"
-            "\n"
-            "➢  Valmynd:\n"
-            "\n"
-            "1.	Listi yfir lið\n"
-            "2.	Staða móts\n"
-            "3.	Listi yfir þá sem hafa skorað flest afreksstig\n"
-            "4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni\n"
-            "5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni\n"
-            "6.	Tölfræði fyrir ákveðna leikmenn")
+        while True:
+            print(78*"_")
+            print()
+            print(
+                "Verið velkomin í Tölfræðivalmyndina!\n"
+                "\n"
+                "➢  Valmynd:\n"
+                "\n"
+                "1.	Listi yfir lið\n"
+                "2.	Staða móts\n"
+                "3.	Listi yfir þá sem hafa skorað flest afreksstig\n"
+                "4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni\n"
+                "5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni\n"
+                "6.	Tölfræði fyrir ákveðna leikmenn")
 
-        user_input = Menu_prompt.menuFooter(False)
-        return user_input
+            user_input = Menu_prompt.menuFooter(False)
+            return user_input
 
     def showTournamentInfo():
         None
