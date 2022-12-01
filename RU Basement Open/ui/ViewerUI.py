@@ -4,6 +4,9 @@ from ui.UI import Menu_prompt
 
 class ViewerUI:
 
+    def __init__(self, llapi: LL_API):
+        self.llapi = llapi
+
     def displayViewerUI():
         while True:
             print(78*"_")

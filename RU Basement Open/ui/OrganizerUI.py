@@ -1,10 +1,14 @@
 from logic.LL_API import LL_API
+from models.player import Player
 from ui.UI import Menu_prompt
 
 
 class OrganizerUI():
 
-    def displayOrganizerMenu():
+    def __init__(self, llapi: LL_API):
+        self.llapi = llapi
+
+    def displayOrganizerMenu(self):
         """Displays the organizer submenu."""
         while True:
             print(78*"_")
@@ -24,22 +28,22 @@ class OrganizerUI():
             user_input = Menu_prompt.menuFooter(True)
 
             if user_input == "1":
-                OrganizerUI.addTeamPage()
+                self.addTeamPage()
             elif user_input == "2":
-                OrganizerUI.addTournament()
+                self.addTournament()
             elif user_input == "3":
-                OrganizerUI.addPlayer()
+                self.addPlayer()
             elif user_input == "4":
-                OrganizerUI.changeTournamentDates()
+                self.changeTournamentDates()
             elif user_input == "5":
-                OrganizerUI.changeResults()
+                self.changeResults()
             elif user_input == "b":
                 break
             else:
                 # Á eftir að útfæra loopu
                 ("Ekki gildur valmöguleiki, reyndu aftur")
 
-    def addPlayer():
+    def addPlayer(self):
         """Organizer player addition form."""
 
         print("➢   Skrá leikmenn")
@@ -53,10 +57,10 @@ class OrganizerUI():
             f"Liðið sem leikmaðurinn tilheyrir:\n"
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
-        player = name + id_number + home_address + phone_number1 + phone_number2 + registered_team
-        LL_API.createPlayer(player)
+        player = Player(id_number, name, phone_number1, phone_number2, home_address)
+        self.llapi.createPlayer(player)
 
-    def addTeamPage():
+    def addTeamPage(self):
         print("➢   Skrá lið:")
         print()
         team_name = input("o   Nafn liðs: ")
@@ -65,9 +69,9 @@ class OrganizerUI():
         phone_number = input("o   Símanúmer: ")
 
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
-        LL_API.addTeam(team_name, home_address, team_organiser, phone_number)
+        self.llapi.addTeam(team_name, home_address, team_organiser, phone_number)
 
-    def addTournament():
+    def addTournament(self):
         print("➢	Stofna deild:")
         print()
         tournament_name = input("o	Nafn deildar: ")
@@ -78,13 +82,13 @@ class OrganizerUI():
             dates = input("o	Dagsetningar: ")
             if dates == "":
                 break
-
+        raise NotImplementedError()
         # Má gera lista að ofan til að geyma dagsetingar?
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
         # LL_API.addTournament(tournament_name, organizer_name,
                 # organizer_number, tournament_type, dates)
 
-    def changeTournamentDates():
+    def changeTournamentDates(self):
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
         print("➢	Breyta dagsetningu á viðureign: \n")
         print()
@@ -96,7 +100,7 @@ class OrganizerUI():
         user_input = Menu_prompt.menuFooter(True)
         return user_input
 
-    def changeResults():
+    def changeResults(self):
         # Hér þarf að sækja úrslit í IO sem userinn vill breyta
         print("➢	Breyta skráningu úrslita:\n ")
         print()

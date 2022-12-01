@@ -1,5 +1,9 @@
+from logic.LL_API import LL_API
 
 class Menu_prompt:
+
+    def __init__(self, llapi: LL_API):
+        self.llapi = llapi
 
     def menuFooter(display_quit=False):
         """Prints the last two options of a menu selection.

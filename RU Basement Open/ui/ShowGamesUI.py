@@ -1,7 +1,11 @@
+from logic.LL_API import LL_API
 from ui.UI import Menu_prompt
 
 
 class ShowGamesUI():
+
+    def __init__(self, llapi: LL_API):
+        self.llapi = llapi
 
     def showGamesPage():
         """Displays game overview menu."""

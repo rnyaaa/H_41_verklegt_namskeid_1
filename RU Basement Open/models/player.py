@@ -1,5 +1,5 @@
 class Player:
-    def __INIT__(self, playerid, name, mobile, home_phone, address):
+    def __init__(self, playerid, name, mobile, home_phone, address):
         self.playerid = playerid
         self.name = name
         self.mobile = mobile

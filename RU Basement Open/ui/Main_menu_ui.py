@@ -1,13 +1,16 @@
-
+from logic.LL_API import LL_API
 from ui.OrganizerUI import OrganizerUI
 from ui.CaptainUI import CaptainUI
 from ui.ShowGamesUI import ShowGamesUI
 from ui.ViewerUI import ViewerUI
 
 
-class Main_Menu_UI():
+class Main_Menu_UI:
 
-    def displayMainMenu():
+    def __init__(self, llapi: LL_API):
+        self.llapi = llapi
+
+    def displayMainMenu(self):
         "Displays Main menu screen."
         while True:
             print(
@@ -62,13 +65,13 @@ class Main_Menu_UI():
                 print("          Bless!")
                 break
             elif user_input == "1":
-                OrganizerUI.displayOrganizerMenu()
+                OrganizerUI(self.llapi).displayOrganizerMenu()
             elif user_input == "2":
-                CaptainUI.displayCaptainUI()
+                CaptainUI(self.llapi).displayCaptainUI()
             elif user_input == "3":
-                ShowGamesUI.showGamesPage()
+                ShowGamesUI(self.llapi).showGamesPage()
             elif user_input == "4":
-                ViewerUI.displayViewerUI()
+                ViewerUI(self.llapi).displayViewerUI()
             else:
                 print("Ekki gildur valmöguleiki!")
 

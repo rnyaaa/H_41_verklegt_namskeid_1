@@ -1,9 +1,10 @@
 from IO.IO_API import IO_API
+from models.player import Player
 from logic.PlayersLL import PlayersLL
 from logic.ResultsLL import ResultsLL
 from logic.TeamsLL import TeamsLL
 from logic.TournamentLL import TournamentLL
-from logic.ViewerLL import ViewerLL
+from logic.GamesLL import GamesLL
 
 # verðum að hætta að importa LL_API inn í hina LL klasana, annars fáum við circular import
 # Megum bara importa hinum LL klösunum inn í LL_API en ekki öfugt!
@@ -16,63 +17,61 @@ TOURNAMENTS = "models/tournaments.csv"
 
 class LL_API:
 
-    def __init__(self, player=str, fields=str):
-        self.ioapi = IO_API()
-        self.playerLL = PlayersLL(self.ioapi)
-        self.tournamentLL = TournamentLL(self.ioapi)
-        self.teamLL = TeamsLL(self.ioapi)
-        self.viewerLL = ViewerLL(self.ioapi)
-        self.resultsLL = ResultsLL(self.ioapi)
-        self.player = player
-        self.fields = fields
+    def __init__(self, ioapi: IO_API):
+        self.ioapi = ioapi
+        self.playerLL = PlayersLL(ioapi)
+        self.tournamentLL = TournamentLL(ioapi)
+        self.teamLL = TeamsLL(ioapi)
+        self.resultsLL = ResultsLL(ioapi)
+        self.gamesLL = GamesLL(ioapi)
 
     def getPlayers(self):
         return self.playerLL.get_all_players()
 
-    def createPlayer(self, player, fields):
-        self.playerLL.createPlayer(self.player, self.fields)
+    def createPlayer(self, player: Player):
+        self.playerLL.createPlayer(player)
 
     def getTeams(self):
         return self.teamLL.get_all_teams()
 
     def getGames(self):
-        gamesfile = IO_API.getAll(GAMES)
+        gamesfile = self.ioapi.getAll(GAMES)
         return gamesfile
 
     def getTournament(self):
         return self.tournamentLL
-        # tournamentsfile = IO_API.getAll(TOURNAMENTS)
+        # tournamentsfile = self.ioapi.getAll(TOURNAMENTS)
         # return tournamentsfile
 
     def getResults(self, resultsID):
-        resultstream = IO_API.getResults(resultsID)
+        resultstream = self.ioapi.getResults(resultsID)
         return resultstream
 
-    def getPlayerScore(self, playername=str):
-        scores = ViewerLL.getPlayerScore
+    def getPlayerScore(self, playername: str):
+        scores = PlayersLL.getPlayerScore(playername)
         return scores
 
     def getPlayerScoreByDate(self):
         raise NotImplementedError
 
     def getTournamentScores():
-        tournamentscorelist = ViewerLL.getTournamentScore()
+        tournamentscorelist = TournamentLL.getTournamentScore()
         return tournamentscorelist
 
     def getTournamentDates():
-        tournamentdatelist = ViewerLL.getTournamentDates()
+        tournamentdatelist = TournamentLL.getTournamentDates()
         return tournamentdatelist
 
     def getGamesFinished():
-        gamesfinished = ViewerLL.getGameFinished()
+        gamesfinished = GamesLL.getGameFinished()
         return gamesfinished
 
     def getUpcomingGames():
-        gamesupcoming = ViewerLL.getUpcomingGames()
+        gamesupcoming = GamesLL.getUpcomingGames()
         return gamesupcoming
 
     def getPlayerList():
-        players = ViewerLL.getPlayerList
+        players = PlayersLL.getPlayerList
         return players
 
     def addTeam(self, newteam):
@@ -81,8 +80,8 @@ class LL_API:
     def addTournament(self, tournamentinfo=str):
         self.tournamentLL.addTournament(tournamentinfo=str)
 
-    def addGame(gamesupdate):
-        IO_API.updateGames(gamesupdate=str)
+    def addGame(self, gamesupdate):
+        self.ioapi.updateGames(gamesupdate=str)
 
     # def addPlayer(playeradd=str):
     #    PlayersLL.addPlayers(playeradd=str)
@@ -94,17 +93,17 @@ class LL_API:
     def changeDate():
         raise NotImplementedError
 
-    def updatePlayers(playerupdate=list):
-        IO_API.Update(PLAYERS, playerupdate=list)
+    def updatePlayers(self, playerupdate=list):
+        self.ioapi.Update(PLAYERS, playerupdate=list)
 
-    def updateTeams(teamsupdate=list):
-        IO_API.Update(PLAYERS, teamsupdate=list)
+    def updateTeams(self, teamsupdate=list):
+        self.ioapi.Update(PLAYERS, teamsupdate=list)
 
-    def updateGames(gamesupdate=list):
-        IO_API.Update(GAMES, gamesupdate=list)
+    def updateGames(self, gamesupdate=list):
+        self.ioapi.Update(GAMES, gamesupdate=list)
 
-    def updateTournament(tournamentupdate=list):
-        IO_API.Update(TOURNAMENTS, tournamentupdate=list)
+    def updateTournament(self, tournamentupdate=list):
+        self.ioapi.Update(TOURNAMENTS, tournamentupdate=list)
 
-    def updateResults(newresults=list, resultsID=str):
-        IO_API.updateResults(newresults=list, resultsID=str)
+    def updateResults(self, newresults=list, resultsID=str):
+        self.ioapi.updateResults(newresults=list, resultsID=str)

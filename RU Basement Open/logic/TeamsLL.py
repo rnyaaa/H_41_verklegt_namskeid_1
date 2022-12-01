@@ -4,8 +4,8 @@ from models.team import Team
 
 class TeamsLL:
 
-    def __init__(self, ioapi_connection: IO_API):
-        self.ioapi = ioapi_connection
+    def __init__(self, ioapi: IO_API):
+        self.ioapi = ioapi
 
     def get_all_teams(self):
         teams = self.ioapi.getAll("teams")

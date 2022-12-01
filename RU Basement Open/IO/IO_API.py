@@ -1,23 +1,22 @@
-
 import os
 import csv
-filedict = {
-    "players": "models/players.csv",
-    "games": "models/teams.csv",
-    "teams": "models/teams.csv",
-    "tournaments": "models/tournaments.csv",
-    "playerscore": "models/playerscore.csv"
-}
-
-fieldnames = {
-    "players": ["id", "name", "birth_year", "phone_nr", "email"],
-    "teams": ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won",["player1", "player2", "player3", "player4"]],
-    "tournaments": [""],
-    "playerscore":[["gameid", "playerid"], "QPs", "inshots", "outshots", ("win501_1", "lose501_1"), ("win301", "los301"), ("wincricket", "losecricket"), ("win501_4,lose501_4")]
-}
-
 
 class IO_API:
+
+    def __init__(self):
+        self.filedict = {
+            "players": "models/players.csv",
+            "games": "models/games.csv",
+            "teams": "models/teams.csv",
+            "tournaments": "models/tournaments.csv",
+            "playerscore": "models/playerscore.csv"
+        }
+        self.fieldnames = {
+            "players": ["id", "name", "birth_year", "phone_nr", "email"],
+            "teams": ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
+            "tournaments": [""],
+            "playerscore": ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1", "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"]
+        }
 
     def getAll(self, type=str):
         print("---------------------------------", os.getcwd())
@@ -27,7 +26,7 @@ class IO_API:
         return file
 
     def Loader(self, model):
-        filestream = open(filedict[model], "r", newline='', encoding="UTF-8")
+        filestream = open(self.filedict[model], "r", newline='', encoding="UTF-8")
         return filestream
 
     def Decoder(self, filestream):
@@ -42,11 +41,12 @@ class IO_API:
         return players
 
     def create_model(self, model):
-        file_name = filedict[model.model()]
+        file_name = self.filedict[model.model()]
         print(file_name)
         with open(file=file_name, mode="a", encoding="utf-8", newline="") as csvfile:
-            fnames = fieldnames[model.model()]
+            fnames = self.fieldnames[model.model()]
             writer = csv.writer(csvfile)
+            print(model.listify())
             writer.writerow(model.listify())
 
     def Update(self, update, type):
@@ -60,7 +60,7 @@ class IO_API:
         file.close
 
     def getResults(self, resultsID):
-        resultstream = self.Loader(resultsID=str)
+        resultstream = IO_API.Loader(resultsID=str)
         resultsfile = [[]]
         for line in resultstream:
             for item in line.split():

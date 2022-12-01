@@ -3,14 +3,14 @@ from models.player import Player
 
 class PlayersLL:
 
-    def __init__(self, ioapi_connection: IO_API):
-        self.ioapi = ioapi_connection
+    def __init__(self, ioapi: IO_API):
+        self.ioapi = ioapi
 
-    def getAllPlayers(self):
-        players = self.ioapi.getAll("players")
+    def getAllPlayers(ioapi):
+        players = ioapi.getAll("players")
         player_models = []
         for player in players:
-            Player(row[0], row[1], row[2], row[3], row[4])
+            player_models.append(Player(player[0], player[1], player[2], player[3], player[4]))
         return player_models
 
     def getAllPlayerScore(self):
@@ -20,10 +20,40 @@ class PlayersLL:
         self.ioapi.create_model(player)
 
     def addPlayers(self, players):
-
         # players = LL_API.getPlayers()
         # player = []
         players = []
         for player in players:
             self.players.append(player)
 
+
+    def getPlayerScores(self):
+        playerscores = self.ioapi.getAll("playerscores")
+        scores = []
+        for score in playerscores:
+            scores.append(PlayerScore(score[0], score[1], score[2], score[3], score[3]))
+        return scores
+            
+
+    def getPlayerList(self, sortkey):
+        players = self.ioapi.getAll("players")
+        playerlist = []
+        for player in players:
+            playerlist.append(player.name)
+
+    def getPlayerScore(self, name):
+        """ Takes the playerstream, finds the player and takes the values from 8-19 and puts them in an array and returns it """
+        players = self.ioapi.getPlayers()
+        scores = []
+        player = None
+        for p in players:
+            if p.name == name:
+                player = p
+            # if players[player][0] == playername:
+            #     scores = [line[8], line[9], line[10], line[11], line[12], line[13],
+            #               line[14], line[15], line[16], line[17], line[18], line[19]]
+            #     """ 501 Einmenn, unnir, tap, 301 Duo, unnir, tap, Cricket, unnir, tap,501 Fjormenn, unnir, tap"""
+        return scores
+
+    def getPlayerScoreByDate():
+        raise NotImplementedError
