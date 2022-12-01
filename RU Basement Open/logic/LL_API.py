@@ -1,8 +1,9 @@
 from IO.IO_API import IO_API
 from logic.PlayersLL import PlayersLL
+from logic.ResultsLL import ResultsLL
+from logic.TeamsLL import TeamsLL
 from logic.TournamentLL import TournamentLL
 from logic.ViewerLL import ViewerLL
-from logic.ResultsLL import ResultsLL
 
 # verðum að hætta að importa LL_API inn í hina LL klasana, annars fáum við circular import
 # Megum bara importa hinum LL klösunum inn í LL_API en ekki öfugt!
@@ -19,6 +20,7 @@ class LL_API:
         self.ioapi = IO_API()
         self.playerLL = PlayersLL(self.ioapi)
         self.tournamentLL = TournamentLL(self.ioapi)
+        self.teamLL = TeamsLL(self.ioapi)
         self.viewerLL = ViewerLL(self.ioapi)
         self.resultsLL = ResultsLL(self.ioapi)
 
@@ -29,9 +31,7 @@ class LL_API:
         return self.playerLL.createPlayer(player)
 
     def getTeams(self):
-        return self.
-        # teamsfile = IO_API.getAll(TEAMS)
-        # return teamsfile
+        return self.teamLL.get_all_teams()
 
     def getGames(self):
         gamesfile = IO_API.getAll(GAMES)
@@ -73,11 +73,11 @@ class LL_API:
         players = ViewerLL.getPlayerList
         return players
 
-    def addTeam(newteam):
-        IO_API.updateTeams(newteam=str)
+    def addTeam(self.newteam):
+        self.ioapi.updateTeams(newteam=str)
 
-    def addTournament(tournamentinfo=str):
-        TournamentLL.addTournament(tournamentinfo=str)
+    def addTournament(self, tournamentinfo=str):
+        self.tournamentLL.addTournament(tournamentinfo=str)
 
     def addGame(gamesupdate):
         IO_API.updateGames(gamesupdate=str)
