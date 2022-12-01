@@ -1,2 +1,5 @@
-asdf,asdf
-1,2
+id,name,birth_year,phone_nr,email
+1,Friðrik,1995,1234567,a@b.is
+2,Anna,1995,1234568,a@c.is6,Joi,2000,123,b@t.is
+6,Joi,2000,123,b@t.is
+7,hallo,2000,123,b@t.is

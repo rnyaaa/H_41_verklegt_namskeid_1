@@ -1,7 +1,4 @@
 
-"""id,name,birth_year,phone_nr,email
-1,Friðrik,1995,1234567,a@b.is
-2,Anna,1995,1234568,a@c.is"""
 import os
 import csv
 filedict = {
@@ -41,17 +38,13 @@ class IO_API:
         return players
 
     def create_model(self, model):
+        print("hello")
         file_name = filedict[model.model()]
         print(file_name)
         with open(file=file_name, mode="a", encoding="utf-8", newline="") as csvfile:
             fnames = fieldnames[model.model()]
-            writer = csv.DictWriter(csvfile, fieldnames=fnames)
-            d = {}
-            counter = 0
-            for field in fnames:
-                d[field] = model.listify()[counter]
-                counter += 1
-            writer.writerow(d)
+            writer = csv.writer(csvfile)
+            writer.writerow(model.listify())
 
     def Update(self, update, type):
         linestr = ""
