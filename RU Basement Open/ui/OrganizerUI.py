@@ -64,7 +64,7 @@ class OrganizerUI():
 
     def addTournament(self):
         """Organizer menu for adding a tournament."""
-
+        date_list = []
         print("➢	Stofna deild:")
         print()
         while True:
@@ -72,14 +72,21 @@ class OrganizerUI():
             tournament_name = input("o	Nafn deildar: ")
             data = self.llapi.getTournaments()
             for list in data:
-                if list[0] == tournament_name:
+                if list.name == tournament_name:
                     print("Nafnið er frátekið, reyndu aftur.")
                 else:
                     break
+
             organizer_name = input("o	Nafn Skipuleggjanda: ")
             organizer_phone = LL_API.isPhoneNumber(
                 "o	Símanúmer skipuleggjanda: ")
             tournament_type = input("o	Tegund móts: ")
+            while True:
+                date = input("o Dagsetning viðureignar: ")
+                if date == "":
+                    break
+                else:
+                    date_list.append(date)
 
             tournament = Tournament(
                 tournament_name, organizer_name, organizer_phone, tournament_type)
