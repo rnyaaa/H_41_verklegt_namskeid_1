@@ -36,6 +36,27 @@ class Menu_functions:
             countdown -= 1
         print()
 
+    def menuQuit():
+        print()
+        print("     .--'''''''''--.")
+        print("  .'      .---.      '.")
+        print(" /    .-----------.    \ ")
+        print("/        .-----.        \ ")
+        print("|       .-.   .-.       |")
+        print("|      /   \ /   \      |")
+        print(" \    | .-. | .-. |    /")
+        print("  '-._| | | | | | |_.-'")
+        print("      | '-' | '-' |")
+        print("       \___/ \___/")
+        print("    _.-'  /   \  `-._")
+        print("  .' _.--|     |--._ '.")
+        print("  ' _...-|     |-..._ '")
+        print("         |     |")
+        print("         '.___.'")
+        print()
+        print("          Bless!\n")
+        quit()
+
 # Viewer UI --------------------------------------------
 
 

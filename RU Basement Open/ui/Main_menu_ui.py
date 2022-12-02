@@ -3,6 +3,8 @@ from ui.OrganizerUI import OrganizerUI
 from ui.CaptainUI import CaptainUI
 from ui.ShowGamesUI import ShowGamesUI
 from ui.ViewerUI import ViewerUI
+from ui.UI import Menu_functions
+import time
 
 
 class Main_Menu_UI:
@@ -45,25 +47,7 @@ class Main_Menu_UI:
             user_input = user_input.lower()
 
             if user_input == "q":
-                print()
-                print("     .--'''''''''--.")
-                print("  .'      .---.      '.")
-                print(" /    .-----------.    \ ")
-                print("/        .-----.        \ ")
-                print("|       .-.   .-.       |")
-                print("|      /   \ /   \      |")
-                print(" \    | .-. | .-. |    /")
-                print("  '-._| | | | | | |_.-'")
-                print("      | '-' | '-' |")
-                print("       \___/ \___/")
-                print("    _.-'  /   \  `-._")
-                print("  .' _.--|     |--._ '.")
-                print("  ' _...-|     |-..._ '")
-                print("         |     |")
-                print("         '.___.'")
-                print()
-                print("          Bless!")
-                break
+                Menu_functions.menuQuit()
             elif user_input == "1":
                 OrganizerUI(self.llapi).displayOrganizerMenu()
             elif user_input == "2":
@@ -73,4 +57,6 @@ class Main_Menu_UI:
             elif user_input == "4":
                 ViewerUI(self.llapi).displayViewerUI()
             else:
+                print()
                 print("Ekki gildur valmöguleiki!")
+                time.sleep(2)

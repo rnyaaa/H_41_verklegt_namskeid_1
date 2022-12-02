@@ -24,7 +24,7 @@ class OrganizerUI():
                 "2.	Stofna deild\n"
                 "3.	Skrá leikmann\n"
                 "4.	Breyta dagsetningu á viðureign\n"
-                "5.	Breyta skráningu úrslita\n")
+                "5.	Breyta skráningu úrslita")
 
             user_input = Menu_functions.menuFooter(True)
 
@@ -42,33 +42,11 @@ class OrganizerUI():
                 break
             else:
                 # Á eftir að útfæra loopu
-                ("Ekki gildur valmöguleiki, reyndu aftur")
-
-    def addPlayer(self):
-        """Organizer player addition form."""
-        # Fyrir hvern leikmann þarf að skrá nafn, kennitölu, heimilisfang, heimasíma,
-        # GSM-síma, netfang og í hvaða liði hann spilar.
-        print(78*"_")
-        print()
-        print("➢   Skrá leikmann\n")
-        name = input("o    Nafn: ")
-        id_number = input("o    Kennitala: ")
-        home_address = input("o     Heimilisfang: ")
-        phone_number1 = LL_API.isPhoneNumber("o    GSM: ")
-        phone_number2 = LL_API.isPhoneNumber("o    Heimasími: ")
-        email = input("o    Netfang: ")
-        registered_team = input(
-            f"Liðið sem leikmaðurinn tilheyrir:\n"
-            # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
-        )
-        player = Player(id_number, name, phone_number1,
-                        phone_number2, email, home_address)
-        self.llapi.addPlayer(player)
-
-        print("\n" + f"Leikmaðurinn {name} hefur nú verið skráður." + "\n")
-        Menu_functions.menuExitCountdown(3)
+                print("Ekki gildur valmöguleiki, reyndu aftur")
 
     def addTeamPage(self):
+        """Organizer menu for adding a team."""
+
         print("➢   Skrá lið:")
         print()
         team_id = input("o  Númer liðs: ")
@@ -85,6 +63,8 @@ class OrganizerUI():
         Menu_functions.menuExitCountdown(3)
 
     def addTournament(self):
+        """Organizer menu for adding a tournament."""
+
         print("➢	Stofna deild:")
         print()
         while True:
@@ -105,12 +85,39 @@ class OrganizerUI():
                 tournament_name, organizer_name, organizer_phone, tournament_type)
             self.llapi.addTournament(tournament)
 
+    def addPlayer(self):
+        """Organizer form for player addition."""
+
+        print(78*"_")
+        print()
+        print("➢   Skrá leikmann\n")
+        name = input("o    Nafn: ")
+        id_number = input("o    Kennitala: ")
+        home_address = input("o     Heimilisfang: ")
+        phone_number1 = LL_API.isPhoneNumber("o    GSM: ")
+        phone_number2 = LL_API.isPhoneNumber("o    Heimasími: ")
+        email = input("o    Netfang: ")
+        registered_team = input(
+            f"Liðið sem leikmaðurinn tilheyrir:\n"
+            # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
+        )
+        player = Player(id_number, name, phone_number1,
+                        phone_number2, email, home_address)
+        self.llapi.addPlayer(player)
+
+        print("\n" + f"Leikmaðurinn {name} hefur nú verið skráður." + "\n")
+        Menu_functions.menuExitCountdown(3)
+
     def addTournamentDates():
-        name = input("Nafn mótar: ")
+        """Organizer form for adding dates of a tournament."""
+
+        name = input("Nafn móts: ")
         while True:
             date = input("Dagsetningar mótsins: ")  # Á eftir að útfæra
 
     def changeTournamentDates(self):
+        """Organizer form for changing dates of an existing tournament."""
+
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
         print("➢	Breyta dagsetningu á viðureign: ")
         print()
