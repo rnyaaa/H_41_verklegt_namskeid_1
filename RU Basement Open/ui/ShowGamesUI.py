@@ -18,24 +18,22 @@ class ShowGamesUI():
                 "1.	Listi yfir komandi viðureignir\n"
                 "2.	Listi yfir yfirstaðnar viðureignir\n")
 
-<<<<<<< HEAD
-            user_input = Menu_prompt.menuFooter(False)
-            
+            user_input = Menu_functions.menuFooter(False)
+
             if user_input == "1":
                 self.showTournamentDates()
             elif user_input == "2":
                 self.showGamesFinished()
-=======
-            user_input = Menu_functions.menuFooter(False)
-            return user_input
->>>>>>> 50a315cdd8210737b39d4c6f37b93c7b150a176a
 
+            back = input("b. Til baka: ")
 
+            while back.lower() is not "b":
+                None
+            break
 
     def showTournamentDates(self):
         tournament_id = input("Númer móts: ")
         print(self.llapi.getTournamentDates(tournament_id))
-        
 
     def showGamesFinished():
         raise NotImplementedError
