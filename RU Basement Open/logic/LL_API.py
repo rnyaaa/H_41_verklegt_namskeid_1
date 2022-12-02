@@ -100,5 +100,12 @@ class LL_API:
         except ValueError:
             return "Símanúmer má ekki innihalda bókstafi. "
         
-
+    def verifyTournament(self, new_name):    
+        data = self.getTournaments()
+        for list in data:
+            if list.name == new_name:
+                print("Nafnið er frátekið, reyndu aftur.")
+                return False
+            else:
+                return True
 

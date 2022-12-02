@@ -65,33 +65,30 @@ class OrganizerUI():
         date_list = []
         print("➢	Stofna deild:")
         print()
+
+        # Tvær eða fleiri deildir mega ekki deila sama nafni
+        tournament_name = input("o	Nafn deildar: ") 
         while True:
-            tournament_name = input("o	Nafn deildar: ") # Tvær eða fleiri deildir meiga ekki deila sama nafni
+            if LL_API.verifyTournament(tournament_name):
+                tournament_name = input("o	Nafn deildar: ")
+                
+            else:
+                organizer_name = input("o	Nafn Skipuleggjanda: ")
+                organizer_phone = LL_API.isPhoneNumber("o	Símanúmer skipuleggjanda: ")
+                    
+                while True:
+                    date = input("o Dagsetning viðureignar: ")
+                    if date == "":
+                        break
+                    else:
+                        date_list.append(date)
 
-            #færa þetta yfir í TournamentsLL
-            data = self.llapi.getTournaments()
-            for list in data:
-                if list.name == tournament_name:
-                    print("Nafnið er frátekið, reyndu aftur.")
-                else:
-                    break
+                tournament = Tournament(
+                    tournament_name, organizer_name, organizer_phone, date_list)
+                self.llapi.addTournament(tournament)
 
-            organizer_name = input("o	Nafn Skipuleggjanda: ")
-            organizer_phone = LL_API.isPhoneNumber("o	Símanúmer skipuleggjanda: ")
-            
-            while True:
-                date = input("o Dagsetning viðureignar: ")
-                if date == "":
-                    break
-                else:
-                    date_list.append(date)
-
-            tournament = Tournament(
-                tournament_name, organizer_name, organizer_phone, date_list)
-            self.llapi.addTournament(tournament)
-
-            print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
-            Menu_functions.menuExitCountdown(3)
+                print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
+                Menu_functions.menuExitCountdown(3)
 
     def addPlayer(self):
         """Organizer form for player addition."""

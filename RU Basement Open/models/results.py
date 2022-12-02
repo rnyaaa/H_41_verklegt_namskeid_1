@@ -19,7 +19,7 @@ class Results:
         self.losing501f = losing501f
 
     def listify(self):
-        return [self.game_id, self.results_id, self.QPs_awarded, self.inshots_awarded, self.outshots_awarded, self.winningscore, self.losingscore, self.winning501s, self.losing501s, self.winning301, self.losing301, self.winningcricket, self.losingcricket, self.winning501f, self.losing501f]
+        return [self.game_id, self.results_id, *self.teams, *self.players, *self.QPs_awarded, *self.inshots_awarded, *self.outshots_awarded, *self.winningscore, *self.losingscore, *self.winning501s, *self.losing501s, *self.winning301, *self.losing301, *self.winningcricket, *self.losingcricket, *self.winning501f, *self.losing501f]
 
     def model(self):
         return "Results"

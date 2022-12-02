@@ -13,7 +13,7 @@ class Team:
         self.player4 = player4
 
     def listify(self):
-        return [self.id, self.name, self.address, self.club_name, self.phone, self.games_won, self.rounds_won, [self.player1, self.player2, self.player3, self.player4]]
+        return [self.id, self.name, self.address, self.club_name, self.phone, self.games_won, self.rounds_won, self.player1, self.player2, self.player3, self.player4]
 
     def model(self):
         return "teams"
