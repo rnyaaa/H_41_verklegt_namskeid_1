@@ -1,6 +1,2 @@
-id, name, mobile, home_phone, address
-1,Friðrik,1995,1234567,a@b.is
-2,Anna,1995,1234568,a@c.is6,Joi,2000,123,b@t.is
-6,Joi,2000,123,b@t.is
-7,hallo,2000,123,b@t.is
-sdfg,fgsh,fg,terg,sfgh
+id, name, mobile, home_phone, email, address
+10101952299,Friðrik,1234567,5812345,a@b.is,Séstvallagata 12

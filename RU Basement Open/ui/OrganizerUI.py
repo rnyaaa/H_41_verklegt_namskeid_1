@@ -45,6 +45,8 @@ class OrganizerUI():
 
     def addPlayer(self):
         """Organizer player addition form."""
+        # Fyrir hvern leikmann þarf að skrá nafn, kennitölu, heimilisfang, heimasíma,
+        # GSM-síma, netfang og í hvaða liði hann spilar.
         print()
         print("➢   Skrá leikmenn")
         name = input("o    Nafn: ")
@@ -52,18 +54,20 @@ class OrganizerUI():
         home_address = input("o     Heimilisfang: ")
         phone_number1 = input("o    GSM: ")
         phone_number2 = input("o    Heimasími: ")
-        #email = input("o    Netfang: ")
+        email = input("o    Netfang: ")
         registered_team = input(
             f"Liðið sem leikmaðurinn tilheyrir:\n"
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
         )
-        player = Player(id_number, name, phone_number1, phone_number2, home_address)
+        player = Player(id_number, name, phone_number1,
+                        phone_number2, email, home_address)
         self.llapi.addPlayer(player)
 
     def addTeamPage(self):
         print("➢   Skrá lið:")
         print()
-        team_id = input("Kennitala liðs: ") # Á þetta að vera kennitala eða númer?
+        # Á þetta að vera kennitala eða númer?
+        team_id = input("Kennitala liðs: ")
         team_name = input("o   Nafn liðs: ")
         home_address = input("o   Heimilisfang: ")
         club_name = input("o   Nafn félags: ")
@@ -88,7 +92,7 @@ class OrganizerUI():
         # Má gera lista að ofan til að geyma dagsetingar?
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
         # LL_API.addTournament(tournament_name, organizer_name,
-                # organizer_number, tournament_type, dates)
+        # organizer_number, tournament_type, dates)
 
     def changeTournamentDates(self):
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
