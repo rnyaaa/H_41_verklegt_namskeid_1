@@ -28,7 +28,7 @@ class Menu_functions:
     def menuExitCountdown(sec, dots_instead_of_sec=False):
         """Delays the execution of the functions that follow and displays a countdown.
         Takes in number of seconds and an optional bool (dots_instead_of_sec), false by default.
-        
+
         If dots_instead_of_sec is True, dots will be displayed instead of a countdown in seconds."""
         countdown = sec
         time.sleep(1)

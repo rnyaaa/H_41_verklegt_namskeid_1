@@ -1,5 +1,8 @@
 from logic.LL_API import LL_API
 from ui.UI import Menu_functions
+from models.player import Player
+from models.team import Team
+from models.tournament import Tournament
 
 
 class ViewerUI:
@@ -47,9 +50,9 @@ class ViewerUI:
 
     def showTeams(self):
         '''Shows list of teams and their players'''
-        teams = LL_API.getTeams()
+        teams = LL_API.getTeams(self)
         for team in teams:
-            print(team.name)
+            print(team)
 
     def showTournamentInfo(self):
         None

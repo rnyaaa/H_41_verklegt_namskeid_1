@@ -133,7 +133,7 @@ class OrganizerUI():
         # Hér þarf að sækja úrslit í IO sem userinn vill breyta
         print("➢	Breyta skráningu úrslita: ")
         print()
-        name = input("	Nafn móts sem : ")
+        name = input("	Nafn móts: ")
         print()
 
         # print(hér kemur tafla með úrslitum )

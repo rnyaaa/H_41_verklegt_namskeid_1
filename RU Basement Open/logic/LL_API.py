@@ -1,4 +1,4 @@
-from IO.IO_API import IO_API 
+from IO.IO_API import IO_API
 from models.player import Player
 from models.team import Team
 from models.tournament import Tournament
@@ -9,6 +9,7 @@ from logic.ResultsLL import ResultsLL
 from logic.TeamsLL import TeamsLL
 from logic.TournamentLL import TournamentLL
 from logic.GamesLL import GamesLL
+
 
 class LL_API:
 
@@ -43,11 +44,11 @@ class LL_API:
     def getPlayerScore(self, player_id: str) -> tuple[str, list[PlayerScore]]:
         """ returns a tuple of Player.name and a list of PlayerScore instances """
         return self.playersLL.getPlayerScore(player_id)
-         
+
     def getPlayerScoreByDate(self):
         raise NotImplementedError
 
-    def getTournamentScores(self) -> list[tuple[str,int,int]]:
+    def getTournamentScores(self) -> list[tuple[str, int, int]]:
         """ returns a list of tuples containing the team name, games won and rounds won """
         return self.tournamentsLL.getTournamentScore()
 
@@ -99,12 +100,11 @@ class LL_API:
                 return "Símanúmer má aðeins innihalda 7 tölustafi."
         except ValueError:
             return "Símanúmer má ekki innihalda bókstafi."
-        
-    def verifyTournament(self, new_name):    
+
+    def verifyTournament(self, new_name):
         data = self.getTournaments()
         for list in data:
             if list.name == new_name:
                 print("Nafnið er frátekið, reyndu aftur.")
                 return False
         return True
-
