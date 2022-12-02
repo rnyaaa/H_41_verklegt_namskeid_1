@@ -25,15 +25,18 @@ class Menu_functions:
         user_input = user_input.lower()
         return user_input
 
-    def menuExitCountdown(sec, dots=False):
-        """Delays the execution of the functions that follow and displays a countdown."""
+    def menuExitCountdown(sec, dots_instead_of_sec=False):
+        """Delays the execution of the functions that follow and displays a countdown.
+        Takes in number of seconds and an optional bool (dots_instead_of_sec), false by default.
+        
+        If dots_instead_of_sec is True, dots will be displayed instead of a countdown in seconds."""
         countdown = sec
-        time.sleep(2)
+        time.sleep(1)
         print()
         print("Þessi valmynd lokast eftir:")
         while countdown > 0:
             time.sleep(1)
-            if dots is False:
+            if dots_instead_of_sec is False:
                 print(countdown)
             else:
                 print(".")

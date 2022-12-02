@@ -8,7 +8,7 @@ class Tournament:
         self.teams = teams
 
     def listify(self):
-        return [[self.name, self.organizer_name, self.organizer_phone, self.tournament_type], self.games, self.teams]
+        return [self.name, self.organizer_name, self.organizer_phone, self.tournament_type, self.games, self.teams]
 
     def model(self):
         return "tournaments"

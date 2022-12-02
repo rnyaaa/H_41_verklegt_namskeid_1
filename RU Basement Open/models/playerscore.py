@@ -11,7 +11,7 @@ class PlayerScore:
         self._5014winlose = _5014winlose
 
     def listify(self):
-        return [[self.gameid, self.playerid], [self.QPs, self.inshots, self.outshots, self._501winlose, self._301winlose, self.cricketwinlose, self._5014winlose]]
+        return [self.gameid, self.playerid, self.QPs, self.inshots, self.outshots, self._501winlose, self._301winlose, self.cricketwinlose, self._5014winlose]
 
     def model(self):
         return "playerscore"

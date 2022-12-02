@@ -19,21 +19,18 @@ class ShowGamesUI():
                 "2.	Listi yfir yfirstaðnar viðureignir\n")
 
             user_input = Menu_functions.menuFooter(False)
-
+            
             if user_input == "1":
                 self.showTournamentDates()
             elif user_input == "2":
                 self.showGamesFinished()
 
-            back = input("b. Til baka: ")
 
-            while back.lower() is not "b":
-                None
-            break
 
     def showTournamentDates(self):
         tournament_id = input("Númer móts: ")
         print(self.llapi.getTournamentDates(tournament_id))
+        
 
     def showGamesFinished():
         raise NotImplementedError

@@ -50,3 +50,10 @@ class IO_API:
             fnames = self.fieldnames[model.__class__]
             writer = csv.writer(csvfile)
             writer.writerow(model.listify())
+
+ #   def overwrite_model(self, list, key):
+ #       """ overwrites the list with an edited list (for editing a model or removing entries)"""
+ #       with self.loader(list[0].__class__, mode="w") as csvfile:
+ #           overwriter = csv.reader(csvfile)
+ #           for model in list:
+ #               overwriter.writerow(model.listify())
