@@ -40,8 +40,9 @@ class OrganizerUI():
                 self.changeResults()
             elif user_input == "b":
                 break
+            elif user_input == "q":
+                Menu_functions.menuQuit()
             else:
-                # Á eftir að útfæra loopu
                 print("Ekki gildur valmöguleiki, reyndu aftur")
 
     def addTeamPage(self):
@@ -91,6 +92,9 @@ class OrganizerUI():
             tournament = Tournament(
                 tournament_name, organizer_name, organizer_phone, tournament_type)
             self.llapi.addTournament(tournament)
+
+            print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
+            Menu_functions.menuExitCountdown(3)
 
     def addPlayer(self):
         """Organizer form for player addition."""
