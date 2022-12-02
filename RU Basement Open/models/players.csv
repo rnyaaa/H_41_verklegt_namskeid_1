@@ -1,6 +1,8 @@
-id, name, mobile, home_phone, address
-1,Friðrik,1995,1234567,a@b.is
-2,Anna,1995,1234568,a@c.is6,Joi,2000,123,b@t.is
-6,Joi,2000,123,b@t.is
-7,hallo,2000,123,b@t.is
-sdfg,fgsh,fg,terg,sfgh
+id, name, mobile, home_phone, email, address
+0104320000,Mamma Þín,8988899,1122334,mamma@thin.is,Hjamérgata 1
+123456789,hahah',6767676,mammaþín 69,b@bl.is,ab 1
+0101691010,rebekka,1212121,5888888,rebekka@ru.is,Krambúðargata 1
+2121213030,Axel Hall,6914975,5996200,axelhall@ru.is,Menntavegur 1
+0101012211,Kristall Collabson,8987788,55112255,m@m.io,Menntavegur 1
+1203041020,mimi mumu,8776655,5436677,mimi@mumu.is,Gata 2
+327847983274892374,ahskdhasjkhdkas,847389,9832840932,haha@haha.is,vjdkfbvjk 31

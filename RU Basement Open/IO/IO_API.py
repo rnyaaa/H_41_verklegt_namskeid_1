@@ -22,7 +22,7 @@ class IO_API:
         }
         """ a fieldname dict keyed by class objects """
         self.fieldnames = {
-            Player: ["id", "name", "birth_year", "phone_nr", "email"],
+            Player: ["id", "name", "phone_1", "phone_2", "email", "address"],
             Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
             Tournament: [""],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1", "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"]
@@ -49,5 +49,4 @@ class IO_API:
         with self.Loader(model.__class__, mode="a") as csvfile:
             fnames = self.fieldnames[model.__class__]
             writer = csv.writer(csvfile)
-            print(model.listify())
             writer.writerow(model.listify())

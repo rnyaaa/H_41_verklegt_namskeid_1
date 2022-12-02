@@ -1,6 +1,8 @@
 from logic.LL_API import LL_API
+import time
 
-class Menu_prompt:
+
+class Menu_functions:
 
     def __init__(self, llapi: LL_API):
         self.llapi = llapi
@@ -22,6 +24,17 @@ class Menu_prompt:
         user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")
         user_input = user_input.lower()
         return user_input
+
+    def menuExitCountdown(sec):
+        countdown = sec
+        time.sleep(2)
+        print()
+        print("Þessi valmynd lokast eftir:")
+        while countdown > 0:
+            time.sleep(1)
+            print(countdown)
+            countdown -= 1
+        print()
 
 # Viewer UI --------------------------------------------
 
@@ -49,7 +62,7 @@ class TournamentInfoUI():
         #   3. Þróttur |  7 stig  |  5 leggir unnir
         print()
 
-        user_input = Menu_prompt.menuFooter(False)
+        user_input = Menu_functions.menuFooter(False)
 
         return user_input
 
@@ -108,7 +121,7 @@ class PlayerHighScoreViewer():
 
         print()
 
-        user_input = Menu_prompt.menuFooter(False)
+        user_input = Menu_functions.menuFooter(False)
         return user_input
 
     def sortPlayerHighscore():
@@ -134,7 +147,7 @@ class CaptainUI():
             "➢  Valmynd:\n"
             "\n"
             "1.  Skrá úrslit viðureignar")
-        user_input = Menu_prompt.menuFooter(True)
+        user_input = Menu_functions.menuFooter(True)
         return user_input
 
     def openResultsMenu():
@@ -151,7 +164,7 @@ class EnterResults():
         print()
         print("Veldu viðureign:\n")
 
-        user_input = Menu_prompt.menuFooter(True)
+        user_input = Menu_functions.menuFooter(True)
         return user_input
 
 # ----------------------------------------------------------------------------------------------------
