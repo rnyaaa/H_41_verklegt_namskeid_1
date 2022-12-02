@@ -1,5 +1,5 @@
 from logic.LL_API import LL_API
-from ui.UI import Menu_prompt
+from ui.UI import Menu_functions
 
 
 class ShowGamesUI():
@@ -18,7 +18,7 @@ class ShowGamesUI():
                 "1.	Listi yfir komandi viðureignir\n"
                 "2.	Listi yfir yfirstaðnar viðureignir\n")
 
-            user_input = Menu_prompt.menuFooter(False)
+            user_input = Menu_functions.menuFooter(False)
             return user_input
 
     def showTournamentDates():

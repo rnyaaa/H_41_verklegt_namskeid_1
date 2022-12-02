@@ -1,7 +1,7 @@
 from logic.LL_API import LL_API
 from models.player import Player
 from models.team import Team
-from ui.UI import Menu_prompt
+from ui.UI import Menu_functions
 
 
 class OrganizerUI():
@@ -21,11 +21,11 @@ class OrganizerUI():
                 "\n"
                 "1.	Skrá lið\n"
                 "2.	Stofna deild\n"
-                "3.	Skrá leikmenn\n"
+                "3.	Skrá leikmann\n"
                 "4.	Breyta dagsetningu á viðureign\n"
                 "5.	Breyta skráningu úrslita\n")
 
-            user_input = Menu_prompt.menuFooter(True)
+            user_input = Menu_functions.menuFooter(True)
 
             if user_input == "1":
                 self.addTeamPage()
@@ -47,11 +47,12 @@ class OrganizerUI():
         """Organizer player addition form."""
         # Fyrir hvern leikmann þarf að skrá nafn, kennitölu, heimilisfang, heimasíma,
         # GSM-síma, netfang og í hvaða liði hann spilar.
+        print(78*"_")
         print()
-        print("➢   Skrá leikmenn")
+        print("➢   Skrá leikmann\n")
         name = input("o    Nafn: ")
         id_number = input("o    Kennitala: ")
-        home_address = input("o     Heimilisfang: ")
+        home_address = input("o    Heimilisfang: ")
         phone_number1 = input("o    GSM: ")
         phone_number2 = input("o    Heimasími: ")
         email = input("o    Netfang: ")
@@ -63,19 +64,25 @@ class OrganizerUI():
                         phone_number2, email, home_address)
         self.llapi.addPlayer(player)
 
+        print("\n" + f"Leikmaðurinn {name} hefur nú verið skráður." + "\n")
+        Menu_functions.menuExitCountdown(3)
+
     def addTeamPage(self):
         print("➢   Skrá lið:")
         print()
         # Á þetta að vera kennitala eða númer?
-        team_id = input("Kennitala liðs: ")
-        team_name = input("o   Nafn liðs: ")
-        home_address = input("o   Heimilisfang: ")
-        club_name = input("o   Nafn félags: ")
-        phone_number = input("o   Símanúmer: ")
+        team_id = input("o    Kennitala liðs: ")
+        team_name = input("o    Nafn liðs: ")
+        home_address = input("o    Heimilisfang: ")
+        club_name = input("o    Nafn félags: ")
+        phone_number = input("o    Símanúmer: ")
 
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
         team = Team(team_id, team_name, home_address, club_name, phone_number)
         self.llapi.addTeam(team)
+
+        print("\n" + f"Liðið {team_name} hefur nú verið skráð." + "\n")
+        Menu_functions.menuExitCountdown(3)
 
     def addTournament(self):
         print("➢	Stofna deild:")
@@ -98,12 +105,12 @@ class OrganizerUI():
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
         print("➢	Breyta dagsetningu á viðureign: \n")
         print()
-        print("     Veldu viðureign\n")
+        print("     Veldu viðureign:\n")
         print()
         # print(hér koma viðureignirnar)
         print()
 
-        user_input = Menu_prompt.menuFooter(True)
+        user_input = Menu_functions.menuFooter(True)
         return user_input
 
     def changeResults(self):
@@ -115,5 +122,5 @@ class OrganizerUI():
 
         # print(hér kemur tafla með úrslitum )
 
-        user_input = Menu_prompt.menuFooter(True)
+        user_input = Menu_functions.menuFooter(True)
         return user_input

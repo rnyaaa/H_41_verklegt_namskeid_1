@@ -1,5 +1,5 @@
 from logic.LL_API import LL_API
-from ui.UI import Menu_prompt
+from ui.UI import Menu_functions
 
 
 class ViewerUI:
@@ -23,7 +23,7 @@ class ViewerUI:
                 "5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni\n"
                 "6.	Tölfræði fyrir ákveðna leikmenn")
 
-            user_input = Menu_prompt.menuFooter(False)
+            user_input = Menu_functions.menuFooter(False)
             return user_input
 
     def showTournamentInfo():
@@ -42,7 +42,7 @@ class ViewerUI:
             print(f"{name[9]:>6}:")
             print()
 
-        user_input = Menu_prompt.menuFooter(False)
+        user_input = Menu_functions.menuFooter(False)
 
     def showPlayerViewer():
         None

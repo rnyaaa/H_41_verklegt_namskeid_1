@@ -1,6 +1,5 @@
 from logic.LL_API import LL_API
-from ui.UI import Menu_prompt
-
+from ui.UI import Menu_functions
 
 class CaptainUI():
 
@@ -23,7 +22,7 @@ class CaptainUI():
                 "➢  Valmynd:\n"
                 "\n"
                 "1.  Skrá úrslit viðureignar")
-            user_input = Menu_prompt.menuFooter(True)
+            user_input = Menu_functions.menuFooter(True)
             return user_input
 
     def openResultsMenu():
