@@ -6,6 +6,7 @@ from models.player import Player
 from models.playerscore import PlayerScore
 from models.tournament import Tournament
 from models.team import Team
+from models.results import Results
 
 class IO_API:
 
@@ -16,7 +17,8 @@ class IO_API:
             Game: "models/games.csv",
             Team: "models/teams.csv",
             Tournament: "models/tournaments.csv",
-            PlayerScore: "models/playerscore.csv"
+            PlayerScore: "models/playerscore.csv",
+            Results: "models/results.csv"
         }
         """ a fieldname dict keyed by class objects """
         self.fieldnames = {

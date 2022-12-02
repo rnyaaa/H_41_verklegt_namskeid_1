@@ -7,7 +7,7 @@ class ShowGamesUI():
     def __init__(self, llapi: LL_API):
         self.llapi = llapi
 
-    def showGamesPage():
+    def showGamesPage(self):
         """Displays game overview menu."""
         while True:
             print(78*"_")
@@ -19,10 +19,18 @@ class ShowGamesUI():
                 "2.	Listi yfir yfirstaðnar viðureignir\n")
 
             user_input = Menu_prompt.menuFooter(False)
-            return user_input
+            
+            if user_input == "1":
+                self.showTournamentDates()
+            elif user_input == "2":
+                self.showGamesFinished()
 
-    def showTournamentDates():
-        raise NotImplementedError
+
+
+    def showTournamentDates(self):
+        tournament_id = input("Númer móts: ")
+        print(self.llapi.getTournamentDates(tournament_id))
+        
 
     def showGamesFinished():
         raise NotImplementedError
