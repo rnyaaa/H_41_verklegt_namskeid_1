@@ -74,5 +74,3 @@ class Main_Menu_UI:
                 ViewerUI(self.llapi).displayViewerUI()
             else:
                 print("Ekki gildur valmöguleiki!")
-
-

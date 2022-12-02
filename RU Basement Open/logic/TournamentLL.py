@@ -2,8 +2,9 @@ from IO.IO_API import IO_API
 from models.tournament import Tournament
 from models.team import Team
 
+
 class TournamentLL():
-    
+
     def __init__(self, ioapi: IO_API):
         self.ioapi = ioapi
 

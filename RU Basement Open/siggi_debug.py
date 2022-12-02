@@ -1,6 +1,8 @@
 from ui.Main_menu_ui import Main_Menu_UI
 from logic.LL_API import LL_API
-from models.player import Player
-from ui.UI import Menu_functions
+from IO.IO_API import IO_API
 
-Menu_functions.menuExitCountdown(3)
+ioapi = IO_API()
+llapi = LL_API(ioapi)
+menu = Main_Menu_UI(llapi)
+menu.displayMainMenu()
