@@ -96,9 +96,9 @@ class LL_API:
             if len(phone_number) == 7:
                 return phone_number
             else:
-                return "Símanúmer má aðeins innihalda 7 tölustafi. "
+                return "Símanúmer má aðeins innihalda 7 tölustafi."
         except ValueError:
-            return "Símanúmer má ekki innihalda bókstafi. "
+            return "Símanúmer má ekki innihalda bókstafi."
         
     def verifyTournament(self, new_name):    
         data = self.getTournaments()
@@ -106,6 +106,5 @@ class LL_API:
             if list.name == new_name:
                 print("Nafnið er frátekið, reyndu aftur.")
                 return False
-            else:
-                return True
+        return True
 

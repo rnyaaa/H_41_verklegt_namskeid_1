@@ -18,6 +18,3 @@ class TournamentLL():
 
     def getTournamentScore(self):
         raise NotImplementedError
-
-    def verifyTournament(self, other):
-        raise NotImplementedError

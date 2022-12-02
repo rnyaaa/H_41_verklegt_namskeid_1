@@ -16,10 +16,10 @@ class OrganizerUI():
             print(78*"_")
             print()
             print(
-                "Velkominn, mótshaldari!\n"
-                "\n"
-                "➢  Valmynd:\n"
-                "\n"
+                "Velkominn, mótshaldari!\n\n"
+
+                "➢  Valmynd:\n\n"
+
                 "1.	Skrá lið\n"
                 "2.	Stofna deild\n"
                 "3.	Skrá leikmenn\n"
@@ -51,12 +51,12 @@ class OrganizerUI():
 
         print("➢   Skrá lið:")
         print()
-        team_id = input("o  Númer liðs: ") 
+        team_id = input("o  Númer liðs: ")
         team_name = input("o   Nafn liðs: ")
         home_address = input("o   Heimilisfang: ")
         club_name = input("o   Nafn félags: ")
         phone_number = LL_API.isPhoneNumber("o   Símanúmer")
-        
+
         team = Team(team_id, team_name, home_address, club_name, phone_number)
         self.llapi.addTeam(team)
 
@@ -67,15 +67,16 @@ class OrganizerUI():
         print()
 
         # Tvær eða fleiri deildir mega ekki deila sama nafni
-        tournament_name = input("o	Nafn deildar: ") 
+        tournament_name = input("o	Nafn deildar: ")
         while True:
             if LL_API.verifyTournament(tournament_name):
                 tournament_name = input("o	Nafn deildar: ")
-                
+
             else:
                 organizer_name = input("o	Nafn Skipuleggjanda: ")
-                organizer_phone = LL_API.isPhoneNumber("o	Símanúmer skipuleggjanda: ")
-                    
+                organizer_phone = LL_API.isPhoneNumber(
+                    "o	Símanúmer skipuleggjanda: ")
+
                 while True:
                     date = input("o Dagsetning viðureignar: ")
                     if date == "":
@@ -113,14 +114,13 @@ class OrganizerUI():
         print("\n" + f"Leikmaðurinn {name} hefur nú verið skráður." + "\n")
         Menu_functions.menuExitCountdown(3)
 
-    
     def changeTournamentDates(self):
         """Organizer form for changing dates of an existing tournament."""
 
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
         print("➢	Breyta dagsetningu á viðureign: ")
         print()
-        name = input("Nafn mótar: ")
+        name = input("Nafn móts: ")
         print()
 
         # print(hér koma viðureignirnar)
@@ -133,7 +133,7 @@ class OrganizerUI():
         # Hér þarf að sækja úrslit í IO sem userinn vill breyta
         print("➢	Breyta skráningu úrslita: ")
         print()
-        name = input("	Nafn mótar sem : ")
+        name = input("	Nafn móts sem : ")
         print()
 
         # print(hér kemur tafla með úrslitum )

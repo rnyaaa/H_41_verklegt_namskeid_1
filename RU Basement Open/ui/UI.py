@@ -33,7 +33,7 @@ class Menu_functions:
         countdown = sec
         time.sleep(1)
         print()
-        print("Þessi valmynd lokast eftir:")
+        print("Fer til baka í aðalvalmynd:")
         while countdown > 0:
             time.sleep(1)
             if dots_instead_of_sec is False:

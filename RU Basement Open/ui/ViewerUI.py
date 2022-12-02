@@ -7,15 +7,15 @@ class ViewerUI:
     def __init__(self, llapi: LL_API):
         self.llapi = llapi
 
-    def displayViewerUI():
+    def displayViewerUI(self):
         while True:
             print(78*"_")
             print()
             print(
-                "Verið velkomin í Tölfræðivalmyndina!\n"
-                "\n"
-                "➢  Valmynd:\n"
-                "\n"
+                "Verið velkomin í Tölfræðivalmyndina!\n\n"
+
+                "➢  Valmynd:\n\n"
+
                 "1.	Listi yfir lið\n"
                 "2.	Staða móts\n"
                 "3.	Listi yfir þá sem hafa skorað flest afreksstig\n"
@@ -24,28 +24,41 @@ class ViewerUI:
                 "6.	Tölfræði fyrir ákveðna leikmenn")
 
             user_input = Menu_functions.menuFooter(False)
-            return user_input
 
-    def showTournamentInfo():
-        None
+            if user_input == "1":
+                self.showTeams()
+            elif user_input == "2":
+                self.showTournamentInfo()
+            elif user_input == "3":
+                self.showPlayerHighscoreViewer()
+            elif user_input == "4":
+                self.showPlayerHighscoreViewer()
+            elif user_input == "5":
+                self.showPlayerHighscoreViewer()
+            elif user_input == "6":
+                self.showPlayerStatistics()
+            elif user_input == "b":
+                break
+            elif user_input == "q":
+                Menu_functions.menuQuit()
+            else:
+                print("Ekki gildur valmöguleiki, reyndu aftur")
+                Menu_functions.menuExitCountdown(3, True)
 
-    def showTeams():
+    def showTeams(self):
         '''Shows list of teams and their players'''
+        teams = LL_API.getTeams()
+        for team in teams:
+            print(team.name)
 
-        print(">	Birta lista yfir Liðum\n")
-        result = LL_API.getTeams()
-        for name in result:
-            print(f"{name[0]}:")
-            print(f"{name[6]:>6}:")
-            print(f"{name[7]:>6}:")
-            print(f"{name[8]:>6}:")
-            print(f"{name[9]:>6}:")
-            print()
-
-        user_input = Menu_functions.menuFooter(False)
-
-    def showPlayerViewer():
+    def showTournamentInfo(self):
         None
 
-    def showPlayerHighscoreViewer():
+    def showPlayerViewer(self):
+        None
+
+    def showPlayerHighscoreViewer(self):
+        None
+
+    def showPlayerStatistics(self):
         None
