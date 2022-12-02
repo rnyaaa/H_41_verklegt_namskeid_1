@@ -1,5 +1,6 @@
 from logic.LL_API import LL_API
 from models.player import Player
+from models.team import Team
 from ui.UI import Menu_prompt
 
 
@@ -22,8 +23,7 @@ class OrganizerUI():
                 "2.	Stofna deild\n"
                 "3.	Skrá leikmenn\n"
                 "4.	Breyta dagsetningu á viðureign\n"
-                "5.	Breyta skráningu úrslita\n"
-                "b.	Til baka\n")
+                "5.	Breyta skráningu úrslita\n")
 
             user_input = Menu_prompt.menuFooter(True)
 
@@ -45,7 +45,7 @@ class OrganizerUI():
 
     def addPlayer(self):
         """Organizer player addition form."""
-
+        print()
         print("➢   Skrá leikmenn")
         name = input("o    Nafn: ")
         id_number = input("o    Kennitala: ")
@@ -63,13 +63,15 @@ class OrganizerUI():
     def addTeamPage(self):
         print("➢   Skrá lið:")
         print()
+        team_id = input("Kennitala liðs: ") # Á þetta að vera kennitala eða númer?
         team_name = input("o   Nafn liðs: ")
         home_address = input("o   Heimilisfang: ")
-        team_organiser = input("o   Nafn félags: ")
+        club_name = input("o   Nafn félags: ")
         phone_number = input("o   Símanúmer: ")
 
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
-        self.llapi.addTeam(team_name, home_address, team_organiser, phone_number)
+        team = Team(team_id, team_name, home_address, club_name, phone_number)
+        self.llapi.addTeam(team)
 
     def addTournament(self):
         print("➢	Stofna deild:")
