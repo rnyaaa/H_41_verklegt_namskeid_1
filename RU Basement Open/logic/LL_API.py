@@ -103,6 +103,7 @@ class LL_API:
 
     def verifyTournament(self, new_name):
         data = self.getTournaments()
+        print(data)
         for list in data:
             if list.name == new_name:
                 print("Nafnið er frátekið, reyndu aftur.")

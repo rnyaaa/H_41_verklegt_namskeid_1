@@ -95,22 +95,27 @@ class OrganizerUI():
         print(78*"_")
         print()
         print("➢   Skrá leikmann\n")
+       
         name = input("o    Nafn: ")
         id_number = input("o    Kennitala: ")
         home_address = input("o     Heimilisfang: ")
         phone_number1 = LL_API.isPhoneNumber("o    GSM: ")
         phone_number2 = LL_API.isPhoneNumber("o    Heimasími: ")
         email = input("o    Netfang: ")
-        registered_team = input(
-            f"Liðið sem leikmaðurinn tilheyrir:\n"
-            # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
-        )
+        data = self.llapi.getTeams()
+        
+        print("\nSkráð lið:")
+        for list in data:
+            print(list.name)
+        
+        team = input("Liðið sem leikmaðurinn tilheyrir: ")
+
         player = Player(id_number, name, phone_number1,
                         phone_number2, email, home_address)
         self.llapi.addPlayer(player)
 
         print("\n" + f"Leikmaðurinn {name} hefur nú verið skráður." + "\n")
-        Menu_functions.menuExitCountdown(3)
+        #Menu_functions.menuExitCountdown(3)
 
     def changeTournamentDates(self):
         """Organizer form for changing dates of an existing tournament."""
