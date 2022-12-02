@@ -88,3 +88,17 @@ class LL_API:
 
     def changeDate():
         raise NotImplementedError
+
+    def isPhoneNumber(prompt):
+        phone_number = input(prompt)
+        try:
+            int(phone_number)
+            if len(phone_number) == 7:
+                return phone_number
+            else:
+                return "Símanúmer má aðeins innihalda 7 tölustafi. "
+        except ValueError:
+            return "Símanúmer má ekki innihalda bókstafi. "
+        
+
+

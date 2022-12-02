@@ -1,7 +1,12 @@
 from logic.LL_API import LL_API
 from models.player import Player
 from models.team import Team
+<<<<<<< HEAD
+from models.tournament import Tournament
+from ui.UI import Menu_prompt
+=======
 from ui.UI import Menu_functions
+>>>>>>> 50a315cdd8210737b39d4c6f37b93c7b150a176a
 
 
 class OrganizerUI():
@@ -52,10 +57,17 @@ class OrganizerUI():
         print("➢   Skrá leikmann\n")
         name = input("o    Nafn: ")
         id_number = input("o    Kennitala: ")
+<<<<<<< HEAD
+        home_address = input("o     Heimilisfang: ")
+        phone_number1 = LL_API.isPhoneNumber("o    GSM: ")
+        phone_number2 = LL_API.isPhoneNumber("o    Heimasími: ")
+        #email = input("o    Netfang: ")
+=======
         home_address = input("o    Heimilisfang: ")
         phone_number1 = input("o    GSM: ")
         phone_number2 = input("o    Heimasími: ")
         email = input("o    Netfang: ")
+>>>>>>> 50a315cdd8210737b39d4c6f37b93c7b150a176a
         registered_team = input(
             f"Liðið sem leikmaðurinn tilheyrir:\n"
             # Hér kemur listi af liðum sem hafa verið skráð/á eftir að útfæra
@@ -70,6 +82,14 @@ class OrganizerUI():
     def addTeamPage(self):
         print("➢   Skrá lið:")
         print()
+<<<<<<< HEAD
+        team_id = input("o  Númer liðs: ") 
+        team_name = input("o   Nafn liðs: ")
+        home_address = input("o   Heimilisfang: ")
+        club_name = input("o   Nafn félags: ")
+        phone_number = LL_API.isPhoneNumber("o   Símanúmer")
+        
+=======
         # Á þetta að vera kennitala eða númer?
         team_id = input("o    Kennitala liðs: ")
         team_name = input("o    Nafn liðs: ")
@@ -77,6 +97,7 @@ class OrganizerUI():
         club_name = input("o    Nafn félags: ")
         phone_number = input("o    Símanúmer: ")
 
+>>>>>>> 50a315cdd8210737b39d4c6f37b93c7b150a176a
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
         team = Team(team_id, team_name, home_address, club_name, phone_number)
         self.llapi.addTeam(team)
@@ -85,13 +106,26 @@ class OrganizerUI():
         Menu_functions.menuExitCountdown(3)
 
     def addTournament(self):
-        print("➢	Stofna deild:")
+        print("➢	Stofna deild:") 
         print()
-        tournament_name = input("o	Nafn deildar: ")
-        organizer_name = input("o	Nafn Skipuleggjanda: ")
-        organizer_number = input("o	Símanúmer skipuleggjanda: ")
-        tournament_type = input("o	Tegund móts: ")
         while True:
+<<<<<<< HEAD
+            tournament_name = input("o	Nafn deildar: ") # Tvær eða fleiri deildir meiga ekki deila sama nafni
+            data = self.llapi.getTournaments()
+            for list in data:
+                if list[0] == tournament_name:
+                    print("Nafnið er frátekið, reyndu aftur.")
+                else:
+                    break 
+            organizer_name = input("o	Nafn Skipuleggjanda: ")
+            organizer_phone = LL_API.isPhoneNumber("o	Símanúmer skipuleggjanda: ")
+            tournament_type = input("o	Tegund móts: ")
+            
+            tournament = Tournament(tournament_name, organizer_name, organizer_phone, tournament_type)
+            self.llapi.addTournament(tournament)
+        
+     
+=======
             dates = input("o	Dagsetningar: ")
             if dates == "":
                 break
@@ -100,13 +134,25 @@ class OrganizerUI():
         # MUNA AÐ LAGA ÞETTA - INTEGRATE-A OG LÁTA LL API SJÁ UM
         # LL_API.addTournament(tournament_name, organizer_name,
         # organizer_number, tournament_type, dates)
+>>>>>>> 50a315cdd8210737b39d4c6f37b93c7b150a176a
 
+    def addTournamentDates():
+        name = input("Nafn mótar: ")
+        while True:
+            date = input("Dagsetningar mótsins: ") # Á eftir að útfæra 
+
+    
     def changeTournamentDates(self):
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
-        print("➢	Breyta dagsetningu á viðureign: \n")
+        print("➢	Breyta dagsetningu á viðureign: ")
         print()
+<<<<<<< HEAD
+        name = input("Nafn mótar: ")
+=======
         print("     Veldu viðureign:\n")
+>>>>>>> 50a315cdd8210737b39d4c6f37b93c7b150a176a
         print()
+
         # print(hér koma viðureignirnar)
         print()
 
@@ -115,7 +161,7 @@ class OrganizerUI():
 
     def changeResults(self):
         # Hér þarf að sækja úrslit í IO sem userinn vill breyta
-        print("➢	Breyta skráningu úrslita:\n ")
+        print("➢	Breyta skráningu úrslita: ")
         print()
         print("	Veldu úrslit: ")
         print()
