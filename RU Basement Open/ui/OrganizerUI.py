@@ -67,8 +67,9 @@ class OrganizerUI():
         print()
         while True:
             tournament_name = input("o	Nafn deildar: ") # Tvær eða fleiri deildir meiga ekki deila sama nafni
+
+            #færa þetta yfir í TournamentsLL
             data = self.llapi.getTournaments()
-            print(data)
             for list in data:
                 if list.name == tournament_name:
                     print("Nafnið er frátekið, reyndu aftur.")
@@ -77,7 +78,7 @@ class OrganizerUI():
 
             organizer_name = input("o	Nafn Skipuleggjanda: ")
             organizer_phone = LL_API.isPhoneNumber("o	Símanúmer skipuleggjanda: ")
-            tournament_type = input("o	Tegund móts: ")
+            
             while True:
                 date = input("o Dagsetning viðureignar: ")
                 if date == "":
@@ -86,10 +87,8 @@ class OrganizerUI():
                     date_list.append(date)
 
             tournament = Tournament(
-                tournament_name, organizer_name, organizer_phone, tournament_type)
+                tournament_name, organizer_name, organizer_phone, date_list)
             self.llapi.addTournament(tournament)
-        
-     
 
             print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
             Menu_functions.menuExitCountdown(3)

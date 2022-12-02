@@ -82,9 +82,15 @@ class ResultsLL:
         
         """ edit teamscores """
         teams = self.ioapi.return_model(Team)
-        teamupdate = [[Results.winningscore[0]], [Results.losingscore[0]]]
+        teamupdate = []
         for i in range(0, len(teams)):
-            if teams.id == Res:
+            if teams[i].id == Results.winningscore[0]:
+                teamupdate.append(Team(teams[i].id, teams[i].name, teams[i].address, teams[i].club_name, teams[i].phone, teams[i].games_won + Results.winningscore[1], teams[i].rounds_won + Results.winngingscore[2], teams[i].player1, teams[i].player2, teams[i].player3, teams[i].player4))
+                teams.remove(teams[i])
+            if teams[i].id == Results.losingscore[0]:
+                teamupdate.append(Team(teams[i].id, teams[i].name, teams[i].address, teams[i].club_name, teams[i].phone, teams[i].games_won + Results.losingscore[1], teams[i].rounds_won + Results.losingscore[2], teams[i].player1, teams[i].player2, teams[i].player3, teams[i].player4))
+                
+
 
 
 

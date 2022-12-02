@@ -42,6 +42,7 @@ class IO_API:
                 model_return.append([item for item in row])
         """ Dark magic pls do not touch """
         model_return = list(map(lambda x: model_type(*x), model_return))
+        return model_return
 
     def create_model(self, model):
         """ appends a new instance of any type to the records """
