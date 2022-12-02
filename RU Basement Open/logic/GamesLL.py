@@ -4,35 +4,16 @@ from models.game import Game
 class GamesLL():
 
     def __init__(self, ioapi: IO_API):
+        """ gets the io stream """
         self.ioapi = ioapi
 
-    def addGame(self):
-        self.ioapi.create_model(Game)
-
-    def changeDate(self):
-        None
-
-    def getAllGames(self):
+    def getAllGames(self) -> list[Game]:
+        """ gets a list of all Game instances """
         return self.ioapi.return_model(Game)
 
-    def getGameFinished(self):
-        """ Gets finished games by checking whether results have been added. Adds games with results to list"""
-        games = self.ioapi.getGames()
-        gamesfinished = []
-        for game in games:
-            if games[game][4] != None:
-                gamesfinished.append([games[game][0], games[game][1], games[game]
-                                     [3], games[game][4], games[game][5], games[game][6]])
-                """ Team 1, Team 2, Date, Winner, ScoreWinner, ScoreLoser"""
-        return gamesfinished
+    def addGame(self, game: Game):
+        """ add a Game """
+        self.ioapi.create_model(game)
 
-    def getUpcomingGames(self):
-        """ Gets upcoming games by checking whether results have been added. Adds games with no results to list"""
-        games = self.ioapi.getGames()
-        gamesupcoming = []
-        for game in games:
-            if games[game][4] == None:
-                gamesupcoming.append(
-                    [games[game][0], games[game][1], games[game][3]])
-                """ Team 1, Team 2, Date"""
-        return gamesupcoming
+    def changeDate(self):
+        raise NotImplementedError
