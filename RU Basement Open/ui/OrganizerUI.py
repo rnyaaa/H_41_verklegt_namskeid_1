@@ -62,34 +62,32 @@ class OrganizerUI():
 
     def addTournament(self):
         """Organizer menu for adding a tournament."""
-        date_list = []
+        date_list = "" + ","
         print("➢	Stofna deild:")
         print()
 
         # Tvær eða fleiri deildir mega ekki deila sama nafni
         tournament_name = input("o	Nafn deildar: ")
+        self.llapi.verifyTournament(tournament_name)
+
+        organizer_name = input("o	Nafn Skipuleggjanda: ")
+        organizer_phone = LL_API.isPhoneNumber(
+            "o	Símanúmer skipuleggjanda: ")
+
         while True:
-            if LL_API.verifyTournament(tournament_name):
-                tournament_name = input("o	Nafn deildar: ")
-
+            date = input("o	Dagsetning viðureignar: ")
+            if date == "":
+                break
             else:
-                organizer_name = input("o	Nafn Skipuleggjanda: ")
-                organizer_phone = LL_API.isPhoneNumber(
-                    "o	Símanúmer skipuleggjanda: ")
+                date_list += date
 
-                while True:
-                    date = input("o Dagsetning viðureignar: ")
-                    if date == "":
-                        break
-                    else:
-                        date_list.append(date)
+        tournament = Tournament(
+            tournament_name, organizer_name, organizer_phone, date_list)
+        self.llapi.addTournament(tournament)
 
-                tournament = Tournament(
-                    tournament_name, organizer_name, organizer_phone, date_list)
-                self.llapi.addTournament(tournament)
-
-                print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
-                Menu_functions.menuExitCountdown(3)
+        print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
+        Menu_functions.menuExitCountdown(3)
+        
 
     def addPlayer(self):
         """Organizer form for player addition."""

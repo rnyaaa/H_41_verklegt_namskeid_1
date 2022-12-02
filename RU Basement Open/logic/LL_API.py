@@ -106,5 +106,6 @@ class LL_API:
         for list in data:
             if list.name == new_name:
                 print("Nafnið er frátekið, reyndu aftur.")
+                return True
+            else:
                 return False
-        return True
