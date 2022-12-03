@@ -8,8 +8,6 @@ class Player:
         self.email = email
         self.address = address
 
-    def __str__(self):
-        return f"{self.name}"
 
     def listify(self):
         return [self.playerid, self.name, self.mobile, self.home_phone, self.email, self.address]
