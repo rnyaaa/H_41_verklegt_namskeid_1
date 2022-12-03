@@ -93,7 +93,7 @@ class OrganizerUI():
         self.llapi.addTournament(tournament)
 
         print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
-        Menu_functions.menuExitCountdown(3)
+        #Menu_functions.menuExitCountdown(3)
         
 
     def addPlayer(self):

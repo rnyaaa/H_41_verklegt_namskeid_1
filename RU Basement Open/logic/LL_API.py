@@ -111,10 +111,10 @@ class LL_API:
             else:
                 return False
     def checkIfPlayerIsRegistered(self, player):
-        input_player = input(player)
+        input_player = input(player) 
         data = self.getPlayers()
         for list in data:
-            if list.name.lower() == player.lower():
+            if list.name.lower() == input_player.lower():
                 return input_player
             else:
                 print("Leikmaður er ekki skráður.")
