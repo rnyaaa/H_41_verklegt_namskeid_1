@@ -44,20 +44,27 @@ class OrganizerUI():
                 Menu_functions.menuQuit()
             else:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
-                Menu_functions.menuExitCountdown(3, True)
+                #Menu_functions.menuExitCountdown(3, True)
 
     def addTeamPage(self):
         """Organizer menu for adding a team."""
 
         print("➢   Skrá lið:")
         print()
-        team_id = input("o  Númer liðs: ")
+        team_id = input("o   Númer liðs: ")
         team_name = input("o   Nafn liðs: ")
         home_address = input("o   Heimilisfang: ")
         club_name = input("o   Nafn félags: ")
-        phone_number = LL_API.isPhoneNumber("o   Símanúmer")
+        phone_number = LL_API.isPhoneNumber("o   Símanúmer: ")
+        player1 = LL_API.checkIfPlayerIsRegistered("Fyrirliði: ")  # Hér þarf að setja tjékk hvort leikmaður sé nú þegar skráður
+        player2 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
+        player3 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
+        player4 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
 
-        team = Team(team_id, team_name, home_address, club_name, phone_number)
+        games_won = 0
+        rounds_won = 0
+
+        team = Team(team_id, team_name, home_address, club_name, phone_number, games_won, rounds_won, player1, player2, player3, player4)
         self.llapi.addTeam(team)
 
     def addTournament(self):
@@ -98,21 +105,14 @@ class OrganizerUI():
        
         name = input("o    Nafn: ")
         id_number = input("o    Kennitala: ")
-        home_address = input("o     Heimilisfang: ")
+        home_address = input("o    Heimilisfang: ")
         phone_number1 = LL_API.isPhoneNumber("o    GSM: ")
         phone_number2 = LL_API.isPhoneNumber("o    Heimasími: ")
         email = input("o    Netfang: ")
-        data = self.llapi.getTeams()
-        
-        print("\nSkráð lið:")
-        for list in data:
-            print(list.name)
-        
-        team = input("Liðið sem leikmaðurinn tilheyrir: ")
-
         player = Player(id_number, name, phone_number1,
                         phone_number2, email, home_address)
         self.llapi.addPlayer(player)
+
 
         print("\n" + f"Leikmaðurinn {name} hefur nú verið skráður." + "\n")
         #Menu_functions.menuExitCountdown(3)
@@ -143,3 +143,5 @@ class OrganizerUI():
 
         user_input = Menu_functions.menuFooter(True)
         return user_input
+
+    
