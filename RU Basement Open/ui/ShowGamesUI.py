@@ -30,7 +30,7 @@ class ShowGamesUI():
                 Menu_functions.menuQuit()
             else:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
-                Menu_functions.menuExitCountdown(3, True)
+                #Menu_functions.menuExitCountdown(3, True)
 
 
     def showTournamentDates(self):
@@ -38,7 +38,10 @@ class ShowGamesUI():
         print(self.llapi.getTournamentDates(tournament_id))
         
 
-    def showGames():
-        pass
+    def showGames(self):
+        games = self.llapi.getGames()
+        
+
+
 
     

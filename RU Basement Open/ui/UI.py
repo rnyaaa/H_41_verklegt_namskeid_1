@@ -64,7 +64,11 @@ class Menu_functions:
         print("          Bless!\n")
         quit()
 
+<<<<<<< Updated upstream
     def getPhoneNumber(prompt_str: str):
+=======
+    def getPhoneNumber(prompt_str:str):
+>>>>>>> Stashed changes
         """Asks for and validates phone number."""
         is_valid = False
         while not is_valid:
