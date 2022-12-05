@@ -121,7 +121,7 @@ class OrganizerUI():
         home_address = input("o    Heimilisfang: ")
         phone_number1 = Menu_functions.getPhoneNumber("o    GSM: ")
         phone_number2 = Menu_functions.getPhoneNumber("o    Heimasími: ")
-        email = input("o    Netfang: ")
+        email = Menu_functions.getEmail("o    Netfang: ")
 
         the_team = self.select_team_input()
 

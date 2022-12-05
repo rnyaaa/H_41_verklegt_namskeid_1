@@ -65,7 +65,7 @@ class Menu_functions:
         print("          Bless!\n")
         quit()
 
-    def getPhoneNumber(ui_str:str):
+    def getPhoneNumber(ui_str: str):
         """Asks for, validates and returns phone number."""
         is_valid = False
         while not is_valid:
@@ -74,10 +74,11 @@ class Menu_functions:
                 is_valid = len(phone_number) == 7
                 phone_number = int(phone_number)
             except ValueError:
-                print("Símanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.")
+                print("\nSímanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.\n")
         return phone_number
 
     def getSSN(ui_str):
+        """Asks for, validates and returns an Icelandid Social Security Number / SSN (kennitala)."""
         is_valid = False
         while not is_valid:
             try:
@@ -85,33 +86,20 @@ class Menu_functions:
                 is_valid = len(ssn) == 10
                 ssn = int(ssn)
             except ValueError:
-                print("Kennitala má aðeins innihalda 10 tölustafi. Reynið aftur.")
+                print("\nKennitala má aðeins innihalda 10 tölustafi. Reynið aftur.\n")
         return ssn
-
 
     def getEmail(ui_str):
         """Asks for , validates and returns email address"""
         email_parameters = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
         is_valid = False
         while not is_valid:
-            try:
-                email = input(ui_str)
-                is_valid = re.fullmatch(email_parameters, email)
-            except ValueError:
-                print("Ógilt netfang, reynið aftur.")
-        return email
- 
-        """def check(email):
-        
-            # pass the regular expression
-            # and the string into the fullmatch() method
-            if(re.fullmatch(regex, email)):
-                print("Valid Email")
-        
-            else:
-                print("Invalid Email")"""
+            email = input(ui_str)
+            is_valid = re.fullmatch(email_parameters, email)
+            if is_valid:
+                return email
+            print("\nÓgilt netfang, reynið aftur.\n")
 
-        
 # Viewer UI --------------------------------------------
 
 

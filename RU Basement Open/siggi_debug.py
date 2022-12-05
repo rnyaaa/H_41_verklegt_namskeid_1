@@ -3,4 +3,5 @@ from ui.UI import Menu_functions
 from logic.LL_API import LL_API
 from IO.IO_API import IO_API
 
-Menu_functions.getEmail("Sláðu inn email: ")
+mail = Menu_functions.getEmail("Sláðu inn email: ")
+print(mail)
