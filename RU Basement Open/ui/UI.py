@@ -99,9 +99,9 @@ class Menu_functions:
             if is_valid:
                 return email
             print("\nÓgilt netfang, reynið aftur.\n")
+            
 
 # Viewer UI --------------------------------------------
-
 
 class PlayerViewer():
 

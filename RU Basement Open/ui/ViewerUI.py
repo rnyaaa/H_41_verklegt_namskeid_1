@@ -3,6 +3,7 @@ from ui.UI import Menu_functions
 from models.player import Player
 from models.team import Team
 from models.tournament import Tournament
+from operator import itemgetter
 
 
 class ViewerUI:
@@ -70,14 +71,32 @@ class ViewerUI:
         None
 
     def showPlayerHighscoreViewer(self):
+        print("Listi yfir leikmenn með flestu afreksstig.")
+        
         high_score = self.llapi.getPlayerScore()
         counter = 1
-        for player in high_score:
-            sorted(high_score)
-            player.QPs
-            print(f"{counter}.  {player.QPs}")
-            counter +=1
-        pass
-
+        sorted_score = sorted(high_score, key=itemgetter(2))
+        for player in sorted_score:
+            print(f"{counter}. {player.playerid}  -   {player.QPs}")
+            counter += 1
+    
     def showPlayerStatistics(self):
-        None
+        """Shows statistics for a selected player"""
+        player =self.select_player_input()
+        print(player.name)
+
+
+    def select_player_input(self):
+        """Displays a numbered menu with all players."""
+        players = self.llapi.getPlayers()
+        command = ""
+        while True:
+            for i in range(len(players)):
+                print(i+1, ". ", players[i].name)
+            command = int(
+                input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
+            if command < 1 or command > len(players):
+                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
+                continue
+            break
+        return players[i]

@@ -41,9 +41,13 @@ class LL_API:
     def getResults(self, results_id: str):
         raise NotImplementedError
 
-    def getPlayerScore(self, player_id: str) -> tuple[str, list[PlayerScore]]:
+    '''def getPlayerScore(self, player_id: str) -> tuple[str, list[PlayerScore]]:
         """ returns a tuple of Player.name and a list of PlayerScore instances """
-        return self.playersLL.getPlayerScore(player_id)
+        return self.playersLL.getPlayerScore(player_id)'''
+
+    def getPlayerScore(self) -> tuple[str, list[PlayerScore]]:
+        """ returns a tuple of Player.name and a list of PlayerScore instances """
+        return self.playersLL.getPlayerScore()
 
     def getPlayerScoreByDate(self):
         raise NotImplementedError
