@@ -20,7 +20,7 @@ class PlayersLL:
         """ adds a player """
         self.ioapi.create_model(player)            
 
-    def getPlayerScore(self) -> list[tuple[str, PlayerScore]]:
+    def getPlayerScore(self) -> list[tuple[PlayerScore]]:
         return self.ioapi.return_model(PlayerScore)
 
     def getPlayerScoreByDate():

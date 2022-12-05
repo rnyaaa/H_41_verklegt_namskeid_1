@@ -22,7 +22,7 @@ class ViewerUI:
 
                 "1.	Listi yfir lið\n"
                 "2.	Staða móts\n"
-                "3.	Listi yfir þá sem hafa skorað flest afreksstig\n"
+                "3.	Listi yfir þá sem hafa skorað flest afreksstig (QPs)\n"
                 "4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni\n"
                 "5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni\n"
                 "6.	Tölfræði fyrir ákveðna leikmenn")
@@ -47,7 +47,6 @@ class ViewerUI:
                 Menu_functions.menuQuit()
             else:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
-                # Menu_functions.menuExitCountdown(3, True)
 
     def showTeams(self):
         '''Shows list of teams and their players'''
@@ -62,7 +61,6 @@ class ViewerUI:
         print("\n" + 78*"_")
         user_input = Menu_functions.menuFooter(False)
 
-        user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
         None
@@ -74,17 +72,41 @@ class ViewerUI:
         print("Listi yfir leikmenn með flestu afreksstig.")
         
         high_score = self.llapi.getPlayerScore()
+        print(high_score)
         counter = 1
+        #hér:
         sorted_score = sorted(high_score, key=itemgetter(2))
         for player in sorted_score:
-            print(f"{counter}. {player.playerid}  -   {player.QPs}")
-            counter += 1
+            for points in player:
+                print(f"{counter}. {points.playerid}  -   {points.QPs}")
+                counter += 1
     
     def showPlayerStatistics(self):
         """Shows statistics for a selected player"""
-        player =self.select_player_input()
-        print(player.name)
+        players = self.llapi.getPlayers()
+        while True:
+            for i in range(len(players)):
+                print(i+1,". ", players[i].name)
+            command = int(input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
+            print(f"\nTölfræði fyrir {players[i].name}\n")
+                
+            if command < 1 or command > len(players):
+                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
+                continue
+            break
+        
+        player_1 = players[command-1].playerid
+        players_score = self.llapi.getPlayerScore()
+        for list in players_score:
+            for score in list:
+                if score.playerid == player_1:
+                    print(score.QPs)
 
+        print(players_score)
+
+        print(f"{players[command-1].name}" + players_score)
+        
+        Menu_functions.menuFooter(True)
 
     def select_player_input(self):
         """Displays a numbered menu with all players."""
