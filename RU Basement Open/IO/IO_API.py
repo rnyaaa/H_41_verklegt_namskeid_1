@@ -8,6 +8,7 @@ from models.tournament import Tournament
 from models.team import Team
 from models.results import Results
 
+
 class IO_API:
 
     def __init__(self):
@@ -25,12 +26,14 @@ class IO_API:
             Player: ["id", "name", "phone_1", "phone_2", "email", "address"],
             Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
             Tournament: [""],
-            PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1", "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"]
+            PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
+                          "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"]
         }
 
     def Loader(self, model, mode="r"):
         """ loads csv files by filename and points the filestream elsewhere """
-        filestream = open(self.filedict[model], mode, newline='', encoding="UTF-8")
+        filestream = open(self.filedict[model],
+                          mode, newline='', encoding="UTF-8")
         return filestream
 
     def return_model(self, model_type) -> list[Any]:
@@ -38,8 +41,11 @@ class IO_API:
         model_return = []
         with self.Loader(model_type) as csvfile:
             reader = csv.reader(csvfile)
+            counter = 0
             for row in reader:
-                model_return.append([item for item in row])
+                if counter > 0:
+                    model_return.append([item for item in row])
+                counter += 1
         """ Dark magic pls do not touch """
         model_return = list(map(lambda x: model_type(*x), model_return))
         return model_return

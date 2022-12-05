@@ -64,13 +64,14 @@ class Menu_functions:
         print("          Bless!\n")
         quit()
 
-    def getPhoneNumber(self, prompt_str):
+    def getPhoneNumber(prompt_str: str):
         """Asks for and validates phone number."""
         is_valid = False
         while not is_valid:
             try:
-                phone_number = int(input(prompt_str))
+                phone_number = input(prompt_str)
                 is_valid = len(phone_number) == 7
+                phone_number = int(phone_number)
             except ValueError:
                 print("Símanúmer má aðeins innihalda 7 tölustafi.")
         return phone_number
