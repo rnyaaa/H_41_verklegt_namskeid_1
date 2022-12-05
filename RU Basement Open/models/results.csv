@@ -1,6 +1,3 @@
-
-
-
 GAMEID                    : 1
 RESULTSID                 : 1
 PLAYERS                   : [playerid, playerid, playerid, playerid, playerid, playerid, playerid, playerid]
@@ -16,4 +13,4 @@ LOSING301                 : [playerid, playerid]
 WINNINGCRICKET            : [playerid, playerid]                             
 LOSINGCRICKET             : [playerid, playerid]
 WINNING501F               : [playerid, playerid, playerid, playerid]
-LOSINGPLAYER:  bla, bla, bla, bla
+LOSINGPLAYER              :  bla, bla, bla, bla

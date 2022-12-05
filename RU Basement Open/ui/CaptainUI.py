@@ -33,9 +33,32 @@ class CaptainUI():
                 Menu_functions.menuQuit()
             else:
                 print("Ekki gildur valmöguleiki, reyndu aftur.")
-                Menu_functions.menuExitCountdown(3, True)
+                #Menu_functions.menuExitCountdown(3, True)
 
             return user_input
 
     def addResults(self):
+        tournaments = self.llapi.getTournaments()
+        for list in tournaments:
+            for name in list:
+                print(f"{name.id}.{name.name}")
+        
+        gameid = input("Númer mótar: ")
+        
+        all_games = self.llapi.getGames()
+        for game in all_games:
+            for list in game:
+                if list.tournament_id == gameid:
+                    print(f"{list.gameid}. {list.home_team} - {list.away_team}")
+
+        resultid = input("Númer viðureignar: ")
+
+    
+
+
+
+
+
+
+
         raise NotImplementedError

@@ -21,7 +21,7 @@ class OrganizerUI():
 
                 "➢  Valmynd:\n\n"
 
-                "1.	Stofna deild\n"
+                "1.	Stofna deild/mót\n"
                 "2.	Skrá leikmann\n"
                 "3.	Skrá lið\n"
                 "4.	Skrá viðureignir\n"
@@ -75,27 +75,48 @@ class OrganizerUI():
     def addTournament(self):
         """Organizer menu for adding a tournament."""
         date_list = "" + ","
-        print("➢	Stofna deild:")
+        print("➢	Stofna deild/mót:")
         print()
 
         # Generate a tournament ID
         tournaments = self.llapi.getTournaments()
-        tournament_id = team_id = len(tournaments) + 1
+        tournament_id = len(tournaments) + 1
 
         # No two tournaments can have the same name
-        tournament_name = input("o	Nafn deildar: ")
+        tournament_name = input("o	Nafn deildar/móts: ")
         self.llapi.verifyTournament(tournament_name)
 
         organizer_name = input("o	Nafn Skipuleggjanda: ")
         organizer_phone = Menu_functions.getPhoneNumber(
             "o	Símanúmer skipuleggjanda: ")
 
+        start_date = Menu_functions.getDate("o	Byrjunardagsetning deildar (dd.mm.yy): ")
+
+        print(f"\no	Nær deildin/mótið yfir meira en einn dag ({start_date})?\n")
+        print("y. Já" + "\n" + "n. nei\n")
+        is_multiple_days = input("Sláðu inn val þitt: ")
+        ask_y_n = True
+        while ask_y_n:
+            try:
+                if is_multiple_days.lower() == "n":
+                    end_date = start_date
+                    ask_y_n = False
+                if is_multiple_days.lower() == "y":
+                    end_date = Menu_functions.getDate("o	Lokadagsetning deildar (dd.mm.yy): ")
+                    ask_y_n = False
+                else:
+                    return ValueError
+            except ValueError:
+                print("Ekki gildur valmöguleiki, reyndu aftur")
+        
+        
+
         tournament = Tournament(
             tournament_id, tournament_name, organizer_name, organizer_phone, date_list)
         self.llapi.addTournament(tournament)
 
         print(
-            "\n" + f'Deildin "{tournament_name}" hefur nú verið skráð.' + "\n")
+            "\n" + f'Deildin/mótið "{tournament_name}" hefur nú verið skráð.' + "\n")
         # Menu_functions.menuExitCountdown(3)
 
     def select_team_input(self):
@@ -169,6 +190,10 @@ class OrganizerUI():
     def changeResults(self):
         # Hér þarf að sækja úrslit í IO sem userinn vill breyta
         print("➢	Breyta skráningu úrslita: ")
+        all_results = self.llapi.getResults()
+        for result in all_results:
+            for list in result:
+                print(list.game_id)
         print()
         name = input("	Nafn móts: ")
         print()
