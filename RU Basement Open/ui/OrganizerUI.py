@@ -109,7 +109,8 @@ class OrganizerUI():
             except ValueError:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
         
-        
+        tournament_type = Menu_functions.getTournamentType("o	Byrjunardagsetning deildar (dd.mm.yy): ")
+
 
         tournament = Tournament(
             tournament_id, tournament_name, organizer_name, organizer_phone, date_list)
