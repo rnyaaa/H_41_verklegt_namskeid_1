@@ -53,10 +53,10 @@ class ViewerUI:
         teams = self.llapi.getTeams()
         players = self.llapi.getPlayers()
         for team in teams:
-            print(f"\n{team.name}:\n")
+            print(f"\n{team.name}:")
             for player in players:
                 if team.id == player.team_id:
-                    print(f"{player.name:>20}")
+                    print(f"→ {player.name:>20}")
 
     def showTournamentInfo(self):
         None
@@ -66,6 +66,6 @@ class ViewerUI:
 
     def showPlayerHighscoreViewer(self):
         pass
-    
+
     def showPlayerStatistics(self):
         None

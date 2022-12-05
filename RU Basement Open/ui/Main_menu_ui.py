@@ -59,4 +59,3 @@ class Main_Menu_UI:
             else:
                 print()
                 print("Ekki gildur valmöguleiki!")
-                #time.sleep(2)

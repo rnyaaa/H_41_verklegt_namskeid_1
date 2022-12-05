@@ -1,4 +1,7 @@
-Pepsi deildin, deildin,Rebekka,7707430,
-Íslandsmót,Rebekka,7707430,"['13.12.22', '14.12.22', '15.12.22']",[],[]
-HM,Rebekka,7707430, 12.12.2213.12.2214.12.22,[],[]
-MH,Rebekka,7707430, 12.12.2213.12.2214.12.22,[],[]
+id,name,organizer_name,organizer_phone,date_list,games_list,teams_list)
+
+id,name,
+1,Pepsi deildin, deildin,Rebekka,7707430,
+2,Íslandsmót,Rebekka,7707430,"['13.12.22', '14.12.22', '15.12.22']",[],[]
+3,HM,Rebekka,7707430, 12.12.2213.12.2214.12.22,[],[]
+4,MH,Rebekka,7707430, 12.12.2213.12.2214.12.22,[],[]
