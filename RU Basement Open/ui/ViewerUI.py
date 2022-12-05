@@ -50,9 +50,11 @@ class ViewerUI:
 
     def showTeams(self):
         '''Shows list of teams and their players'''
-        teams = LL_API.getTeams(self)
-        for team in teams:
-            print(team)
+        teams = self.llapi.getPlayerList()
+        for list in teams:
+            print(f"{list.team_id}:")
+            for name in list:
+                print(f"{name.name}")
 
     def showTournamentInfo(self):
         None

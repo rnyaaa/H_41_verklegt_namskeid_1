@@ -1,10 +1,10 @@
-id, name, mobile, home_phone, email, address
-0104320000,Mamma Þín,8988899,1122334,mamma@thin.is,Hjamérgata 1
-123456789,hahah',6767676,mammaþín 69,b@bl.is,ab 1
-0101691010,rebekka,1212121,5888888,rebekka@ru.is,Krambúðargata 1
-2121213030,Axel Hall,6914975,5996200,axelhall@ru.is,Menntavegur 1
-0101012211,Kristall Collabson,8987788,55112255,m@m.io,Menntavegur 1
-1203041020,mimi mumu,8776655,5436677,mimi@mumu.is,Gata 2
+id, name, mobile, home_phone, email, address, team_id
+0104320000,Mamma Þín,8988899,1122334,mamma@thin.is,Hjamérgata 1, 1
+123456789,hahah',6767676,mammaþín 69,b@bl.is,ab 1, KR
+0101691010,rebekka,1212121,5888888,rebekka@ru.is,Krambúðargata 1,  1
+2121213030,Axel Hall,6914975,5996200,axelhall@ru.is,Menntavegur 1, 1
+0101012211,Kristall Collabson,8987788,55112255,m@m.io,Menntavegur 1, 1
+1203041020,mimi mumu,8776655,5436677,mimi@mumu.is,Gata 2, 1
 327847983274892374,ahskdhasjkhdkas,847389,9832840932,haha@haha.is,vjdkfbvjk 31
 0309902269,Rebekka,7707430,8899889,rebekka,Suðurgata 78
 sdælkfgj,sldfkgm,Símanúmer má ekki innihalda bókstafi.,Símanúmer má ekki innihalda bókstafi.,lakdsfgm,sdlfgkm+

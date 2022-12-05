@@ -23,7 +23,7 @@ class ShowGamesUI():
             if user_input == "1":
                 self.showTournamentDates()
             elif user_input == "2":
-                self.showGamesFinished()
+                self.showGames()
             elif user_input == "b":
                 break
             elif user_input == "q":
@@ -38,8 +38,7 @@ class ShowGamesUI():
         print(self.llapi.getTournamentDates(tournament_id))
         
 
-    def showGamesFinished():
-        raise NotImplementedError
+    def showGames():
+        pass
 
-    def showUpcomingGames():
-        raise NotImplementedError
+    
