@@ -46,7 +46,7 @@ class ViewerUI:
                 Menu_functions.menuQuit()
             else:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
-                Menu_functions.menuExitCountdown(3, True)
+                #Menu_functions.menuExitCountdown(3, True)
 
     def showTeams(self):
         '''Shows list of teams and their players'''
@@ -57,6 +57,9 @@ class ViewerUI:
             for player in players:
                 if team.id == player.team_id:
                     print(f"{player.name:>20}")
+        
+        user_input = Menu_functions.menuFooter(False)
+
 
     def showTournamentInfo(self):
         None
