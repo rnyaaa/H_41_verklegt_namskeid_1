@@ -50,9 +50,13 @@ class ViewerUI:
 
     def showTeams(self):
         '''Shows list of teams and their players'''
-        teams = LL_API.getTeams(self)
+        teams = self.llapi.getTeams()
+        players = self.llapi.getPlayers()
         for team in teams:
-            print(team)
+            print(f"{team.name}:")
+            for player in players:
+                if team.id == player.team_id:
+                    print(f"{player.name:>6}")
 
     def showTournamentInfo(self):
         None
@@ -61,7 +65,6 @@ class ViewerUI:
         None
 
     def showPlayerHighscoreViewer(self):
-        None
-
+          
     def showPlayerStatistics(self):
         None

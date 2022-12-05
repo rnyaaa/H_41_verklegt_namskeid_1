@@ -24,20 +24,23 @@ class OrganizerUI():
                 "1.	Stofna deild\n"
                 "2.	Skrá leikmann\n"
                 "3.	Skrá lið\n"
-                "4.	Breyta dagsetningu á viðureign\n"
-                "5.	Breyta skráningu úrslita")
+                "4.	Skrá viðureignir\n"
+                "5.	Breyta dagsetningu á viðureign\n"
+                "6.	Breyta skráningu úrslita")
 
             user_input = Menu_functions.menuFooter(True)
 
             if user_input == "1":
-                self.addTeamPage()
-            elif user_input == "2":
                 self.addTournament()
-            elif user_input == "3":
+            elif user_input == "2":
                 self.addPlayer()
+            elif user_input == "3":
+                self.addTeamPage()
             elif user_input == "4":
-                self.changeTournamentDates()
+                self.addGames()
             elif user_input == "5":
+                self.changeResults
+            elif user_input == "6":
                 self.changeResults()
             elif user_input == "b":
                 break
@@ -56,16 +59,18 @@ class OrganizerUI():
         team_name = input("o   Nafn liðs: ")
         home_address = input("o   Heimilisfang: ")
         club_name = input("o   Nafn félags: ")
-        phone_number = LL_API.isPhoneNumber("o   Símanúmer: ")
-        player1 = LL_API.checkIfPlayerIsRegistered("Fyrirliði: ")  # Hér þarf að setja tjékka hvort leikmaður sé nú þegar skráður
+        phone_number = Menu_functions.getPhoneNumber("o   Símanúmer: ")
+
+        '''player1 = LL_API.checkIfPlayerIsRegistered("Fyrirliði: ")  # Hér þarf að setja tjékka hvort leikmaður sé nú þegar skráður
         player2 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
         player3 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
-        player4 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
+        player4 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")'''
 
         games_won = 0
         rounds_won = 0
 
-        team = Team(team_id, team_name, home_address, club_name, phone_number, games_won, rounds_won, player1, player2, player3, player4)
+        team = Team(team_id, team_name, home_address, club_name,
+                    phone_number, games_won, rounds_won)
         self.llapi.addTeam(team)
 
     def addTournament(self):
@@ -79,7 +84,7 @@ class OrganizerUI():
         self.llapi.verifyTournament(tournament_name)
 
         organizer_name = input("o	Nafn Skipuleggjanda: ")
-        organizer_phone = LL_API.isPhoneNumber(
+        organizer_phone = Menu_functions.getPhoneNumber(
             "o	Símanúmer skipuleggjanda: ")
 
         tournament = Tournament(
@@ -87,8 +92,22 @@ class OrganizerUI():
         self.llapi.addTournament(tournament)
 
         print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
-        #Menu_functions.menuExitCountdown(3)
-        
+        # Menu_functions.menuExitCountdown(3)
+
+    def select_team_input(self):
+        print("\nSkrá leikmann í lið:\n")
+        teams = self.llapi.getTeams()
+        command = ""
+        while True:
+            for i in range(len(teams)):
+                print(i+1, ". ", teams[i].name)
+            command = int(
+                input(f"\nVeldu lið af listanum hér fyrir ofan (t.d. 1 fyrir {teams[0].name}): "))
+            if command < 1 or command > len(teams):
+                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
+                continue
+            break
+        return teams[i]
 
     def addPlayer(self):
         """Organizer form for player addition."""
@@ -96,20 +115,24 @@ class OrganizerUI():
         print(78*"_")
         print()
         print("➢   Skrá leikmann\n")
-       
+
         name = input("o    Nafn: ")
-        id_number = input("o    Kennitala: ")
+        id_number = Menu_functions.getSSN("o    Kennitala: ")
         home_address = input("o    Heimilisfang: ")
-        phone_number1 = LL_API.isPhoneNumber("o    GSM: ")
-        phone_number2 = LL_API.isPhoneNumber("o    Heimasími: ")
-        email = input("o    Netfang: ")
+        phone_number1 = Menu_functions.getPhoneNumber("o    GSM: ")
+        phone_number2 = Menu_functions.getPhoneNumber("o    Heimasími: ")
+        email = Menu_functions.getEmail("o    Netfang: ")
+
+        the_team = self.select_team_input()
+
+        team_id = the_team.id
+
         player = Player(id_number, name, phone_number1,
-                        phone_number2, email, home_address)
+                        phone_number2, email, home_address, team_id)
         self.llapi.addPlayer(player)
 
-
         print("\n" + f"Leikmaðurinn {name} hefur nú verið skráður." + "\n")
-        #Menu_functions.menuExitCountdown(3)
+        # Menu_functions.menuExitCountdown(3)
 
     def changeTournamentDates(self):
         """Organizer form for changing dates of an existing tournament."""
@@ -126,21 +149,17 @@ class OrganizerUI():
         user_input = Menu_functions.menuFooter(True)
         return user_input
 
+    def addGames(self):
 
-    def addGames():
-
-        print("Skrá viðureignir: ")
+        print("\nSkrá viðureignir: ")
         while True:
-            tournament = input("o  Mót: ")
+            tournament = input("\no	Mót: ")
             date = input("o	Dagsetning viðureignar: ")
             if date == "":
                 break
             else:
-                home_away = input("Hverjir keppa? (Heimalið - útilið): ")
-    
-        games = Game(tournament, home_away, date)
-        
-
+                home_away = input("o	Hverjir keppa? (Heimalið - útilið): ")
+                Game(tournament, home_away, date)
 
     def changeResults(self):
         # Hér þarf að sækja úrslit í IO sem userinn vill breyta
@@ -153,5 +172,3 @@ class OrganizerUI():
 
         user_input = Menu_functions.menuFooter(True)
         return user_input
-
-    

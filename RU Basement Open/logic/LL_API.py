@@ -11,6 +11,7 @@ from logic.TournamentLL import TournamentLL
 from logic.GamesLL import GamesLL
 
 
+
 class LL_API:
 
     def __init__(self, ioapi: IO_API):
@@ -64,7 +65,7 @@ class LL_API:
         """ returns a list of games where the results are None(have not been filled in, thus are upcoming) """
         return [game for game in self.gamesLL.getAllGames() if game.results is None]
 
-    def getPlayerList(self, sort) -> list[tuple[Player, str]]:
+    def getPlayerList(self) -> list[tuple[Player, str]]:
         """ returns a list of tuples of players and the score they are sorted by """
         return self.playersLL.getPlayerList()
 
@@ -90,18 +91,6 @@ class LL_API:
     def changeDate():
         raise NotImplementedError
 
-    def isPhoneNumber(prompt):
-        phone_number = input(prompt)
-        try:
-            int(phone_number)
-            if len(phone_number) == 7:
-                return phone_number
-            else:
-                return ValueError
-                print("Símanúmer má aðeins innihalda 7 tölustafi.")
-        except ValueError:
-            print("Símanúmer má ekki innihalda bókstafi.")
-
     def verifyTournament(self, new_name):
         data = self.getTournaments()
         print(data)
@@ -121,7 +110,12 @@ class LL_API:
                 print("Leikmaður er ekki skráður.")
 
     
-
+    def getTeam_id(self, team_name):
+        """Gets and returns a team ID for a given team name."""
+        team_id = self.getTeams()
+        for list in team_id:
+            if list.name == team_name:
+                return list.id
 
     
         

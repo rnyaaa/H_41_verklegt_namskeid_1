@@ -17,9 +17,9 @@ class TournamentLL():
         return self.ioapi.create_model(tournament)
 
     def getTournamentScore(self):
+       
         all_games = self.ioapi.return_model(Game)
         for game in all_games:
-            print(game.gameid)
-            print(game.tournament_id)
-            print(game.date)
-            print(game.results)
+            return [game.gameid[game.game]]
+
+

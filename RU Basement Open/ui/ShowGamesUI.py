@@ -23,14 +23,14 @@ class ShowGamesUI():
             if user_input == "1":
                 self.showTournamentDates()
             elif user_input == "2":
-                self.showGamesFinished()
+                self.showGames()
             elif user_input == "b":
                 break
             elif user_input == "q":
                 Menu_functions.menuQuit()
             else:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
-                Menu_functions.menuExitCountdown(3, True)
+                #Menu_functions.menuExitCountdown(3, True)
 
 
     def showTournamentDates(self):
@@ -38,8 +38,12 @@ class ShowGamesUI():
         print(self.llapi.getTournamentDates(tournament_id))
         
 
-    def showGamesFinished():
-        raise NotImplementedError
+    def showGames(self):
+        games = self.llapi.getGames()
+        print(games.gameid)
 
-    def showUpcomingGames():
-        raise NotImplementedError
+        
+
+
+
+    
