@@ -10,3 +10,5 @@ Verkefni dagsins:
 
 Spyrja á morgun:
 - Hvernig er best að geyma lista af dagsetningum (s.s. dagsetningar allra viðureignanna) í csv?
+- Í verkefnalýsingunni stendur: "Einnig þarf að skrá tegund móts/deildar þar sem kemur fram hve margar umferðir eru spilaðar þar sem lágmarksfjöldi umferða er 1."
+    Á þá að spyrja notandann um tegund móts (301,501, cricket) EÐA fjölda umferða EÐA bæði?
