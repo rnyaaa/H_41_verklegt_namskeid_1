@@ -20,10 +20,7 @@ class PlayersLL:
         """ adds a player """
         self.ioapi.create_model(player)            
 
-    def getPlayerList(self, sortkey):
-        raise NotImplementedError
-
-    def getPlayerScore(self, name) -> list[tuple[str, PlayerScore]]:
+    def getPlayerScore(self) -> list[tuple[str, PlayerScore]]:
         raise NotImplementedError
 
     def getPlayerScoreByDate():

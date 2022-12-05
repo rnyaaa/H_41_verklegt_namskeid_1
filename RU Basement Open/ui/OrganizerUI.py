@@ -117,7 +117,7 @@ class OrganizerUI():
         print("➢   Skrá leikmann\n")
 
         name = input("o    Nafn: ")
-        id_number = input("o    Kennitala: ")
+        id_number = Menu_functions.getSSN("o    Kennitala: ")
         home_address = input("o    Heimilisfang: ")
         phone_number1 = Menu_functions.getPhoneNumber("o    GSM: ")
         phone_number2 = Menu_functions.getPhoneNumber("o    Heimasími: ")

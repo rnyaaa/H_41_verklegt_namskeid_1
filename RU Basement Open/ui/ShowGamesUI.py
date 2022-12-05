@@ -40,6 +40,8 @@ class ShowGamesUI():
 
     def showGames(self):
         games = self.llapi.getGames()
+        print(games.gameid)
+
         
 
 

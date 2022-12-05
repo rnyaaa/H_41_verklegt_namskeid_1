@@ -65,7 +65,7 @@ class LL_API:
         """ returns a list of games where the results are None(have not been filled in, thus are upcoming) """
         return [game for game in self.gamesLL.getAllGames() if game.results is None]
 
-    def getPlayerList(self, sort) -> list[tuple[Player, str]]:
+    def getPlayerList(self) -> list[tuple[Player, str]]:
         """ returns a list of tuples of players and the score they are sorted by """
         return self.playersLL.getPlayerList()
 

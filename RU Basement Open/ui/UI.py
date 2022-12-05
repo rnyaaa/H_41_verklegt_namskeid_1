@@ -1,5 +1,6 @@
 from logic.LL_API import LL_API
 import time
+import re
 
 
 class Menu_functions:
@@ -64,22 +65,53 @@ class Menu_functions:
         print("          Bless!\n")
         quit()
 
-<<<<<<< Updated upstream
-    def getPhoneNumber(prompt_str: str):
-=======
-    def getPhoneNumber(prompt_str:str):
->>>>>>> Stashed changes
-        """Asks for and validates phone number."""
+    def getPhoneNumber(ui_str:str):
+        """Asks for, validates and returns phone number."""
         is_valid = False
         while not is_valid:
             try:
-                phone_number = input(prompt_str)
+                phone_number = input(ui_str)
                 is_valid = len(phone_number) == 7
                 phone_number = int(phone_number)
             except ValueError:
-                print("Símanúmer má aðeins innihalda 7 tölustafi.")
+                print("Símanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.")
         return phone_number
 
+    def getSSN(ui_str):
+        is_valid = False
+        while not is_valid:
+            try:
+                ssn = input(ui_str).strip("-")
+                is_valid = len(ssn) == 10
+                ssn = int(ssn)
+            except ValueError:
+                print("Kennitala má aðeins innihalda 10 tölustafi. Reynið aftur.")
+        return ssn
+
+
+    def getEmail(ui_str):
+        """Asks for , validates and returns email address"""
+        email_parameters = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+        is_valid = False
+        while not is_valid:
+            try:
+                email = input(ui_str)
+                is_valid = re.fullmatch(email_parameters, email)
+            except ValueError:
+                print("Ógilt netfang, reynið aftur.")
+        return email
+ 
+        """def check(email):
+        
+            # pass the regular expression
+            # and the string into the fullmatch() method
+            if(re.fullmatch(regex, email)):
+                print("Valid Email")
+        
+            else:
+                print("Invalid Email")"""
+
+        
 # Viewer UI --------------------------------------------
 
 
