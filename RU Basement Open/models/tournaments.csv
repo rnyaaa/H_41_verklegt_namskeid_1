@@ -1,8 +1,19 @@
 id,name,organizer_name,organizer_phone,date_list,games_list,teams_list
 1,Pepsi deildin, deildin,Rebekka,7707430,
+<<<<<<< Updated upstream
 2,Íslandsmót,Rebekka,7707430,13.12.22,14.12.22,15.12.22,,
 3,HM,Rebekka,7707430, 12.12.2213.12.2214.12.22,,
 4,MH,Rebekka,7707430, 12.12.2213.12.2214.12.22,,
 5,Deildardeildin,Giggi,6676987,,,,
 6,Bókunardeild Icelandair Hótela,Mina Ricic,4444000,,,,
 7,Out of ur league,Mamma þín,6969696,,,,
+=======
+2,Íslandsmót,Rebekka,7707430,"['13.12.22', '14.12.22', '15.12.22']",[],[]
+3,HM,Rebekka,7707430, 12.12.2213.12.2214.12.22,[],[]
+4,MH,Rebekka,7707430, 12.12.2213.12.2214.12.22,[],[]
+5,Deildardeildin,Giggi,6676987,",",[],[]
+6,Bókunardeild Icelandair Hótela,Mina Ricic,4444000,",",[],[]
+7,Out of ur league,Mamma þín,6969696,",",[],[]
+8,Prufudeildin,Siggi I,5554444,",",[],[]
+9,a,b,2222222,",",[],[]
+>>>>>>> Stashed changes

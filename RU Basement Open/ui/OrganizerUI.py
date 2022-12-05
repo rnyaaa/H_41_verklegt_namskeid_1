@@ -181,7 +181,7 @@ class OrganizerUI():
         print("\nSkrá viðureignir: ")
         while True:
             tournament = input("\no	Mót: ")
-            date = input("o	Dagsetning viðureignar: ")
+            date = input("o	Dagsetning viðureignar (dd.mm.áá): ")
             if date == "":
                 break
             else:
