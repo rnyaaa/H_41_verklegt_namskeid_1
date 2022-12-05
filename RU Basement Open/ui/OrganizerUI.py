@@ -90,9 +90,11 @@ class OrganizerUI():
         organizer_phone = Menu_functions.getPhoneNumber(
             "o	Símanúmer skipuleggjanda: ")
 
-        start_date = Menu_functions.getDate("o	Byrjunardagsetning deildar (dd.mm.yy): ")
+        start_date = Menu_functions.getDate(
+            "o	Byrjunardagsetning deildar (dd.mm.yy): ")
 
-        print(f"\no	Nær deildin/mótið yfir meira en einn dag ({start_date})?\n")
+        print(
+            f"\no	Nær deildin/mótið yfir meira en einn dag ({start_date})?\n")
         print("y. Já" + "\n" + "n. nei\n")
         is_multiple_days = input("Sláðu inn val þitt: ")
         ask_y_n = True
@@ -102,18 +104,24 @@ class OrganizerUI():
                     end_date = start_date
                     ask_y_n = False
                 if is_multiple_days.lower() == "y":
-                    end_date = Menu_functions.getDate("o	Lokadagsetning deildar (dd.mm.yy): ")
+                    end_date = Menu_functions.getDate(
+                        "o	Lokadagsetning deildar (dd.mm.yy): ")
                     ask_y_n = False
                 else:
                     return ValueError
             except ValueError:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
-        
-        tournament_type = Menu_functions.getTournamentType("o	ZZZZZZZZZZZZZZZZZZZZZZZZZZ:")
 
+        tournament_type = Menu_functions.getTournamentType(
+            "o	Veldu tegund deildar/móts:")
+        nr_of_rounds = 0
+        while nr_of_rounds > 1:
+            nr_of_rounds = input("o	Fjöldi umferða: ")
+            if nr_of_rounds > 1:
+                print("\nLágmarksfjöldi umferða er 1, reynið aftur.\n")
 
         tournament = Tournament(
-            tournament_id, tournament_name, organizer_name, organizer_phone, date_list)
+            tournament_id, tournament_name, organizer_name, organizer_phone, start_date, end_date, tournament_type, nr_of_rounds)
         self.llapi.addTournament(tournament)
 
         print(

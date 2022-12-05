@@ -45,7 +45,7 @@ class Menu_functions:
             countdown -= 1
         print()
 
-    def getPhoneNumber(ui_str:str):
+    def getPhoneNumber(ui_str: str):
         """Asks for, validates and returns phone number.
         Takes in the parameter ui_str, which is the string displayed for the input."""
         is_valid = False
@@ -58,7 +58,7 @@ class Menu_functions:
                 print("\nSímanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.\n")
         return phone_number
 
-    def getSSN(ui_str:str):
+    def getSSN(ui_str: str):
         """Asks for, validates and returns an Icelandid Social Security Number / SSN (kennitala).
         Takes in the parameter ui_str, which is the string displayed for the input."""
         is_valid = False
@@ -71,7 +71,7 @@ class Menu_functions:
                 print("\nKennitala má aðeins innihalda 10 tölustafi. Reynið aftur.\n")
         return ssn
 
-    def getEmail(ui_str:str):
+    def getEmail(ui_str: str):
         """Asks for , validates and returns email address.
         Takes in the parameter ui_str, which is the string displayed for the input."""
         email_parameters = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
@@ -83,19 +83,49 @@ class Menu_functions:
                 return email
             print("\nÓgilt netfang, reynið aftur.\n")
 
-    def getDate(ui_str:str):
+    def getDate(ui_str: str):
         """Asks for , validates and returns date information on the following format: dd.mm.yy
         Takes in the parameter ui_str, which is the string displayed for the input."""
         is_valid = False
         while not is_valid:
             date_str = input(ui_str)
             try:
-                formatted_date = datetime.datetime.strptime(date_str, '%d.%m.%y')
+                formatted_date = datetime.datetime.strptime(
+                    date_str, '%d.%m.%y')
                 is_valid = True
             except ValueError:
-                print("\nDagsetning er á ógildu formi. Slá skal inn dagsetningu á forminu dd.mm.yy (t.d. 19.07.99)\n")
+                print(
+                    "\nDagsetning er á ógildu formi. Slá skal inn dagsetningu á forminu dd.mm.yy (t.d. 19.07.99)\n")
         return date_str
-            
+
+    def getTournamentType(ui_str: str):
+        """Asks for , validates and returns tournament type (501, 301, Cricket or Multiplayer).
+        Takes in the parameter ui_str, which is the string displayed for the input."""
+        tournament_options = [1, 2, 3, 4]
+        print(ui_str + "\n")
+
+        is_valid = False
+        while not is_valid:
+            try:
+                print("1. 501\n" + "2. 301\n" + "3. Cricket\n" +
+                      "4. Fjölmenningsleikir\n")
+                user_choice = int(
+                    input("Veldu tegund deildar/móts af listanum hér að ofan: "))
+                is_valid = user_choice in tournament_options
+                if not is_valid:
+                    print("\nÓgilt val, reynið aftur.\n")
+            except:
+                print("\nÓgilt val, reynið aftur.\n")
+
+        if user_choice == 1:
+            return "501"
+        if user_choice == 2:
+            return "301"
+        if user_choice == 3:
+            return "cricket"
+        if user_choice == 4:
+            return "fjölmenningsleikir"
+
     def menuQuit():
         print()
         print("     .--'''''''''--.")
