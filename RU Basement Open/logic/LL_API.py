@@ -97,7 +97,7 @@ class LL_API:
             if len(phone_number) == 7:
                 return phone_number
             else:
-                return error
+                return ValueError
                 print("Símanúmer má aðeins innihalda 7 tölustafi.")
         except ValueError:
             print("Símanúmer má ekki innihalda bókstafi.")
