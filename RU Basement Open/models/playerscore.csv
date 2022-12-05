@@ -1,2 +1,5 @@
-[gameID, playerID], QPs, Inshots, Outshots, winratio501_1, winratio301, winratiocricket, winratio501_4
-[1, 1, 30, I31, U41, 5, 3, 4, 1, 5, 1, 3, 1]
+gameID, playerID, QPs, Inshots, Outshots, winratio501_1, winratio301, winratiocricket, winratio501_4
+1, 0104320000, 30, I31, U41, 5, 3, 4, 1, 5, 1, 3, 1
+1, 0101012211, 40, I70, U72, 5, 3, 4, 1, 5, 1, 3, 1
+1, 0101691010, 50, I89, U90, 5, 3, 4, 1, 5, 1, 3, 1
+

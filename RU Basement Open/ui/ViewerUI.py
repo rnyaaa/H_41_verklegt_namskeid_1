@@ -17,7 +17,7 @@ class ViewerUI:
             print(
                 "Verið velkomin í Tölfræðivalmyndina!\n\n"
 
-                "➢  Valmynd:\n\n"
+                "➢  Valmynd:\n"
 
                 "1.	Listi yfir lið\n"
                 "2.	Staða móts\n"
@@ -68,6 +68,13 @@ class ViewerUI:
         None
 
     def showPlayerHighscoreViewer(self):
+        high_score = self.llapi.getPlayerScore()
+        counter = 1
+        for player in high_score:
+            sorted(high_score)
+            player.QPs
+            print(f"{counter}.  {player.}")
+            counter +=1
         pass
     
     def showPlayerStatistics(self):
