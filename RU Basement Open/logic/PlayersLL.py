@@ -21,7 +21,7 @@ class PlayersLL:
         self.ioapi.create_model(player)            
 
     def getPlayerScore(self) -> list[tuple[str, PlayerScore]]:
-        return self.ioapi.return_model(PlayerScore)
+        pass
 
     def getPlayerScoreByDate():
         raise NotImplementedError
