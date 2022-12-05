@@ -18,4 +18,8 @@ class TournamentLL():
 
     def getTournamentScore(self):
         all_games = self.ioapi.return_model(Game)
-        print(all_games)
+        for game in all_games:
+            print(game.gameid)
+            print(game.tournament_id)
+            print(game.date)
+            print(game.results)
