@@ -54,6 +54,8 @@ class Menu_functions:
                 phone_number = input(ui_str)
                 is_valid = len(phone_number) == 7
                 phone_number = int(phone_number)
+                if not is_valid:
+                    print("\nSímanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.\n")
             except ValueError:
                 print("\nSímanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.\n")
         return phone_number
@@ -67,6 +69,8 @@ class Menu_functions:
                 ssn = input(ui_str).strip("-")
                 is_valid = len(ssn) == 10
                 ssn = int(ssn)
+                if not is_valid:
+                    print("\nKennitala má aðeins innihalda 10 tölustafi. Reynið aftur.\n")
             except ValueError:
                 print("\nKennitala má aðeins innihalda 10 tölustafi. Reynið aftur.\n")
         return ssn
@@ -95,7 +99,7 @@ class Menu_functions:
                 is_valid = True
             except ValueError:
                 print(
-                    "\nDagsetning er á ógildu formi. Slá skal inn dagsetningu á forminu dd.mm.yy (t.d. 19.07.99)\n")
+                    "\nDagsetning er á ógildu formi. Slá skal inn dagsetningu á forminu dd.mm.áá (t.d. 19.07.99)\n")
         return date_str
 
     def getTournamentType(ui_str: str):
