@@ -15,7 +15,7 @@ class IO_API:
         """ a filename dict keyed by class objects """
         self.filedict = {
             Player: "models/players.csv",
-            Game: "models/games.csv",
+            Game: "RU Basement Open/models/games.csv",#"models/games.csv",
             Team: "models/teams.csv",
             Tournament: "models/tournaments.csv",
             PlayerScore: "models/playerscore.csv",
