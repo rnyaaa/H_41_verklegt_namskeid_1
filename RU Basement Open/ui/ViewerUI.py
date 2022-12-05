@@ -3,6 +3,7 @@ from ui.UI import Menu_functions
 from models.player import Player
 from models.team import Team
 from models.tournament import Tournament
+from models.playerscore import PlayerScore
 
 
 class ViewerUI:
@@ -50,11 +51,13 @@ class ViewerUI:
 
     def showTeams(self):
         '''Shows list of teams and their players'''
-        teams = self.llapi.getAll()
-        for list in teams:
-            print(f"{list.team_id}:")
-            for name in list:
-                print(f"{list.name}")
+        teams = self.llapi.getTeams()
+        players = self.llapi.getPlayers()
+        for team in teams:
+            print(f"{team.name}:")
+            for player in players:
+                if team.id == player.team_id:
+                    print(f"{player.name}")
 
     def showTournamentInfo(self):
         None
@@ -63,7 +66,7 @@ class ViewerUI:
         None
 
     def showPlayerHighscoreViewer(self):
-        None
+        players = self.io
 
     def showPlayerStatistics(self):
         None
