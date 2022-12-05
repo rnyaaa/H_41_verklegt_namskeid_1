@@ -1,7 +1,7 @@
 from IO.IO_API import IO_API
 from models.tournament import Tournament
 from models.team import Team
-
+from models.game import Game
 
 class TournamentLL():
 
@@ -17,4 +17,5 @@ class TournamentLL():
         return self.ioapi.create_model(tournament)
 
     def getTournamentScore(self):
-        raise NotImplementedError
+        all_games = self.ioapi.return_model(Game)
+        print(all_games)

@@ -1,4 +1,5 @@
 from logic.LL_API import LL_API
+from models.game import Game
 from models.player import Player
 from models.team import Team
 from models.tournament import Tournament
@@ -20,9 +21,9 @@ class OrganizerUI():
 
                 "➢  Valmynd:\n\n"
 
-                "1.	Skrá lið\n"
-                "2.	Stofna deild\n"
-                "3.	Skrá leikmenn\n"
+                "1.	Stofna deild\n"
+                "2.	Skrá leikmann\n"
+                "3.	Skrá lið\n"
                 "4.	Breyta dagsetningu á viðureign\n"
                 "5.	Breyta skráningu úrslita")
 
@@ -56,7 +57,7 @@ class OrganizerUI():
         home_address = input("o   Heimilisfang: ")
         club_name = input("o   Nafn félags: ")
         phone_number = LL_API.isPhoneNumber("o   Símanúmer: ")
-        player1 = LL_API.checkIfPlayerIsRegistered("Fyrirliði: ")  # Hér þarf að setja tjékk hvort leikmaður sé nú þegar skráður
+        player1 = LL_API.checkIfPlayerIsRegistered("Fyrirliði: ")  # Hér þarf að setja tjékka hvort leikmaður sé nú þegar skráður
         player2 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
         player3 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
         player4 = LL_API.checkIfPlayerIsRegistered("Leikmaður: ")
@@ -80,13 +81,6 @@ class OrganizerUI():
         organizer_name = input("o	Nafn Skipuleggjanda: ")
         organizer_phone = LL_API.isPhoneNumber(
             "o	Símanúmer skipuleggjanda: ")
-
-        while True:
-            date = input("o	Dagsetning viðureignar: ")
-            if date == "":
-                break
-            else:
-                date_list += date
 
         tournament = Tournament(
             tournament_name, organizer_name, organizer_phone, date_list)
@@ -131,6 +125,22 @@ class OrganizerUI():
 
         user_input = Menu_functions.menuFooter(True)
         return user_input
+
+
+    def addGames():
+
+        print("Skrá viðureignir: ")
+        while True:
+            tournament = input("o  Mót: ")
+            date = input("o	Dagsetning viðureignar: ")
+            if date == "":
+                break
+            else:
+                home_away = input("Hverjir keppa? (Heimalið - útilið): ")
+    
+        games = Game(tournament, home_away, date)
+        
+
 
     def changeResults(self):
         # Hér þarf að sækja úrslit í IO sem userinn vill breyta
