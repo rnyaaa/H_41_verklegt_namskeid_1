@@ -11,7 +11,6 @@ from logic.TournamentLL import TournamentLL
 from logic.GamesLL import GamesLL
 
 
-
 class LL_API:
 
     def __init__(self, ioapi: IO_API):
@@ -93,15 +92,15 @@ class LL_API:
 
     def verifyTournament(self, new_name):
         data = self.getTournaments()
-        print(data)
         for list in data:
             if list.name == new_name:
                 print("Nafnið er frátekið, reyndu aftur.")
                 return True
             else:
                 return False
+
     def checkIfPlayerIsRegistered(self, player):
-        input_player = input(player) 
+        input_player = input(player)
         data = self.getPlayers()
         for list in data:
             if list.name.lower() == input_player.lower():
@@ -109,13 +108,9 @@ class LL_API:
             else:
                 print("Leikmaður er ekki skráður.")
 
-    
     def getTeam_id(self, team_name):
         """Gets and returns a team ID for a given team name."""
         team_id = self.getTeams()
         for list in team_id:
             if list.name == team_name:
                 return list.id
-
-    
-        

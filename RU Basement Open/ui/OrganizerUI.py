@@ -78,7 +78,11 @@ class OrganizerUI():
         print("➢	Stofna deild:")
         print()
 
-        # Tvær eða fleiri deildir mega ekki deila sama nafni
+        # Generate a tournament ID
+        tournaments = self.llapi.getTournaments()
+        tournament_id = team_id = len(tournaments) + 1
+
+        # No two tournaments can have the same name
         tournament_name = input("o	Nafn deildar: ")
         self.llapi.verifyTournament(tournament_name)
 
@@ -87,10 +91,11 @@ class OrganizerUI():
             "o	Símanúmer skipuleggjanda: ")
 
         tournament = Tournament(
-            tournament_name, organizer_name, organizer_phone, date_list)
+            tournament_id, tournament_name, organizer_name, organizer_phone, date_list)
         self.llapi.addTournament(tournament)
 
-        print("\n" + f"{tournament_name} hefur nú verið skráð." + "\n")
+        print(
+            "\n" + f'Deildin "{tournament_name}" hefur nú verið skráð.' + "\n")
         # Menu_functions.menuExitCountdown(3)
 
     def select_team_input(self):

@@ -12,4 +12,4 @@ class TeamsLL:
 
     def addTeam(self, team: Team):
         """ adds a team """
-        return self.ioapi.create_model(team)
+        return self.ioapi.create_model(Team)

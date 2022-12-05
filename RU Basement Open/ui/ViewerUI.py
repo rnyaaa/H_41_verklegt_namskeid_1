@@ -46,7 +46,7 @@ class ViewerUI:
                 Menu_functions.menuQuit()
             else:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
-                #Menu_functions.menuExitCountdown(3, True)
+                # Menu_functions.menuExitCountdown(3, True)
 
     def showTeams(self):
         '''Shows list of teams and their players'''
@@ -61,6 +61,7 @@ class ViewerUI:
         print("\n" + 78*"_")
         user_input = Menu_functions.menuFooter(False)
 
+        user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
         None
@@ -77,6 +78,6 @@ class ViewerUI:
             print(f"{counter}.  {player.QPs}")
             counter +=1
         pass
-    
+
     def showPlayerStatistics(self):
         None
