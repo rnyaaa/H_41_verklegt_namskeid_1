@@ -17,7 +17,7 @@ class ViewerUI:
             print(
                 "Verið velkomin í Tölfræðivalmyndina!\n\n"
 
-                "➢  Valmynd:\n"
+                "➢  Valmynd:\n\n"
 
                 "1.	Listi yfir lið\n"
                 "2.	Staða móts\n"
@@ -53,11 +53,12 @@ class ViewerUI:
         teams = self.llapi.getTeams()
         players = self.llapi.getPlayers()
         for team in teams:
-            print(f"\n{team.name}:\n")
+            print(f"\n{team.name}\n:")
             for player in players:
                 if team.id == player.team_id:
-                    print(f"{player.name:>20}")
-        
+                    print(f"→{player.name:>20}")
+
+        print("\n" + 78*"_")
         user_input = Menu_functions.menuFooter(False)
 
 
@@ -73,7 +74,7 @@ class ViewerUI:
         for player in high_score:
             sorted(high_score)
             player.QPs
-            print(f"{counter}.  {player.}")
+            print(f"{counter}.  {player.QPs}")
             counter +=1
         pass
     
