@@ -3,7 +3,6 @@ from ui.UI import Menu_functions
 from models.player import Player
 from models.team import Team
 from models.tournament import Tournament
-from models.playerscore import PlayerScore
 
 
 class ViewerUI:
@@ -57,7 +56,7 @@ class ViewerUI:
             print(f"{team.name}:")
             for player in players:
                 if team.id == player.team_id:
-                    print(f"{player.name}")
+                    print(f"{player.name:>6}")
 
     def showTournamentInfo(self):
         None
@@ -66,7 +65,6 @@ class ViewerUI:
         None
 
     def showPlayerHighscoreViewer(self):
-        players = self.io
-
+          
     def showPlayerStatistics(self):
         None
