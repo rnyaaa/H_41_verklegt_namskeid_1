@@ -46,7 +46,7 @@ class ViewerUI:
                 Menu_functions.menuQuit()
             else:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
-                #Menu_functions.menuExitCountdown(3, True)
+                # Menu_functions.menuExitCountdown(3, True)
 
     def showTeams(self):
         '''Shows list of teams and their players'''
@@ -57,9 +57,8 @@ class ViewerUI:
             for player in players:
                 if team.id == player.team_id:
                     print(f"→ {player.name:>20}")
-        
-        user_input = Menu_functions.menuFooter(False)
 
+        user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
         None
@@ -68,6 +67,16 @@ class ViewerUI:
         None
 
     def showPlayerHighscoreViewer(self):
+
+
+<< << << < Updated upstream
+        high_score = self.llapi.getPlayerScore()
+        counter = 1
+        for player in high_score:
+            sorted(high_score)
+            player.QPs
+            print(f"{counter}.  {player.}")
+            counter += 1
         pass
 
     def showPlayerStatistics(self):
