@@ -21,29 +21,30 @@ class ResultsLL:
                 results_list.append(newresults)
         self.ioapi.overwrite_model(results_list)
     
-    def IterateResults(self, results: Results, type, iterator_length, playersaward, isratio: bool):
-        for i in range(0, len(results.type), iterator_length):
+    def IterateResults(self, resultlist, iterator_length, playersaward, isratio: bool):
+        for i in range(0, len(resultlist), iterator_length):
             for j in range(0, len(playersaward)):
-                if results.type[i] == playersaward[j][0]:
+                if resultlist[i] == playersaward[j][0]:
                     if isratio:
                         playersaward[j].append(1)
                     else:
-                        playersaward[j].append(results.type[i+1])
+                        playersaward[j].append(resultlist[i+1])
+
     # player_intermediate = [playerid, QPs, inshots, outshots 501win, 501lose, 501fwin 501flose, 301win, 301lose, cricketwin, cricketlose]
     def addResults(self, results: Results):
-        playersaward = [[Results.players[0]],[Results.players[1]],[Results.players[2]],[Results.players[3]],[Results.players[4]],[Results.players[5]],[Results.players[6]],[Results.players[7]]]
+        playersaward = [[results.players[0]],[results.players[1]],[results.players[2]],[results.players[3]],[results.players[4]],[results.players[5]],[results.players[6]],[results.players[7]]]
         """ QPs awarded by iterating through the playerid list and then matching to the playerid in results and appending the points to that"""
-        playersaward = self.IterateResults(Results, QPs, 2, playersaward, False)
-        playersaward = self.IterateResults(Results, inshots, 2, playersaward, False)
-        playersaward = self.IterateResults(Results, outshots, 2, playersaward, False)
-        playersaward = self.IterateResults(Results, winning501s, 1, playersaward, True)
-        playersaward = self.IterateResults(Results, losing501s, 1, playersaward, True)
-        playersaward = self.IterateResults(Results, winning301, 1, playersaward, True)
-        playersaward = self.IterateResults(Results, losing301, 1, playersaward, True)
-        playersaward = self.IterateResults(Results, winningcricket, 1, playersaward, True)
-        playersaward = self.IterateResults(Results, losingcricket, 1, playersaward, True)
-        playersaward = self.IterateResults(Results, winning501f, 1, playersaward, True)
-        playersaward = self.IterateResults(Results, losing501f, 1, playersaward, True)
+        playersaward = self.IterateResults(results.QPs_awarded, 2, playersaward, False)
+        playersaward = self.IterateResults(results.inshots_awarded, 2, playersaward, False)
+        playersaward = self.IterateResults(results.outshots_awarded, 2, playersaward, False)
+        playersaward = self.IterateResults(results.winning501s, 1, playersaward, True)
+        playersaward = self.IterateResults(results.losing501s, 1, playersaward, True)
+        playersaward = self.IterateResults(results.winning301, 1, playersaward, True)
+        playersaward = self.IterateResults(results.losing301, 1, playersaward, True)
+        playersaward = self.IterateResults(results.winningcricket, 1, playersaward, True)
+        playersaward = self.IterateResults(results.losingcricket, 1, playersaward, True)
+        playersaward = self.IterateResults(results.winning501f, 1, playersaward, True)
+        playersaward = self.IterateResults(results.losing501f, 1, playersaward, True)
 
         for item in playersaward:
             self.addPlayerScore(PlayerScore(Results.game_id, item[0], item[1], item[2], item[3], (item[4], item[5]), (item[6], item[7]), (item[8], item[9]), (item[10], item[11])))

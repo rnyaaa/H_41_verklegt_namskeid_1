@@ -104,33 +104,6 @@ class Menu_functions:
                     "\nÓgiild dagsetning. Slá skal inn dagsetningu á forminu dd.mm.áá (t.d. 19.07.99)\n")
         return date_str
 
-    def getTournamentType(ui_str: str):
-        """Asks for , validates and returns tournament type (501, 301, Cricket or Multiplayer).
-        Takes in the parameter ui_str, which is the string displayed for the input."""
-        tournament_options = [1, 2, 3, 4]
-        print(ui_str + "\n")
-
-        is_valid = False
-        while not is_valid:
-            try:
-                print("1. 501\n" + "2. 301\n" + "3. Cricket\n" +
-                      "4. Fjölmenningsleikir\n")
-                user_choice = int(
-                    input("Veldu tegund deildar/móts af listanum hér að ofan: "))
-                is_valid = user_choice in tournament_options
-                if not is_valid:
-                    print("\nÓgilt val, reynið aftur.\n")
-            except:
-                print("\nÓgilt val, reynið aftur.\n")
-
-        if user_choice == 1:
-            return "501"
-        if user_choice == 2:
-            return "301"
-        if user_choice == 3:
-            return "cricket"
-        if user_choice == 4:
-            return "fjölmenningsleikir"
         
     def getEventDates():
         """Asks user for and returns start dates and end dates for an event on the format dd.mm.yy"""
@@ -153,6 +126,18 @@ class Menu_functions:
                 return ValueError
             except ValueError:
                 print("Ógild dagsetning, reyndu aftur")
+
+    def getYesNo(ui_str:str):
+        """Asks user yes or no. Takes in a custom string prompt (ui_str).
+        Returns True for yes or False for no."""
+        user_choice = input(ui_str)
+
+        while True:
+            if user_choice.lower() == "n":
+                return False
+            if user_choice.lower() == "y":
+                return True
+            print("\nÓgilt val, reyndu aftur.\n")
 
     def menuQuit():
         print()
@@ -179,13 +164,6 @@ class Menu_functions:
 # Viewer UI --------------------------------------------
 
 class PlayerViewer():
-
-    def enterPlayerName():
-
-        None
-
-    def showPlayer():
-        None
 
     def showPlayerScoreByDate():
         None
@@ -220,91 +198,32 @@ class TournamentInfoUI():
 class PlayerHighScoreViewer():
 
     def showPlayerHighscore():
-        """Prints a sorted list of players that have earned the most points in an orderly manner of  """
-        """  List is as following
-          print(➢ Þeir sem hafa [blank] (Top 10) _______________________________
-#	|								|
-#	|	1. 🥇	{Player_name}					|
-#	|								|
-#	|	2. 🥈	{Player_name}					|
-#	|								|
-#	|	3. 🥉	{Player_name}					|
-#	|								|
-#	|		4. 	{Player_name}				|
-#	|		5. 	{Player_name}				|
-#	|		6. 	{Player_name}				|
-#	|		7.	{Player_name}				|
-#	|		8.	{Player_name}				|
-#	|		9.	{Player_name}				|
-#	|		10. {Player_name}				|
-#	|_______________________________________________________________|"""
+        """Prints a sorted list of players that have earned the most points in an orderly manner."""
+
+        """print(➢ Þeir sem hafa [blank] (Top 10) _______________________________
+	|							                                	|
+	|	1. 🥇	{Player_name}	                    				|
+	|							                                	|
+	|	2. 🥈	{Player_name}	                    				|
+	|							                                	|
+	|	3. 🥉	{Player_name}	                    				|
+	|								                                |
+	|		4. 	{Player_name}			                        	|
+	|		5. 	{Player_name}			                        	|
+	|		6. 	{Player_name}			                        	|
+	|		7.	{Player_name}			                        	|
+	|		8.	{Player_name}			                        	|
+	|		9.	{Player_name}			                           	|
+	|		10. {Player_name}				                        |
+	|_______________________________________________________________|"""
 
         print(">	Listi yfir þá sem hafa skorað flest afreksstig.")
         print()
-#      print(➢ Þeir sem hafa [blank] (Top 10) _______________________________
-#	|								|
-#	|	1. 🥇	{Player_name}					|
-#	|								|
-#	|	2. 🥈	{Player_name}					|
-#	|								|
-#	|	3. 🥉	{Player_name}					|
-#	|								|
-#	|		4. 	{Player_name}				|
-#	|		5. 	{Player_name}				|
-#	|		6. 	{Player_name}				|
-#	|		7.	{Player_name}				|
-#	|		8.	{Player_name}				|
-#	|		9.	{Player_name}				|
-#	|		10. {Player_name}				|
-#	|_______________________________________________________________|
-
-        print()
-
-        user_input = Menu_functions.menuFooter(False)
-        return user_input
 
     def sortPlayerHighscore():
         None
 
 
-# Captain UI ----------------------------------------------------------------------
-
-class CaptainUI():
-    def displayCaptainUI():
-
-        print(78*"_")
-        print("                      ___     \n"
-              "                    /\ _ /\   \n"
-              "    >>>----        / /\ /\ \  \n"
-              ">>>----           |---(*)---| \n"
-              "                   \ \/_\/ /  \n"
-              "        >>>----     \/___\/   \n"
-              "\n")
-        print(
-            "Velkominn, Fyrirliði.\n"
-            "\n\n"
-            "➢  Valmynd:\n"
-            "\n"
-            "1.  Skrá úrslit viðureignar")
-        user_input = Menu_functions.menuFooter(True)
-        return user_input
-
-    def openResultsMenu():
-        None
-
-# ----------------------------------------------------------------------------------------------------
-
-
-class EnterResults():
-    def showUpcomingGamesSel():
-        None
-
-    def openResultsForm():
-        print()
-        print("Veldu viðureign:\n")
-
-        user_input = Menu_functions.menuFooter(True)
-        return user_input
 
 # ----------------------------------------------------------------------------------------------------
 

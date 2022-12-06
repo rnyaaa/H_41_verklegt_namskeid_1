@@ -1,7 +1,7 @@
 GAMEID                    : 1
 RESULTSID                 : 1
 PLAYERS                   : [playerid, playerid, playerid, playerid, playerid, playerid, playerid, playerid]
-QUALITY POINTS            : [playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int]
+QUALITY POINTS            : [playerid, int, playerid, int, playerid, int, playerid, int, playerid, int, playerid, int, playerid, int, playerid, int]
 INSHOTS                   : [playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int]
 OUTSHOTS                  : [playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int,playerid, int]
 WINNINGSCORE              : [teamid,7,16]
@@ -14,3 +14,9 @@ WINNINGCRICKET            : [playerid, playerid]
 LOSINGCRICKET             : [playerid, playerid]
 WINNING501F               : [playerid, playerid, playerid, playerid]
 LOSINGPLAYER              :  bla, bla, bla, bla
+
+
+
+resultsclass
+
+    {playerid: 30, inshots, outshots, won501s, won cricket, won501f}

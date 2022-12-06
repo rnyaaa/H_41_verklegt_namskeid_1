@@ -1,9 +1,9 @@
 class Results:
-    def __init__(self, game_id, results_id, players, teams, QPs, inshots, outshots, winningscore, losingscore, winning501s, losing501s, winning301, losing301, winningcricket, losingcricket, winning501f, losing501f):
+    def __init__(self, game_id, results_id, player_ids, team_ids, QPs, inshots, outshots, winningscore, losingscore, winning501s, losing501s, winning301, losing301, winningcricket, losingcricket, winning501f, losing501f):
         self.game_id = game_id
         self.results_id = results_id
-        self.teams = teams
-        self.players = players
+        self.teams = team_ids
+        self.players = player_ids
         self.QPs_awarded = QPs
         self.inshots_awarded = inshots
         self.outshots_awarded = outshots

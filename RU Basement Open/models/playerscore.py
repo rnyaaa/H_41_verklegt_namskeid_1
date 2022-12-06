@@ -1,5 +1,5 @@
 class PlayerScore:
-    def __init__(self, gameid=int, playerid="", QPs="", Inshots="", Outshots="", _501winlose=tuple, _301winlose=tuple, cricketwinlose=tuple, _5014winlose=tuple):
+    def __init__(self, gameid=int, playerid="", QPs="", Inshots="", Outshots="", _501winlose="", _301winlose=tuple, cricketwinlose=tuple, _5014winlose=tuple):
         self.gameid = gameid
         self.playerid = playerid
         self.QPs = QPs

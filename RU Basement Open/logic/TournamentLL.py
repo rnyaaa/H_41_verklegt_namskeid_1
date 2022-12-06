@@ -17,21 +17,39 @@ class TournamentLL():
         return self.ioapi.create_model(tournament)
 
     def getTournamentScore(self):
-       """Returns a list of tuples containing the team name, games won and rounds won."""
+        """
+        Returns a list of tuples containing the team name, games won and rounds won.
+        """
+
         all_games = self.ioapi.return_model(Game)
-        wins = 0 
-        rounds_won = 0
+        teams_rounds_wins = {}
+        teams_matches_wins = {}
+        
         for game in all_games:
-            for i in range(len())
-            rounds_won += game.results[0]
-            if int(game.results[0]) > int(game.results[2]):
-                wins+=1
-            
-            return [game.home_team[wins, ]]
-            
+            if game.home_team not in teams_rounds_wins:
+                teams_rounds_wins[game.home_team] = 0
+            teams_rounds_wins[game.home_team] += int(self.result.split("-")[0])
+            #########
+            if game.home_team not in teams_matches_wins:
+                teams_matches_wins[game.home_team] = 0
+            if int(self.result.split("-")[0]) == 2:
+                teams_matches_wins[game.home_team] += 1
+
+            ##############################
+
+            if game.away_team not in teams_rounds_wins:
+                teams_rounds_wins[game.away_teams] = 0
+            teams_rounds_wins[game.away_teams] += int(self.result.split("-")[1])
+            #########
+            if game.away_teams not in teams_matches_wins:
+                teams_matches_wins[game.away_teams] = 0
+            if int(self.result.split("-")[1]) == 2:
+                teams_matches_wins[game.away_teams] += 1
+        
+        return teams_matches_wins, teams_rounds_wins
 
     def changeTournamentInfo(self, updated_info: Tournament):
-        self.ioapi.overwrite_model(updated_info)
+        self.ioapi.update(updated_info)
 
 
 

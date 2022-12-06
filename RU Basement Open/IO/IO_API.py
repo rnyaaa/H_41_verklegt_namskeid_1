@@ -25,7 +25,7 @@ class IO_API:
         self.fieldnames = {
             Player: ["id", "name", "phone_1", "phone_2", "email", "address"],
             Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
-            Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date", "tournament_type", "rounds"],
+            Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
                           "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"]
         }
@@ -64,3 +64,14 @@ class IO_API:
             overwriter = csv.reader(csvfile)
             for model in list:
                 overwriter.writerow(model.listify())
+
+    def update(self, updated_model):
+        tournaments = self.return_model(updated_model.__class__)
+        for i in range(len(tournaments)):
+            if updated_model.id == tournaments[i].id:
+                tournaments[i] = updated_model
+        with open(self.filedict[updated_model.__class__], mode="w", encoding="utf-8", newline="") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(self.fieldnames[updated_model.__class__])
+            for tournament in tournaments:
+                writer.writerow(tournament.listify())

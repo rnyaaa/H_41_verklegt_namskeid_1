@@ -92,20 +92,8 @@ class OrganizerUI():
 
         start_date, end_date = Menu_functions.getEventDates()
 
-        tournament_type = Menu_functions.getTournamentType(
-            "o	Veldu tegund deildar/móts:")
-
-        while True:
-            try:
-                nr_of_rounds = int(input("o	Fjöldi umferða: "))
-                if nr_of_rounds >= 1:
-                    break
-            except ValueError:
-                print("\nLSlá skal inn heiltölu, reynið aftur.\n")
-            print("\nLágmarksfjöldi umferða er 1, reynið aftur.\n")
-
         tournament = Tournament(
-            tournament_id, tournament_name, organizer_name, organizer_phone, start_date, end_date, tournament_type, nr_of_rounds)
+            tournament_id, tournament_name, organizer_name, organizer_phone, start_date, end_date)
         self.llapi.addTournament(tournament)
 
         print(
@@ -128,6 +116,16 @@ class OrganizerUI():
         email = Menu_functions.getEmail("o    Netfang: ")
 
         the_team = self.select_team_input()
+
+        # lesa yfir team_id í players og gá hvort það er einhver skráður í liðið nú þegar. Ef nei:
+        all_players = self.llapi.getPlayers()
+        print(all_players)
+
+        print(f"\nEnginn leikmaður hefur verið skráður í liðið. {name} verður þá skráður sem fyrirliði í {the_team.name}.\n")
+        confirmed = Menu_functions.getYesNo("Viltu halda áfram?")
+
+        if not confirmed:
+            return
 
         team_id = the_team.id
 
@@ -152,24 +150,16 @@ class OrganizerUI():
         print(the_tournament.id)
         
         start_date, end_date = Menu_functions.getEventDates()
-        
-        
             
         updated_tournament = Tournament(the_tournament.id, the_tournament.name, 
                             the_tournament.organizer_name, the_tournament.organizer_phone, start_date, end_date)
         
+        self.llapi.update_tournament(updated_tournament)
         
-
-        
-
-        # print(hér koma viðureignirnar)
-        print()
-
         user_input = Menu_functions.menuFooter(True)
         return user_input
 
     def addGames(self):
-
         print("\nSkrá viðureignir: ")
         while True:
             tournament = self.select_tournament_input()
