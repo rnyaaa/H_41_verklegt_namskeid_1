@@ -1,5 +1,6 @@
 from logic.LL_API import LL_API
 from ui.UI import Menu_functions
+from ui.OrganizerUI import OrganizerUI
 from models.player import Player
 from models.team import Team
 from models.tournament import Tournament
@@ -71,18 +72,31 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
+<<<<<<< HEAD
         pass
 
+=======
+        selected_tournment = OrganizerUI.select_tournament_input(self)
+        print()
+        all_games = self.llapi.getGames()
+        home, score, away = "Heimalið 🏠", "Úrslit 🎯", "Útilið 🚌"
+        print(f"{home:>19}" + "｜" + f"{score:^11}" +
+              "｜" + f"{away:<20}")
+        print("     " + 50*"-")
+        for game in all_games:
+            if game.tournament_id == selected_tournment.id:
+                print(
+                    f"{game.home_team:>20}" + "｜" + f"{game.results:^12}" + "｜" + f"{game.away_team:<20}")
+>>>>>>> 1af97ae9054bd17494cce43d814eb7761d90d0fc
 
-    def showPlayerViewer(self):
-        None
+        user_input = Menu_functions.menuFooter(False)
 
     def showPlayerHighscoreViewer(self):
         player_dict = {}
         print("Listi yfir leikmenn með flestu afreksstig.")
 
-        high_score = self.llapi.getPlayerScore()
-        print(high_score)
+        high_score = self.llapi.getPlayerScores()
+        # print(high_score)
         """
         counter = 1
 
@@ -96,19 +110,17 @@ class ViewerUI:
             counter +=1
         
         """
-        
+
         """sorted_score = sorted(high_score, key=itemgetter(2))
         for player in sorted_score:
             for points in player:
                 print(f"{counter}. {points.playerid}  -   {points.QPs}")
                 counter += 1"""
-        
+
         # hér:
-        sorted_score = sorted(high_score, key=itemgetter(2))
-        for player in sorted_score:
-            for points in player:
-                print(f"{counter}. {points.playerid}  -   {points.QPs}")
-                counter += 1
+        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: x.QPs)
+        for counter, score in enumerate(scores):
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
 
         print("_"*78)
 
@@ -121,37 +133,3 @@ class ViewerUI:
             command = int(input(
                 f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
             print(f"\nTölfræði fyrir {players[i].name}\n")
-
-            if command < 1 or command > len(players):
-                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
-                continue
-            break
-
-        player_1 = players[command-1].playerid
-        players_score = self.llapi.getPlayerScore()
-        for list in players_score:
-            for score in list:
-                if score.playerid == player_1:
-                    print(score.QPs)
-
-        print(players_score)
-
-        print(f"{players[command-1].name}" + players_score)
-
-        Menu_functions.menuFooter(True)
-        print("_"*78)
-
-    def select_player_input(self):
-        """Displays a numbered menu with all players."""
-        players = self.llapi.getPlayers()
-        command = ""
-        while True:
-            for i in range(len(players)):
-                print(i+1, ". ", players[i].name)
-            command = int(
-                input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
-            if command < 1 or command > len(players):
-                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
-                continue
-            break
-        return players[i]

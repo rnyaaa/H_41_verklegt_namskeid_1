@@ -1,0 +1,12 @@
+id, name, mobile, home_phone, email, address, team_id, is_captain
+0104320000,Mamma Þín,8988899,1122334,mamma@thin.is,Hjamérgata 69,1,True
+0101012211,Mist Eik,8987788,55112255,m@m.io,Koffíngata 66,1,False
+0101691010,Rebekka,1212121,5888888,rebekka@ru.is,Krambúðargata 1,1,False
+2121213030,Axel Hall,6914975,5996200,axelhall@ru.is,Menntavegur 1,1,False
+0101012215,Kristall Collabson,8987788,55112255,m@m.io,Koffíngata 66,1,False
+2101690011,Grenji Hahason,8980077,5671122,grenji@haha.org,Vælugata 32,6,True
+204040101,Testó Sterón,112,4445000,hvadtekuru@ibekk.is,Vöðvingjagata 22,6,False
+2211001010,Rita Lín,8886666,5554444,xx@yy.is,gata 3,6,False
+1212121020,Frikki Legend,7878787,5656565,frikki@ru.is,Menntavegur 2,8,True
+101010011,Addison Rae,7776666,4445555,a@t.com,21 Lelegtcontent St.,3,True
+102592299,Addison Rae's Mom,8889999,5565656,kk@mms.is,Pappakassi,3,False

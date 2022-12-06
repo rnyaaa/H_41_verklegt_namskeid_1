@@ -29,7 +29,7 @@ class ShowGamesUI():
             elif user_input == "q":
                 Menu_functions.menuQuit()
             else:
-                print("Ekki gildur valmöguleiki, reyndu aftur")
+                print("⛔ Ekki gildur valmöguleiki, reyndu aftur")
                 #Menu_functions.menuExitCountdown(3, True)
 
 

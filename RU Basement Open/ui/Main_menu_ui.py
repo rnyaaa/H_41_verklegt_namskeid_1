@@ -20,7 +20,7 @@ class Main_Menu_UI:
                 "                                      ____                                     \n"
                 "                                    /\ _ /\                                    \n"
                 "                >>>----            / /\ /\ \                                   \n"
-                "              >>>----             ｜---(*)---｜                                  \n"
+                "              >>>----             ｜---(*)--｜                                 \n"
                 "                                   \ \/_\/ /                                   \n"
                 "                        >>>----     \/___\/                                    \n"
                 "                                                                               \n"
@@ -57,4 +57,4 @@ class Main_Menu_UI:
                 ViewerUI(self.llapi).displayViewerUI()
             else:
                 print()
-                print("Ekki gildur valmöguleiki!")
+                print("⛔ Ekki gildur valmöguleiki! Reynið aftur.")

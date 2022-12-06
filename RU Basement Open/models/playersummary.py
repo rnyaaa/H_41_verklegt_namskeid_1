@@ -13,10 +13,10 @@ class PlayerSummary:
         self.QPs = QPs
         self.inshots = inshots
         self.outshots = outshots
-        self.result501 = result501singles
+        self.result501singles = result501singles
         self.result301 = result301
         self.resultcricket = resultcricket
-        self.result5014 = result501fours
+        self.result501fours = result501fours
 
     def listify(self):
         return [self.playerid, self.QPs, self.inshots, self.outshots, self._501winlose[0], self._501winlose[1], self._301winlose[0], self._301winlose[1], self.cricketwinlose[0], self.cricketwinlose[1], self._5014winlose[0], self._5014winlose[1]]

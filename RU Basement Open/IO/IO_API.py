@@ -23,11 +23,11 @@ class IO_API:
         }
         """ a fieldname dict keyed by class objects """
         self.fieldnames = {
-            Player: ["id", "name", "mobile", "home_phhone", "email", "address", "team_id", "is_captain"],
+            Player: ["id", "name", "mobile", "home_phone", "email", "address", "team_id", "is_captain"],
             Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
-                          "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"],
+                          "lose501_1", "win301", "lose301", "wincricket", "losecricket", "win501_4", "lose501_4"],
             Game: ["gameid", "tournament_id", "home_team",
                    "away_team", "self.date", "self.results"]
         }
@@ -43,11 +43,16 @@ class IO_API:
         model_return = []
         with self.Loader(model_type) as csvfile:
             reader = csv.reader(csvfile)
-            counter = 0
+            next(reader) # skip first row
             for row in reader:
-                if counter > 0:
-                    model_return.append([item for item in row])
-                counter += 1
+                row_return = []
+                for item in row:
+                    try:
+                        item = int(item)
+                    except ValueError:
+                        item = item 
+                    row_return.append(item)
+                model_return.append(row_return)
         # Dark magic pls do not touch
         model_return = list(map(lambda x: model_type(*x), model_return))
         return model_return

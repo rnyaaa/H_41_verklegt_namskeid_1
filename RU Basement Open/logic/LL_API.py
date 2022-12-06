@@ -4,6 +4,7 @@ from models.team import Team
 from models.tournament import Tournament
 from models.game import Game
 from models.playerscore import PlayerScore
+from models.playersummary import PlayerSummary
 from logic.PlayersLL import PlayersLL
 from logic.ResultsLL import ResultsLL
 from logic.TeamsLL import TeamsLL
@@ -38,15 +39,18 @@ class LL_API:
         """ returns a list of all Tournament instances """
         return self.tournamentsLL.getAllTournaments()
 
-    def getResults(self, results_id: str):
-        raise NotImplementedError
+    def getResults(self):
+        return self.resultsLL.getAllResults()
 
-    def getPlayerScore(self) -> tuple[str, list[PlayerScore]]:
+    def getPlayerScores(self) -> list[PlayerSummary]:
         """ returns a tuple of Player.name and a list of PlayerScore instances """
         return self.playersLL.getAllPlayerScore()
 
     def getPlayerScoreByDate(self):
         raise NotImplementedError
+
+    def getPlayerNameFromId(self, playerid):
+        return self.playersLL.getPlayerNameFromId(playerid)
 
     def getTournamentScores(self) -> list[tuple[str, int, int]]:
         """ returns a list of tuples containing the team name, games won and rounds won """
