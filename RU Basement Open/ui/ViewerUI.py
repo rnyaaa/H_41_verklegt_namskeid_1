@@ -69,6 +69,7 @@ class ViewerUI:
         None
 
     def showPlayerHighscoreViewer(self):
+<<<<<<< Updated upstream
         print("Listi yfir leikmenn með flestu afreksstig.")
         
         high_score = self.llapi.getPlayerScore()
@@ -80,6 +81,16 @@ class ViewerUI:
             for points in player:
                 print(f"{counter}. {points.playerid}  -   {points.QPs}")
                 counter += 1
+=======
+        count = 0
+        print("Listi yfir leikmenn sem hafa skorað flest afreksstig. ")
+        players = self.llapi.getPlayerScore()
+        for player in players:
+            count +=1
+            sorted_list = sorted(player.QPs)
+            print(f"{count}. {player.gameid} - {player.playerid}.   {sorted_list}")
+    
+>>>>>>> Stashed changes
     
     def showPlayerStatistics(self):
         """Shows statistics for a selected player"""
