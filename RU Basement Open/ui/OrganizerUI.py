@@ -182,7 +182,11 @@ class OrganizerUI():
         for tournament in all_tournaments:
             print(f"{tournament.id}. {tournament.name}")
         print()
-        name = input("Nafn móts: ")
+        name = input("Veldu mót: ")
+        start_date = Menu_functions.getDate(
+            "o	Byrjunardagsetning deildar (dd.mm.yy): ")
+        
+        
         
 
         # print(hér koma viðureignirnar)
