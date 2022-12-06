@@ -99,7 +99,6 @@ class OrganizerUI():
         print(
             "\n" + f'Deildin/mótið "{tournament_name}" hefur nú verið skráð.' + "\n")
         # Menu_functions.menuExitCountdown(3)
-    
 
     def addPlayer(self):
         """Organizer form for player addition."""
@@ -107,6 +106,12 @@ class OrganizerUI():
         print(78*"_")
         print()
         print("➢   Skrá leikmann\n")
+        # --------------------------------------------------------------------
+        all_players = self.llapi.getPlayers()
+        for i in range(len(all_players)):
+            print(
+                f"{all_players[i].name} + ' ' + {all_players[i].team_id}")
+        # -------------------------------------------------------------------
 
         name = input("o    Nafn: ")
         id_number = Menu_functions.getSSN("o    Kennitala: ")
@@ -118,12 +123,10 @@ class OrganizerUI():
         the_team = self.select_team_input()
 
         # lesa yfir team_id í players og gá hvort það er einhver skráður í liðið nú þegar. Ef nei:
-        all_players = self.llapi.getPlayers()
-        print(all_players)
 
-        print(f"\nEnginn leikmaður hefur verið skráður í liðið. {name} verður þá skráður sem fyrirliði í {the_team.name}.\n")
+        print(
+            f"\nEnginn leikmaður hefur verið skráður í liðið {the_team.name}.\n{name} verður skráður sem fyrirliði.\n")
         confirmed = Menu_functions.getYesNo("Viltu halda áfram?")
-
         if not confirmed:
             return
 
@@ -148,14 +151,14 @@ class OrganizerUI():
 
         print("Tournament ID-ið okkar:")
         print(the_tournament.id)
-        
+
         start_date, end_date = Menu_functions.getEventDates()
-            
-        updated_tournament = Tournament(the_tournament.id, the_tournament.name, 
-                            the_tournament.organizer_name, the_tournament.organizer_phone, start_date, end_date)
-        
+
+        updated_tournament = Tournament(the_tournament.id, the_tournament.name,
+                                        the_tournament.organizer_name, the_tournament.organizer_phone, start_date, end_date)
+
         self.llapi.update_tournament(updated_tournament)
-        
+
         user_input = Menu_functions.menuFooter(True)
         return user_input
 
@@ -185,8 +188,7 @@ class OrganizerUI():
 
         user_input = Menu_functions.menuFooter(True)
         return user_input
-    
-    
+
     def select_tournament_input(self):
         """Prints a numbered list of all tournaments and asks the user for their selection. The selected tournament index is returned"""
         print("\nVeljið mót:\n")
