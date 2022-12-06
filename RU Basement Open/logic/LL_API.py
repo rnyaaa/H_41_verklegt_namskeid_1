@@ -49,6 +49,9 @@ class LL_API:
     def getPlayerScoreByDate(self):
         raise NotImplementedError
 
+    def getPlayerNameFromId(self, playerid):
+        return self.playersLL.getPlayerNameFromId(playerid)
+
     def getTournamentScores(self) -> list[tuple[str, int, int]]:
         """ returns a list of tuples containing the team name, games won and rounds won """
         return self.tournamentsLL.getTournamentScore()

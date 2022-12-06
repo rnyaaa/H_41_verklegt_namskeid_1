@@ -62,6 +62,12 @@ class PlayersLL:
         """ e.g. calling this function as getPlayersSorted(ByQualityPoints())"""
         return sorted(self.getPlayerScoresSummarized(), key=sortBy)
 
+    def getPlayerNameFromId(self, playerid):
+        players = self.getAllPlayers()
+        for item in players:
+            if item.playerid == playerid:
+                return item.name
+
     def ByQualityPoints(player_summary: PlayerSummary):
         return player_summary.QPs
 

@@ -115,7 +115,7 @@ class ViewerUI:
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: x.QPs)
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {score.playerid}  -   {score.QPs}")
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
 
         print("_"*78)
 
