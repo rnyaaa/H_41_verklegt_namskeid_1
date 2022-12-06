@@ -12,6 +12,7 @@ class PlayerScore:
             _5014winlose):
         self.playerid = playerid
         self.gameid = gameid
+        self.playerid = playerid
         self.QPs = QPs
         self.inshots = inshots
         self.outshots = outshots

@@ -4,6 +4,7 @@ from models.team import Team
 from models.tournament import Tournament
 from models.game import Game
 from models.playerscore import PlayerScore
+from models.playersummary import PlayerSummary
 from logic.PlayersLL import PlayersLL
 from logic.ResultsLL import ResultsLL
 from logic.TeamsLL import TeamsLL
@@ -41,7 +42,7 @@ class LL_API:
     def getResults(self):
         return self.resultsLL.getAllResults()
 
-    def getPlayerScore(self) -> tuple[str, list[PlayerScore]]:
+    def getPlayerScores(self) -> list[PlayerSummary]:
         """ returns a tuple of Player.name and a list of PlayerScore instances """
         return self.playersLL.getAllPlayerScore()
 

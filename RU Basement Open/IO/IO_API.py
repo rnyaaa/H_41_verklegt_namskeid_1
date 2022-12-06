@@ -43,11 +43,16 @@ class IO_API:
         model_return = []
         with self.Loader(model_type) as csvfile:
             reader = csv.reader(csvfile)
-            counter = 0
+            next(reader) # skip first row
             for row in reader:
-                if counter > 0:
-                    model_return.append([item for item in row])
-                counter += 1
+                row_return = []
+                for item in row:
+                    try:
+                        item = int(item)
+                    except ValueError:
+                        item = item 
+                    row_return.append(item)
+                model_return.append(row_return)
         # Dark magic pls do not touch
         model_return = list(map(lambda x: model_type(*x), model_return))
         return model_return

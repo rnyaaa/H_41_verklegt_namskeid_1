@@ -32,10 +32,10 @@ class PlayersLL:
                 playerscores_by_player[item.playerid] = [item]
         
         player_summaries = []
-        for player_id, scores in playerscores_by_player:
+        for player_id in playerscores_by_player:
             """ get PlayerSummary with default values """
             player_summary = PlayerSummary(player_id)
-            for score in scores:
+            for score in playerscores_by_player[player_id]:
                 player_summary.QPs += score.QPs
                 player_summary.inshots = max(player_summary.inshots, score.inshots)
                 player_summary.outshots = max(player_summary.outshots, score.outshots)

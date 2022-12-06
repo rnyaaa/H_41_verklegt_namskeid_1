@@ -90,8 +90,8 @@ class ViewerUI:
         player_dict = {}
         print("Listi yfir leikmenn með flestu afreksstig.")
 
-        high_score = self.llapi.getPlayerScore()
-        print(high_score)
+        high_score = self.llapi.getPlayerScores()
+        # print(high_score)
         """
         counter = 1
 
@@ -113,11 +113,9 @@ class ViewerUI:
                 counter += 1"""
 
         # hér:
-        sorted_score = sorted(high_score, key=itemgetter(2))
-        for player in sorted_score:
-            for points in player:
-                print(f"{counter}. {points.playerid}  -   {points.QPs}")
-                counter += 1
+        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: x.QPs)
+        for counter, score in enumerate(scores):
+            print(f"{counter+1}. {score.playerid}  -   {score.QPs}")
 
         print("_"*78)
 
