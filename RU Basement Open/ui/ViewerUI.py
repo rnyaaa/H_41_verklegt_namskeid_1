@@ -84,7 +84,6 @@ class ViewerUI:
         print(high_score)
         """
         counter = 1
-<<<<<<< Updated upstream
 
         for player in high_score:
             for score in player:
@@ -103,15 +102,6 @@ class ViewerUI:
                 print(f"{counter}. {points.playerid}  -   {points.QPs}")
                 counter += 1"""
         
-=======
-        # hér:
-        sorted_score = sorted(high_score, key=itemgetter(2))
-        for player in sorted_score:
-            for points in player:
-                print(f"{counter}. {points.playerid}  -   {points.QPs}")
-                counter += 1
-
->>>>>>> Stashed changes
         print("_"*78)
 
     def showPlayerStatistics(self):
