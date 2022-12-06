@@ -39,7 +39,7 @@ class OrganizerUI():
             elif user_input == "4":
                 self.addGames()
             elif user_input == "5":
-                self.changeResults
+                self.changeTournamentDates()
             elif user_input == "6":
                 self.changeResults()
             elif user_input == "b":
@@ -176,9 +176,14 @@ class OrganizerUI():
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
         print("➢	Breyta dagsetningu á viðureign: ")
         print()
-        name = input("Nafn móts: ")
+        
         # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! siggi setja inn select_tournament_input_hér
+        all_tournaments = self.llapi.getTournaments()
+        for tournament in all_tournaments:
+            print(f"{tournament.id}. {tournament.name}")
         print()
+        name = input("Nafn móts: ")
+        
 
         # print(hér koma viðureignirnar)
         print()
