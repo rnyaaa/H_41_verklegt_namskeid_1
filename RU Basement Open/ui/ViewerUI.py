@@ -28,6 +28,7 @@ class ViewerUI:
                 "6.	Tölfræði fyrir ákveðna leikmenn")
 
             user_input = Menu_functions.menuFooter(False)
+            print("_"*78)
 
             if user_input == "1":
                 self.showTeams()
@@ -80,6 +81,8 @@ class ViewerUI:
             for points in player:
                 print(f"{counter}. {points.playerid}  -   {points.QPs}")
                 counter += 1
+        
+        print("_"*78)
     
     def showPlayerStatistics(self):
         """Shows statistics for a selected player"""
@@ -107,6 +110,7 @@ class ViewerUI:
         print(f"{players[command-1].name}" + players_score)
         
         Menu_functions.menuFooter(True)
+        print("_"*78)
 
     def select_player_input(self):
         """Displays a numbered menu with all players."""
@@ -122,3 +126,5 @@ class ViewerUI:
                 continue
             break
         return players[i]
+
+       

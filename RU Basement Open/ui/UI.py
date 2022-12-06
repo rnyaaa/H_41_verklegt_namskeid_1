@@ -131,6 +131,28 @@ class Menu_functions:
             return "cricket"
         if user_choice == 4:
             return "fjölmenningsleikir"
+        
+    def getEventDates():
+        """Asks user for and returns start dates and end dates for an event on the format dd.mm.yy"""
+        start_date = Menu_functions.getDate("o	Byrjunardagsetning (dd.mm.yy): ")
+
+        print(
+            f"\no	Nær viðburðurinn yfir meira en einn dag ({start_date})?\n")
+        print("y. Já" + "\n" + "n. nei\n")
+        is_multiple_days = input("Sláðu inn val þitt: ")
+
+        while True:
+            try:
+                if is_multiple_days.lower() == "n":
+                    end_date = start_date
+                    return start_date, end_date
+                if is_multiple_days.lower() == "y":
+                    end_date = Menu_functions.getDate(
+                        "o	Lokadagsetning (dd.mm.yy): ")
+                    return start_date, end_date
+                return ValueError
+            except ValueError:
+                print("Ógild dagsetning, reyndu aftur")
 
     def menuQuit():
         print()

@@ -90,34 +90,18 @@ class OrganizerUI():
         organizer_phone = Menu_functions.getPhoneNumber(
             "o	Símanúmer skipuleggjanda: ")
 
-        start_date = Menu_functions.getDate(
-            "o	Byrjunardagsetning deildar (dd.mm.yy): ")
-
-        print(
-            f"\no	Nær deildin/mótið yfir meira en einn dag ({start_date})?\n")
-        print("y. Já" + "\n" + "n. nei\n")
-        is_multiple_days = input("Sláðu inn val þitt: ")
-
-        while True:
-            try:
-                if is_multiple_days.lower() == "n":
-                    end_date = start_date
-                    break
-                if is_multiple_days.lower() == "y":
-                    end_date = Menu_functions.getDate(
-                        "o	Lokadagsetning deildar (dd.mm.yy): ")
-                    break
-                return ValueError
-            except ValueError:
-                print("Ekki gildur valmöguleiki, reyndu aftur")
+        start_date, end_date = Menu_functions.getEventDates()
 
         tournament_type = Menu_functions.getTournamentType(
             "o	Veldu tegund deildar/móts:")
 
         while True:
-            nr_of_rounds = input("o	Fjöldi umferða: ")
-            if nr_of_rounds >= 1:
-                break
+            try:
+                nr_of_rounds = int(input("o	Fjöldi umferða: "))
+                if nr_of_rounds >= 1:
+                    break
+            except ValueError:
+                print("\nLSlá skal inn heiltölu, reynið aftur.\n")
             print("\nLágmarksfjöldi umferða er 1, reynið aftur.\n")
 
         tournament = Tournament(
@@ -127,21 +111,6 @@ class OrganizerUI():
         print(
             "\n" + f'Deildin/mótið "{tournament_name}" hefur nú verið skráð.' + "\n")
         # Menu_functions.menuExitCountdown(3)
-
-    def select_team_input(self):
-        print("\nSkrá leikmann í lið:\n")
-        teams = self.llapi.getTeams()
-        command = ""
-        while True:
-            for i in range(len(teams)):
-                print(i+1, ". ", teams[i].name)
-            command = int(
-                input(f"\nVeldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {teams[0].name}): "))
-            if command < 1 or command > len(teams):
-                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
-                continue
-            break
-        return teams[i]
     
 
     def addPlayer(self):
@@ -176,17 +145,21 @@ class OrganizerUI():
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
         print("➢	Breyta dagsetningu á viðureign: ")
         print()
+
+        the_tournament = self.select_tournament_input()
+
+        print("Tournament ID-ið okkar:")
+        print(the_tournament.id)
         
-        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! siggi setja inn select_tournament_input_hér
-        all_tournaments = self.llapi.getTournaments()
-        for tournament in all_tournaments:
-            print(f"{tournament.id}. {tournament.name}")
-        print()
-        name = input("Veldu mót: ")
-        start_date = Menu_functions.getDate(
-            "o	Byrjunardagsetning deildar (dd.mm.yy): ")
+        start_date, end_date = Menu_functions.getEventDates()
         
         
+            
+        updated_tournament = Tournament(the_tournament.id, the_tournament.name, 
+                            the_tournament.organizer_name, the_tournament.organizer_phone, start_date, end_date)
+        
+        
+
         
 
         # print(hér koma viðureignirnar)
@@ -225,6 +198,7 @@ class OrganizerUI():
     
     
     def select_tournament_input(self):
+        """Prints a numbered list of all tournaments and asks the user for their selection. The selected tournament index is returned"""
         print("\nVeljið mót:\n")
         tournaments = self.llapi.getTournaments()
         command = ""
@@ -237,4 +211,20 @@ class OrganizerUI():
                 print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
                 continue
             break
-        return tournaments[i]
+        return tournaments[i-1]
+
+    def select_team_input(self):
+        """Prints a numbered list of all teams and asks the user for their selection. The selected team index is returned"""
+        print("\nSkrá leikmann í lið:\n")
+        teams = self.llapi.getTeams()
+        command = ""
+        while True:
+            for i in range(len(teams)):
+                print(i+1, ". ", teams[i].name)
+            command = int(
+                input(f"\nVeldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {teams[0].name}): "))
+            if command < 1 or command > len(teams):
+                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
+                continue
+            break
+        return teams[i]
