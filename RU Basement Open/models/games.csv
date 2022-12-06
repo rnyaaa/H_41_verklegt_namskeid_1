@@ -1,4 +1,3 @@
 gameid, tournament_id,home_team, away_team, date, results
-1, 1,Heimalið,útilið,09.11.1989, 1-2
-2, 1,Hometeam,Guestteam,01.01.2001, 2-0
-3, 2, KR,Valur, 2-1
+1,1,B-Lið KR,Day Drinkers,01.01.23,1-2
+2,2,B-Lið KR,Gærurnar,24.12.22,

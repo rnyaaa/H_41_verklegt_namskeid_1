@@ -99,15 +99,29 @@ class Menu_functions:
                 formatted_date = datetime.datetime.strptime(
                     date_str, '%d.%m.%y')
                 is_valid = True
+
             except ValueError:
                 print(
-                    "\nÓgiild dagsetning. Slá skal inn dagsetningu á forminu dd.mm.áá (t.d. 19.07.99)\n")
+                    "\nÓgild dagsetning. Slá skal inn dagsetningu á forminu dd.mm.áá (t.d. 19.07.99)")
         return date_str
 
-        
+    def isBetweenDates(check_date, start, end):
+        is_valid = False
+        while not is_valid:
+            start_date = datetime.datetime.strptime(start, '%d.%m.%y')
+            end_date = datetime.datetime.strptime(end, '%d.%m.%y')
+            date = datetime.datetime.strptime(check_date, '%d.%m.%y')
+
+            if start_date <= date <= end_date:
+                return check_date
+            else:
+                print(
+                    f"Dagsetning er ekki í boði. Veldu dagsetningu á milli {start} og {end}.")
+
     def getEventDates():
         """Asks user for and returns start dates and end dates for an event on the format dd.mm.yy"""
-        start_date = Menu_functions.getDate("o	Byrjunardagsetning (dd.mm.yy): ")
+        start_date = Menu_functions.getDate(
+            "o	Byrjunardagsetning (dd.mm.yy): ")
 
         print(
             f"\no	Nær viðburðurinn yfir meira en einn dag ({start_date})?\n")
@@ -127,7 +141,7 @@ class Menu_functions:
             except ValueError:
                 print("Ógild dagsetning, reyndu aftur")
 
-    def getYesNo(ui_str:str):
+    def getYesNo(ui_str: str):
         """Asks user yes or no. Takes in a custom string prompt (ui_str).
         Returns True for yes or False for no."""
         print(ui_str)
@@ -224,7 +238,6 @@ class PlayerHighScoreViewer():
 
     def sortPlayerHighscore():
         None
-
 
 
 # ----------------------------------------------------------------------------------------------------

@@ -1,4 +1,7 @@
-gameID,playerID,QPs,Inshots,Outshots,winratio501_1,winratio301,winratiocricket,winratio501_4
+gameid,playerid,QPs,Inshots,Outshots,_501winlose,_301winlose,cricketwinlose,_5014winlose
+1,0104320000,30,N31,U41,5,3,4,1,5,3,4,1
+
+
 1,0104320000,30,N31,U41,5,3,4,1,5,3,4,1
 1,0101012211,40,N70,U72,5,3,4,1,5,3,4,1
 1,0101691010,50,N89,U90,5,3,4,1,5,3,4,1

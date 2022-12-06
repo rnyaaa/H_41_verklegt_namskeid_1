@@ -15,7 +15,7 @@ class IO_API:
         """ a filename dict keyed by class objects """
         self.filedict = {
             Player: "models/players.csv",
-            Game: "models/games.csv",  # "models/games.csv",
+            Game: "models/games.csv",
             Team: "models/teams.csv",
             Tournament: "models/tournaments.csv",
             PlayerScore: "models/playerscore.csv",
@@ -27,7 +27,9 @@ class IO_API:
             Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
-                          "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"]
+                          "lose501_1", "win301", "los301", "wincricket", "losecricket", "win501_4,lose501_4"],
+            Game: ["gameid", "tournament_id", "home_team",
+                   "away_team", "self.date", "self.results"]
         }
 
     def Loader(self, model, mode="r"):
