@@ -172,9 +172,11 @@ class PlayerViewer():
 class TournamentInfoUI():
 
     def displayTournamentInfo():
-        
         print(">	Birta stöðu móts")
-        
+        print()
+        # print( 1. KR	   |  9 stig  |  9 leggir unnir
+        #   2. Valur   |  9 stig  |  8 leggir unnir
+        #   3. Þróttur |  7 stig  |  5 leggir unnir
         print()
 
         user_input = Menu_functions.menuFooter(False)
@@ -182,7 +184,7 @@ class TournamentInfoUI():
         return user_input
 
     def showTournamentScores():
-        None
+        print("Birta st")
 
     def showGamesFinished():
         None

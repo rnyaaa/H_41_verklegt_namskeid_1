@@ -88,7 +88,7 @@ class LL_API:
         raise NotImplementedError
 
     def changeDate(self, updated_info):
-        self.tournamentsLL.changeTournamentInfo()
+        self.tournamentsLL.
 
     def verifyTournament(self, new_name):
         data = self.getTournaments()
