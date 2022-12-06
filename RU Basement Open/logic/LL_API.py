@@ -39,12 +39,12 @@ class LL_API:
         """ returns a list of all Tournament instances """
         return self.tournamentsLL.getAllTournaments()
 
-    def getResults(self, results_id: str):
-        raise NotImplementedError
+    def getResults(self):
+        return self.resultsLL.getAllResults()
 
     def getPlayerScores(self) -> list[PlayerSummary]:
         """ returns a tuple of Player.name and a list of PlayerScore instances """
-        return self.playersLL.getPlayerScoresSummarized()
+        return self.playersLL.getAllPlayerScore()
 
     def getPlayerScoreByDate(self):
         raise NotImplementedError

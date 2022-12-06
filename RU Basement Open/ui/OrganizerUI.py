@@ -196,18 +196,17 @@ class OrganizerUI():
             f"\n ✅ Viðureign '{home_team.name} vs. {away_team.name}' hefur verið bætt við.\n")
 
     def changeResults(self):
-        # Hér þarf að sækja úrslit í IO sem userinn vill breyta
-        print("➢	Breyta skráningu úrslita: ")
-        all_tournaments = self.select_tournament_input()
+        print("➢	Breyta skráningu úrslita:\n")
+        selected_tournament = self.select_tournament_input()
 
-        
+
         all_results = self.llapi.getResults()
         for result in all_results:
             for list in result:
-                print(list.game_id)
+                if selected_tournament.id == list.id:
+                    print(f"{list.team} {list.winningscore}")
         print()
-        
-        print()
+       
 
         # print(hér kemur tafla með úrslitum )
 
