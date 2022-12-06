@@ -72,10 +72,6 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
-<<<<<<< HEAD
-        pass
-
-=======
         selected_tournment = OrganizerUI.select_tournament_input(self)
         print()
         all_games = self.llapi.getGames()
@@ -87,7 +83,6 @@ class ViewerUI:
             if game.tournament_id == selected_tournment.id:
                 print(
                     f"{game.home_team:>20}" + "｜" + f"{game.results:^12}" + "｜" + f"{game.away_team:<20}")
->>>>>>> 1af97ae9054bd17494cce43d814eb7761d90d0fc
 
         user_input = Menu_functions.menuFooter(False)
 
