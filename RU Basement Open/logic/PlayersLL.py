@@ -18,10 +18,17 @@ class PlayersLL:
 
     def addPlayer(self, player: Player):
         """ adds a player """
-        self.ioapi.create_model(player)            
+        self.ioapi.create_model(player)
 
-    def getPlayerScore(self) -> list[tuple[PlayerScore]]:
-        return self.ioapi.return_model(PlayerScore)
+    def getPlayerScoreSummarized(self) -> list[PlayerScore]:
+        playerscores = self.getAllPlayerScore
+        players = []
+        for item in playerscores:
+            if item[0] not in players:
+                players.append(item[0])
+            if item[0] in players:
+                players[item][1] = players[item]
+
 
     def getPlayerScoreByDate():
         raise NotImplementedError

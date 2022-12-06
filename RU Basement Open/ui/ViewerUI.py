@@ -70,17 +70,29 @@ class ViewerUI:
         None
 
     def showPlayerHighscoreViewer(self):
+        player_dict = {}
         print("Listi yfir leikmenn með flestu afreksstig.")
         
         high_score = self.llapi.getPlayerScore()
         print(high_score)
         counter = 1
-        #hér:
-        sorted_score = sorted(high_score, key=itemgetter(2))
+
+        for player in high_score:
+            for score in player:
+                player_dict[score.QPs] = score.playerid
+
+        player_dict = sorted(player_dict)
+        for key, val in player_dict:
+            print(f"{counter}. {val} - {key}")
+            counter +=1
+        
+        
+        
+        """sorted_score = sorted(high_score, key=itemgetter(2))
         for player in sorted_score:
             for points in player:
                 print(f"{counter}. {points.playerid}  -   {points.QPs}")
-                counter += 1
+                counter += 1"""
         
         print("_"*78)
     
