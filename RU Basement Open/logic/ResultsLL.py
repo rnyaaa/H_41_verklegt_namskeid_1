@@ -14,7 +14,6 @@ class ResultsLL:
 
     def changeResults(self, results_id, newresults: Results):
         results_list = self.getAllResults()
-        resultslist = []
         for instance in results_list:
             if instance.results_id == results_id:
                 results_list.remove(instance)
