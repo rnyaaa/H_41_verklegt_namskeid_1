@@ -88,7 +88,7 @@ class ViewerUI:
 
     def showPlayerHighscoreViewer(self):
 
-        print("Listi yfir leikmenn með flestu afreksstig.")
+        print("\nListi yfir leikmenn með flestu afreksstig.\n")
     
 
         # hér:
@@ -96,6 +96,7 @@ class ViewerUI:
         for counter, score in enumerate(scores):
             print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
 
+        user_input = Menu_functions.menuFooter(False)
         print("_"*78)
 
     def showPlayerStatistics(self):
