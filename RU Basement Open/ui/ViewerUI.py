@@ -75,6 +75,7 @@ class ViewerUI:
         
         high_score = self.llapi.getPlayerScore()
         print(high_score)
+        """
         counter = 1
 
         for player in high_score:
@@ -86,7 +87,7 @@ class ViewerUI:
             print(f"{counter}. {val} - {key}")
             counter +=1
         
-        
+        """
         
         """sorted_score = sorted(high_score, key=itemgetter(2))
         for player in sorted_score:
