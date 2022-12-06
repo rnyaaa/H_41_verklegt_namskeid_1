@@ -113,7 +113,7 @@ class ViewerUI:
                 counter += 1"""
 
         # hér:
-        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: x.QPs)
+        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.QPs)
         for counter, score in enumerate(scores):
             print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
 
