@@ -130,7 +130,9 @@ class Menu_functions:
     def getYesNo(ui_str:str):
         """Asks user yes or no. Takes in a custom string prompt (ui_str).
         Returns True for yes or False for no."""
-        user_choice = input(ui_str)
+        print(ui_str)
+        print("\ny. Já" + "\n" + "n. nei\n")
+        user_choice = input("Sláðu inn val þitt: ")
 
         while True:
             if user_choice.lower() == "n":

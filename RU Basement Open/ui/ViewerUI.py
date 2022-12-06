@@ -54,14 +54,21 @@ class ViewerUI:
         teams = self.llapi.getTeams()
         players = self.llapi.getPlayers()
         for team in teams:
-            print(f"\n{team.name}\n:")
+            print(f"\n👥 {team.name}")
+            team_members_count = 0
             for player in players:
                 if team.id == player.team_id:
-                    print(f"→{player.name:>20}")
+                    team_members_count += 1
+                    if team_members_count == 1:
+                        print("｜")
+                        print(f"｜→     {player.name} // 🐐 fyrirliði")
+                    else:
+                        print(f"｜→     {player.name}")
+            if team_members_count == 0:
+                print(f"｜→ Engir leikmenn skráðir.")
 
         print("\n" + 78*"_")
         user_input = Menu_functions.menuFooter(False)
-
 
     def showTournamentInfo(self):
         None
@@ -72,10 +79,12 @@ class ViewerUI:
     def showPlayerHighscoreViewer(self):
         player_dict = {}
         print("Listi yfir leikmenn með flestu afreksstig.")
-        
+
         high_score = self.llapi.getPlayerScore()
         print(high_score)
+        """
         counter = 1
+<<<<<<< Updated upstream
 
         for player in high_score:
             for score in player:
@@ -86,7 +95,7 @@ class ViewerUI:
             print(f"{counter}. {val} - {key}")
             counter +=1
         
-        
+        """
         
         """sorted_score = sorted(high_score, key=itemgetter(2))
         for player in sorted_score:
@@ -94,22 +103,32 @@ class ViewerUI:
                 print(f"{counter}. {points.playerid}  -   {points.QPs}")
                 counter += 1"""
         
+=======
+        # hér:
+        sorted_score = sorted(high_score, key=itemgetter(2))
+        for player in sorted_score:
+            for points in player:
+                print(f"{counter}. {points.playerid}  -   {points.QPs}")
+                counter += 1
+
+>>>>>>> Stashed changes
         print("_"*78)
-    
+
     def showPlayerStatistics(self):
         """Shows statistics for a selected player"""
         players = self.llapi.getPlayers()
         while True:
             for i in range(len(players)):
-                print(i+1,". ", players[i].name)
-            command = int(input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
+                print(i+1, ". ", players[i].name)
+            command = int(input(
+                f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
             print(f"\nTölfræði fyrir {players[i].name}\n")
-                
+
             if command < 1 or command > len(players):
                 print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
                 continue
             break
-        
+
         player_1 = players[command-1].playerid
         players_score = self.llapi.getPlayerScore()
         for list in players_score:
@@ -120,7 +139,7 @@ class ViewerUI:
         print(players_score)
 
         print(f"{players[command-1].name}" + players_score)
-        
+
         Menu_functions.menuFooter(True)
         print("_"*78)
 
@@ -138,5 +157,3 @@ class ViewerUI:
                 continue
             break
         return players[i]
-
-       

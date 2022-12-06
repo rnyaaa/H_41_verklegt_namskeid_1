@@ -23,7 +23,7 @@ class IO_API:
         }
         """ a fieldname dict keyed by class objects """
         self.fieldnames = {
-            Player: ["id", "name", "phone_1", "phone_2", "email", "address"],
+            Player: ["id", "name", "mobile", "home_phhone", "email", "address", "team_id", "is_captain"],
             Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",

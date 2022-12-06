@@ -106,12 +106,6 @@ class OrganizerUI():
         print(78*"_")
         print()
         print("➢   Skrá leikmann\n")
-        # --------------------------------------------------------------------
-        all_players = self.llapi.getPlayers()
-        for i in range(len(all_players)):
-            print(
-                f"{all_players[i].name} + ' ' + {all_players[i].team_id}")
-        # -------------------------------------------------------------------
 
         name = input("o    Nafn: ")
         id_number = Menu_functions.getSSN("o    Kennitala: ")
@@ -122,18 +116,27 @@ class OrganizerUI():
 
         the_team = self.select_team_input()
 
-        # lesa yfir team_id í players og gá hvort það er einhver skráður í liðið nú þegar. Ef nei:
+        # les yfir og telur öll samsvarandi team_id í players og gáir hvort það er einhver skráður í liðið nú þegar. Ef nei:
+        all_players = self.llapi.getPlayers()
+        counter = 0
+        for i in range(len(all_players)):
+            if all_players[i].team_id == the_team.id:
+                counter += 1
 
-        print(
-            f"\nEnginn leikmaður hefur verið skráður í liðið {the_team.name}.\n{name} verður skráður sem fyrirliði.\n")
-        confirmed = Menu_functions.getYesNo("Viltu halda áfram?")
-        if not confirmed:
-            return
+        is_captain = False
+        # ef enginn er í liðinu fyrir þarf leikmaðurinn að vera skráður sem fyrirliði
+        if counter == 0:
+            print(
+                f"\nEnginn leikmaður hefur verið skráður í liðið {the_team.name}.\n{name} verður skráður sem fyrirliði.\n")
+            confirmed = Menu_functions.getYesNo("Viltu halda áfram?")
+            if not confirmed:
+                return
+            is_captain = True
 
         team_id = the_team.id
 
         player = Player(id_number, name, phone_number1,
-                        phone_number2, email, home_address, team_id)
+                        phone_number2, email, home_address, team_id, is_captain)
         self.llapi.addPlayer(player)
 
         print(
@@ -219,4 +222,4 @@ class OrganizerUI():
                 print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
                 continue
             break
-        return teams[i]
+        return teams[command-1]
