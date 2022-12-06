@@ -47,7 +47,7 @@ class OrganizerUI():
             elif user_input == "q":
                 Menu_functions.menuQuit()
             else:
-                print("Ekki gildur valmöguleiki, reyndu aftur")
+                print("⛔ Ekki gildur valmöguleiki, reyndu aftur")
                 #Menu_functions.menuExitCountdown(3, True)
 
     def addTeamPage(self):
@@ -70,7 +70,7 @@ class OrganizerUI():
                     phone_number, games_won, rounds_won)
         self.llapi.addTeam(team)
 
-        print("\n" + f"Liðið {team_name} hefur nú verið skráð." + "\n")
+        print("\n" + f"✅ Liðið {team_name} hefur nú verið skráð." + "\n")
 
     def addTournament(self):
         """Organizer menu for adding a tournament."""
@@ -97,7 +97,7 @@ class OrganizerUI():
         self.llapi.addTournament(tournament)
 
         print(
-            "\n" + f'Deildin/mótið "{tournament_name}" hefur nú verið skráð.' + "\n")
+            "\n" + f'✅ Deildin/mótið "{tournament_name}" hefur nú verið skráð.' + "\n")
         # Menu_functions.menuExitCountdown(3)
 
     def addPlayer(self):
@@ -127,7 +127,7 @@ class OrganizerUI():
         # ef enginn er í liðinu fyrir þarf leikmaðurinn að vera skráður sem fyrirliði
         if counter == 0:
             print(
-                f"\nEnginn leikmaður hefur verið skráður í liðið {the_team.name}.\n{name} verður skráður sem fyrirliði.\n")
+                f"\n⚠️ Enginn leikmaður hefur verið skráður í liðið {the_team.name}.\n{name} verður skráður sem fyrirliði.\n")
             confirmed = Menu_functions.getYesNo("Viltu halda áfram?")
             if not confirmed:
                 return
@@ -140,7 +140,7 @@ class OrganizerUI():
         self.llapi.addPlayer(player)
 
         print(
-            "\n" + f"Leikmaðurinn {name} hefur nú verið skráður í liðið {the_team.name}." + "\n")
+            "\n" + f"✅ Leikmaðurinn {name} hefur nú verið skráður í liðið {the_team.name}." + "\n")
         # Menu_functions.menuExitCountdown(3)
 
     def changeTournamentDates(self):
@@ -183,7 +183,7 @@ class OrganizerUI():
             if home_team.id is not away_team.id:
                 break
             else:
-                print("\n\nÓgilt val! Ekki má velja sama lið tvisvar. Reynið aftur.")
+                print("\n\n⛔ Ógilt val! Ekki má velja sama lið tvisvar. Reynið aftur.")
 
         games = self.llapi.getGames()
         game_id = len(games)+1
@@ -192,17 +192,21 @@ class OrganizerUI():
                     home_team.name, away_team.name, date)
         self.llapi.addGame(game)
 
-        print("\nViðureign hefur verið bætt við.\n")
+        print(
+            f"\n ✅ Viðureign '{home_team.name} vs. {away_team.name}' hefur verið bætt við.\n")
 
     def changeResults(self):
         # Hér þarf að sækja úrslit í IO sem userinn vill breyta
         print("➢	Breyta skráningu úrslita: ")
+        all_tournaments = self.select_tournament_input()
+
+        
         all_results = self.llapi.getResults()
         for result in all_results:
             for list in result:
                 print(list.game_id)
         print()
-        name = input("	Nafn móts: ")
+        
         print()
 
         # print(hér kemur tafla með úrslitum )
@@ -223,11 +227,11 @@ class OrganizerUI():
                 command = int(
                     input(f"\nVeldu mót af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {tournaments[0].name}): "))
                 if command < 1 or command > len(tournaments):
-                    print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
+                    print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
                     continue
                 break
             except ValueError:
-                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
+                print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
         return tournaments[command-1]
 
     def select_team_input(self, ui_str):
@@ -241,7 +245,7 @@ class OrganizerUI():
             command = int(
                 input(f"\nVeldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {teams[0].name}): "))
             if command < 1 or command > len(teams):
-                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
+                print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
                 continue
             break
         return teams[command-1]

@@ -43,7 +43,7 @@ class LL_API:
 
     def getPlayerScore(self) -> tuple[str, list[PlayerScore]]:
         """ returns a tuple of Player.name and a list of PlayerScore instances """
-        return self.playersLL.getAllPlayerScore()
+        return self.playersLL.getPlayerScoresSummarized()
 
     def getPlayerScoreByDate(self):
         raise NotImplementedError

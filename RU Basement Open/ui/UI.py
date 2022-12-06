@@ -56,9 +56,9 @@ class Menu_functions:
                 phone_number = int(phone_number)
                 if not is_valid:
                     print(
-                        "\nSímanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.\n")
+                        "\n⛔ Símanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.\n")
             except ValueError:
-                print("\nSímanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.\n")
+                print("\n⛔ Símanúmer má aðeins innihalda 7 tölustafi. Reynið aftur.\n")
         return phone_number
 
     def getSSN(ui_str: str):
@@ -72,9 +72,9 @@ class Menu_functions:
                 ssn = int(ssn)
                 if not is_valid:
                     print(
-                        "\nKennitala má aðeins innihalda 10 tölustafi. Reynið aftur.\n")
+                        "\n⛔ Kennitala má aðeins innihalda 10 tölustafi. Reynið aftur.\n")
             except ValueError:
-                print("\nKennitala má aðeins innihalda 10 tölustafi. Reynið aftur.\n")
+                print("\n⛔ Kennitala má aðeins innihalda 10 tölustafi. Reynið aftur.\n")
         return ssn
 
     def getEmail(ui_str: str):
@@ -87,7 +87,7 @@ class Menu_functions:
             is_valid = re.fullmatch(email_parameters, email)
             if is_valid:
                 return email
-            print("\nÓgilt netfang, reynið aftur.\n")
+            print("\n⛔ Ógilt netfang, reynið aftur.\n")
 
     def getDate(ui_str: str):
         """Asks for , validates and returns date information on the following format: dd.mm.yy
@@ -102,7 +102,7 @@ class Menu_functions:
 
             except ValueError:
                 print(
-                    "\nÓgild dagsetning. Slá skal inn dagsetningu á forminu dd.mm.áá (t.d. 19.07.99)")
+                    "\n⛔ Ógild dagsetning. Slá skal inn dagsetningu á forminu dd.mm.áá (t.d. 19.07.99)")
         return date_str
 
     def isBetweenDates(check_date, start, end):
@@ -116,7 +116,7 @@ class Menu_functions:
                 return check_date
             else:
                 print(
-                    f"Dagsetning er ekki í boði. Veldu dagsetningu á milli {start} og {end}.")
+                    f"⛔ Dagsetning er ekki í boði. Veldu dagsetningu á milli {start} og {end}.")
 
     def getEventDates():
         """Asks user for and returns start dates and end dates for an event on the format dd.mm.yy"""
@@ -126,34 +126,33 @@ class Menu_functions:
         print(
             f"\no	Nær viðburðurinn yfir meira en einn dag ({start_date})?\n")
         print("y. Já" + "\n" + "n. nei\n")
-        is_multiple_days = input("Sláðu inn val þitt: ")
 
-        while True:
-            try:
-                if is_multiple_days.lower() == "n":
-                    end_date = start_date
-                    return start_date, end_date
-                if is_multiple_days.lower() == "y":
-                    end_date = Menu_functions.getDate(
-                        "o	Lokadagsetning (dd.mm.yy): ")
-                    return start_date, end_date
-                return ValueError
-            except ValueError:
-                print("Ógild dagsetning, reyndu aftur")
+        is_valid = False
+        while not is_valid:
+            is_multiple_days = input("Sláðu inn val þitt: ")
+            if is_multiple_days.lower() == "n":
+                end_date = start_date
+                return start_date, end_date
+            elif is_multiple_days.lower() == "y":
+                end_date = Menu_functions.getDate(
+                    "o	Lokadagsetning (dd.mm.yy): ")
+                return start_date, end_date
+            else:
+                print("\n⛔ Ógilt val, reyndu aftur.\n")
 
     def getYesNo(ui_str: str):
         """Asks user yes or no. Takes in a custom string prompt (ui_str).
         Returns True for yes or False for no."""
         print(ui_str)
         print("\ny. Já" + "\n" + "n. nei\n")
-        user_choice = input("Sláðu inn val þitt: ")
 
         while True:
+            user_choice = input("Sláðu inn val þitt: ")
             if user_choice.lower() == "n":
                 return False
             if user_choice.lower() == "y":
                 return True
-            print("\nÓgilt val, reyndu aftur.\n")
+            print("\n⛔ Ógilt val, reyndu aftur.\n")
 
     def menuQuit():
         print()
@@ -177,36 +176,6 @@ class Menu_functions:
         quit()
 
 
-# Viewer UI --------------------------------------------
-
-class PlayerViewer():
-
-    def showPlayerScoreByDate():
-        None
-
-
-class TournamentInfoUI():
-
-    def displayTournamentInfo():
-        print(">	Birta stöðu móts")
-        print()
-        # print( 1. KR	   |  9 stig  |  9 leggir unnir
-        #   2. Valur   |  9 stig  |  8 leggir unnir
-        #   3. Þróttur |  7 stig  |  5 leggir unnir
-        print()
-
-        user_input = Menu_functions.menuFooter(False)
-
-        return user_input
-
-    def showTournamentScores():
-        print("Birta st")
-
-    def showGamesFinished():
-        None
-
-    def showUpcomingGames():
-        None
 
 # ----------------------------------------------------------------------------------------------------
 
@@ -241,23 +210,3 @@ class PlayerHighScoreViewer():
 
 
 # ----------------------------------------------------------------------------------------------------
-
-
-class ResultsForm():
-    def AddResults():
-        None
-
-    def updatePlayers():
-        None
-
-    def updateTeams():
-        None
-
-    def updateGames():
-        None
-
-    def updateTournaments():
-        None
-
-    def updateResults():
-        None

@@ -57,4 +57,4 @@ class Main_Menu_UI:
                 ViewerUI(self.llapi).displayViewerUI()
             else:
                 print()
-                print("Ekki gildur valmöguleiki!")
+                print("⛔ Ekki gildur valmöguleiki! Reynið aftur.")
