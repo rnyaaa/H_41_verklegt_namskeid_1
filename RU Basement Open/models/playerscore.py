@@ -5,7 +5,7 @@ class PlayerScore:
         self.QPs = QPs
         self.inshots = Inshots
         self.outshots = Outshots
-        self._501winlose = _5014winlose
+        self._501winlose = _501winlose
         self._301winlose = _301winlose
         self.cricketwinlose = cricketwinlose
         self._5014winlose = _5014winlose
