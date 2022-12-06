@@ -17,7 +17,7 @@ class IO_API:
             Player: "models/players.csv",
             Game: "RU Basement Open/models/games.csv",  # "models/games.csv",
             Team: "models/teams.csv",
-            Tournament: "models/tournaments.csv",
+            Tournament: "RU Basement Open/models/tournaments.csv",
             PlayerScore: "models/playerscore.csv",
             Results: "models/results.csv"
         }
@@ -46,7 +46,7 @@ class IO_API:
                 if counter > 0:
                     model_return.append([item for item in row])
                 counter += 1
-        """ Dark magic pls do not touch """
+        # Dark magic pls do not touch
         model_return = list(map(lambda x: model_type(*x), model_return))
         return model_return
 

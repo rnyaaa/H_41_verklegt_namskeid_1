@@ -75,7 +75,7 @@ class OrganizerUI():
     def addTournament(self):
         """Organizer menu for adding a tournament."""
         date_list = "" + ","
-        print("➢	Stofna deild/mót:")
+        print("\n➢	Stofna deild/mót:")
         print()
 
         # Generate a tournament ID
@@ -97,28 +97,28 @@ class OrganizerUI():
             f"\no	Nær deildin/mótið yfir meira en einn dag ({start_date})?\n")
         print("y. Já" + "\n" + "n. nei\n")
         is_multiple_days = input("Sláðu inn val þitt: ")
-        ask_y_n = True
-        while ask_y_n:
+
+        while True:
             try:
                 if is_multiple_days.lower() == "n":
                     end_date = start_date
-                    ask_y_n = False
+                    break
                 if is_multiple_days.lower() == "y":
                     end_date = Menu_functions.getDate(
                         "o	Lokadagsetning deildar (dd.mm.yy): ")
-                    ask_y_n = False
-                else:
-                    return ValueError
+                    break
+                return ValueError
             except ValueError:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
 
         tournament_type = Menu_functions.getTournamentType(
             "o	Veldu tegund deildar/móts:")
-        nr_of_rounds = 0
-        while nr_of_rounds > 1:
+
+        while True:
             nr_of_rounds = input("o	Fjöldi umferða: ")
-            if nr_of_rounds > 1:
-                print("\nLágmarksfjöldi umferða er 1, reynið aftur.\n")
+            if nr_of_rounds >= 1:
+                break
+            print("\nLágmarksfjöldi umferða er 1, reynið aftur.\n")
 
         tournament = Tournament(
             tournament_id, tournament_name, organizer_name, organizer_phone, start_date, end_date, tournament_type, nr_of_rounds)
@@ -142,6 +142,7 @@ class OrganizerUI():
                 continue
             break
         return teams[i]
+    
 
     def addPlayer(self):
         """Organizer form for player addition."""
@@ -176,6 +177,7 @@ class OrganizerUI():
         print("➢	Breyta dagsetningu á viðureign: ")
         print()
         name = input("Nafn móts: ")
+        # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! siggi setja inn select_tournament_input_hér
         print()
 
         # print(hér koma viðureignirnar)
@@ -188,7 +190,7 @@ class OrganizerUI():
 
         print("\nSkrá viðureignir: ")
         while True:
-            tournament = input("\no	Mót: ")
+            tournament = self.select_tournament_input()
             date = input("o	Dagsetning viðureignar (dd.mm.áá): ")
             if date == "":
                 break
@@ -211,3 +213,19 @@ class OrganizerUI():
 
         user_input = Menu_functions.menuFooter(True)
         return user_input
+    
+    
+    def select_tournament_input(self):
+        print("\nVeljið mót:\n")
+        tournaments = self.llapi.getTournaments()
+        command = ""
+        while True:
+            for i in range(len(tournaments)):
+                print(i+1, ". ", tournaments[i].name)
+            command = int(
+                input(f"\nVeldu mót af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {tournaments[0].name}): "))
+            if command < 1 or command > len(tournaments):
+                print("\nEkki gildur valmöguleiki, reyndu aftur.\n")
+                continue
+            break
+        return tournaments[i]
