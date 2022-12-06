@@ -71,7 +71,8 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
-        None
+        pass
+
 
     def showPlayerViewer(self):
         None
