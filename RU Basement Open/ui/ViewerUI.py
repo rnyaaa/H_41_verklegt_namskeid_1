@@ -72,7 +72,7 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
-        selected_tournment = OrganizerUI.select_tournament_input(self)
+        selected_tournment = OrganizerUI.select_tournament_input()
         print()
         all_games = self.llapi.getGames()
         
@@ -103,14 +103,15 @@ class ViewerUI:
 
     def showPlayerHighscoreInShot(self):
         '''Shows the high score '''
-        select_tournament = OrganizerUI.select_tournament_input()
+        select_tournament = OrganizerUI.select_tournament_input(self)
 
         print("\nListi yfir leikmenn með hæsta innskotið.\n")
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.inshots)
-        for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  I{score.inshots}")
+        if select_tournament.id == scores.gameid:
+            for counter, score in enumerate(scores):
+                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  I{score.inshots}")
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
