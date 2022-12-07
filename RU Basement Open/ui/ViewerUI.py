@@ -95,8 +95,9 @@ class ViewerUI:
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.QPs)
+        print("    Nafn leikmanns  Afreksstig")
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):>13}  -   {score.QPs}")
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
