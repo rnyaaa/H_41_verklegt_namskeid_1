@@ -30,7 +30,7 @@ class IO_API:
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
                           "lose501_1", "win301", "lose301", "wincricket", "losecricket", "win501_4", "lose501_4"],
-            TeamScore: []
+            TeamScore: [],
             Game: ["gameid", "tournament_id", "home_team",
                    "away_team", "self.date", "self.results"]
         }
