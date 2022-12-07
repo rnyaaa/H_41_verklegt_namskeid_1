@@ -1,13 +1,14 @@
-import os
 import csv
+import os
 from typing import Any
+
 from models.game import Game
 from models.player import Player
 from models.playerscore import PlayerScore
-from models.tournament import Tournament
+from models.results import Results
 from models.team import Team
 from models.teamscore import TeamScore
-from models.results import Results
+from models.tournament import Tournament
 
 
 class IO_API:
@@ -20,7 +21,7 @@ class IO_API:
             Team: "models/teams.csv",
             Tournament: "models/tournaments.csv",
             PlayerScore: "models/playerscore.csv",
-            TeamScore: "models/playerscore.csv",
+            TeamScore: "models/teamscore.csv",
             Results: "models/results.csv"
         }
         """ a fieldname dict keyed by class objects """
@@ -30,7 +31,7 @@ class IO_API:
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
                           "lose501_1", "win301", "lose301", "wincricket", "losecricket", "win501_4", "lose501_4"],
-            TeamScore: []
+            TeamScore: ["team_id", "tournament_id", "game_id", "games_won", "rounds_won"],
             Game: ["gameid", "tournament_id", "home_team",
                    "away_team", "self.date", "self.results"]
         }

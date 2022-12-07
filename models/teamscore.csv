@@ -1,2 +1,11 @@
-tournament_id, team_id, game_id, games_won, rounds_won
+team_id, tournament_id, game_id, games_won, rounds_won
 1,1,1,999,9999
+2,1,1,111,222222
+1,1,2,444,5124
+2,1,2,512,6323
+3,2,4,531,41
+4,2,4,231,53
+5,2,5,631,314
+6,2,5,531,532
+7,3,6,32,5
+8,3,6,51,6
