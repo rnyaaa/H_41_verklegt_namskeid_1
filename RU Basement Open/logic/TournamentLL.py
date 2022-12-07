@@ -16,6 +16,12 @@ class TournamentLL():
         """Add a tournament."""
         return self.ioapi.create_model(tournament)
 
+    def getTournamentNameFromId(self, tournamentid):
+        tournaments = self.getAllTournaments()
+        for tournament in tournaments:
+            if tournament.id == tournamentid:
+                return tournament.name
+
     def getTournamentScore(self):
         """
         Returns a list of tuples containing the team name, games won and rounds won.
