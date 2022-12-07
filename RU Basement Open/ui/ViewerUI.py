@@ -110,9 +110,11 @@ class ViewerUI:
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.inshots)
-        if select_tournament.id == scores.tournamentid:
-            for counter, score in enumerate(scores):
+        for counter, score in enumerate(scores):
+            if select_tournament.id == scores[counter].tournamentid:
                 print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  I{score.inshots}")
+    
+            # Counterinn er að telja vitlaust, telur þó hann fari ekki framhjá 
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
@@ -127,7 +129,6 @@ class ViewerUI:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.outshots)
         for counter, score in enumerate(scores):
             print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.outshots}")
-
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
     
