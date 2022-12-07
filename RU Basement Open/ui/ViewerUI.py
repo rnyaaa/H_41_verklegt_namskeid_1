@@ -72,6 +72,10 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
+<<<<<<< Updated upstream
+=======
+        # Á þetta kanski að vera listi yfir sigra hjá hverju liði en ekki á móti hvor öðru?
+>>>>>>> Stashed changes
         selected_tournment = OrganizerUI.select_tournament_input(self)
         print()
         all_games = self.llapi.getGames()
