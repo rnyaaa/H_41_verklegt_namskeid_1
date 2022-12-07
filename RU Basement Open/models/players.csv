@@ -1,12 +1,17 @@
 id, name, mobile, home_phone, email, address, team_id, is_captain
-0104320000,Mamma Þín,8988899,1122334,mamma@thin.is,Hjamérgata 69,1,True
-0101012211,Mist Eik,8987788,55112255,m@m.io,Koffíngata 66,1,False
-0101691010,Rebekka,1212121,5888888,rebekka@ru.is,Krambúðargata 1,1,False
-2121213030,Axel Hall,6914975,5996200,axelhall@ru.is,Menntavegur 1,1,False
-0101012215,Kristall Collabson,8987788,55112255,m@m.io,Koffíngata 66,1,False
-2101690011,Grenji Hahason,8980077,5671122,grenji@haha.org,Vælugata 32,6,True
-204040101,Testó Sterón,112,4445000,hvadtekuru@ibekk.is,Vöðvingjagata 22,6,False
-2211001010,Rita Lín,8886666,5554444,xx@yy.is,gata 3,6,False
-1212121020,Frikki Legend,7878787,5656565,frikki@ru.is,Menntavegur 2,8,True
-101010011,Addison Rae,7776666,4445555,a@t.com,21 Lelegtcontent St.,3,True
-102592299,Addison Rae's Mom,8889999,5565656,kk@mms.is,Pappakassi,3,False
+2609723648,Sporgonizza Fabio, 6422410,4282241,Sfabio@gmail.com, neighborlystreet 280, 29, True
+1512713385, Gwendoline Lucider,8637421,4282241,Gwendur@gmail.com, knowledgestreet 33,29, False
+0811933925,Zarathustra Ford,8621632,4282241,Zara@gmail.com,swingstreet,135, 29,False
+1408783929,Winston Birdshill, 7389448,4282241,Winstoner@gmail.com, mittenstreet 32, 29,False
+1507953166,Matteo Roberts, 7642411,5555550, MmmmRobby@gmail.com, crazystreet 212, 69,True
+2802833965,Payten Tucker, 7750755,5555550, PayTuck@gmail.com, smilestreet 205, 69 ,False
+0505723003,Eliezer Atkinson, 7561922,5555550, bEliezer@gmail.com, voicelessstreet 7, 69, False
+2504913506, Grayson Ewing, 6114334,5555550, 50shadesGrayson@gmail.com, cowardlystreet 14, 69,False
+2706713276,Jacqueline Payne,8485386,5510280, maxPayne@gmail.com, substantialstreet 170, 420,True
+1611873154,Elaina Singleton,6553265,5510280, ImSingleTon@gmail.com cherriesstreet 20, 420, False
+0711983486,Marcel Arias,6015114,5510280, Marcipan@gmail.com, mess upstreet 250, 420, False
+1107913504,Kallie Hansen,6987450,5510280, KallieHansen@gmail.com, trickstreet 73, 420,False
+1901893434,Nero Pesky,6214709,5138593, Neropresso@gmail.com, kissstreet 198, 13, True
+0301843696,Verma Murra,7254171, 5138593, verma@gmail.com, puzzledstreet 135, 13, False
+2101733629,Ron Ribo,6245050, 5138593, RonRibon@gmail.com, commonstreet 163, 13, False
+2803953272,Eva Zarantula,8188739,5138593, EvaTarantula@gmail.com, parsimoniousstreet 196, 13, False
