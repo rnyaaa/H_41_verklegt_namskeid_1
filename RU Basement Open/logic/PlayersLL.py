@@ -51,11 +51,11 @@ class PlayersLL:
         return player_summaries
 
     def getPlayerScoreSummariesByTournament(self, tournamentid) -> list[PlayerSummary]:
-        playerscores = self.getAllPlayerScore()
+        playerscores = [score for score in self.getAllPlayerScore() if score.tournamentid == tournamentid]
         """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """
         playerscores_by_player = dict()
         for item in playerscores:
-            if item.playerid in playerscores_by_player and item.tournamentid == tournamentid:
+            if item.playerid in playerscores_by_player:
                 playerscores_by_player[item.playerid].append(item)
             else:
                 playerscores_by_player[item.playerid] = [item]
