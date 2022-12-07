@@ -7,13 +7,10 @@ class Team:
         self.phone = phone
         self.games_won = games_won
         self.rounds_won = rounds_won
-        self.player1 = player1
-        self.player2 = player2
-        self.player3 = player3
-        self.player4 = player4
+
 
     def listify(self):
-        return [self.id, self.name, self.address, self.club_name, self.phone, self.games_won, self.rounds_won, self.player1, self.player2, self.player3, self.player4]
+        return [self.id, self.name, self.address, self.club_name, self.phone, self.games_won, self.rounds_won]
 
     def model(self):
         return "teams"
