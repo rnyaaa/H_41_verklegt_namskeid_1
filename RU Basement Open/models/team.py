@@ -1,5 +1,5 @@
 class Team:
-    def __init__(self, id='', name='', address='', club_name='', phone=''):
+    def __init__(self, id='', name='', address='', club_name='', phone='' ):
         self.id = id
         self.name = name
         self.address = address

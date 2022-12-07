@@ -22,8 +22,8 @@ class OrganizerUI():
                 "➢  Valmynd:\n\n"
 
                 "1.	Stofna deild/mót\n"
-                "2.	Skrá leikmann\n"
-                "3.	Skrá lið\n"
+                "2.	Skrá lið\n"
+                "3.	Skrá leikmann\n"
                 "4.	Skrá viðureignir\n"
                 "5.	Breyta dagsetningu á viðureign\n"
                 "6.	Breyta skráningu úrslita")
@@ -33,9 +33,9 @@ class OrganizerUI():
             if user_input == "1":
                 self.addTournament()
             elif user_input == "2":
-                self.addPlayer()
-            elif user_input == "3":
                 self.addTeamPage()
+            elif user_input == "3":
+                self.addPlayer()
             elif user_input == "4":
                 self.addGames()
             elif user_input == "5":
