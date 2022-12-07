@@ -63,14 +63,14 @@ class OrganizerUI():
         club_name = input("o   Nafn félags: ")
         phone_number = Menu_functions.getPhoneNumber("o   Símanúmer: ")
 
-        games_won = 0
-        rounds_won = 0
 
         team = Team(team_id, team_name, home_address, club_name,
-                    phone_number, games_won, rounds_won)
+                    phone_number)
         self.llapi.addTeam(team)
 
         print("\n" + f"✅ Liðið {team_name} hefur nú verið skráð." + "\n")
+
+        Menu_functions.menuFooter(False)
 
     def addTournament(self):
         """Organizer menu for adding a tournament."""
@@ -159,7 +159,7 @@ class OrganizerUI():
         updated_tournament = Tournament(the_tournament.id, the_tournament.name,
                                         the_tournament.organizer_name, the_tournament.organizer_phone, start_date, end_date)
 
-        self.llapi.update_tournament(updated_tournament)
+        self.llapi.changeDate(updated_tournament)
 
         user_input = Menu_functions.menuFooter(True)
         return user_input
