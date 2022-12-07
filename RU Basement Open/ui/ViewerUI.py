@@ -95,6 +95,7 @@ class ViewerUI:
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.QPs)
+        print("    Nafn leikmanns  Afreksstig")
         for counter, score in enumerate(scores):
             print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
 
@@ -109,7 +110,7 @@ class ViewerUI:
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.inshots)
-        if select_tournament.id == scores.gameid:
+        if select_tournament.id == scores.tournamentid:
             for counter, score in enumerate(scores):
                 print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  I{score.inshots}")
 
