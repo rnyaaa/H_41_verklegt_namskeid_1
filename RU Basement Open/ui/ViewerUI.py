@@ -196,7 +196,7 @@ class ViewerUI:
             for i in range(len(players)):
                 print(i+1, ". ", players[i].name)
             command = int(input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
-        print(f"\nTölfræði fyrir {players[command].name}\n")
+        print(f"\nTölfræði fyrir {players[command-1].name}\n")
         statistics = self.llapi.getSinglePlayerScore(players[command].playerid)
         print(f"QPs overall: {statistics.QPs}")
         print(f"Largest inshot: {statistics.inshots}")
