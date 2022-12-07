@@ -152,8 +152,7 @@ class OrganizerUI():
 
         the_tournament = self.select_tournament_input()
 
-        print("Tournament ID-ið okkar:")
-        print(the_tournament.id)
+        print(f"Breyta dagsetningu fyrir {the_tournament.name}:")
 
         start_date, end_date = Menu_functions.getEventDates()
 
