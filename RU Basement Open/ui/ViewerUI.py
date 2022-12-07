@@ -55,16 +55,16 @@ class ViewerUI:
         teams = self.llapi.getTeams()
         players = self.llapi.getPlayers()
         for team in teams:
-            print(f"\n👥 {team.name}")
+            print(f"\nNAFN: {team.name}")
             team_members_count = 0
             for player in players:
                 if team.id == player.team_id:
                     team_members_count += 1
                     if team_members_count == 1:
                         print("｜")
-                        print(f"｜→     {player.name} // 🐐 fyrirliði")
+                        print(f"｜→     {player.name:<15} {player.home_phone:<7} {player.playerid:<10} {player.address:<20}Fyrirliði")
                     else:
-                        print(f"｜→     {player.name}")
+                        print(f"｜→     {player.name:<15} {player.home_phone:<7} {player.playerid:<10} {player.address:<20}Leikmaður")
             if team_members_count == 0:
                 print(f"｜→ Engir leikmenn skráðir.")
 
