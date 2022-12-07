@@ -1,5 +1,5 @@
 id, name, mobile, home_phone, email, address, team_id, is_captain
-0104320000,Mamma Þín,8988899,1122334,mamma@thin.is,Hjamérgata 69,1,True
+1,Mamma Þín,8988899,1122334,mamma@thin.is,Hjamérgata 69,1,True
 0101012211,Mist Eik,8987788,55112255,m@m.io,Koffíngata 66,1,False
 0101691010,Rebekka,1212121,5888888,rebekka@ru.is,Krambúðargata 1,1,False
 2121213030,Axel Hall,6914975,5996200,axelhall@ru.is,Menntavegur 1,1,False

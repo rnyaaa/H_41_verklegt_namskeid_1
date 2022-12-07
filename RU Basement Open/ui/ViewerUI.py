@@ -5,7 +5,7 @@ from models.player import Player
 from models.team import Team
 from models.tournament import Tournament
 from operator import itemgetter
-
+from models.playersummary import PlayerSummary
 
 class ViewerUI:
 
@@ -135,9 +135,14 @@ class ViewerUI:
     def showPlayerStatistics(self):
         """Shows statistics for a selected player"""
         players = self.llapi.getPlayers()
-        while True:
+        command = None
+        while command == None:
             for i in range(len(players)):
                 print(i+1, ". ", players[i].name)
-            command = int(input(
-                f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
-            print(f"\nTölfræði fyrir {players[i].name}\n")
+            command = int(input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
+        print(f"\nTölfræði fyrir {players[i].name}\n")
+        statistics = self.llapi.getSinglePlayerScore(players[i].playerid)
+        print(f"QPs overall: {statistics.QPs}")
+        print(f"Largest inshot: {statistics.inshots}")
+        print(f"Largest outshot: {statistics.outshots}")
+
