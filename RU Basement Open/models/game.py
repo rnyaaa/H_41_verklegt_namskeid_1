@@ -1,5 +1,5 @@
 class Game:
-    def __init__(self, game_id='', tournament_id='', home_team='', away_team='', date='', results=''):
+    def __init__(self, game_id=None, tournament_id=None, home_team=None, away_team=None, date=None, results=None):
         self.gameid = game_id
         self.tournament_id = tournament_id
         self.date = date

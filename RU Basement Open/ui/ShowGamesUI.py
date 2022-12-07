@@ -49,8 +49,9 @@ class ShowGamesUI():
         """
 
     def showGames(self):
-        games = self.llapi.getGames()
-        print(games.gameid)
+        games = self.llapi.getGamesFinished()
+        for game in games:
+            print(game.date, game.home_team, game.away_team, game.results)
 
         
 
