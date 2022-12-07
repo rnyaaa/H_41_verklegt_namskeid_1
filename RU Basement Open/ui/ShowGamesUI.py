@@ -48,7 +48,6 @@ class ShowGamesUI():
         
         
         games = self.llapi.getUpcomingGames()
-        tournament = OrganizerUI.select_tournament_input(self)
         print()
         print("             LISTI YFIR KOMANDI VIÐUREIGNIR. ")
         print()
@@ -67,3 +66,4 @@ class ShowGamesUI():
                 print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.home_team} - {game.results_hometeam}/{game.results_awayteam}")
             else:
                 print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.away_team} - {game.results_awayteam}/{game.results_hometeam}")
+        Menu_functions.menuFooter(False)
