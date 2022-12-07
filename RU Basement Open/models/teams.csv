@@ -1,18 +1,7 @@
 id,team_name,address,association_name,phone_nr,total_games_won,total_rounds_won
-<<<<<<< HEAD
 1, The Brahms, Geimgata 32, Dart Vader Dart Club (DV DC), 8328843,999,9999
 2, The lightings, Geimgata 32, Dart Vader Dart Club (DV DC), 8328843,345,8212
 3, The Anacondas, Nautagata 1, All Bulls Dart Federation (AB DF), 8473294, 32,353
 4, The Oligarcs, Nautagata 1, All Bulls Dart Federation (AB DF), 8473294, 12, 93
 5, The Cesars, Nautagata 1, All Bulls Dart Federation (AB DF), 8473294, 93, 843
 6, The Rings, Fluggata 89, In Flight Dart Club (IF DC), 9434234, 42, 124
-=======
-1,B-Lið KR,Frostaskjól 2,Knattspyrnufélag Reykjavíkur,823-3443,3,999999
-2,Pílurnar,Skotmörk 42,Pílufélag Reykjavíkur,581-2345,2,222222
-3,C-Lið KR,Frostaskjól 2,Knattspyrnufélag Reykjavíkur,898-8898,1,999999
-4,Saumaklúbburinn,Prjónagata 24,Þróttur,444-5000,222,333333
-5,Stoners,Jónustræti 420,Stjarnan,544-6000,666,77777
-6,Day Drinkers,Mánagata 7,Þróttur,7707430,777,88888
-7,Gærurnar,Mammaþíngata 22,Fylkir,8887788,0,0
-8,The Powerpuff Girls,Grenjugata 2,Fjölnir,7764699,0,0,
->>>>>>> 159aee499ff53eb2162a60b1a364281e2deebb30
