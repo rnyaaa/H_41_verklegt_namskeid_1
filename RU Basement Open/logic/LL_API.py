@@ -48,7 +48,6 @@ class LL_API:
         """ returns a list of all Games instances """
         return self.gamesLL.getAllGames()
 
-
     def getTournaments(self) -> list[Tournament]:
         """ returns a list of all Tournament instances """
         return self.tournamentsLL.getAllTournaments()
@@ -92,7 +91,7 @@ class LL_API:
 
     def getUpcomingGames(self) -> list[Game]:
         """ returns a list of games where the results are None(have not been filled in, thus are upcoming) """
-        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam is None and game.results_hometeam is None)]
+        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam is '' and game.results_hometeam is '')]
 
     def getPlayerList(self) -> list[tuple[Player, str]]:
         """ returns a list of tuples of players and the score they are sorted by """
@@ -119,7 +118,7 @@ class LL_API:
 
     def changeDate(self, updated_info):
         self.tournamentsLL.changeTournamentInfo(updated_info)
-    
+
     def getTournamentNameFromId(self, tournamentid) -> str:
         return self.tournamentsLL.getTournamentNameFromId(tournamentid)
 

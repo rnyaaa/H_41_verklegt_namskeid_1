@@ -87,17 +87,15 @@ class Menu_functions:
         return date_str
 
     def isBetweenDates(check_date, start, end):
-        date = datetime.datetime.strptime(check_date, '%d.%m.%y')
-        is_valid = False
-        while not is_valid:
-            start_date = datetime.datetime.strptime(start, '%d.%m.%y')
-            end_date = datetime.datetime.strptime(end, '%d.%m.%y')
+        date = datetime.datetime.strptime(check_date, '%d.%m.%y')        
+        start_date = datetime.datetime.strptime(start, '%d.%m.%y')
+        end_date = datetime.datetime.strptime(end, '%d.%m.%y')
 
-            if start_date <= date <= end_date:
-                return check_date
-            else:
-                print(
-                    f"⛔ Dagsetning er ekki í boði. Veldu dagsetningu á milli {start} og {end}.")
+        if start_date <= date <= end_date:
+            return True
+        else:
+            print(f"⛔ Dagsetning er ekki í boði. Veldu dagsetningu á milli {start} og {end}.")
+            return False
 
     def getEventDates():
         """Asks user for and returns start dates and end dates for an event on the format dd.mm.yy"""

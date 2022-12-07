@@ -63,7 +63,6 @@ class OrganizerUI():
         club_name = input("o   Nafn félags: ")
         phone_number = Menu_functions.getPhoneNumber("o   Símanúmer: ")
 
-
         team = Team(team_id, team_name, home_address, club_name,
                     phone_number)
         self.llapi.addTeam(team)
@@ -169,10 +168,13 @@ class OrganizerUI():
 
         tournament = self.select_tournament_input()
 
-        date = Menu_functions.getDate(
-            "\no	Dagsetning viðureignar (dd.mm.áá): ")
-        date = Menu_functions.isBetweenDates(
-            date, tournament.start_date, tournament.end_date)
+        while True:
+            date = Menu_functions.getDate(
+                "\no	Dagsetning viðureignar (dd.mm.áá): ")
+            is_valid = Menu_functions.isBetweenDates(
+                date, tournament.start_date, tournament.end_date)
+            if is_valid:
+                break
 
         home_team = self.select_team_input("\n🏠 Veljið heimalið:\n")
 

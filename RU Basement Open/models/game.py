@@ -9,7 +9,7 @@ class Game:
         self.results_awayteam = results_awayteam
 
     def listify(self):
-        return [self.gameid, self.tournament_id, self.home_team, self.away_team, self.date, self.results]
+        return [self.gameid, self.tournament_id, self.home_team, self.away_team, self.date, self.results_hometeam, self.results_awayteam]
 
     def model(self):
         return "games"
