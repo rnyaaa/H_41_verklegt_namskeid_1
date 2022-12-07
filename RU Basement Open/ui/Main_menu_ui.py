@@ -39,7 +39,7 @@ class Main_Menu_UI:
                 "  1.  Mótshaldari                                     ┈╭━┻╮╲┗━━━━━╮╭╮┈        \n"
                 "  2.  Fyrirliði                                       ┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈        \n"
                 "  3.  Birta lista yfir viðureignir                    ┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈        \n"
-                "  4.  Skoða Tölfræði                                  ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        \n"
+                "  4.  Aðrir upplýsingar/ Tölfræði                     ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        \n"
                 "  q.  Hætta                                           ┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈        \n"
                 "                                                                              \n"
                 "                                                        v. 0.0.1              \n"

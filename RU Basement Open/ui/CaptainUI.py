@@ -1,4 +1,5 @@
 from logic.LL_API import LL_API
+from models.playerscore import PlayerScore
 from ui.UI import Menu_functions
 from ui.OrganizerUI import OrganizerUI
 
@@ -30,14 +31,31 @@ class CaptainUI():
 
     def addResults(self):
         tournament = OrganizerUI.select_tournament_input(self)
-        tournament_name = tournament.name
-        tournament_id = tournament.id
+        
+        
+        game = self.select_game_input(tournament.name, tournament.id)
+        
 
-        selected_game = self.select_game_input(tournament_name, tournament_id)
+        # Hér á að koma listi af leikmönnum sem tilheyra liðinu
+
+        playerid = input("Veldu leikmann: ")
+        result501singles_wins = input("Unnir leggir, 501 einleikur: ")
+        result301_wins = input("Unnir leggir, 301 tvíleikur: ")
+        resultcricket_wins = input("Unnir leggir, C tvíleikur: ")
+        result501fours_wins = input("Unnir leggir, 501 fjórleikur: ")
+        qps = input("Afreksstig: ")
+        inshot = input("Hæsta innskotið: ")
+        outshot = input("Hæsta útskotið: ")
+
+        PlayerScore(tournament.id, game.id, playerid, qps, inshot, outshot, 
+                    result501singles_wins, result301_wins, resultcricket_wins, result501fours_wins)
+
+
+
 
         
 
-    def select_game_input(self, tournament_name, tournament_id):
+    def select_game_input(self,tournament_name, tournament_id):
         """Prints a numbered list of all games and asks the user for their selection. The selected game index is returned"""
 
         print(f"\nMót/deild {tournament_name} yfirlit\nVeljið viðureign:\n")
