@@ -46,6 +46,14 @@ class LL_API:
         """ returns a list of Player.name and a list of PlayerScore instances """
         return self.playersLL.getAllPlayerScore()
 
+    def getPlayerScoreSummaries(self) -> list[PlayerSummary]:
+        """ returns a list of Player.name and a list of PlayerScore instances """
+        return self.playersLL.getPlayerScoreSummaries()
+
+    def getPlayerScoreSummariesByTournament(self, tournamentid) -> list[PlayerSummary]:
+        """ returns a list of Player.name and a list of PlayerScore instances """
+        return self.playersLL.getPlayerScoreSummariesByTournament(tournamentid)
+
     def getSinglePlayerScore(self, playerid) -> PlayerSummary:
         """ returns a playersummary for a single player """
         return self.playersLL.getSinglePlayerScore(playerid)

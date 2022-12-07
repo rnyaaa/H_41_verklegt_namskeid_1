@@ -21,7 +21,7 @@ class PlayersLL:
         """ adds a player """
         self.ioapi.create_model(player)
 
-    def getPlayerScoresSummarized(self) -> list[PlayerSummary]:
+    def getPlayerScoreSummaries(self) -> list[PlayerSummary]:
         playerscores = self.getAllPlayerScore()
         """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """
         playerscores_by_player = dict()
@@ -50,7 +50,7 @@ class PlayersLL:
             player_summaries.append(player_summary)
         return player_summaries
 
-    def getPlayerScoresSummarizedbyTournament(self, tournamentid) -> list[PlayerSummary]:
+    def getPlayerScoreSummariesByTournament(self, tournamentid) -> list[PlayerSummary]:
         playerscores = self.getAllPlayerScore()
         """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """
         playerscores_by_player = dict()
@@ -82,7 +82,7 @@ class PlayersLL:
 
     def getSinglePlayerScore(self, playerid) -> PlayerSummary:
         """ gets the PlayerSummary of a single player by playerid """
-        player_summaries = self.getPlayerScoresSummarized()
+        player_summaries = self.getPlayerScoreSummaries()
         for player_summary in player_summaries:
             if player_summary.playerid == playerid:
                 return player_summary
@@ -91,7 +91,7 @@ class PlayersLL:
     def getPlayersSorted(self, sortBy):
         """ get player list sorted by one of the functions below. You need to replace "sortBy" with one of the functions below """
         """ e.g. calling this function as getPlayersSorted(ByQualityPoints())"""
-        return sorted(self.getPlayerScoresSummarized(), key=sortBy)
+        return sorted(self.getPlayerScoreSummaries(), key=sortBy)
 
     def getPlayerNameFromId(self, playerid):
         players = self.getAllPlayers()
