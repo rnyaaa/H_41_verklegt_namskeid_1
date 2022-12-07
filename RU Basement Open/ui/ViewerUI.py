@@ -110,11 +110,9 @@ class ViewerUI:
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.inshots)
-        for counter, score in enumerate(scores):
-            if select_tournament.id == scores[counter].tournamentid:
+        if select_tournament.id == scores.tournamentid:
+            for counter, score in enumerate(scores):
                 print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  I{score.inshots}")
-    
-            # Counterinn er að telja vitlaust, telur þó hann fari ekki framhjá 
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
@@ -129,6 +127,7 @@ class ViewerUI:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.outshots)
         for counter, score in enumerate(scores):
             print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.outshots}")
+
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
     
@@ -141,9 +140,13 @@ class ViewerUI:
             for i in range(len(players)):
                 print(i+1, ". ", players[i].name)
             command = int(input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
-        print(f"\nTölfræði fyrir {players[i].name}\n")
-        statistics = self.llapi.getSinglePlayerScore(players[i].playerid)
+        print(f"\nTölfræði fyrir {players[command].name}\n")
+        statistics = self.llapi.getSinglePlayerScore(players[command].playerid)
         print(f"QPs overall: {statistics.QPs}")
         print(f"Largest inshot: {statistics.inshots}")
         print(f"Largest outshot: {statistics.outshots}")
+        print(f"501 singles win/loss ratio: {statistics.result501singles[0]} / {statistics.result501singles[1]}")
+        print(f"501 singles win/loss ratio: {statistics.result301[0]} / {statistics.result301[1]}")
+        print(f"501 singles win/loss ratio: {statistics.resultcricket[0]} / {statistics.resultcricket[1]}")
+        print(f"501 singles win/loss ratio: {statistics.result501fours[0]} / {statistics.result501fours[1]}")
 

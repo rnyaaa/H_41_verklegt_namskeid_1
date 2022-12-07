@@ -86,6 +86,7 @@ class PlayersLL:
         for player_summary in player_summaries:
             if player_summary.playerid == playerid:
                 return player_summary
+        
 
     def getPlayersSorted(self, sortBy):
         """ get player list sorted by one of the functions below. You need to replace "sortBy" with one of the functions below """
