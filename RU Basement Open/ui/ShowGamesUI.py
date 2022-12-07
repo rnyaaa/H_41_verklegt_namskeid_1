@@ -53,8 +53,7 @@ class ShowGamesUI():
         print("             LISTI YFIR KOMANDI VIÐUREIGNIR. ")
         print()
         for game in all_games:
-            if game.results_awayteam == '':
-                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team}")
+            print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team}")
         
         Menu_functions.menuFooter(False)
 
@@ -62,18 +61,9 @@ class ShowGamesUI():
         games = self.llapi.getGamesFinished()
         print()
         print("             LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR. ")
-        '''print()
+        print()
         for game in games:
             if int(game.results_hometeam) > int(game.results_awayteam):
                 print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.home_team} - {game.results_hometeam}/{game.results_awayteam}")
             else:
                 print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.away_team} - {game.results_awayteam}/{game.results_hometeam}")
-'''     
-        tournament = OrganizerUI.select_tournament_input(self)
-        print()
-        all_games = self.llapi.getGames()
-        for game in all_games:
-            if tournament.id == game.tournament_id:
-                if game.results != '':
-                    print(f"{game.home_team:>15} vs. {game.away_team:<15} - {game.date:>8}")
-                    print()

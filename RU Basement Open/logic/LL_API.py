@@ -88,11 +88,11 @@ class LL_API:
 
     def getGamesFinished(self) -> list[Game]:
         """ returns a list of games where the results are not None(have been filled in, thus are finished) """
-        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam and game.results_hometeam) is not None]
+        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam is not None and game.results_hometeam is not None)]
 
     def getUpcomingGames(self) -> list[Game]:
         """ returns a list of games where the results are None(have not been filled in, thus are upcoming) """
-        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam and game.results_hometeam) is None]
+        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam is None and game.results_hometeam is None)]
 
     def getPlayerList(self) -> list[tuple[Player, str]]:
         """ returns a list of tuples of players and the score they are sorted by """
