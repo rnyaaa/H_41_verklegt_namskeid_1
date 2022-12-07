@@ -72,7 +72,7 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
-        selected_tournment = OrganizerUI.select_tournament_input(self)
+        selected_tournment = OrganizerUI.select_tournament_input()
         print()
         all_games = self.llapi.getGames()
         
@@ -97,22 +97,22 @@ class ViewerUI:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.QPs)
         print("    Nafn leikmanns  Afreksstig")
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):>13}  -   {score.QPs}")
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
 
     def showPlayerHighscoreInShot(self):
         '''Shows the high score '''
-        select_tournament = OrganizerUI.select_tournament_input()
+        select_tournament = OrganizerUI.select_tournament_input(self)
 
         print("\nListi yfir leikmenn með hæsta innskotið.\n")
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.inshots)
-        print("Nafn leikmanns  Innskot (N)")
-        for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):>13}  -  I{score.inshots}")
+        if select_tournament.id == scores.tournamentid:
+            for counter, score in enumerate(scores):
+                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  I{score.inshots}")
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
@@ -124,10 +124,9 @@ class ViewerUI:
         print("\nListi yfir leikmenn með flestu afreksstig.\n")
 
         # hér:
-        print("Nafn leikmanns   Útskot (U)")
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.outshots)
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):>13}  -  U{score.outshots}")
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.outshots}")
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)

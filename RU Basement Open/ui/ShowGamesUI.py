@@ -1,6 +1,8 @@
 from logic.LL_API import LL_API
 from ui.UI import Menu_functions
-
+from ui.OrganizerUI import OrganizerUI
+import datetime
+import time
 
 class ShowGamesUI():
 
@@ -32,14 +34,12 @@ class ShowGamesUI():
                 print("⛔ Ekki gildur valmöguleiki, reyndu aftur")
                 #Menu_functions.menuExitCountdown(3, True)
 
+    def showTournamentDates(self):
+        selected_tournament = OrganizerUI.select_tournament_input(self)
+        print()
+        all_games = self.llapi.getGames()
+        dates_of_tournaments = self.llapi.getTournaments()
 
-    def showTournamentDates(self): 
-        tournaments = self.llapi.getTournaments()
-        for tournament in tournaments:
-            print(f"{tournament.id} - {tournament.name}")
-        tournament_id = input("Veldu mót: ")
-        print(self.llapi.getTournamentDates(tournament_id))
-        
 
     def showGames(self):
         games = self.llapi.getGames()
