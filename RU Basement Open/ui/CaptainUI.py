@@ -32,11 +32,11 @@ class CaptainUI():
     def addResults(self):
         tournament = OrganizerUI.select_tournament_input(self)
         
-        
+
         game = self.select_game_input(tournament.name, tournament.id)
         
 
-        # Hér á að koma listi af leikmönnum sem tilheyra liðinu
+        # Pæling um að fá lista af leikmönnum og velja númer til minnka innsláttarvillur?
 
         playerid = input("Veldu leikmann: ")
         result501singles_wins = input("Unnir leggir, 501 einleikur: ")
