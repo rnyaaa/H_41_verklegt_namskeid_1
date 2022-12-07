@@ -80,6 +80,7 @@ class ViewerUI:
         scores = sorted(self.llapi.getTeams(), key=lambda x: -x.games_won)
         print("   NAFN LIÐS                UNNIR LEIKIR")
         for counter, score in enumerate(scores):
+            #if selected_tournment.id == score.id:
             print(f"{counter+1}. {score.name:<20}  -   {score.games_won:>4}")
 
        
