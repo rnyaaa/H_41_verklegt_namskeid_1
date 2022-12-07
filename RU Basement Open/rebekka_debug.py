@@ -5,4 +5,5 @@ from IO.IO_API import IO_API
 ioapi = IO_API()
 llapi = LL_API(ioapi)
 menu = Main_Menu_UI(llapi)
+menu.header()
 menu.displayMainMenu()

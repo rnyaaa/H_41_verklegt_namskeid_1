@@ -43,7 +43,7 @@ class LL_API:
         return self.resultsLL.getAllResults()
 
     def getPlayerScores(self) -> list[PlayerSummary]:
-        """ returns a tuple of Player.name and a list of PlayerScore instances """
+        """ returns a list of Player.name and a list of PlayerScore instances """
         return self.playersLL.getAllPlayerScore()
 
     def getPlayerScoreByDate(self):

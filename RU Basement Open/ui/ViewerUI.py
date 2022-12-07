@@ -36,11 +36,11 @@ class ViewerUI:
             elif user_input == "2":
                 self.showTournamentInfo()
             elif user_input == "3":
-                self.showPlayerHighscoreViewer()
+                self.showPlayerHighscoreQP()
             elif user_input == "4":
-                self.showPlayerHighscoreViewer()
+                self.showPlayerHighscoreInShot()
             elif user_input == "5":
-                self.showPlayerHighscoreViewer()
+                self.showPlayerHighscoreOutShot()
             elif user_input == "6":
                 self.showPlayerStatistics()
             elif user_input == "b":
@@ -75,10 +75,12 @@ class ViewerUI:
         selected_tournment = OrganizerUI.select_tournament_input(self)
         print()
         all_games = self.llapi.getGames()
+        
         home, score, away = "Heimalið 🏠", "Úrslit 🎯", "Útilið 🚌"
         print(f"{home:>19}" + "｜" + f"{score:^11}" +
               "｜" + f"{away:<20}")
         print("     " + 50*"-")
+        
         for game in all_games:
             if game.tournament_id == selected_tournment.id:
                 print(
@@ -86,10 +88,10 @@ class ViewerUI:
 
         user_input = Menu_functions.menuFooter(False)
 
-    def showPlayerHighscoreViewer(self):
+    def showPlayerHighscoreQP(self):
+        '''Shows the high score '''
 
         print("\nListi yfir leikmenn með flestu afreksstig.\n")
-    
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.QPs)
@@ -99,6 +101,35 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
 
+    def showPlayerHighscoreInShot(self):
+        '''Shows the high score '''
+        select_tournament = OrganizerUI.select_tournament_input()
+
+        print("\nListi yfir leikmenn með hæsta innskotið.\n")
+
+        # hér:
+        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.inshots)
+        for counter, score in enumerate(scores):
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  I{score.inshots}")
+
+        user_input = Menu_functions.menuFooter(False)
+        print("_"*78)
+    
+    
+    def showPlayerHighscoreOutShot(self):
+        '''Shows the high score '''
+
+        print("\nListi yfir leikmenn með flestu afreksstig.\n")
+
+        # hér:
+        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.outshots)
+        for counter, score in enumerate(scores):
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.outshots}")
+
+        user_input = Menu_functions.menuFooter(False)
+        print("_"*78)
+    
+    
     def showPlayerStatistics(self):
         """Shows statistics for a selected player"""
         players = self.llapi.getPlayers()
