@@ -33,8 +33,11 @@ class ShowGamesUI():
                 #Menu_functions.menuExitCountdown(3, True)
 
 
-    def showTournamentDates(self):
-        tournament_id = input("Númer móts: ")
+    def showTournamentDates(self): 
+        tournaments = self.llapi.getTournaments()
+        for tournament in tournaments:
+            print(f"{tournament.id} - {tournament.name}")
+        tournament_id = input("Veldu mót: ")
         print(self.llapi.getTournamentDates(tournament_id))
         
 
