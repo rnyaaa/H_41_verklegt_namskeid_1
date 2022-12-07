@@ -62,9 +62,9 @@ class ViewerUI:
                     team_members_count += 1
                     if team_members_count == 1:
                         print("｜")
-                        print(f"｜→     {player.name:<15} {player.home_phone:<7} {player.playerid:<10} {player.address:<20}Fyrirliði")
+                        print(f"｜→     {player.name:<15} {player.home_phone:<7} {player.playerid:^10} {player.address:<20}Fyrirliði")
                     else:
-                        print(f"｜→     {player.name:<15} {player.home_phone:<7} {player.playerid:<10} {player.address:<20}Leikmaður")
+                        print(f"｜→     {player.name:<15} {player.home_phone:<7} {player.playerid:^10} {player.address:<20}Leikmaður")
             if team_members_count == 0:
                 print(f"｜→ Engir leikmenn skráðir.")
 
