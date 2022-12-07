@@ -31,11 +31,7 @@ class IO_API:
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
                           "lose501_1", "win301", "lose301", "wincricket", "losecricket", "win501_4", "lose501_4"],
-<<<<<<< HEAD
             TeamScore: ["team_id", "tournament_id", "game_id", "games_won", "rounds_won"],
-=======
-            TeamScore: [],
->>>>>>> 8eb8f16d053b6847806609e75461db9998303892
             Game: ["gameid", "tournament_id", "home_team",
                    "away_team", "self.date", "self.results"]
         }

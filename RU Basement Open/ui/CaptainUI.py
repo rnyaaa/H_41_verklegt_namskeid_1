@@ -41,19 +41,19 @@ class CaptainUI():
         """Prints a numbered list of all games and asks the user for their selection. The selected game index is returned"""
 
         print(f"\nMót/deild {tournament_name} yfirlit\nVeljið viðureign:\n")
-        all_games = self.llapi.getGames()
+        upcoming_games = self.llapi.getUpcomingGames()
         command = ""
         while True:
-            for game in all_games:
+            for game in upcoming_games:
                 if tournament_id == game.tournament_id:
                     print(f"{game.gameid}. {game.home_team} vs. {game.away_team}")
             try:
                 command = int(
-                    input(f"\nVeldu mót af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir viðureignina {all_games[0].home_team} vs {all_games[0].away_team}): "))
-                if command < 1 or command > len(all_games):
+                    input(f"\nVeldu mót af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir viðureignina {upcoming_games[0].home_team} vs {upcoming_games[0].away_team}): "))
+                if command < 1 or command > len(upcoming_games):
                     print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
                     continue
                 break
             except ValueError:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
-        return all_games[command]
+        return upcoming_games[command]

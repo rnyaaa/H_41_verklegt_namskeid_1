@@ -73,19 +73,12 @@ class ViewerUI:
         print()
         #all_games = self.llapi.getGames()
         
-<<<<<<< HEAD
         scores = sorted(self.llapi.getTeamScoreSummaries(int(selected_tournment.id)), key=lambda x: -x.games_won)
         print(f"{team_name:>12}{games_won:>20}{rounds_won:>15}")
-=======
-        scores = sorted(self.llapi.getTeams(), key=lambda x: -x.games_won)
-        print(f"{team_name:>12}{games_won:>30}{rounds_won:>15}")
->>>>>>> 8eb8f16d053b6847806609e75461db9998303892
         for counter, score in enumerate(scores):
             #if selected_tournment.id == score.id:
             print(f"{counter+1}. {self.llapi.getTeamNameFromId(score.team_id):<20}  -   {score.games_won:>10}   {score.rounds_won:>12}")
 
-       
-       
         '''home, score, away = "Heimalið 🏠", "Úrslit 🎯", "Útilið 🚌"
         print(f"{home:>19}" + "｜" + f"{score:^11}" +
               "｜" + f"{away:<20}")
