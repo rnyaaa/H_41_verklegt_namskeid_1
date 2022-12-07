@@ -72,7 +72,7 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
-        selected_tournment = OrganizerUI.select_tournament_input()
+        selected_tournment = OrganizerUI.select_tournament_input(self)
         print()
         all_games = self.llapi.getGames()
         
