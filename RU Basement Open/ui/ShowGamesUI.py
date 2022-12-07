@@ -36,11 +36,10 @@ class ShowGamesUI():
 
 
     def showTournamentDates(self):
-        selected_tournament = OrganizerUI.select_tournament_input(self)
         print()
-        all_games = self.llapi.getGames()
-        dates_of_tournaments = self.llapi.getTournaments()
-        
+        all_games = self.llapi.getUpcomingGames()
+        for game in all_games:
+                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team}")
             
        
         """
@@ -51,10 +50,7 @@ class ShowGamesUI():
     def showGames(self):
         games = self.llapi.getGamesFinished()
         for game in games:
-            print(game.date, game.home_team, game.away_team, game.results)
-
-        
-
-
-
-    
+            if int(game.results_hometeam) > int(game.results_awayteam):
+                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.home_team} - {game.results_hometeam}/{game.results_awayteam}")
+            else:
+                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.away_team} - {game.results_awayteam}/{game.results_hometeam}")
