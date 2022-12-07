@@ -91,6 +91,7 @@ class ViewerUI:
 
         user_input = Menu_functions.menuFooter(False)
 
+<<<<<<< Updated upstream
     def showPlayerHighscore(self):
         '''Shows the high score '''
         print("\nListi yfir leikmenn með flestu afreksstig.\n")
@@ -129,6 +130,16 @@ class ViewerUI:
             self.showPlayerHighscoreInShot(tournament.id)
         if user_input == "2":
             self.showPlayerHighscoreOutShot(tournament.id)
+=======
+    def showPlayerHighscoreViewer(self):
+        print("Listi yfir leikmenn með flestu afreksstig.")
+
+        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: x.QPs)
+        for counter, score in enumerate(scores):
+            print(
+                f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
+
+>>>>>>> Stashed changes
         print("_"*78)
 
     def showPlayerHighscoreInShot(self, tournamentid=None):

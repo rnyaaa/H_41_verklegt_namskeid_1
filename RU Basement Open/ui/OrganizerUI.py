@@ -198,14 +198,12 @@ class OrganizerUI():
         print("➢	Breyta skráningu úrslita:\n")
         selected_tournament = self.select_tournament_input()
 
-
         all_results = self.llapi.getResults()
         for result in all_results:
             for list in result:
                 if selected_tournament.id == list.id:
                     print(f"{list.team} {list.winningscore}")
         print()
-       
 
         # print(hér kemur tafla með úrslitum )
 
@@ -240,10 +238,14 @@ class OrganizerUI():
         while True:
             for i in range(len(teams)):
                 print(i+1, ". ", teams[i].name)
-            command = int(
-                input(f"\nVeldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {teams[0].name}): "))
-            if command < 1 or command > len(teams):
+            try:
+                command = int(
+                    input(f"\nVeldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {teams[0].name}): "))
+                if command < 1 or command > len(teams):
+                    print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
+                    continue
+                break
+            except:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
-                continue
-            break
+
         return teams[command-1]

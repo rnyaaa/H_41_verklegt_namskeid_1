@@ -27,24 +27,6 @@ class Menu_functions:
         user_input = user_input.lower()
         return user_input
 
-    def menuExitCountdown(sec, dots_instead_of_sec=False):
-        """Delays the execution of the functions that follow and displays a countdown.
-        Takes in number of seconds and an optional bool (dots_instead_of_sec), false by default.
-
-        If dots_instead_of_sec is True, dots will be displayed instead of a countdown in seconds."""
-        countdown = sec
-        time.sleep(1)
-        print()
-        print("Fer til baka í aðalvalmynd:")
-        while countdown > 0:
-            time.sleep(1)
-            if dots_instead_of_sec is False:
-                print(countdown)
-            else:
-                print(".")
-            countdown -= 1
-        print()
-
     def getPhoneNumber(ui_str: str):
         """Asks for, validates and returns phone number.
         Takes in the parameter ui_str, which is the string displayed for the input."""
@@ -99,18 +81,17 @@ class Menu_functions:
                 formatted_date = datetime.datetime.strptime(
                     date_str, '%d.%m.%y')
                 is_valid = True
-
-            except ValueError:
+            except:
                 print(
                     "\n⛔ Ógild dagsetning. Slá skal inn dagsetningu á forminu dd.mm.áá (t.d. 19.07.99)")
         return date_str
 
     def isBetweenDates(check_date, start, end):
+        date = datetime.datetime.strptime(check_date, '%d.%m.%y')
         is_valid = False
         while not is_valid:
             start_date = datetime.datetime.strptime(start, '%d.%m.%y')
             end_date = datetime.datetime.strptime(end, '%d.%m.%y')
-            date = datetime.datetime.strptime(check_date, '%d.%m.%y')
 
             if start_date <= date <= end_date:
                 return check_date
@@ -174,7 +155,6 @@ class Menu_functions:
         print()
         print("          Bless!\n")
         quit()
-
 
 
 # ----------------------------------------------------------------------------------------------------
