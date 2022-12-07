@@ -32,7 +32,7 @@ class LL_API:
         """ returns a list of all Team instances """
         return self.teamsLL.getAllTeams()
 
-    def getTeamScore(self) -> list[TeamScore]
+    def getTeamScore(self) -> list[TeamScore]:
         """ returns a list of all TeamScore instances"""
         return self.teamsLL.getTeamScore()
 
