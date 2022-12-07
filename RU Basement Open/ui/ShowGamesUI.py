@@ -50,8 +50,11 @@ class ShowGamesUI():
 
     def showGames(self):
         games = self.llapi.getGamesFinished()
+        print()
+        print("             LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR. ")
+        print()
         for game in games:
-            print(game.date, game.home_team, game.away_team, game.results)
+            print(f"{game.date} {game.home_team:>15} {game.results} {game.away_team}")
 
         
 
