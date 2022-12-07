@@ -146,7 +146,10 @@ class ViewerUI:
         print(f"Largest inshot: {statistics.inshots}")
         print(f"Largest outshot: {statistics.outshots}")
         print(f"501 singles win/loss ratio: {statistics.result501singles[0]} / {statistics.result501singles[1]}")
-        print(f"501 singles win/loss ratio: {statistics.result301[0]} / {statistics.result301[1]}")
-        print(f"501 singles win/loss ratio: {statistics.resultcricket[0]} / {statistics.resultcricket[1]}")
-        print(f"501 singles win/loss ratio: {statistics.result501fours[0]} / {statistics.result501fours[1]}")
+        print(f"301 win/loss ratio: {statistics.result301[0]} / {statistics.result301[1]}")
+        print(f"cricket win/loss ratio: {statistics.resultcricket[0]} / {statistics.resultcricket[1]}")
+        print(f"501 fours win/loss ratio: {statistics.result501fours[0]} / {statistics.result501fours[1]}")
+
+        user_input = Menu_functions.menuFooter(False)
+        print("_"*78)
 
