@@ -49,6 +49,9 @@ class ShowGamesUI():
 
     def showGames(self):
         games = self.llapi.getGamesFinished()
+        print()
+        print("             LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR. ")
+        print()
         for game in games:
             if int(game.results_hometeam) > int(game.results_awayteam):
                 print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.home_team} - {game.results_hometeam}/{game.results_awayteam}")
