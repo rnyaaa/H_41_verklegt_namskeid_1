@@ -72,23 +72,27 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
-<<<<<<< Updated upstream
-=======
         # Á þetta kanski að vera listi yfir sigra hjá hverju liði en ekki á móti hvor öðru?
->>>>>>> Stashed changes
         selected_tournment = OrganizerUI.select_tournament_input(self)
         print()
-        all_games = self.llapi.getGames()
+        #all_games = self.llapi.getGames()
         
-        home, score, away = "Heimalið 🏠", "Úrslit 🎯", "Útilið 🚌"
+        scores = sorted(self.llapi.getTeams(), key=lambda x: -x.games_won)
+        print("   NAFN LIÐS                UNNIR LEIKIR")
+        for counter, score in enumerate(scores):
+            print(f"{counter+1}. {score.name:<20}  -   {score.games_won:>4}")
+
+       
+       
+        '''home, score, away = "Heimalið 🏠", "Úrslit 🎯", "Útilið 🚌"
         print(f"{home:>19}" + "｜" + f"{score:^11}" +
               "｜" + f"{away:<20}")
-        print("     " + 50*"-")
+        print("     " + 50*"-")'''
         
-        for game in all_games:
+        '''for game in all_games:
             if game.tournament_id == selected_tournment.id:
                 print(
-                    f"{game.home_team:>20}" + "｜" + f"{game.results:^12}" + "｜" + f"{game.away_team:<20}")
+                    f"{game.home_team:>20}" + "｜" + f"{game.results:^12}" + "｜" + f"{game.away_team:<20}")'''
 
         user_input = Menu_functions.menuFooter(False)
 
