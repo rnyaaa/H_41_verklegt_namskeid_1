@@ -36,8 +36,10 @@ class ShowGamesUI():
 
 
     def showTournamentDates(self):
-        print()
         all_games = self.llapi.getUpcomingGames()
+        print()
+        print("             LISTI YFIR KOMANDI VIÐUREIGNIR. ")
+        print()
         for game in all_games:
                 print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team}")
             
