@@ -4,7 +4,6 @@ from ui.CaptainUI import CaptainUI
 from ui.ShowGamesUI import ShowGamesUI
 from ui.ViewerUI import ViewerUI
 from ui.UI import Menu_functions
-import time
 
 
 class Main_Menu_UI:

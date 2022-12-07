@@ -65,16 +65,19 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
+        team_name = "NAFN LIÐS"
+        games_won = "UNNIR LEIKIR"
+        rounds_won = "UNNIR LEGGIR"
         
         selected_tournment = OrganizerUI.select_tournament_input(self)
         print()
         #all_games = self.llapi.getGames()
         
         scores = sorted(self.llapi.getTeams(), key=lambda x: -x.games_won)
-        print("   NAFN LIÐS                UNNIR LEIKIR")
+        print(f"{team_name:>12}{games_won:>20}{rounds_won:>15}")
         for counter, score in enumerate(scores):
             #if selected_tournment.id == score.id:
-            print(f"{counter+1}. {score.name:<20}  -   {score.games_won:>4}")
+            print(f"{counter+1}. {score.name:<20}  -   {score.games_won:>10}   {score.rounds_won:>12}")
 
        
        
@@ -94,9 +97,9 @@ class ViewerUI:
         '''Shows the high score '''
         print("\nListi yfir leikmenn með flestu afreksstig.\n")
         scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.QPs)
-        print("    Nafn leikmanns  Afreksstig")
+        print("    NAFN LEIKMANNS           AFREKSSTIG\n")
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -   {score.QPs:<3}")
         print()
         print(
             "1. Stigatafla yfir Innskot\n"
@@ -115,7 +118,7 @@ class ViewerUI:
         print(tournament.id)
         print(f"\nListi yfir leikmenn með flestu afreksstig í {tournament.name}\n")
         scores = sorted(self.llapi.getPlayerScoreSummariesByTournament(tournament.id), key=lambda x: -x.QPs)
-        print("    Nafn leikmanns  Afreksstig")
+        print("   NAFN LEIKMANNS           AFREKSSTIG\n")
         for counter, score in enumerate(scores):
             print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
         print()
@@ -133,14 +136,15 @@ class ViewerUI:
     def showPlayerHighscoreInShot(self, tournamentid=None):
         '''Shows the inshot high score '''
         print("\nListi yfir leikmenn með hæsta innskotið.\n")
+        print("   NAFN LEIKMANNS          INNSKOT\n")
         if tournamentid == None:
             scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.inshots)
             for counter, score in enumerate(scores):
-                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.inshots}")
+                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -  U{score.inshots:<4}")
         else: 
             scores = sorted(self.llapi.getPlayerScoreSummariesByTournament(tournamentid), key=lambda x: -x.inshots)
             for counter, score in enumerate(scores):
-                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.inshots}")
+                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -  U{score.inshots:<4}")
         print()
         print(
             "1. Stigatafla yfir Afreksstig\n"
@@ -162,14 +166,15 @@ class ViewerUI:
         '''Shows the outshot high score '''
         print("\nListi yfir leikmenn með hæsta útskotið.\n")
         scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.outshots)
+        print("   NAFN LEIKMANNS           ÚTSKOT\n")
         if tournamentid == None:
             scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.outshots)
             for counter, score in enumerate(scores):
-                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.outshots}")
+                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -  U{score.outshots:<4}")
         else:
             scores = sorted(self.llapi.getPlayerScoreSummariesByTournament(tournamentid), key=lambda x: -x.outshots)
             for counter, score in enumerate(scores):
-                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.outshots}")
+                print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -  U{score.outshots:<4}")
         print()
         print(
             "1. Stigatafla yfir Afreksstig\n"
