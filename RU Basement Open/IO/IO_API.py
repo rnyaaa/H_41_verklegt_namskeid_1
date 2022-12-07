@@ -6,6 +6,7 @@ from models.player import Player
 from models.playerscore import PlayerScore
 from models.tournament import Tournament
 from models.team import Team
+from models.teamscore import TeamScore
 from models.results import Results
 
 
@@ -19,6 +20,7 @@ class IO_API:
             Team: "models/teams.csv",
             Tournament: "models/tournaments.csv",
             PlayerScore: "models/playerscore.csv",
+            TeamScore: "models/playerscore.csv",
             Results: "models/results.csv"
         }
         """ a fieldname dict keyed by class objects """
@@ -28,6 +30,7 @@ class IO_API:
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
                           "lose501_1", "win301", "lose301", "wincricket", "losecricket", "win501_4", "lose501_4"],
+            TeamScore: []
             Game: ["gameid", "tournament_id", "home_team",
                    "away_team", "self.date", "self.results"]
         }

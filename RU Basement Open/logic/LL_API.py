@@ -1,6 +1,7 @@
 from IO.IO_API import IO_API
 from models.player import Player
 from models.team import Team
+from models.teamscore import TeamScore
 from models.tournament import Tournament
 from models.game import Game
 from models.playerscore import PlayerScore
@@ -30,6 +31,10 @@ class LL_API:
     def getTeams(self) -> list[Team]:
         """ returns a list of all Team instances """
         return self.teamsLL.getAllTeams()
+
+    def getTeamScore(self) -> list[TeamScore]
+        """ returns a list of all TeamScore instances"""
+        return self.teamsLL.getTeamScore()
 
     def getGames(self) -> list[Game]:
         """ returns a list of all Games instances """
