@@ -47,12 +47,12 @@ class ShowGamesUI():
                 
         
         
-        all_games = self.llapi.getUpcomingGames()
+        games = self.llapi.getUpcomingGames()
         tournament = OrganizerUI.select_tournament_input(self)
         print()
         print("             LISTI YFIR KOMANDI VIÐUREIGNIR. ")
         print()
-        for game in all_games:
+        for game in games:
             if game.results_awayteam == '':
                 print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team}")
         
