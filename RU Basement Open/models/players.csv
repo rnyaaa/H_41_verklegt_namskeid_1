@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 id, name, mobile, home_phone, email, address, team_id, is_captain
 2609723648,Sporgonizza Fabio, 6422410,4282241,Sfabio@gmail.com, neighborlystreet 280, 29, True
 1512713385,Gwendoline Lucider,8637421,4282241,Gwendur@gmail.com, knowledgestreet 33,29, False
@@ -25,3 +26,22 @@ id, name, mobile, home_phone, email, address, team_id, is_captain
 1701783246,Erik Bradshaw,6492065,4929433,erikbrad@gmail.com,marriedstreet 39,1,False
 
 
+=======
+id,name,mobile,home_phone,email,address,team_id,is_captain
+2609723648,Sporgonizza Fabio,6422410,4282241,Sfabio@gmail.com,neighborlystreet 280,29,True
+1512713385,Gwendoline Lucider,8637421,4282241,Gwendur@gmail.com,knowledgestreet 33,29,False
+0811933925,Zarathustra Ford,8621632,4282241,Zara@gmail.com,swingstreet 135,29,False
+1408783929,Winston Birdshill,7389448,4282241,Winstoner@gmail.com,mittenstreet 32,29,False
+1507953166,Matteo Roberts,7642411,5555550,MmmmRobby@gmail.com,crazystreet 212,69,True
+2802833965,Payten Tucker,7750755,5555550,PayTuck@gmail.com,smilestreet 205,69,False
+0505723003,Eliezer Atkinson,7561922,5555550,bEliezer@gmail.com,voicelessstreet 7,69,False
+2504913506,Grayson Ewing,6114334,5555550,50shadesGrayson@gmail.com,cowardlystreet 14,69,False
+2706713276,Jacqueline Payne,8485386,5510280,maxPayne@gmail.com,substantialstreet 170,420,True
+1611873154,Elaina Singleton,6553265,5510280,ImSingleTon@gmail.com,cherriesstreet 20,420,False
+0711983486,Marcel Arias,6015114,5510280,Marcipan@gmail.com,messupstreet 250,420,False
+1107913504,Kallie Hansen,6987450,5510280,KallieHansen@gmail.com,trickstreet 73,420,False
+1901893434,Nero Pesky,6214709,5138593,Neropresso@gmail.com,kissstreet 198,13,True
+0301843696,Verma Murra,7254171,5138593,verma@gmail.com,puzzledstreet 135,13,False
+2101733629,Ron Ribo,6245050,5138593,RonRibon@gmail.com,commonstreet 163,13,False
+2803953272,Eva Zarantula,8188739,5138593,EvaTarantula@gmail.com,parsimoniousstreet 196,13,False
+>>>>>>> 39b5e9bf8e2c7566cbd5984c455c8212ca354135
