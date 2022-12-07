@@ -110,8 +110,9 @@ class ViewerUI:
 
         # hér:
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.inshots)
+        print("Nafn leikmanns  Innskot (N)")
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  I{score.inshots}")
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):>13}  -  I{score.inshots}")
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
@@ -123,9 +124,10 @@ class ViewerUI:
         print("\nListi yfir leikmenn með flestu afreksstig.\n")
 
         # hér:
+        print("Nafn leikmanns   Útskot (U)")
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: -x.outshots)
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -  U{score.outshots}")
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):>13}  -  U{score.outshots}")
 
         user_input = Menu_functions.menuFooter(False)
         print("_"*78)
