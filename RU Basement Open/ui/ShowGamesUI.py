@@ -34,12 +34,19 @@ class ShowGamesUI():
                 print("⛔ Ekki gildur valmöguleiki, reyndu aftur")
                 #Menu_functions.menuExitCountdown(3, True)
 
+
     def showTournamentDates(self):
         selected_tournament = OrganizerUI.select_tournament_input(self)
         print()
         all_games = self.llapi.getGames()
         dates_of_tournaments = self.llapi.getTournaments()
-
+        
+            
+       
+        """
+        tournament_id = input("Númer móts: ")
+        print(self.llapi.getTournamentDates(tournament_id))
+        """
 
     def showGames(self):
         games = self.llapi.getGames()
