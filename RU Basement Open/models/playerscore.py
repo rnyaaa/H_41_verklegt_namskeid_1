@@ -1,6 +1,7 @@
 class PlayerScore:
     def __init__(
         self, 
+        tournamentid: str,
         gameid: str,
         playerid: str, 
         QPs: int = 0, 
@@ -15,6 +16,7 @@ class PlayerScore:
         result501fours_wins = 0,
         result501fours_losses = 0
     ):
+        self.tournamentid = tournamentid
         self.gameid = gameid
         self.playerid = playerid
         self.QPs = QPs

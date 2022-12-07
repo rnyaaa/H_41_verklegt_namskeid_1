@@ -50,6 +50,36 @@ class PlayersLL:
             player_summaries.append(player_summary)
         return player_summaries
 
+    def getPlayerScoresSummarizedbyTournament(self, tournamentid) -> list[PlayerSummary]:
+        playerscores = self.getAllPlayerScore()
+        """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """
+        playerscores_by_player = dict()
+        for item in playerscores:
+            if item.playerid in playerscores_by_player and item.tournamentid == tournamentid:
+                playerscores_by_player[item.playerid].append(item)
+            else:
+                playerscores_by_player[item.playerid] = [item]
+        
+        player_summaries = []
+        for player_id in playerscores_by_player:
+            """ get PlayerSummary with default values """
+            player_summary = PlayerSummary(player_id)
+            for score in playerscores_by_player[player_id]:
+                player_summary.QPs += score.QPs
+                player_summary.inshots = max(player_summary.inshots, score.inshots)
+                player_summary.outshots = max(player_summary.outshots, score.outshots)
+                player_summary.result501singles[0] += score.result501singles[0]
+                player_summary.result501singles[1] += score.result501singles[1]
+                player_summary.result301[0] += score.result301[0]
+                player_summary.result301[1] += score.result301[1]
+                player_summary.resultcricket[0] += score.resultcricket[0]
+                player_summary.resultcricket[1] += score.resultcricket[1]
+                player_summary.result501fours[0] += score.result501fours[0]
+                player_summary.result501fours[1] += score.result501fours[1]
+            player_summaries.append(player_summary)
+        return player_summaries
+
+
     def getSinglePlayerScore(self, playerid) -> PlayerSummary:
         """ gets the PlayerSummary of a single player by playerid """
         player_summaries = self.getPlayerScoresSummarized()
