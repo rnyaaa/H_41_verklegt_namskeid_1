@@ -36,13 +36,19 @@ class ShowGamesUI():
 
 
     def showTournamentDates(self):
-        selected_tournament = OrganizerUI.select_tournament_input(self)
+        tournament = OrganizerUI.select_tournament_input(self)
         print()
         all_games = self.llapi.getGames()
-        dates_of_tournaments = self.llapi.getTournaments()
+        for game in all_games:
+            if tournament.id == game.tournament_id:
+                if game.results == '':
+                    print(f"{game.home_team:>15} vs. {game.away_team:<15} - {game.date:>8}")
+                    print()
+                
+
         
             
-       
+        Menu_functions.menuFooter(False)
         """
         tournament_id = input("Númer móts: ")
         print(self.llapi.getTournamentDates(tournament_id))
