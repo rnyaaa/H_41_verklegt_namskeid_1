@@ -1,11 +1,6 @@
 from logic.LL_API import LL_API
 from ui.UI import Menu_functions
 from ui.OrganizerUI import OrganizerUI
-from models.player import Player
-from models.team import Team
-from models.tournament import Tournament
-from operator import itemgetter
-from models.playersummary import PlayerSummary
 
 class ViewerUI:
 
@@ -49,6 +44,8 @@ class ViewerUI:
 
     def showTeams(self):
         '''Shows list of teams and their players'''
+        captain = "Fyrirliði"
+        team_player = "Leikmaður"
         teams = self.llapi.getTeams()
         players = self.llapi.getPlayers()
         for team in teams:
@@ -59,16 +56,16 @@ class ViewerUI:
                     team_members_count += 1
                     if team_members_count == 1:
                         print("｜")
-                        print(f"｜→     {player.name:<15} {player.home_phone:<7} {player.playerid:^10} {player.address:<20}Fyrirliði")
+                        print(f"｜→     {player.name:<20}{captain:<10}")
                     else:
-                        print(f"｜→     {player.name:<15} {player.home_phone:<7} {player.playerid:^10} {player.address:<20}Leikmaður")
+                        print(f"｜→     {player.name:<20}{team_player:<10}")
             if team_members_count == 0:
                 print(f"｜→ Engir leikmenn skráðir.")
         print("\n" + 78*"_")
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
-        # Á þetta kanski að vera listi yfir sigra hjá hverju liði en ekki á móti hvor öðru?
+        
         selected_tournment = OrganizerUI.select_tournament_input(self)
         print()
         #all_games = self.llapi.getGames()
