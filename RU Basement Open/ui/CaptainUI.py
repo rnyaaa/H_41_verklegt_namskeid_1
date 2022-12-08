@@ -77,14 +77,6 @@ class CaptainUI():
         # niðurstaða 501 4v4 umferðarinnar:
         result_501_2v2 = self.get_501_4v4_results(home_team_id, away_team_id)
 
-        print(result_501_1v1_1)
-        print(result_501_1v1_2)
-        print(result_501_1v1_3)
-        print(result_501_1v1_4)
-        print(result_301_2v2)
-        print(result_cricket)
-        print(result_501_2v2)
-
         # --------------------------------------- LAGA HÉÐAN (ER BÚINN AÐ GERA FYRIR OFAN ÞETTA) ------------------------------------------------
 
         PlayerScore(tournament.id, game.id, playerid, qps, inshot, outshot,
@@ -92,7 +84,9 @@ class CaptainUI():
 
         TeamScore()
 
-        self.llapi.updateg
+
+# hér f neðan eru öll föllin sem captain UI samanstendur af tíhí
+
 
     def get_501_1v1_results(self, home_team_id, away_team_id):
         home_player = self.select_teamplayer_input(
