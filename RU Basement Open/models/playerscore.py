@@ -2,7 +2,7 @@ class PlayerScore:
     def __init__(
         self, 
         tournamentid:str,
-        gameid: str,
+        id: str,
         playerid: str, 
         QPs: int = 0, 
         inshots: int = 0, 
@@ -17,7 +17,7 @@ class PlayerScore:
         result501fours_losses = 0
     ):
         self.tournamentid = tournamentid
-        self.gameid = gameid
+        self.id = id
         self.playerid = playerid
         self.QPs = QPs
         self.inshots = inshots
@@ -28,8 +28,7 @@ class PlayerScore:
         self.result501fours = [result501fours_wins, result501fours_losses]
 
     def listify(self):
-        #return [self.gameid, self.playerid, self.QPs, self.inshots, self.outshots, self._501winlose[0], self._501winlose[1], self._301winlose[0], self._301winlose[1], self.cricketwinlose[0], self.cricketwinlose[1], self._5014winlose[0], self._5014winlose[1]]
-        return [self.tournamentid, self.gameid, self.playerid, self.QPs, self.inshots, self.outshots, self.result501singles, self.result301, self.resultcricket, self.result501fours]
+        return [self.id, self.playerid, self.QPs, self.inshots, self.outshots, self.result501singles[0], self.result501singles[1], self.result301[0], self.result301[1], self.resultcricket[0], self.resultcricket[1], self.result501fours[0], self.result501fours[1]]
 
     def model(self):
         return "playerscore"

@@ -120,15 +120,15 @@ class PlayersLL:
 
     def getPlayerScoreByDate(self, playerid, date):
         """ returns a playersummary for a player from a given date"""
-        allplayerscores = self.getAllPlayerScore
+        allplayerscores = self.getAllPlayerScore()
         playerscorebydate = []
         for score in allplayerscores:
             if score.playerid == playerid:
                 all_games = self.ioapi.return_model(Game)
                 for indexed_game in all_games:
-                    if indexed_game.gameid == score.gameid:
+                    if indexed_game.id == score.id:
                         game = indexed_game
-                if datetime(game.date) > datetime(date):
+                if datetime.datetime.strptime(game.date, '%d.%m.%y') > datetime.datetime.strptime(date, '%d.%m.%y'):
                     playerscorebydate.append(score)
         PlayerSummaryByDate = PlayerSummary(playerid)
         for score in playerscorebydate:

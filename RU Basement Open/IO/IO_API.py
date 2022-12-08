@@ -27,7 +27,7 @@ class IO_API:
         """ a fieldname dict keyed by class objects """
         self.fieldnames = {
             Player: ["id", "name", "mobile", "home_phone", "email", "address", "team_id", "is_captain"],
-            Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
+            Team: ["id", "team_name", "address", "association_name", "phone_nr"],
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["id", "playerid", "QPs", "inshots", "outshots", "win501_1",
                           "lose501_1", "win301", "lose301", "wincricket", "losecricket", "win501_4", "lose501_4"],
@@ -77,6 +77,7 @@ class IO_API:
                 overwriter.writerow(model.listify())
 
     def update(self, updated_model):
+        print("I AM UPDATING", updated_model.results_hometeam, updated_model.results_awayteam)
         tournaments = self.return_model(updated_model.__class__)
         for i in range(len(tournaments)):
             if updated_model.id == tournaments[i].id:

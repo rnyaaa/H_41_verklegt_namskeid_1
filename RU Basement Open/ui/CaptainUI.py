@@ -114,91 +114,12 @@ class CaptainUI():
         print("****************************")
         playerscores = self.getPlayerScores(playerscores)
 
-        home_team_score = TeamScore(home_team_id, tournament.id, game.id)
-        away_team_score = TeamScore(away_team_id, tournament.id, game.id)
-        game_score_home = 0
-        game_away_score = 0
-        
-        home_score_rounds = 0
-        away_score_rounds = 0
-        
-        for result in resultlist:
-            home_score_rounds += result.home_score 
-            away_score_rounds += result.away_score
-            for playerscore in playerscores:
-                for players in result.home_players:
-                    if result.game_type == "501 1v1":
-                        if players.playerid == playerscore.playerid:
-                            if result.home_score > result.away_score:
-                                playerscore.result501singles[0] += 1
-                            else:
-                                playerscore.result501singles[1] += 1
-                    if result.game_type == "301 2v2":
-                        if players.playerid == playerscore.playerid:
-                            if result.home_score > result.away_score:
-                                playerscore.result301[0] += 1
-                            else:
-                                playerscore.result301[1] += 1
-                    if result.game_type == "Cricket 2v2":
-                        if players.playerid == playerscore.playerid:
-                            if result.home_score > result.away_score:
-                                playerscore.resultcricket[0] += 1
-                            else:
-                                playerscore.resultcricket[1] += 1
-                    if result.game_type == "501 4v4":
-                        if players.playerid == playerscore.playerid:
-                            if result.home_score > result.away_score:
-                                playerscore.result501fours[0] += 1
-                            else:
-                                playerscore.result501fours[1] += 1
-                for players in result.away_players:
-                    if result.game_type == "501 1v1":
-                        if players.playerid == playerscore.playerid:
-                            if result.away_score > result.home_score:
-                                playerscore.result501singles[0] += 1
-                            else:
-                                playerscore.result501singles[1] += 1
-                    if result.game_type == "301 2v2":
-                        if players.playerid == playerscore.playerid:
-                            if result.away_score > result.home_score:
-                                playerscore.result301[0] += 1
-                            else:
-                                playerscore.result301[1] += 1
-                    if result.game_type == "Cricket 2v2":
-                        if players.playerid == playerscore.playerid:
-                            if result.away_score > result.home_score:
-                                playerscore.resultcricket[0] += 1
-                            else:
-                                playerscore.resultcricket[1] += 1
-                    if result.game_type == "501 4v4":
-                        if players.playerid == playerscore.playerid:
-                            if result.away_score > result.home_score:
-                                playerscore.result501fours[0] += 1
-                            else:
-                                playerscore.result501fours[1] += 1
-
-        for result in resultlist:
-            if result.home_score > result.away_score:
-                game_score_home += 1
-            else:
-                game_away_score += 1
-        
-        home_team_score.rounds_won = home_score_rounds
-        home_team_score.games_won = game_score_home
-        away_team_score.rounds_won = away_score_rounds
-        away_team_score.games_won = game_away_score
-        for playerscore in playerscores:
-            self.llapi.addPlayerScore(playerscore)
-
-        self.llapi.addTeamScore(home_team_score)
-        self.llapi.addTeamScore(away_team_score)
-
+        teams = [TeamScore(home_team_id, tournament.id, game.id), TeamScore(away_team_id, tournament.id, game.id)]
         gameslist = self.llapi.getUpcomingGames()
-        for indexed_game in gameslist:
-            if indexed_game.id == game.id:
-                indexed_game.results_hometeam = game_score_home
-                indexed_game.results_awayteam = game_away_score
-        self.llapi.updateGame(indexed_game)
+        self.llapi.addResults(teams, playerscores, resultlist, game, gameslist)
+
+        print("√ Niðurstöður skráðar!")
+        
 
         # --------------------------------------- LAGA HÉÐAN (ER BÚINN AÐ GERA FYRIR OFAN ÞETTA) ------------------------------------------------
 
@@ -280,6 +201,7 @@ class CaptainUI():
         away_player4 = self.select_teamplayer_input(
             "\nVeljið heimaleikmann\n", away_team_id, [away_player1.playerid, away_player2.playerid, away_player3.playerid])
 
+
         home_score = 0
         away_score = 0
 
@@ -292,10 +214,10 @@ class CaptainUI():
 
     def getPlayerScores(self, playerscores):
         for playerscore in playerscores:
-            print(f"Stigagjöf fyrir {self.llapi.getPlayerNameFromId(playerscore.playerid)}")
-            playerscore.QPs = input("Hversu mörg Quality Points fékk leikmaðurinn? - 0 ef engin")
-            playerscore.inshots = input("Hvað var hæsta innskotið hjá leikmanninum?")
-            playerscore.outshots = input("Hvað var hæsta útskot hjá leikmanninum?")
+            print(f"Stigagjöf fyrir {self.llapi.getPlayerNameFromId(playerscore.playerid)}: ")
+            playerscore.QPs = input("Hversu mörg Quality Points fékk leikmaðurinn? - 0 ef engin: ")
+            playerscore.inshots = input("Hvað var hæsta innskotið hjá leikmanninum?: ")
+            playerscore.outshots = input("Hvað var hæsta útskot hjá leikmanninum?: ")
         return playerscores
 
 

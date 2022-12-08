@@ -216,23 +216,26 @@ class ViewerUI:
         print(f"cricket win/loss ratio: {statistics.resultcricket[0]} / {statistics.resultcricket[1]}")
         print(f"501 fours win/loss ratio: {statistics.result501fours[0]} / {statistics.result501fours[1]}")
 
-        print(f"0. Sýna tölfræði {players[command-1].name} eftir dagsetningu")
+        print(f"\n0. Sýna tölfræði {players[command-1].name} eftir dagsetningu")
         user_input = Menu_functions.menuFooter(False)
-        if user_input == "1":
-            games = self.llapi.getGamesFinished()
-            command2 = None
-            while command2 == None:
-                for i in range(len(games)):
-                    print(i+1, ". ", games[i].date, games[i].home_team, "vs.", games[i].away_team)
-                command2 = int(input(f"\nVeldu dagsetningu leiks"))
-            print(f"\nTölfræði {players[command-1].name} síðan {games[command2-1].date}")
-            statistics = self.llapi.getPlayerScoreByDate(players[command-1].playerid, games[command2-1].date)
-            print(f"QPs overall: {statistics.QPs}")
-            print(f"Largest inshot: {statistics.inshots}")
-            print(f"Largest outshot: {statistics.outshots}")
-            print(f"501 singles win/loss ratio: {statistics.result501singles[0]} / {statistics.result501singles[1]}")
-            print(f"301 win/loss ratio: {statistics.result301[0]} / {statistics.result301[1]}")
-            print(f"cricket win/loss ratio: {statistics.resultcricket[0]} / {statistics.resultcricket[1]}")
-            print(f"501 fours win/loss ratio: {statistics.result501fours[0]} / {statistics.result501fours[1]}")
-        print("_"*78)
+        if user_input == "0":
+            self.getPlayerScoreByDate(players[command-1])
+
+    def getPlayerScoreByDate(self, player):
+        games = self.llapi.getGamesFinished()
+        command = None
+        while command == None:
+            for i in range(len(games)):
+                print(i+1, ". ", games[i].date, games[i].home_team, "vs.", games[i].away_team)
+            command = int(input(f"\nVeldu dagsetningu leiks: "))
+        print(f"\nTölfræði {player.name} síðan {games[command-1].date}:\n")
+        statistics = self.llapi.getPlayerScoreByDate(player.playerid, games[command-1].date)
+        print(f"QPs overall: {statistics.QPs}")
+        print(f"Largest inshot: {statistics.inshots}")
+        print(f"Largest outshot: {statistics.outshots}")
+        print(f"501 singles win/loss ratio: {statistics.result501singles[0]} / {statistics.result501singles[1]}")
+        print(f"301 win/loss ratio: {statistics.result301[0]} / {statistics.result301[1]}")
+        print(f"cricket win/loss ratio: {statistics.resultcricket[0]} / {statistics.resultcricket[1]}")
+        print(f"501 fours win/loss ratio: {statistics.result501fours[0]} / {statistics.result501fours[1]}")
+        user_input = Menu_functions.menuFooter(False)
 

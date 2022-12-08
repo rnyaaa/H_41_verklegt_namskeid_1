@@ -77,7 +77,7 @@ class LL_API:
 
     def getPlayerScoreByDate(self, playerid, date):
         """ returns a playersummary for a player from a given date"""
-        return self.playersLL.getPlayerScoreByDate
+        return self.playersLL.getPlayerScoreByDate(playerid, date)
 
     def getPlayerNameFromId(self, playerid):
         return self.playersLL.getPlayerNameFromId(playerid)
@@ -113,6 +113,10 @@ class LL_API:
         """ add a team """
         self.teamsLL.addTeam(team)
 
+    def addResults(self, teams, playerscores, resultlist, game, gameslist):
+        """ adds results"""
+        self.resultsLL.addResults(teams, playerscores, resultlist, game, gameslist)
+        
     def addTournament(self, tournament: Tournament):
         """ add a tournament """
         self.tournamentsLL.addTournament(tournament)
@@ -129,8 +133,8 @@ class LL_API:
         """ add a playerscore"""
         self.playersLL.addPlayerScore(playerscore)
 
-    def changeResults():
-        raise NotImplementedError
+    def changeResults(self):
+        self.resultsLL.changeResults()
 
     def changeDate(self, updated_info):
         self.tournamentsLL.changeTournamentInfo(updated_info)

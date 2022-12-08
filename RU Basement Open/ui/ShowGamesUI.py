@@ -2,7 +2,7 @@ from logic.LL_API import LL_API
 from ui.UI import Menu_functions
 from ui.OrganizerUI import OrganizerUI
 import datetime
-import time
+from time import time
 
 class ShowGamesUI():
 
@@ -36,7 +36,7 @@ class ShowGamesUI():
 
 
     def showTournamentDates(self):
-        games = sorted(self.llapi.getUpcomingGames(), key=lambda x: -x.date.datetime.strptime(datetime.date, "%d.%m.%y"))
+        games = sorted(self.llapi.getUpcomingGames(), key=lambda x: datetime.datetime.strptime(x.date, '%d.%m.%y'))   
         #games = self.llapi.getUpcomingGames()
         print()
         print("------------------------LISTI YFIR KOMANDI VIÐUREIGNIR------------------------")
