@@ -21,6 +21,10 @@ class PlayersLL:
         """ adds a player """
         self.ioapi.create_model(player)
 
+    def addPlayerScore(self, playerscore: PlayerScore):
+        """ add a playerscore"""
+        self.ioapi.create_model(playerscore)
+
     def getPlayerScoreSummaries(self) -> list[PlayerSummary]:
         playerscores = self.getAllPlayerScore()
         """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """

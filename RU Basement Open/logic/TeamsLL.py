@@ -40,7 +40,10 @@ class TeamsLL:
             if team.id == team_id:
                 return team.name
 
-
     def addTeam(self, team: Team):
         """ adds a team """
         return self.ioapi.create_model(team)
+    
+    def addTeamScore(self, teamscore: TeamScore):
+        """ add a teamscore """
+        self.ioapi.create_model(teamscore)
