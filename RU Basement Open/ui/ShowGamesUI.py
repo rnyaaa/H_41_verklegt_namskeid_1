@@ -49,10 +49,6 @@ class ShowGamesUI():
     def showGames(self):
         """
         Shows results from finished games from all competitions. 
-        With this format. 
-        ______________________________________________________________________________
-       Pepsi deildin | 01.01.23 |      The Brahms 0 vs. 2 The lightings   | Sigurvegari: The lightings
-
         """
         games = self.llapi.getGamesFinished()
         print()
@@ -61,9 +57,9 @@ class ShowGamesUI():
         for game in games:
             try:
                 if int(game.results_hometeam) > int(game.results_awayteam):
-                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team:>15} {game.results_hometeam} vs. {game.results_awayteam} {game.away_team:<15} | Sigurvegari: {game.home_team}")
+                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):<15} | {game.date} | {game.home_team:>15} {game.results_hometeam} vs. {game.results_awayteam} {game.away_team:<15} | Sigurvegari: {game.home_team}")
                 else:
-                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team:>15} {game.results_hometeam} vs. {game.results_awayteam} {game.away_team:<15} | Sigurvegari: {game.away_team}")
+                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):<15} | {game.date} | {game.home_team:>15} {game.results_hometeam} vs. {game.results_awayteam} {game.away_team:<15} | Sigurvegari: {game.away_team}")
             except:
                 continue
         Menu_functions.menuFooter(False)
