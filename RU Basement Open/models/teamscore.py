@@ -2,9 +2,9 @@ class TeamScore:
     
     def __init__(
         self, 
-        tournament_id=None,
-        team_id=None,
-        game_id=None,
+        tournament_id="",
+        team_id="",
+        game_id="",
         games_won=0, 
         rounds_won=0):
         self.tournament_id = tournament_id
