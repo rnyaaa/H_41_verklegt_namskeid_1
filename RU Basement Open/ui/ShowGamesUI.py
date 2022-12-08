@@ -36,10 +36,6 @@ class ShowGamesUI():
 
 
     def showTournamentDates(self):
-<<<<<<< HEAD
-        games = sorted(self.llapi.getUpcomingGames(), key=lambda x: -x.date.datetime.strptime(datetime.date, "%d.%m.%y"))
-        #games = self.llapi.getUpcomingGames()
-=======
         """
         Shows upcoming games between teams in all competitions. 
         with this format:
@@ -54,7 +50,6 @@ ______________________________________________________________________________
         
         
         games = self.llapi.getUpcomingGames()
->>>>>>> bc38ad8db26a4e2f4ecbc8fed1cf105b0951c38f
         print()
         print("------------------------LISTI YFIR KOMANDI VIÐUREIGNIR------------------------")
         print("_"*78)
