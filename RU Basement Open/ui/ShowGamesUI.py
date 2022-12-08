@@ -64,9 +64,9 @@ class ShowGamesUI():
         for game in games:
             try:
                 if int(game.results_hometeam) > int(game.results_awayteam):
-                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.home_team}")
+                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team:>15} {game.results_hometeam} vs. {game.results_awayteam} {game.away_team:<15} | Sigurvegari: {game.home_team}")
                 else:
-                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.away_team}")
+                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team:>15} {game.results_hometeam} vs. {game.results_awayteam} {game.away_team:<15} | Sigurvegari: {game.away_team}")
             except:
                 continue
         Menu_functions.menuFooter(False)
