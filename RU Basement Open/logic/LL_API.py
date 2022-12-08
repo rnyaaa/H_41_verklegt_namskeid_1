@@ -48,6 +48,10 @@ class LL_API:
         """ returns a list of all Games instances """
         return self.gamesLL.getAllGames()
 
+    def getGameFromId(self, gameid):
+        """ returns a game object from id """
+        return self.gamesLL.getGameFromId()
+    
     def getTournaments(self) -> list[Tournament]:
         """ returns a list of all Tournament instances """
         return self.tournamentsLL.getAllTournaments()
@@ -71,8 +75,9 @@ class LL_API:
         """ returns a playersummary for a single player """
         return self.playersLL.getSinglePlayerScore(playerid)
 
-    def getPlayerScoreByDate(self):
-        raise NotImplementedError
+    def getPlayerScoreByDate(self, playerid, date):
+        """ returns a playersummary for a player from a given date"""
+        return self.playersLL.getPlayerScoreByDate
 
     def getPlayerNameFromId(self, playerid):
         return self.playersLL.getPlayerNameFromId(playerid)

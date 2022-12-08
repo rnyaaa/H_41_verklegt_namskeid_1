@@ -15,5 +15,11 @@ class GamesLL():
         """Add a Game."""
         self.ioapi.create_model(game)
 
+    def getGameFromId(self, gameid):
+        games = self.getAllGames()
+        for game in games:
+            if game.gameid == gameid:
+                return game
+
     def changeDate(self):
         raise NotImplementedError

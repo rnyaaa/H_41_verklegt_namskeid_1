@@ -1,7 +1,9 @@
 from IO.IO_API import IO_API
+from models.game import Game
 from models.player import Player
 from models.playerscore import PlayerScore
 from models.playersummary import PlayerSummary
+import datetime
 
 class PlayersLL:
 
@@ -116,5 +118,30 @@ class PlayersLL:
     def ByOutshots(player_summary: PlayerSummary):
         return player_summary.outshots
 
-    def getPlayerScoreByDate():
-        raise NotImplementedError
+    def getPlayerScoreByDate(self, playerid, date):
+        """ returns a playersummary for a player from a given date"""
+        allplayerscores = self.getAllPlayerScore
+        playerscorebydate = []
+        for score in allplayerscores:
+            if score.playerid == playerid:
+                all_games = self.ioapi.return_model(Game)
+                for indexed_game in all_games:
+                    if indexed_game.gameid == score.gameid:
+                        game = indexed_game
+                if datetime(game.date) > datetime(date):
+                    playerscorebydate.append(score)
+        PlayerSummaryByDate = PlayerSummary(playerid)
+        for score in playerscorebydate:
+                PlayerSummaryByDate.QPs += score.QPs
+                PlayerSummaryByDate.inshots = max(PlayerSummaryByDate.inshots, score.inshots)
+                PlayerSummaryByDate.outshots = max(PlayerSummaryByDate.outshots, score.outshots)
+                PlayerSummaryByDate.result501singles[0] += score.result501singles[0]
+                PlayerSummaryByDate.result501singles[1] += score.result501singles[1]
+                PlayerSummaryByDate.result301[0] += score.result301[0]
+                PlayerSummaryByDate.result301[1] += score.result301[1]
+                PlayerSummaryByDate.resultcricket[0] += score.resultcricket[0]
+                PlayerSummaryByDate.resultcricket[1] += score.resultcricket[1]
+                PlayerSummaryByDate.result501fours[0] += score.result501fours[0]
+                PlayerSummaryByDate.result501fours[1] += score.result501fours[1]
+        return PlayerSummaryByDate
+
