@@ -1,123 +1,254 @@
 Happy path - Mótshaldari:
-_________________________________________________________________________________________________
-|                    				____						|
-|          			              /\ _ /\						|
-|			  >>>----            / /\ /\ \						|
-|			>>>----             |---(*)---|						|
-|       			             \ \/_\/ /						|
-|       			  >>>----     \/___\/						|
-|												|
-|												|
-|		█▀█ █ █   █▄▄ ▄▀█ █▀ █▀▀ █▀▄▀█ █▀▀ █▄ █ ▀█▀   █▀█ █▀█ █▀▀ █▄ █			|
-|		█▀▄ █▄█   █▄█ █▀█ ▄█ ██▄ █ ▀ █ ██▄ █ ▀█  █    █▄█ █▀▀ ██▄ █ ▀█ 			|
-|												|
-|_______________________________________________________________________________________________|
-|							|					|
-|							|	┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈		|
-|	Aðalvalmynd					|	┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈		|
-|							|	┈┈╰┓▋▋┏╯┈┈┈┈┈┈		|
-|	1.	Mótshaldari				|	┈╭━┻╮╲┗━━━━━╮╭╮┈		|
-|	2.	Fyrirliði				|	┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈               |
-|	3.	Birta lista yfir viðureignir	        |	┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈              	|    
-|	4.	Aðrir notendur / Skoða Tölfræði		|	┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈		|    
-|	q. 	Hætta					|	┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈ 	        |
-|							|					|
-|							|	  v. 0.0.1			|
-|_______________________________________________________|_______________________________________|
+ _______________________________________________________________________________ 
+|                                      ____                                     |
+|                                    /\ _ /\                                    |
+|                >>>----            / /\ /\ \                                   |
+|              >>>----             |---(*)---|                                  |
+|                                   \ \/_\/ /                                   |
+|                        >>>----     \/___\/                                    |
+|                                                                               |
+|                                                                               |
+|         █▀█ █ █  █▄▄ ▄▀█ █▀ █▀▀ █▀▄▀█ █▀▀ █▄ █ ▀█▀  █▀█ █▀█ █▀▀ █▄ █          |
+|         █▀▄ █▄█  █▄█ █▀█ ▄█ ██▄ █ ▀ █ ██▄ █ ▀█  █   █▄█ █▀▀ ██▄ █ ▀█          |
+| ______________________________________________________________________________|
 
+                                                                              
+                                                      ┈┈┏━╮╭━┓┈┈┈┈┈┈┈┈        
+   Aðalvalmynd                                        ┈┈┃┏┗┛┓┃┈┈┈┈┈┈┈┈        
+                                                      ┈┈╰┓▋▋┏╯┈┈┈┈┈┈┈┈        
+  1.  Mótshaldari                                     ┈╭━┻╮╲┗━━━━━╮╭╮┈        
+  2.  Fyrirliði                                       ┈┃▎▎┃╲╲╲╲╲╲╲┣━╯┈        
+  3.  Birta lista yfir viðureignir                    ┈╰━┳┻▅╯╲╲╲╲╲┃┈┈┈        
+  4.  Aðrir upplýsingar/ Tölfræði                     ┈┈┈╰━┳┓┏━┳┓┏╯┈┈┈        
+  q.  Hætta                                           ┈┈┈┈┈┗┻┛┈┗┻┛┈┈┈┈        
+                                                                              
+                                                        v. 0.0.1              
 
-	Velkominn, mótshaldari.
-
-	Valmynd:
-
-1.	Skrá lið
-2.	Stofna deild
-3.	Skrá leikmenn
-4.	Breyta dagsetningu á viðureign
-5.	Breyta skráningu úrslitaa
-b. 	Til baka
 
 Veldu einn af valmöguleikunum hér að ofan: 
 
------------------------------------------------------------------------------
+______________________________________________________________________________
+
+Velkominn, mótshaldari!
+
+➢  Valmynd:
+
+1.      Stofna deild/mót
+2.      Skrá lið
+3.      Skrá leikmann
+4.      Skrá viðureignir
+5.      Breyta dagsetningu á viðureign
+6.      Breyta skráningu úrslita
+
+b.      Til baka
+q.      Hætta
+
+Veldu einn af valmöguleikunum hér að ofan: 
+
+______________________________________________________________________________
+
+➢       Stofna deild/mót:
+
+o       Nafn deildar/móts:
+o       Nafn Skipuleggjanda: 
+o       Símanúmer skipuleggjanda:
+o       Byrjunardagsetning (dd.mm.yy): 
+
+o       Nær viðburðurinn yfir meira en einn dag (12.12.23)?
+
+y. Já
+n. nei
+
+Sláðu inn val þitt: y
+o       Lokadagsetning (dd.mm.yy): 23.12.23
+
+✅ Deildin/mótið "" hefur nú verið skráð.
 
 
-➢	Skrá lið:
+b.      Til baka
 
-o	Nafn liðs:
-o	Heimilisfang:
-o	Símanúmer:
+Veldu einn af valmöguleikunum hér að ofan:
 
------------------------------------------------------------------------------
+______________________________________________________________________________
 
-➢	Stofna deild:
+➢   Skrá lið:
 
-o	Nafn deildar:
-o	Nafn skipuleggjanda:
-o	Símanúmer skipuleggjanda:
-o	Tegund móts:
-o	Dagsetningar:
-o		Lið sem keppa:
-		- Heimalið
-		- Útilið
+o   Nafn liðs: 
+o   Heimilisfang (gata og húsnúmer): 
+o   Nafn félags: 
+o   Símanúmer:
+
+✅ Liðið "" hefur nú verið skráð.
 
 
------------------------------------------------------------------------------
+b.      Til baka
 
-➢	Skrá leikmenn:
+Veldu einn af valmöguleikunum hér að ofan: 
+______________________________________________________________________________
 
-	Veldu Lið:
-	
-	1. KR
-	2. Valur
-	3. Þróttur
+➢   Skrá leikmann
 
-  b. Til baka
-  q. Hætta
-  
------------------------------------------------------------------------------
+o    Nafn: 
+o    Kennitala: 
+o    Heimilisfang (gata og húsnúmer): 
+o    GSM: 
+o    Heimasími: 
+o    Netfang: 
 
-➢	Skrá leikmenn:
+Skrá leikmann í lið:
 
-o	Nafn:
-o	Kennitala:
-o	Heimilisfang:
-o	GSM:
-o	Netfang:
-o	Liðið sem leikmaðurinn tilheyrir:
-		a. KR
-		b. Valur
-		c. Þróttur
+1 .  The Brahms
+2 .  The lightings
+3 .  The Anacondas
+4 .  The Oligarcs
+5 .  The Cesars
+6 .  The Rings
 
 
------------------------------------------------------------------------------
+Veldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir The Brahms): 
 
-➢	Breyta dagsetningu á viðureign:
-	
-	Veldu viðureign:
-  
-  	1. 27/09/22 | KR vs. Val
-  	2. 27/09/22 | Val vs. Afturelding
- 	3. 28/09/22 | KR vs. Þróttur
-  
-  b. Til baka
-  q. Hætta
+______________________________________________________________________________
+
+Skrá viðureign:
+
+Veljið mót:
+
+1 .  Pepsi deildin        🗓️:  02.01.23 - 06.01.23
+2 .  Coca Cola Deildin    🗓️:  24.12.22 - 24.12.22
+
+Veldu mót af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir Pepsi deildin): 
+
+Dagsetning viðureignar (dd.mm.yy): 
+
+🏠 Veljið heimalið:
+
+1 .  The Brahms
+2 .  The lightings
+3 .  The Anacondas
+4 .  The Oligarcs
+5 .  The Cesars
+6 .  The Rings
+
+Veldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir The Brahms): 
 
 
------------------------------------------------------------------------------
+🚌 Veljið útilið: 
 
-➢	Breyta skráningu úrslita:
-	
-	Veldu úrslit:
-  
-  	1. 27/09/22 | KR vs. Val		| 7/4 fyrir KR
-  	2. 27/09/22 | Val vs. Afturelding	| 3/0 fyrir Val
- 	3. 28/09/22 | KR vs. Þróttur		| 2/0 fyrir KR
+1 .  The Brahms
+2 .  The lightings
+3 .  The Anacondas
+4 .  The Oligarcs
+5 .  The Cesars
+6 .  The Rings
 
-  b. Til baka
-  q. Hætta
+Veldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir The Brahms): 
+
+ ✅ Viðureign 'The Brahms vs. The Oligarcs' hefur verið bætt við.
+______________________________________________________________________________
 
 
------------------------------------------------------------------------------
+Breyta dagsetningu viðureignar:
+
+Veljið mót:
+
+1 .  Pepsi deildin        🗓️:  02.01.23 - 06.01.23
+2 .  Coca Cola Deildin    🗓️:  24.12.22 - 24.12.22
+
+Veldu mót af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir Pepsi deildin): 
+Breyta dagsetningu fyrir Pepsi deildin:
+o       Byrjunardagsetning (dd.mm.yy): 03.01.23   
+
+o       Nær viðburðurinn yfir meira en einn dag (03.01.23)?
+
+y. Já
+n. nei
+
+Sláðu inn val þitt: y
+o       Lokadagsetning (dd.mm.yy): 07.01.23
+
+reyta Dagsetningu
+
+Veljið viðureign:
+
+1. 01.01.23 | The Anacondas vs. The Oligarcs
+2. 02.01.23 | The Brahms vs. The Rings
+3. 01.01.23 | The Brahms vs. The Cesars
+4. 03.01.23 | The Brahms vs. The Oligarcs
+
+Veldu viðureign af listanum hér fyrir ofan (sláðu inn tölustafinn á viðureigninni sem þú vilt velja): 1
+
+
+o       Sláðu inn nýja dagsetningu (dd.mm.yy): 03.01.23
+
+Viltu breyta dagsetning á öðrum leik? 
+
+y. Já 
+n. Nei
+
+
+______________________________________________________________________________
+
+Breyta úrslitum:
+
+
+Veljið mót:
+
+1 .  Pepsi deildin        🗓️:  03.01.23 - 07.01.23
+2 .  Coca Cola Deildin    🗓️:  24.12.22 - 24.12.22
+
+Veldu mót af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir Pepsi deildin): 1
+
+Breyta Niðurstöðu
+
+Veljið viðureign:
+
+1. The Brahms vs. The lightings
+
+Veldu viðureign af listanum hér fyrir ofan (sláðu inn tölustafinn á viðureigninni sem þú vilt velja): 1
+
+****************************
+ Skráning á leik 501 - 1v1:
+****************************
+
+Veljið heimaleikmann
+
+1 .  Sporgonizza Fabio
+2 .  Gwendoline Lucider
+3 .  Zarathustra Ford
+4 .  Winston Birdshill
+
+Veldu leikmann af listanum hér fyrir ofan (sláðu inn númer þess leikmanns sem þú vilt velja): 
+
+
+Veljið útileikmann
+
+1 .  Jacqueline Payne
+2 .  Elaina Singleton
+3 .  Marcel Arias
+4 .  Kallie Hansen
+
+Veldu leikmann af listanum hér fyrir ofan (sláðu inn númer þess leikmanns sem þú vilt velja): 
+
+Hver vann 1. umferð?
+
+a. Sporgonizza Fabio
+b. Jacqueline Payne
+Sláðu inn valmöguleika af listanum hér að ofan: 
+
+Hver vann 2. umferð?
+
+a. Sporgonizza Fabio
+b. Jacqueline Payne
+Sláðu inn valmöguleika af listanum hér að ofan: 
+
+.
+.
+.
+.
+
+o.s.fr. fyrir alla leikina
+
+
+
 
 
