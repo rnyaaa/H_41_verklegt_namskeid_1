@@ -87,11 +87,11 @@ class LL_API:
 
     def getGamesFinished(self) -> list[Game]:
         """ returns a list of games where the results are not None(have been filled in, thus are finished) """
-        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam is not None and game.results_hometeam is not None)]
+        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam is not None or game.results_hometeam is not None)]
 
     def getUpcomingGames(self) -> list[Game]:
         """ returns a list of games where the results are None(have not been filled in, thus are upcoming) """
-        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam is '' and game.results_hometeam is '')]
+        return [game for game in self.gamesLL.getAllGames() if (game.results_awayteam is None and game.results_hometeam is None)]
 
     def getPlayerList(self) -> list[tuple[Player, str]]:
         """ returns a list of tuples of players and the score they are sorted by """
@@ -115,6 +115,14 @@ class LL_API:
     def addGame(self, game: Game):
         """ add a game """
         self.gamesLL.addGame(game)
+
+    def addTeamScore(self, teamscore: TeamScore):
+        """ add a teamscore """
+        self.teamsLL.addTeamScore(teamscore)
+
+    def addPlayerScore(self, playerscore: PlayerScore):
+        """ add a playerscore"""
+        self.playersLL.addPlayerScore(playerscore)
 
     def changeResults():
         raise NotImplementedError
@@ -156,3 +164,7 @@ class LL_API:
         for team in teams:
             if team.id == team_id:
                 return team
+
+    def updateGame(self, game: Game):
+        """ updates a game """
+        self.ioapi.update(game)
