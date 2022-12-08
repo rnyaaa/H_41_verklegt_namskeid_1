@@ -43,17 +43,9 @@ ______________________________________________________________________________
    Coca Cola Deildin | 24.12.22 |   The lightings vs. The Anacondas  
        Pepsi deildin | 01.01.23 |   The Anacondas vs. The Oligarcs   
        Pepsi deildin | 02.01.23 |      The Brahms vs. The Rings      
+       """
 
 
-        """
-        '''tournament = OrganizerUI.select_tournament_input(self)
-        print()
-        all_games = self.llapi.getGames()
-        for game in all_games:
-            if tournament.id == game.tournament_id:
-                if game.results == '':
-                    print(f"{game.home_team:>15} vs. {game.away_team:<15} - {game.date:>8}")
-                    print()'''
                 
         
         
