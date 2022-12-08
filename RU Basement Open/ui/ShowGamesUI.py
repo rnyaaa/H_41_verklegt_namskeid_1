@@ -3,6 +3,7 @@ from ui.UI import Menu_functions
 from ui.OrganizerUI import OrganizerUI
 import datetime
 from time import time
+import os
 
 class ShowGamesUI():
 
@@ -10,6 +11,7 @@ class ShowGamesUI():
         self.llapi = llapi
 
     def showGamesPage(self):
+        os.system('cls||clear')
         """Displays game overview menu."""
         while True:
             print(78*"_")
@@ -36,6 +38,7 @@ class ShowGamesUI():
 
 
     def showTournamentDates(self):
+        os.system('cls||clear')
         games = sorted(self.llapi.getUpcomingGames(), key=lambda x: datetime.datetime.strptime(x.date, '%d.%m.%y'))   
         #games = self.llapi.getUpcomingGames()
         print()
@@ -47,6 +50,7 @@ class ShowGamesUI():
         Menu_functions.menuFooter(False)
 
     def showGames(self):
+        os.system('cls||clear')
         """
         Shows results from finished games from all competitions. 
         """

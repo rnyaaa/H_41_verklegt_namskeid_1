@@ -1,13 +1,14 @@
 from logic.LL_API import LL_API
 from ui.UI import Menu_functions
 from ui.OrganizerUI import OrganizerUI
-
+import os
 class ViewerUI:
 
     def __init__(self, llapi: LL_API):
         self.llapi = llapi
 
     def displayViewerUI(self):
+        os.system('cls||clear')
         while True:
             print(78*"_")
             print()
@@ -43,6 +44,7 @@ class ViewerUI:
                 print("Ekki gildur valmöguleiki, reyndu aftur")
 
     def showTeams(self):
+        os.system('cls||clear')
         '''Shows list of teams and their players'''
         captain = "Fyrirliði"
         team_player = "Leikmaður"
@@ -65,11 +67,13 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showTournamentInfo(self):
+        os.system('cls||clear')
         team_name = "NAFN LIÐS"
         games_won = "UNNIR LEIKIR"
         rounds_won = "UNNIR LEGGIR"
         
         selected_tournment = OrganizerUI.select_tournament_input(self)
+        os.system('cls||clear')
         print()
         #all_games = self.llapi.getGames()
         
@@ -83,6 +87,7 @@ class ViewerUI:
         user_input = Menu_functions.menuFooter(False)
 
     def showPlayerHighscore(self):
+        os.system('cls||clear')
         '''Shows the high score '''
         print("\nListi yfir leikmenn með flestu afreksstig.\n")
         scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.QPs)
@@ -102,10 +107,11 @@ class ViewerUI:
             self.showPlayerHighscoreOutShot()
 
     def showPlayerHighscoreTournament(self, tournamentid=None):
+        os.system('cls||clear')
         '''Shows the high score by Tournament '''
         if tournamentid == None:
             tournament = OrganizerUI.select_tournament_input(self)
-        print(tournament.id)
+        os.system('cls||clear')
         print(f"\nListi yfir leikmenn með flestu afreksstig í {tournament.name}\n")
         scores = sorted(self.llapi.getPlayerScoreSummariesByTournament(tournament.id), key=lambda x: -x.QPs)
         print("   NAFN LEIKMANNS           AFREKSSTIG\n")
@@ -121,7 +127,9 @@ class ViewerUI:
             self.showPlayerHighscoreInShot(tournament.id)
         if user_input == "2":
             self.showPlayerHighscoreOutShot(tournament.id)
+        
     def showPlayerHighscoreViewer(self):
+        os.system('cls||clear')
         print("Listi yfir leikmenn með flestu afreksstig.")
 
         scores = sorted(self.llapi.getPlayerScores(), key=lambda x: x.QPs)
@@ -132,6 +140,7 @@ class ViewerUI:
         print("_"*78)
 
     def showPlayerHighscoreInShot(self, tournamentid=None):
+        os.system('cls||clear')
         '''Shows the inshot high score '''
         print("\nListi yfir leikmenn með hæsta innskotið.\n")
         print("   NAFN LEIKMANNS          INNSKOT")
@@ -162,6 +171,7 @@ class ViewerUI:
                 self.showPlayerHighscoreOutShot(tournamentid)
 
     def showPlayerHighscoreOutShot(self, tournamentid=None):
+        os.system('cls||clear')
         '''Shows the outshot high score '''
         print("\nListi yfir leikmenn með hæsta útskotið.\n")
         scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.outshots)
@@ -194,6 +204,7 @@ class ViewerUI:
     
     
     def showPlayerStatistics(self):
+        os.system('cls||clear')
         """Shows statistics for a selected player"""
         players = self.llapi.getPlayers()
         command = None
@@ -222,6 +233,7 @@ class ViewerUI:
             self.getPlayerScoreByDate(players[command-1])
 
     def getPlayerScoreByDate(self, player):
+        os.system('cls||clear')
         games = self.llapi.getGamesFinished()
         command = None
         while command == None:

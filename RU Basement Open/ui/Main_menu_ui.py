@@ -4,7 +4,7 @@ from ui.CaptainUI import CaptainUI
 from ui.ShowGamesUI import ShowGamesUI
 from ui.ViewerUI import ViewerUI
 from ui.UI import Menu_functions
-
+import os
 
 class Main_Menu_UI:
 
@@ -12,6 +12,7 @@ class Main_Menu_UI:
         self.llapi = llapi
 
     def header(self):
+        os.system('cls||clear')
         print(
                 " _______________________________________________________________________________ \n"
                 "|                                      ____                                     |\n"
@@ -28,8 +29,10 @@ class Main_Menu_UI:
             )
 
     def displayMainMenu(self):
+        os.system('cls||clear')
         "Displays Main menu screen."
         while True:
+            self.header()
             print(
             
                 "                                                                              \n"
@@ -47,16 +50,19 @@ class Main_Menu_UI:
 
             user_input = input("Veldu einn af valmöguleikunum hér að ofan: ")
             user_input = user_input.lower()
-
             if user_input == "q":
+                os.system('cls||clear')
                 Menu_functions.menuQuit()
             elif user_input == "1":
                 OrganizerUI(self.llapi).displayOrganizerMenu()
             elif user_input == "2":
+                os.system('cls||clear')
                 CaptainUI(self.llapi).displayCaptainUI()
             elif user_input == "3":
+                os.system('cls||clear')
                 ShowGamesUI(self.llapi).showGamesPage()
             elif user_input == "4":
+                os.system('cls||clear')
                 ViewerUI(self.llapi).displayViewerUI()
             else:
                 print()

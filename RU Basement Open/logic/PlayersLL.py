@@ -42,20 +42,17 @@ class PlayersLL:
             """ get PlayerSummary with default values """
             player_summary = PlayerSummary(player_id)
             for score in playerscores_by_player[player_id]:
-                try:
-                    player_summary.QPs += score.QPs
-                    player_summary.inshots = max(player_summary.inshots, score.inshots)
-                    player_summary.outshots = max(player_summary.outshots, score.outshots)
-                    player_summary.result501singles[0] += score.result501singles[0]
-                    player_summary.result501singles[1] += score.result501singles[1]
-                    player_summary.result301[0] += score.result301[0]
-                    player_summary.result301[1] += score.result301[1]
-                    player_summary.resultcricket[0] += score.resultcricket[0]
-                    player_summary.resultcricket[1] += score.resultcricket[1]
-                    player_summary.result501fours[0] += score.result501fours[0]
-                    player_summary.result501fours[1] += score.result501fours[1]
-                except:
-                    continue
+                player_summary.QPs += score.QPs
+                player_summary.inshots = max(player_summary.inshots, score.inshots)
+                player_summary.outshots = max(player_summary.outshots, score.outshots)
+                player_summary.result501singles[0] += score.result501singles[0]
+                player_summary.result501singles[1] += score.result501singles[1]
+                player_summary.result301[0] += score.result301[0]
+                player_summary.result301[1] += score.result301[1]
+                player_summary.resultcricket[0] += score.resultcricket[0]
+                player_summary.resultcricket[1] += score.resultcricket[1]
+                player_summary.result501fours[0] += score.result501fours[0]
+                player_summary.result501fours[1] += score.result501fours[1]
                 player_summaries.append(player_summary)
                 
         return player_summaries
