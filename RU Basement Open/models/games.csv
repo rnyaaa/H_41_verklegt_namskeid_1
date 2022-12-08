@@ -1,6 +1,7 @@
-gameid, tournament_id,home_team, away_team, date, results_hometeam, results_awayteam
+id,tournament_id,home_team,away_team,self.date,self.results
 1,1,The Brahms,The lightings,01.01.23,0,2
 2,2,The lightings,The Anacondas,24.12.23,,
-3,1,The Anacondas,The Oligarcs,01.01.23,,
+3,1,The Anacondas,The Oligarcs,02.01.23,,
 4,1,The Brahms,The Rings,02.01.23,,
 5,1,The Brahms,The Cesars,01.01.23,,
+6,1,The Brahms,The Oligarcs,03.01.23,,
