@@ -36,6 +36,16 @@ class ShowGamesUI():
 
 
     def showTournamentDates(self):
+        """
+        Shows upcoming games between teams in all competitions. 
+        with this format:
+______________________________________________________________________________
+   Coca Cola Deildin | 24.12.22 |   The lightings vs. The Anacondas  
+       Pepsi deildin | 01.01.23 |   The Anacondas vs. The Oligarcs   
+       Pepsi deildin | 02.01.23 |      The Brahms vs. The Rings      
+
+
+        """
         '''tournament = OrganizerUI.select_tournament_input(self)
         print()
         all_games = self.llapi.getGames()
@@ -57,6 +67,13 @@ class ShowGamesUI():
         Menu_functions.menuFooter(False)
 
     def showGames(self):
+        """
+        Shows results from finished games from all competitions. 
+        With this format. 
+        ______________________________________________________________________________
+       Pepsi deildin | 01.01.23 |      The Brahms 0 vs. 2 The lightings   | Sigurvegari: The lightings
+
+        """
         games = self.llapi.getGamesFinished()
         print()
         print("------------------------LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR------------------------")
