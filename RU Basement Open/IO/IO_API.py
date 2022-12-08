@@ -77,7 +77,6 @@ class IO_API:
                 overwriter.writerow(model.listify())
 
     def update(self, updated_model):
-        print("I AM UPDATING", updated_model.results_hometeam, updated_model.results_awayteam)
         tournaments = self.return_model(updated_model.__class__)
         for i in range(len(tournaments)):
             if updated_model.id == tournaments[i].id:

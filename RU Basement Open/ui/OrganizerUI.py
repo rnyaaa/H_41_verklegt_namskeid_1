@@ -158,7 +158,8 @@ class OrganizerUI():
         Menu_functions.menuFooter(False)
 
     def changeTournamentDates(self):
-        """Organizer form for changing dates of an existing tournament."""
+        os.system('cls||clear')
+        """Organizer form for changing dates of an existing tournament and its games"""
 
         # Hér þarf að sækja dagsetningar í IO sem userinn vill breyta
         print("➢	Breyta dagsetningu á viðureign: ")
@@ -170,7 +171,17 @@ class OrganizerUI():
         start_date, end_date = Menu_functions.getEventDates()
         updated_tournament = Tournament(the_tournament.id, the_tournament.name,
                                         the_tournament.organizer_name, the_tournament.organizer_phone, start_date, end_date)
-        self.llapi.changeDate(updated_tournament)
+        self.llapi.changeDateTournament(updated_tournament)
+        os.system('cls||clear')
+        selection = None
+        while selection == None:
+            game = self.select_game_input_upcoming(updated_tournament.id)
+            date = Menu_functions.getDate("\no       Sláðu inn nýja dagsetningu (dd.mm.yy): ")
+            updated_game = Game(game.id, updated_tournament.id, game.home_team, game.away_team, date, game.results_hometeam, game.results_awayteam)
+            self.llapi.changeDateGame(updated_game)
+            userinput = input("\nViltu breyta dagsetning á öðrum leik? \n\ny. Já \nn. Nei\n\n ")
+            if userinput != "y":
+                selection = 1
 
         user_input = Menu_functions.menuFooter(True)
         return user_input
@@ -269,7 +280,8 @@ class OrganizerUI():
     def changeResults(self):
         """ Allows the organizer to change the results of a previous game"""
         tournament = OrganizerUI.select_tournament_input(self)
-        game = self.select_game_input(tournament.id)
+        os.system('cls||clear')
+        game = self.select_game_input_finished(tournament.id)
 
         home_team_id = self.llapi.getTeam_id(game.home_team)
         away_team_id = self.llapi.getTeam_id(game.away_team)
@@ -462,25 +474,48 @@ class OrganizerUI():
             print('⛔ Ekki gildur valmöguleiki, reyndu aftur')
 
 
-    def select_game_input(self, tournament_id):
+    def select_game_input_finished(self, tournament_id):
+        os.system('cls||clear')
         """Prints a numbered list of all games and asks the user for their selection. The selected game index is returned"""
 
         print(f"\nBreyta Niðurstöðu\n\nVeljið viðureign:\n")
-        games_finished = self.llapi.getGamesFinished()
-        games_finished_in_tournament = [
-            game for game in games_finished if game.tournament_id == tournament_id]
+        games_upcoming = self.llapi.getGamesFinished()
+        games_upcoming_in_tournament = [
+            game for game in games_upcoming if game.tournament_id == tournament_id]
         while True:
-            for i, game in enumerate(games_finished_in_tournament):
+            for i, game in enumerate(games_upcoming_in_tournament):
                 print(f"{i+1}. {game.home_team} vs. {game.away_team}")
             try:
                 command = int(
                     input(f"\nVeldu viðureign af listanum hér fyrir ofan (sláðu inn tölustafinn á viðureigninni sem þú vilt velja): "))
-                if command < 1 or command > len(games_finished_in_tournament):
+                if command < 1 or command > len(games_upcoming_in_tournament):
                     print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
                     continue
                 break
             except ValueError:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
 
-        print("select_game_input check")
-        return games_finished_in_tournament[command-1]
+        return games_upcoming_in_tournament[command-1]
+
+    def select_game_input_upcoming(self, tournament_id):
+        os.system('cls||clear')
+        """Prints a numbered list of all games and asks the user for their selection. The selected game index is returned"""
+
+        print(f"\nBreyta Dagsetningu\n\nVeljið viðureign:\n")
+        games_upcoming = self.llapi.getUpcomingGames()
+        games_upcoming_in_tournament = [
+            game for game in games_upcoming if game.tournament_id == tournament_id]
+        while True:
+            for i, game in enumerate(games_upcoming_in_tournament):
+                print(f"{i+1}. {game.date} | {game.home_team} vs. {game.away_team}")
+            try:
+                command = int(
+                    input(f"\nVeldu viðureign af listanum hér fyrir ofan (sláðu inn tölustafinn á viðureigninni sem þú vilt velja): "))
+                if command < 1 or command > len(games_upcoming_in_tournament):
+                    print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
+                    continue
+                break
+            except ValueError:
+                print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
+
+        return games_upcoming_in_tournament[command-1]
