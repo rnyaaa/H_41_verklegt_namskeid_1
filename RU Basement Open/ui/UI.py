@@ -2,6 +2,7 @@ from logic.LL_API import LL_API
 import time
 import re
 import datetime
+import os
 
 
 class Menu_functions:
@@ -134,6 +135,7 @@ class Menu_functions:
             print("\n⛔ Ógilt val, reyndu aftur.\n")
 
     def menuQuit():
+        os.system('cls||clear')
         print()
         print("     .--'''''''''--.")
         print("  .'      .---.      '.")

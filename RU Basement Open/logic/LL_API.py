@@ -133,8 +133,11 @@ class LL_API:
     def changeResults(self):
         self.resultsLL.changeResults()
 
-    def changeDate(self, updated_info):
+    def changeDateTournament(self, updated_info):
         self.tournamentsLL.changeTournamentInfo(updated_info)
+
+    def changeDateGame(self, updated_info):
+        self.gamesLL.changeDateGame(updated_info)
 
     def getTournamentNameFromId(self, tournamentid) -> str:
         return self.tournamentsLL.getTournamentNameFromId(tournamentid)

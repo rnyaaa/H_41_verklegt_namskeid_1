@@ -21,5 +21,5 @@ class GamesLL():
             if game.gameid == gameid:
                 return game
 
-    def changeDate(self):
-        raise NotImplementedError
+    def changeDateGame(self, updated_info):
+        self.ioapi.update(updated_info)
