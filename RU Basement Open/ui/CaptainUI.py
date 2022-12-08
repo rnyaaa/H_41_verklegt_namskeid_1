@@ -202,11 +202,6 @@ class CaptainUI():
 
         # --------------------------------------- LAGA HÉÐAN (ER BÚINN AÐ GERA FYRIR OFAN ÞETTA) ------------------------------------------------
 
-        #PlayerScore(tournament.id, game.id, playerid, qps, inshot, outshot,
-                    #result501singles_wins, result301_wins, resultcricket_wins, result501fours_wins)
-
-        #TeamScore()
-
 
 # hér f neðan eru öll föllin sem captain UI samanstendur af tíhí
 

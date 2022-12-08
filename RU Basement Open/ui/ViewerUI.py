@@ -74,22 +74,12 @@ class ViewerUI:
         #all_games = self.llapi.getGames()
         
         scores = sorted(self.llapi.getTeamScoreSummaries(int(selected_tournment.id)), key=lambda x: -x.games_won)
-        print(f"    {team_name:<11}｜{games_won:>15}  ｜  {rounds_won:<14}")
+        print(f"       {team_name:<11}｜{games_won:>12}  ｜  {rounds_won:<14}")
         print("-"*78)
         
         for counter, score in enumerate(scores):
             #if selected_tournment.id == score.id:
-            print(f"{counter+1}. {self.llapi.getTeamNameFromId(score.team_id):>12}｜{score.games_won:>10}       ｜      {score.rounds_won:<12}")
-
-        '''home, score, away = "Heimalið 🏠", "Úrslit 🎯", "Útilið 🚌"
-        print(f"{home:>19}" + "｜" + f"{score:^11}" +
-              "｜" + f"{away:<20}")
-        print("     " + 50*"-")'''
-        
-        '''for game in all_games:
-            if game.tournament_id == selected_tournment.id:
-                print(
-                    f"{game.home_team:>20}" + "｜" + f"{game.results:^12}" + "｜" + f"{game.away_team:<20}")'''
+            print(f"{counter+1}. {self.llapi.getTeamNameFromId(score.team_id):>15}｜{score.games_won:>10}    ｜ {score.rounds_won:>10}")
 
         user_input = Menu_functions.menuFooter(False)
 
