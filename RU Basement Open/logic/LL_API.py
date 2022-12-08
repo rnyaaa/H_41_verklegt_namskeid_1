@@ -97,6 +97,9 @@ class LL_API:
         """ returns a list of tuples of players and the score they are sorted by """
         return self.playersLL.getPlayerList()
 
+    def getPlayersFromTeam(self, team_id: str):
+        return [player for player in self.playersLL.getAllPlayers() if player.team_id == team_id]
+
     def addPlayer(self, player: Player):
         """ add a player """
         self.playersLL.addPlayer(player)
@@ -146,3 +149,10 @@ class LL_API:
         for list in team_id:
             if list.name == team_name:
                 return list.id
+
+    def getTeam_from_id(self, team_id):
+        """Gets and returns a team from a given ID."""
+        teams = self.getTeams()
+        for team in teams:
+            if team.id == team_id:
+                return team
