@@ -32,10 +32,11 @@ class ShowGamesUI():
                 Menu_functions.menuQuit()
             else:
                 print("⛔ Ekki gildur valmöguleiki, reyndu aftur")
-                #Menu_functions.menuExitCountdown(3, True)
+                
 
 
     def showTournamentDates(self):
+<<<<<<< Updated upstream
         """
         Shows upcoming games between teams in all competitions. 
         with this format:
@@ -50,6 +51,10 @@ ______________________________________________________________________________
         
         
         games = self.llapi.getUpcomingGames()
+=======
+        games = sorted(self.llapi.getUpcomingGames(), key=lambda x: -x.date.datetime.strptime(datetime.date, "%d.%m.%y"))
+        #games = self.llapi.getUpcomingGames()
+>>>>>>> Stashed changes
         print()
         print("------------------------LISTI YFIR KOMANDI VIÐUREIGNIR------------------------")
         print("_"*78)
@@ -68,7 +73,7 @@ ______________________________________________________________________________
         """
         games = self.llapi.getGamesFinished()
         print()
-        print("------------------------LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR------------------------")
+        print("-----------------------LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR----------------------")
         print("_"*78)
         for game in games:
             try:

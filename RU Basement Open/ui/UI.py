@@ -155,36 +155,3 @@ class Menu_functions:
         quit()
 
 
-# ----------------------------------------------------------------------------------------------------
-
-
-class PlayerHighScoreViewer():
-
-    def showPlayerHighscore():
-        """Prints a sorted list of players that have earned the most points in an orderly manner."""
-
-        """print(➢ Þeir sem hafa [blank] (Top 10) _______________________________
-	|							                                	|
-	|	1. 🥇	{Player_name}	                    				|
-	|							                                	|
-	|	2. 🥈	{Player_name}	                    				|
-	|							                                	|
-	|	3. 🥉	{Player_name}	                    				|
-	|								                                |
-	|		4. 	{Player_name}			                        	|
-	|		5. 	{Player_name}			                        	|
-	|		6. 	{Player_name}			                        	|
-	|		7.	{Player_name}			                        	|
-	|		8.	{Player_name}			                        	|
-	|		9.	{Player_name}			                           	|
-	|		10. {Player_name}				                        |
-	|_______________________________________________________________|"""
-
-        print(">	Listi yfir þá sem hafa skorað flest afreksstig.")
-        print()
-
-    def sortPlayerHighscore():
-        None
-
-
-# ----------------------------------------------------------------------------------------------------

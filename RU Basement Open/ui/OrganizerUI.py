@@ -152,12 +152,9 @@ class OrganizerUI():
         the_tournament = self.select_tournament_input()
 
         print(f"Breyta dagsetningu fyrir {the_tournament.name}:")
-
         start_date, end_date = Menu_functions.getEventDates()
-
         updated_tournament = Tournament(the_tournament.id, the_tournament.name,
                                         the_tournament.organizer_name, the_tournament.organizer_phone, start_date, end_date)
-
         self.llapi.changeDate(updated_tournament)
 
         user_input = Menu_functions.menuFooter(True)
