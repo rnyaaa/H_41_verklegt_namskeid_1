@@ -52,6 +52,8 @@ class CaptainUI():
         home_team_id = self.llapi.getTeam_id(game.home_team)
         away_team_id = self.llapi.getTeam_id(game.away_team)
 
+        print(home_team_id)
+        print(away_team_id)
         home_players = self.llapi.getPlayersFromTeam(home_team_id)
         away_players = self.llapi.getPlayersFromTeam(away_team_id)
 
@@ -73,7 +75,11 @@ class CaptainUI():
         result_501_1v1_2 = self.get_501_1v1_results(home_team_id, away_team_id)
         result_501_1v1_3 = self.get_501_1v1_results(home_team_id, away_team_id)
         result_501_1v1_4 = self.get_501_1v1_results(home_team_id, away_team_id)
-        resultlist.append(result_501_1v1_1, result_501_1v1_2, result_501_1v1_3, result_501_1v1_4)
+        resultlist.append(result_501_1v1_1)
+        resultlist.append(result_501_1v1_2)
+        resultlist.append(result_501_1v1_3)
+        resultlist.append(result_501_1v1_4)
+
 
         # niðurstaða 301 umferðarinnar:
         print("\n****************************")
@@ -98,9 +104,9 @@ class CaptainUI():
 
         playerscores = []
         for player in home_players:
-            playerscores.append(PlayerScore(tournament.id, game.gameid, player.playerid))
+            playerscores.append(PlayerScore(tournament.id, game.id, player.playerid))
         for player in away_players:
-            playerscores.append(PlayerScore(tournament.id, game.gameid, player.playerid))
+            playerscores.append(PlayerScore(tournament.id, game.id, player.playerid))
 
         # Stigagjöf - QPs, Innskot og Útskot
         print("\n****************************")
@@ -108,8 +114,8 @@ class CaptainUI():
         print("****************************")
         playerscores = self.getPlayerScores(playerscores)
 
-        home_team_score = TeamScore(home_team_id, tournament.id, game.gameid)
-        away_team_score = TeamScore(away_team_id, tournament.id, game.gameid)
+        home_team_score = TeamScore(home_team_id, tournament.id, game.id)
+        away_team_score = TeamScore(away_team_id, tournament.id, game.id)
         game_score_home = 0
         game_away_score = 0
         
@@ -189,7 +195,7 @@ class CaptainUI():
 
         gameslist = self.llapi.getUpcomingGames()
         for indexed_game in gameslist:
-            if indexed_game.gameid == game.gameid:
+            if indexed_game.id == game.id:
                 indexed_game.results_hometeam = game_score_home
                 indexed_game.results_awayteam = game_away_score
         self.llapi.updateGame(indexed_game)
@@ -235,7 +241,7 @@ class CaptainUI():
         away_score = 0
 
         while home_score < 2 and away_score < 2:
-            new_home_score, new_away_score = self.who_won()
+            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(home_team_id), self.llapi.getTeamNameFromId(away_team_id))
             home_score += new_home_score
             away_score += new_away_score
 
@@ -255,7 +261,7 @@ class CaptainUI():
         away_score = 0
 
         while home_score < 2 and away_score < 2:
-            new_home_score, new_away_score = self.who_won()
+            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(home_team_id), self.llapi.getTeamNameFromId(away_team_id))
             home_score += new_home_score
             away_score += new_away_score
 
@@ -283,7 +289,7 @@ class CaptainUI():
         away_score = 0
 
         while home_score < 2 and away_score < 2:
-            new_home_score, new_away_score = self.who_won()
+            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(home_team_id), self.llapi.getTeamNameFromId(away_team_id))
             home_score += new_home_score
             away_score += new_away_score
 
@@ -295,7 +301,7 @@ class CaptainUI():
             playerscore.QPs = input("Hversu mörg Quality Points fékk leikmaðurinn? - 0 ef engin")
             playerscore.inshots = input("Hvað var hæsta innskotið hjá leikmanninum?")
             playerscore.outshots = input("Hvað var hæsta útskot hjá leikmanninum?")
-        return playerscore
+        return playerscores
 
 
 
@@ -321,7 +327,7 @@ class CaptainUI():
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
 
         print("select_game_input check")
-        return upcoming_games[command-1]
+        return upcoming_games[command]
 
     def select_teamplayer_input(self, ui_str, team_id, exclude_ids=[]):
         """Prints a numbered list of all players of a team and asks the user for their selection. The selected player's id is returned"""

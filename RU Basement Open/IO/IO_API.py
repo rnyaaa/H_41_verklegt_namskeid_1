@@ -29,10 +29,10 @@ class IO_API:
             Player: ["id", "name", "mobile", "home_phone", "email", "address", "team_id", "is_captain"],
             Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
-            PlayerScore: ["gameid", "playerid", "QPs", "inshots", "outshots", "win501_1",
+            PlayerScore: ["id", "playerid", "QPs", "inshots", "outshots", "win501_1",
                           "lose501_1", "win301", "lose301", "wincricket", "losecricket", "win501_4", "lose501_4"],
             TeamScore: ["team_id", "tournament_id", "game_id", "games_won", "rounds_won"],
-            Game: ["gameid", "tournament_id", "home_team",
+            Game: ["id", "tournament_id", "home_team",
                    "away_team", "self.date", "self.results"]
         }
 
