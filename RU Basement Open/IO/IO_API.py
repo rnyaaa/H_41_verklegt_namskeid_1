@@ -27,13 +27,13 @@ class IO_API:
         """ a fieldname dict keyed by class objects """
         self.fieldnames = {
             Player: ["id", "name", "mobile", "home_phone", "email", "address", "team_id", "is_captain"],
-            Team: ["id", "team_name", "address", "association_name", "phone_nr"],
+            Team: ["id", "team_name", "address", "association_name", "phone_nr", "total_games_won", "total_rounds_won", "player1", "player2", "player3", "player4"],
             Tournament: ["id", "name", "organizer_name", "organizer_phone", "start_date", "end_date"],
             PlayerScore: ["id", "playerid", "QPs", "inshots", "outshots", "win501_1",
                           "lose501_1", "win301", "lose301", "wincricket", "losecricket", "win501_4", "lose501_4"],
-            TeamScore: ["team_id", "tournament_id", "id", "games_won", "rounds_won"],
+            TeamScore: ["team_id", "tournament_id", "game_id", "games_won", "rounds_won"],
             Game: ["id", "tournament_id", "home_team",
-                   "away_team", "self.date", "self.results_hometeam", "self.results_awayteam"]
+                   "away_team", "self.date", "self.results"]
         }
 
     def Loader(self, model, mode="r"):
@@ -59,6 +59,7 @@ class IO_API:
                 model_return.append(row_return)
         # Dark magic pls do not touch
         model_return = list(map(lambda x: model_type(*x), model_return))
+
         return model_return
 
     def create_model(self, model):
