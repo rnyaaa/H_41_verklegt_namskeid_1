@@ -28,92 +28,118 @@ ________________________________________________________________________________
 |_______________________________________________________|_______________________________________|
 
 
-*** Verið velkomin í Tölfræðivalmyndina! ***
-   
-➢ Valmynd:
+______________________________________________________________________________
 
-	1.	Listi yfir liðum
-	2.	Staða móts
-	3. 	Listi yfir þá sem hafa skorað flest afreksstig.
-	4.	Listi yfir þá sem eiga besta/hæsta innskotið á mótinu/deildinni.
-	5.	Listi yfir þá sem eiga besta/hæsta útskotið á mótinu/deildinni.
-	6.	Tölfræði fyrir ákveðna leikmenn
-	b.	Til baka
+Verið velkomin í Tölfræðivalmyndina!
+
+➢  Valmynd:
+
+1.      Listi yfir lið
+2.      Staða móts
+3.      Stigatafla yfir leikmenn
+4.      Stigatafla yfir leikmenn eftir móti
+5.      Tölfræði fyrir ákveðna leikmenn
+
+b.      Til baka
 
 Veldu einn af valmöguleikunum hér að ofan: 
 
-----------------------------------------------------------------------------------------------------
->	Birta lista yfir Liðum
 
-	KR
-		Ronja Jóhannsdóttir
-		Rebekka Logadóttir 
-		Sigurður Atli Guðmundsson 
-		Sigurður Ingi Sigurðarson
-		
-	Valur 
-		Ronja Jóhannsdóttir
-		Rebekka Logadóttir 
-		Sigurður Atli Guðmundsson 
-		Sigurður Ingi Sigurðarson
-		
-	Þróttur 
-		Ronja Jóhannsdóttir
-		Rebekka Logadóttir 
-		Sigurður Atli Guðmundsson 
-		Sigurður Ingi Sigurðarson
+______________________________________________________________________________
 
-	b. - Til baka
+NAFN: The Brahms
+｜
+｜→     Sporgonizza Fabio   Fyrirliði 
+｜→     Gwendoline Lucider  Leikmaður 
+｜→     Zarathustra Ford    Leikmaður 
+｜→     Winston Birdshill   Leikmaður 
 
-----------------------------------------------------------------------------------------------------
->	Birta stöðu móts
-	
-	1. KR	   |  9 stig  |  9 leggir unnir
-	2. Valur   |  9 stig  |  8 leggir unnir
-	2. Þróttur |  7 stig  |  5 leggir unnir
+NAFN: The lightings
+｜
+｜→     Jacqueline Payne    Fyrirliði 
+｜→     Elaina Singleton    Leikmaður 
+｜→     Marcel Arias        Leikmaður 
+｜→     Kallie Hansen       Leikmaður 
 
-	b. - Til baka
+NAFN: The Anacondas
+｜
+｜→     Nero Pesky          Fyrirliði 
+｜→     Verma Murra         Leikmaður 
+｜→     Ron Ribo            Leikmaður 
+｜→     Eva Zarantula       Leikmaður 
+
+NAFN: The Oligarcs
+｜
+｜→     Cassie Obrien       Fyrirliði 
+｜→     Maggie Lynch        Leikmaður 
+｜→     Devin Villarreal    Leikmaður 
+｜→     Gilberto Pollard    Leikmaður 
+
+NAFN: The Cesars
+｜
+｜→     Marianna Bush       Fyrirliði 
+｜→     Dayanara Mckinney   Leikmaður 
+｜→     Kailey Green        Leikmaður 
+｜→     Erik Bradshaw       Leikmaður 
+
+NAFN: The Rings
+｜
+｜→     Matteo Roberts      Fyrirliði 
+｜→     Payten Tucker       Leikmaður 
+｜→     Eliezer Atkinson    Leikmaður 
+｜→     Grayson Ewing       Leikmaður 
+
+______________________________________________________________________________
+
+b.      Til baka
+
+Veldu einn af valmöguleikunum hér að ofan: 
+
+__________________________________________________________________________________________
+
+Veljið mót:
+
+1 .  Pepsi deildin        🗓️:  02.01.23 - 06.01.23
+2 .  Coca Cola Deildin    🗓️:  24.12.22 - 24.12.22
+
+Veldu mót af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir Pepsi deildin): 
+
+__________________________________________________________________________________________
+
+þarf að bæta við hér 
+
+__________________________________________________________________________________________
+
+------------Allir leikmenn--------------
+
+   1.  Sporgonizza Fabio
+   2.  Gwendoline Lucider
+   3.  Zarathustra Ford
+   4.  Winston Birdshill
+   5.  Matteo Roberts
+   6.  Payten Tucker
+   7.  Eliezer Atkinson
+   8.  Grayson Ewing
+   9.  Jacqueline Payne
+  10.  Elaina Singleton
+  11.  Marcel Arias
+  12.  Kallie Hansen
+  13.  Nero Pesky
+  14.  Verma Murra
+  15.  Ron Ribo
+  16.  Eva Zarantula
+  17.  Cassie Obrien
+  18.  Maggie Lynch
+  19.  Devin Villarreal
+  20.  Gilberto Pollard
+  21.  Marianna Bush
+  22.  Dayanara Mckinney
+  23.  Kailey Green
+  24.  Erik Bradshaw
+------------------------------------------------------------------------------
+
+Veldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir Sporgonizza Fabio): 
 
 
-----------------------------------------------------------------------------------------------------
->	Listi yfir þá sem hafa skorað flest afreksstig.
-	
 
-
-	➢ Þeir sem hafa [blank] (Top 10) _______________________________
-	|								|
-	|	1. 🥇	{Player_name}					|
-	|								|
-	|	2. 🥈	{Player_name}					|
-	|								|
-	|	3. 🥉	{Player_name}					|	
-	|								|
-	|		4. 	{Player_name}				|
-	|		5. 	{Player_name}				|	
-	|		6. 	{Player_name}				|
-	|		7.	{Player_name}				|
-	|		8.	{Player_name}				|
-	|		9.	{Player_name}				|
-	|		10.  	{Player_name}				|
-	|_______________________________________________________________|
-
-	b. - Til baka
-	
-----------------------------------------------------------------------------------------------------
-	
-	➢ Skoða tölfræði fyrir leikmann
-	
-	Sláið inn nafn leikmanns:
-
-
-	➢ Tölfræði fyrir leikmann {player_name} ________________________
-	|								|
-	|	Quality Points:						|
-	|	Hæsta innskot:						|
-	|	Hæsta útskot:						|
-	|	Vinningshlutfall:					|
-	|								|
-	|	Quality Points safnað á síðasta móti:			|
-	
-	# þarf að klára þetta
 	
