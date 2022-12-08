@@ -106,7 +106,7 @@ class CaptainUI():
         print("\n****************************")
         print(" Skráning á Stigum: ")
         print("****************************")
-        playerscores = self.get_PlayerScores(playerscores)
+        playerscores = self.getPlayerScores(playerscores)
 
         home_team_score = TeamScore(home_team_id, tournament.id, game.gameid)
         away_team_score = TeamScore(away_team_id, tournament.id, game.gameid)
@@ -319,11 +319,14 @@ class CaptainUI():
                 break
             except ValueError:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
+
+        print("select_game_input check")
         return upcoming_games[command-1]
 
     def select_teamplayer_input(self, ui_str, team_id, exclude_ids=[]):
         """Prints a numbered list of all players of a team and asks the user for their selection. The selected player's id is returned"""
         print(ui_str)
+        print("check_teamplayer_input")
         players = self.llapi.getPlayers()
 
         filtered_players = [
