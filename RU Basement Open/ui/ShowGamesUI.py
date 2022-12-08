@@ -14,6 +14,7 @@ class ShowGamesUI():
         os.system('cls||clear')
         """Displays game overview menu."""
         while True:
+            os.system('cls||clear')
             print(78*"_")
             print()
             print(

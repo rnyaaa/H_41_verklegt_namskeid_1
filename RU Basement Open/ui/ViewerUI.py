@@ -10,6 +10,7 @@ class ViewerUI:
     def displayViewerUI(self):
         os.system('cls||clear')
         while True:
+            os.system('cls||clear')
             print(78*"_")
             print()
             print(
@@ -111,9 +112,10 @@ class ViewerUI:
         '''Shows the high score by Tournament '''
         if tournamentid == None:
             tournament = OrganizerUI.select_tournament_input(self)
+            tournamentid = tournament.id
         os.system('cls||clear')
-        print(f"\nListi yfir leikmenn með flestu afreksstig í {tournament.name}\n")
-        scores = sorted(self.llapi.getPlayerScoreSummariesByTournament(tournament.id), key=lambda x: -x.QPs)
+        print(f"\nListi yfir leikmenn með flestu afreksstig í {self.llapi.getTournamentNameFromId(tournamentid)}\n")
+        scores = sorted(self.llapi.getPlayerScoreSummariesByTournament(tournamentid), key=lambda x: -x.QPs)
         print("   NAFN LEIKMANNS           AFREKSSTIG\n")
         for counter, score in enumerate(scores):
             print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
@@ -124,9 +126,9 @@ class ViewerUI:
         )
         user_input = Menu_functions.menuFooter(False)
         if user_input == "1":
-            self.showPlayerHighscoreInShot(tournament.id)
+            self.showPlayerHighscoreInShot(tournamentid)
         if user_input == "2":
-            self.showPlayerHighscoreOutShot(tournament.id)
+            self.showPlayerHighscoreOutShot(tournamentid)
         
     def showPlayerHighscoreViewer(self):
         os.system('cls||clear')
@@ -219,15 +221,17 @@ class ViewerUI:
         
         print(f"\nTölfræði fyrir {players[command-1].name}\n")
         statistics = self.llapi.getSinglePlayerScore(players[command].playerid)
-        print(f"QPs overall: {statistics.QPs}")
-        print(f"Largest inshot: {statistics.inshots}")
-        print(f"Largest outshot: {statistics.outshots}")
-        print(f"501 singles win/loss ratio: {statistics.result501singles[0]} / {statistics.result501singles[1]}")
-        print(f"301 win/loss ratio: {statistics.result301[0]} / {statistics.result301[1]}")
-        print(f"cricket win/loss ratio: {statistics.resultcricket[0]} / {statistics.resultcricket[1]}")
-        print(f"501 fours win/loss ratio: {statistics.result501fours[0]} / {statistics.result501fours[1]}")
-
-        print(f"\n0. Sýna tölfræði {players[command-1].name} eftir dagsetningu")
+        try:
+            print(f"QPs overall: {statistics.QPs}")
+            print(f"Largest inshot: {statistics.inshots}")
+            print(f"Largest outshot: {statistics.outshots}")
+            print(f"501 singles win/loss ratio: {statistics.result501singles[0]} / {statistics.result501singles[1]}")
+            print(f"301 win/loss ratio: {statistics.result301[0]} / {statistics.result301[1]}")
+            print(f"cricket win/loss ratio: {statistics.resultcricket[0]} / {statistics.resultcricket[1]}")
+            print(f"501 fours win/loss ratio: {statistics.result501fours[0]} / {statistics.result501fours[1]}")
+            print(f"\n0. Sýna tölfræði {players[command-1].name} eftir dagsetningu")
+        except:
+            print("!!! Leikmaður hefur ekki spilað nógu mikið af leikjum til að birta tölfræði !!!")
         user_input = Menu_functions.menuFooter(False)
         if user_input == "0":
             self.getPlayerScoreByDate(players[command-1])
