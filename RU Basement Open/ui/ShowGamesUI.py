@@ -62,8 +62,11 @@ class ShowGamesUI():
         print("------------------------LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR------------------------")
         print("_"*78)
         for game in games:
-            if int(game.results_hometeam) > int(game.results_awayteam):
-                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.home_team}")
-            else:
-                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.away_team}")
+            try:
+                if int(game.results_hometeam) > int(game.results_awayteam):
+                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.home_team}")
+                else:
+                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.away_team}")
+            except:
+                continue
         Menu_functions.menuFooter(False)
