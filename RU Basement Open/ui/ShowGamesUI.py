@@ -49,21 +49,21 @@ class ShowGamesUI():
         
         games = self.llapi.getUpcomingGames()
         print()
-        print("             LISTI YFIR KOMANDI VIÐUREIGNIR. ")
-        print()
+        print("                 LISTI YFIR KOMANDI VIÐUREIGNIR. ")
+        print("-"*78)
         for game in games:
-            print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team}")
+            print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team:>15} vs. {game.away_team:<15}")
         
         Menu_functions.menuFooter(False)
 
     def showGames(self):
         games = self.llapi.getGamesFinished()
         print()
-        print("             LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR. ")
-        print()
+        print("                LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR. ")
+        print("-"*78)
         for game in games:
             if int(game.results_hometeam) > int(game.results_awayteam):
-                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.home_team} - {game.results_hometeam}/{game.results_awayteam}")
+                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.home_team}")
             else:
-                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id)} | {game.date} | {game.home_team} vs. {game.away_team} | Sigurvegari: {game.away_team} - {game.results_awayteam}/{game.results_hometeam}")
+                print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.away_team}")
         Menu_functions.menuFooter(False)
