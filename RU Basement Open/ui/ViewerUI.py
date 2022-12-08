@@ -81,7 +81,6 @@ class ViewerUI:
         print("-"*78)
         
         for counter, score in enumerate(scores):
-            #if selected_tournment.id == score.id:
             print(f"{counter+1}. {self.llapi.getTeamNameFromId(score.team_id):<15}    {score.games_won:>10}     {score.rounds_won:>10}")
 
         
