@@ -3,6 +3,7 @@ from models.results import Results
 from models.player import Player
 from models.team import Team
 from models.game import Game
+from models.teamscore import TeamScore
 from models.playerscore import PlayerScore
 
 class ResultsLL:
@@ -12,10 +13,45 @@ class ResultsLL:
 
     def changeResults(self, teams, playerscores, resultlist, game, gameslist):
         games_to_update = self.getAllGames()
-        playerscores_to_update = self.getAllPlayerScores()
-        teamscores_to_update = self.getAllTeamScores()
+        playerscores_to_update = self.getAllPlayerScore()
+        teamscores_to_update = self.getTeamScore()
+        for update in games_to_update:
+            if update.id == game.id:
+                update.results_hometeam = None
+                update.results_awayteam = None
+        self.ioapi.overwrite_model(games_to_update)
+        for item in playerscores_to_update:
+            for playerscore in playerscores:
+                if item.id == playerscore.id:
+                    playerscore.tournamentid = None
+                    playerscore.playerid = None
+                    playerscore.QPs = None
+                    playerscore.inshots = None
+                    playerscore.outshots = None
+                    playerscore.result501singles = None
+                    playerscore.result301 = None
+                    playerscore.resultcricket = None
+                    playerscore.result501fours = None
+        self.ioapi.overwrite_model(playerscore)
+        for item in teamscores_to_update:
+            if item.game_id == game.id:
+                item.tournament_id = None
+                item.games_won = None
+                item.rounds_won = None
+        self.ioapi.overwrite_model(item)
+        self.addResults(teams, playerscores, resultlist, game, gameslist)
+        
 
+
+
+    def getTeamScore(self) -> list[TeamScore]:
+        """ returns a list of all TeamScore instances """
+        return self.ioapi.return_model(TeamScore)
     
+    def getAllPlayerScore(self) -> list[PlayerScore]:
+        """ returns a list of all PlayerScore instances """
+        return self.ioapi.return_model(PlayerScore)
+
     def getAllGames(self) -> list[Game]:
         """Gets a list of all Game instances."""
         return self.ioapi.return_model(Game)

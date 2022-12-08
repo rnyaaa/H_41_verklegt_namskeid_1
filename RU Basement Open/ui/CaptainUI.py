@@ -52,8 +52,6 @@ class CaptainUI():
         home_team_id = self.llapi.getTeam_id(game.home_team)
         away_team_id = self.llapi.getTeam_id(game.away_team)
 
-        print(home_team_id)
-        print(away_team_id)
         home_players = self.llapi.getPlayersFromTeam(home_team_id)
         away_players = self.llapi.getPlayersFromTeam(away_team_id)
 
@@ -120,12 +118,6 @@ class CaptainUI():
 
         print("√ Niðurstöður skráðar!")
         
-
-        # --------------------------------------- LAGA HÉÐAN (ER BÚINN AÐ GERA FYRIR OFAN ÞETTA) ------------------------------------------------
-
-
-# hér f neðan eru öll föllin sem captain UI samanstendur af tíhí
-
 
     def get_501_1v1_results(self, home_team_id, away_team_id):
         home_player = self.select_teamplayer_input(

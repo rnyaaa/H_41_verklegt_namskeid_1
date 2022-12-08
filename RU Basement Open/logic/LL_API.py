@@ -56,9 +56,6 @@ class LL_API:
         """ returns a list of all Tournament instances """
         return self.tournamentsLL.getAllTournaments()
 
-    def getResults(self):
-        return self.resultsLL.getAllResults()
-
     def getPlayerScores(self) -> list[PlayerSummary]:
         """ returns a list of Player.name and a list of PlayerScore instances """
         return self.playersLL.getAllPlayerScore()
