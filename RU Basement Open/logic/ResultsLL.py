@@ -23,21 +23,21 @@ class ResultsLL:
         for item in playerscores_to_update:
             for playerscore in playerscores:
                 if item.id == playerscore.id:
-                    playerscore.tournamentid = None
-                    playerscore.playerid = None
-                    playerscore.QPs = None
-                    playerscore.inshots = None
-                    playerscore.outshots = None
-                    playerscore.result501singles = None
-                    playerscore.result301 = None
-                    playerscore.resultcricket = None
-                    playerscore.result501fours = None
+                    playerscore.tournamentid = 0
+                    playerscore.playerid = 0
+                    playerscore.QPs = 0
+                    playerscore.inshots = 0
+                    playerscore.outshots = 0
+                    playerscore.result501singles = 0
+                    playerscore.result301 = 0
+                    playerscore.resultcricket = 0
+                    playerscore.result501fours = 0
         self.ioapi.overwrite_model(playerscore)
         for item in teamscores_to_update:
             if item.game_id == game.id:
-                item.tournament_id = None
-                item.games_won = None
-                item.rounds_won = None
+                item.tournament_id = 0
+                item.games_won = 0
+                item.rounds_won = 0
         self.ioapi.overwrite_model(item)
         self.addResults(teams, playerscores, resultlist, game, gameslist)
         

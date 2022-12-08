@@ -30,7 +30,7 @@ class PlayersLL:
     def getPlayerScoreSummaries(self) -> list[PlayerSummary]:
         playerscores = self.getAllPlayerScore()
         """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """
-        playerscores_by_player = dict()
+        playerscores_by_player = {}
         for item in playerscores:
             if item.playerid in playerscores_by_player:
                 playerscores_by_player[item.playerid].append(item)
@@ -40,7 +40,7 @@ class PlayersLL:
         player_summaries = []
         for player_id in playerscores_by_player:
             """ get PlayerSummary with default values """
-            player_summary = PlayerSummary(player_id)
+            player_summary = PlayerSummary(player_id, 0, 0, 0 , [0, 0], [0, 0], [0, 0], [0, 0])
             for score in playerscores_by_player[player_id]:
                 player_summary.QPs += score.QPs
                 player_summary.inshots = max(player_summary.inshots, score.inshots)
@@ -60,7 +60,7 @@ class PlayersLL:
     def getPlayerScoreSummariesByTournament(self, tournamentid) -> list[PlayerSummary]:
         playerscores = [score for score in self.getAllPlayerScore() if score.tournamentid == tournamentid]
         """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """
-        playerscores_by_player = dict()
+        playerscores_by_player = {}
         for item in playerscores:
             if item.playerid in playerscores_by_player:
                 playerscores_by_player[item.playerid].append(item)
@@ -70,7 +70,7 @@ class PlayersLL:
         player_summaries = []
         for player_id in playerscores_by_player:
             """ get PlayerSummary with default values """
-            player_summary = PlayerSummary(player_id)
+            player_summary = PlayerSummary(player_id, 0, 0, 0 , [0, 0], [0, 0], [0, 0], [0, 0])
             for score in playerscores_by_player[player_id]:
                 player_summary.QPs += score.QPs
                 player_summary.inshots = max(player_summary.inshots, score.inshots)
@@ -105,6 +105,7 @@ class PlayersLL:
         for item in players:
             if item.playerid == playerid:
                 return item.name
+                print(item.name)
 
     def ByQualityPoints(player_summary: PlayerSummary):
         return player_summary.QPs
@@ -127,7 +128,7 @@ class PlayersLL:
                         game = indexed_game
                 if datetime.datetime.strptime(game.date, '%d.%m.%y') > datetime.datetime.strptime(date, '%d.%m.%y'):
                     playerscorebydate.append(score)
-        PlayerSummaryByDate = PlayerSummary(playerid)
+        PlayerSummaryByDate = PlayerSummary(playerid, 0, 0, 0 , [0, 0], [0, 0], [0, 0], [0, 0])
         for score in playerscorebydate:
                 PlayerSummaryByDate.QPs += score.QPs
                 PlayerSummaryByDate.inshots = max(PlayerSummaryByDate.inshots, score.inshots)

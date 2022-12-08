@@ -134,9 +134,9 @@ class CaptainUI():
 
         playerscores = []
         for player in home_players:
-            playerscores.append(PlayerScore(tournament.id, game.id, player.playerid))
+            playerscores.append(PlayerScore(player.playerid, game.id, tournament.id))
         for player in away_players:
-            playerscores.append(PlayerScore(tournament.id, game.id, player.playerid))
+            playerscores.append(PlayerScore(player.playerid, game.id, tournament.id))
 
         # Stigagjöf - QPs, Innskot og Útskot
         playerscores = self.getPlayerScores(playerscores)

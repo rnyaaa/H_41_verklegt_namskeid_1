@@ -65,6 +65,7 @@ class OrganizerUI():
                 #Menu_functions.menuExitCountdown(3, True)
 
     def addTeamPage(self):
+        os.system('cls||clear')
         """Organizer menu for adding a team."""
 
         teams = self.llapi.getTeams()
@@ -201,6 +202,10 @@ class OrganizerUI():
                 break
 
         home_team = self.select_team_input("\n🏠 Veljið heimalið:\n")
+        if home_team == None:
+            os.system('cls||clear')
+            print("Engin lið skráð. Vinsamlegast skráðu lið til að halda áfram")
+            return
 
         is_valid = False
         while not is_valid:
@@ -208,7 +213,8 @@ class OrganizerUI():
             if home_team.id is not away_team.id:
                 break
             else:
-                print("\n\n⛔ Ógilt val! Ekki má velja sama lið tvisvar. Reynið aftur.")
+                print("\n\n⛔ Ógilt val! Ekki má velja sama lið tvisvar. Ef ekki er til annað lið vinsamlegast skráðu annað lið.")
+                return
 
         games = self.llapi.getGames()
         game_id = len(games)+1
@@ -248,6 +254,7 @@ class OrganizerUI():
         teams = self.llapi.getTeams()
         command = ""
         while True:
+            os.system('cls||clear')
             for i in range(len(teams)):
                 print(i+1, ". ", teams[i].name)
             try:
@@ -255,10 +262,13 @@ class OrganizerUI():
                     input(f"\nVeldu lið af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {teams[0].name}): "))
                 if command < 1 or command > len(teams):
                     print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
-                    continue
+                    return
+                if len(teams) < 1:
+                    return
                 break
             except:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
+                return
 
         return teams[command-1]
 
@@ -341,9 +351,9 @@ class OrganizerUI():
 
         playerscores = []
         for player in home_players:
-            playerscores.append(PlayerScore(tournament.id, game.id, player.playerid))
+            playerscores.append(PlayerScore(player.playerid, game.id, tournament.id, ))
         for player in away_players:
-            playerscores.append(PlayerScore(tournament.id, game.id, player.playerid))
+            playerscores.append(PlayerScore(player.playerid, game.id, tournament.id))
 
         # Stigagjöf - QPs, Innskot og Útskot
         playerscores = self.getPlayerScores(playerscores)

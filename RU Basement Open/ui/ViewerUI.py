@@ -95,7 +95,7 @@ class ViewerUI:
         print("    NAFN LEIKMANNS        AFREKSSTIG")
         print("-"*78)
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -   {score.QPs:<3}")
+            print(f"{counter+1}. {str(self.llapi.getPlayerNameFromId(score.playerid)):<20}  -   {score.QPs:<3}")
         print("-"*78)
         print(
             "1. Stigatafla yfir Innskot\n"
@@ -220,8 +220,9 @@ class ViewerUI:
             command = int(input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
         
         print(f"\nTölfræði fyrir {players[command-1].name}\n")
-        statistics = self.llapi.getSinglePlayerScore(players[command].playerid)
+        statistics = self.llapi.getSinglePlayerScore(players[command-1].playerid)
         try:
+            print(f"{statistics.playerid}")
             print(f"QPs overall: {statistics.QPs}")
             print(f"Largest inshot: {statistics.inshots}")
             print(f"Largest outshot: {statistics.outshots}")
