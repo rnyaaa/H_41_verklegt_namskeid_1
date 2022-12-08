@@ -36,14 +36,16 @@ class ShowGamesUI():
 
 
     def showTournamentDates(self):
-        '''tournament = OrganizerUI.select_tournament_input(self)
-        print()
-        all_games = self.llapi.getGames()
-        for game in all_games:
-            if tournament.id == game.tournament_id:
-                if game.results == '':
-                    print(f"{game.home_team:>15} vs. {game.away_team:<15} - {game.date:>8}")
-                    print()'''
+        """
+        Shows upcoming games between teams in all competitions. 
+        with this format:
+______________________________________________________________________________
+   Coca Cola Deildin | 24.12.22 |   The lightings vs. The Anacondas  
+       Pepsi deildin | 01.01.23 |   The Anacondas vs. The Oligarcs   
+       Pepsi deildin | 02.01.23 |      The Brahms vs. The Rings      
+       """
+
+
                 
         
         
@@ -57,6 +59,13 @@ class ShowGamesUI():
         Menu_functions.menuFooter(False)
 
     def showGames(self):
+        """
+        Shows results from finished games from all competitions. 
+        With this format. 
+        ______________________________________________________________________________
+       Pepsi deildin | 01.01.23 |      The Brahms 0 vs. 2 The lightings   | Sigurvegari: The lightings
+
+        """
         games = self.llapi.getGamesFinished()
         print()
         print("------------------------LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR------------------------")
@@ -64,9 +73,9 @@ class ShowGamesUI():
         for game in games:
             try:
                 if int(game.results_hometeam) > int(game.results_awayteam):
-                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.home_team}")
+                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team:>15} {game.results_hometeam} vs. {game.results_awayteam} {game.away_team:<15} | Sigurvegari: {game.home_team}")
                 else:
-                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team} {game.results_hometeam:>15} vs. {game.results_awayteam:<15} {game.away_team} | Sigurvegari: {game.away_team}")
+                    print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team:>15} {game.results_hometeam} vs. {game.results_awayteam} {game.away_team:<15} | Sigurvegari: {game.away_team}")
             except:
                 continue
         Menu_functions.menuFooter(False)
