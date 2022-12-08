@@ -63,26 +63,38 @@ class CaptainUI():
             return
 
         # allar 501 1v1 umferðirnar, niðurstöður:
+        print("\n****************************")
+        print(" Skráning á leik 501 - 1v1:")
+        print("****************************")
         result_501_1v1_1 = self.get_501_1v1_results(home_team_id, away_team_id)
         result_501_1v1_2 = self.get_501_1v1_results(home_team_id, away_team_id)
         result_501_1v1_3 = self.get_501_1v1_results(home_team_id, away_team_id)
         result_501_1v1_4 = self.get_501_1v1_results(home_team_id, away_team_id)
 
         # niðurstaða 301 umferðarinnar:
+        print("\n****************************")
+        print(" Skráning á leik 301 - 2v2:")
+        print("****************************")
         result_301_2v2 = self.get_301_results(home_team_id, away_team_id)
 
         # niðurstaða cricket:
+        print("\n****************************")
+        print(" Skráning á leik C - 2v2:\n")
+        print("****************************")
         result_cricket = self.get_cricket_results(home_team_id, away_team_id)
 
         # niðurstaða 501 4v4 umferðarinnar:
+        print("\n****************************")
+        print(" Skráning á leik 501 - 4v4:")
+        print("****************************")
         result_501_2v2 = self.get_501_4v4_results(home_team_id, away_team_id)
 
         # --------------------------------------- LAGA HÉÐAN (ER BÚINN AÐ GERA FYRIR OFAN ÞETTA) ------------------------------------------------
 
-        PlayerScore(tournament.id, game.id, playerid, qps, inshot, outshot,
-                    result501singles_wins, result301_wins, resultcricket_wins, result501fours_wins)
+        #PlayerScore(tournament.id, game.id, playerid, qps, inshot, outshot,
+                    #result501singles_wins, result301_wins, resultcricket_wins, result501fours_wins)
 
-        TeamScore()
+        #TeamScore()
 
 
 # hér f neðan eru öll föllin sem captain UI samanstendur af tíhí
@@ -98,7 +110,7 @@ class CaptainUI():
         away_score = 0
 
         while home_score < 2 and away_score < 2:
-            new_home_score, new_away_score = self.who_won()
+            new_home_score, new_away_score = self.who_won(home_player.name,away_player.name)
             home_score += new_home_score
             away_score += new_away_score
 
@@ -215,10 +227,12 @@ class CaptainUI():
             except:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
 
-    def who_won(self):
-        print("Hver vann?\n")
-        print("a. heimalið")
-        print("b. útilið\n")
+    def who_won(self, home_player, away_player):
+        print("Hver vann 1. umferð?\n")
+        print(f"a. {home_player}")
+        print(f"b. {away_player}")
+        #print("a. heimalið")
+        #print("b. útilið\n")
 
         while True:
             user_input = input(
@@ -227,4 +241,4 @@ class CaptainUI():
                 return (1, 0)
             if user_input == "b":
                 return (0, 1)
-            print('Ógildur valmöguleiki, reyndu aftur')
+            print('⛔ Ekki gildur valmöguleiki, reyndu aftur')
