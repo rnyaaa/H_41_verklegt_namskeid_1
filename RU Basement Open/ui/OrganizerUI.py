@@ -129,7 +129,15 @@ class OrganizerUI():
         print("➢   Skrá leikmann\n")
 
         name = input("o    Nafn: ")
-        id_number = Menu_functions.getSSN("o    Kennitala: ")
+
+        # check if kennitala already exists
+        id_is_valid = False
+        while not id_is_valid:
+            id_number = Menu_functions.getSSN("o    Kennitala: ")
+            id_is_valid = LL_API.checkIfPlayerIsRegistered(self, id_number)
+            if id_is_valid:
+                break
+            print("\n⛔ Leikmaður með þessa kennitölu er þegar skráður! Reynið aftur.\n")
         home_address = input("o    Heimilisfang (gata og húsnúmer): ")
         phone_number1 = Menu_functions.getPhoneNumber("o    GSM: ")
         phone_number2 = Menu_functions.getPhoneNumber("o    Heimasími: ")

@@ -153,21 +153,20 @@ class LL_API:
         data = self.getTournaments()
         for list in data:
             if list.name.lower() == new_name.lower():
-                # torunament name already exists - new name is invalid
+                # tournament name already exists - new name is invalid
                 return False
-            else:
-                # name does not already exist - new name is valid
-                return True
+        # name does not already exist - new name is valid
+        return True
 
-    def checkIfPlayerIsRegistered(self, player):
-        """"""
-        input_player = input(player)
+    def checkIfPlayerIsRegistered(self, new_player_SSN):
+        """Checks if a player with a given social security no. (kennitala) already exists. If not, returns True. Else, else False."""
         data = self.getPlayers()
         for list in data:
-            if list.name.lower() == input_player.lower():
-                return input_player
-            else:
-                print("\nLeikmaður er ekki skráður.\n")
+            if list.playerid == new_player_SSN:
+                # player name already exists - new name is invalid
+                return False
+        # name does not already exist - new name is valid
+        return True
 
     def getTeam_id(self, team_name):
         """Gets andReturns a team ID for a given team name."""
