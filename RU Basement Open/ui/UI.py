@@ -88,6 +88,8 @@ class Menu_functions:
         return date_str
 
     def isBetweenDates(check_date, start, end):
+        """Takes in a date to check, as well as a start and end date.
+        Returns True if the check date is between the stard and end dates, else prints error message and returns false."""
         date = datetime.datetime.strptime(check_date, '%d.%m.%y')
         start_date = datetime.datetime.strptime(start, '%d.%m.%y')
         end_date = datetime.datetime.strptime(end, '%d.%m.%y')
@@ -136,7 +138,7 @@ class Menu_functions:
             print("\n⛔ Ógilt val, reyndu aftur.\n")
 
     def menuQuit():
-        """Quits the """
+        """Prints artwork and quits the program."""
         os.system('cls||clear')
         print()
         print("     .--'''''''''--.")

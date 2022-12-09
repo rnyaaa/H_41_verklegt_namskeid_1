@@ -26,8 +26,8 @@ class OrganizerUI():
         self.llapi = llapi
 
     def displayOrganizerMenu(self):
-        os.system('clear')
         """Displays the organizer submenu."""
+        os.system('clear')
         while True:
             print(78*"_")
             print()
@@ -66,8 +66,8 @@ class OrganizerUI():
                 #Menu_functions.menuExitCountdown(3, True)
 
     def addTeamPage(self):
-        os.system('cls||clear')
         """Organizer menu for adding a team."""
+        os.system('cls||clear')
 
         teams = self.llapi.getTeams()
 
@@ -160,8 +160,8 @@ class OrganizerUI():
         Menu_functions.pressEnterToContinue()
 
     def changeTournamentDates(self):
-        os.system('cls||clear')
         """Organizer form for changing dates of an existing tournament and its games"""
+        os.system('cls||clear')
 
         print("➢	Breyta dagsetningu á viðureign: ")
         print()
@@ -191,6 +191,7 @@ class OrganizerUI():
         return user_input
 
     def addGames(self):
+        """Organizer form for adding games."""
         os.system('cls||clear')
         print("\nSkrá viðureignir: ")
 
@@ -207,7 +208,7 @@ class OrganizerUI():
         home_team = self.select_team_input("\n🏠 Veljið heimalið:\n")
         if home_team == None:
             os.system('cls||clear')
-            print("Engin lið skráð. Vinsamlegast skráðu lið til að halda áfram")
+            print("⚠️ Engin lið skráð. Vinsamlegast skráðu lið til að halda áfram")
             return
 
         is_valid = False
@@ -232,8 +233,8 @@ class OrganizerUI():
         Menu_functions.pressEnterToContinue()
 
     def select_tournament_input(self):
-        os.system('cls||clear')
         """Prints a numbered list of all tournaments and asks the user for their selection. The selected tournament index is returned"""
+        os.system('cls||clear')
         print("\nVeljið mót:\n")
         tournaments = self.llapi.getTournaments()
         command = ""
@@ -253,8 +254,8 @@ class OrganizerUI():
         return tournaments[command-1]
 
     def select_team_input(self, ui_str):
-        os.system('cls||clear')
         """Prints a numbered list of all teams and asks the user for their selection. The selected team index is returned"""
+        os.system('cls||clear')
         print(ui_str)
         teams = self.llapi.getTeams()
         command = ""
@@ -277,7 +278,8 @@ class OrganizerUI():
 
         return teams[command-1]
 
-    def Skraning_Game_Print(self, type):
+    def Skraning_Game_Print(self, type: str):
+        """Prints the game round results registration header for a given game type (ex. 501s (501 singles) or C (cricket)."""
         if type == "501s":
             print("\n****************************")
             print(" Skráning á leik 501 - 1v1:")
@@ -300,8 +302,8 @@ class OrganizerUI():
             print("****************************\n")
 
     def changeResults(self):
-        os.system('cls||clear')
         """ Allows the organizer to change the results of a previous game"""
+        os.system('cls||clear')
         tournament = OrganizerUI.select_tournament_input(self)
         os.system('cls||clear')
         game = self.select_game_input_finished(tournament.id)
