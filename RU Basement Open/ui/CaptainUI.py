@@ -174,7 +174,7 @@ class CaptainUI():
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("501s")
-            new_home_score, new_away_score = self.who_won(
+            new_home_score, new_away_score = Menu_functions.who_won(
                 home_player.name, away_player.name, counter)
             home_score += new_home_score
             away_score += new_away_score
@@ -208,7 +208,7 @@ class CaptainUI():
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("301")
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
+            new_home_score, new_away_score = Menu_functions.who_won(self.llapi.getTeamNameFromId(
                 home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
@@ -244,7 +244,7 @@ class CaptainUI():
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("301")
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
+            new_home_score, new_away_score = Menu_functions.who_won(self.llapi.getTeamNameFromId(
                 home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
@@ -295,7 +295,7 @@ class CaptainUI():
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("501f")
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
+            new_home_score, new_away_score = Menu_functions.who_won(self.llapi.getTeamNameFromId(
                 home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
@@ -338,21 +338,6 @@ class CaptainUI():
                 return filtered_players[command-1]
             except:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
-
-    def who_won(self, home_player, away_player, round_number):
-        """Ask the user which player won between home player and away player. Takes in player names and the number of the round."""
-
-        while True:
-            print(f"Hver vann {round_number}. umferð?\n")
-            print(f"a. {home_player}")
-            print(f"b. {away_player}")
-            user_input = input(
-                f"\nSláðu inn valmöguleika af listanum hér að ofan (t.d. a fyrir {home_player}): ")
-            if user_input == "a":
-                return (1, 0)
-            if user_input == "b":
-                return (0, 1)
-            print('\n⛔ Ekki gildur valmöguleiki, reyndu aftur\n')
 
     def select_game_input(self, tournament_id):
         os.system('cls||clear')

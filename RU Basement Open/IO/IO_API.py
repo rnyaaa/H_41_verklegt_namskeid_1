@@ -1,11 +1,9 @@
 import csv
-import os
 from typing import Any
 
 from models.game import Game
 from models.player import Player
 from models.playerscore import PlayerScore
-from models.results import Results
 from models.team import Team
 from models.teamscore import TeamScore
 from models.tournament import Tournament
@@ -22,7 +20,6 @@ class IO_API:
             Tournament: "models/tournaments.csv",
             PlayerScore: "models/playerscore.csv",
             TeamScore: "models/teamscore.csv",
-            Results: "models/results.csv"
         }
         """ a fieldname dict keyed by class objects """
         self.fieldnames = {

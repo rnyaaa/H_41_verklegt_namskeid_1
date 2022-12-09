@@ -1,7 +1,4 @@
 from IO.IO_API import IO_API
-from models.results import Results
-from models.player import Player
-from models.team import Team
 from models.game import Game
 from models.teamscore import TeamScore
 from models.playerscore import PlayerScore

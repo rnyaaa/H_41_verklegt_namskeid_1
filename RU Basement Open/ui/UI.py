@@ -136,6 +136,21 @@ class Menu_functions:
                 return True
             print("\n⛔ Ógilt val, reyndu aftur.\n")
 
+    def who_won(self, home_player, away_player, round_number):
+        """Ask the user which player won between home player and away player. Takes in player names and the number of the round."""
+
+        while True:
+            print(f"Hver vann {round_number}. umferð?\n")
+            print(f"a. {home_player}")
+            print(f"b. {away_player}")
+            user_input = input(
+                f"\nSláðu inn valmöguleika af listanum hér að ofan (t.d. a fyrir {home_player}): ")
+            if user_input == "a":
+                return (1, 0)
+            if user_input == "b":
+                return (0, 1)
+            print('\n⛔ Ekki gildur valmöguleiki, reyndu aftur\n')
+
     def menuQuit():
         """Prints artwork and quits the program."""
         os.system('cls||clear')
