@@ -47,14 +47,14 @@ class IO_API:
         model_return = []
         with self.Loader(model_type) as csvfile:
             reader = csv.reader(csvfile)
-            next(reader) # skip first row
+            next(reader)  # skip first row
             for row in reader:
                 row_return = []
                 for item in row:
                     try:
                         item = int(item)
                     except ValueError:
-                        item = item 
+                        item = item
                     row_return.append(item)
                 model_return.append(row_return)
         # Dark magic pls do not touch
@@ -78,6 +78,7 @@ class IO_API:
                 overwriter.writerow(model.listify())
 
     def update(self, updated_model):
+        """ writes the content for a new or updated list"""
         tournaments = self.return_model(updated_model.__class__)
         for i in range(len(tournaments)):
             if updated_model.id == tournaments[i].id:

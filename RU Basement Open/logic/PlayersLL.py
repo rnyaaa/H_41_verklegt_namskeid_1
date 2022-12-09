@@ -101,11 +101,11 @@ class PlayersLL:
         return sorted(self.getPlayerScoreSummaries(), key=sortBy)
 
     def getPlayerNameFromId(self, playerid):
+        """returns a player name for """
         players = self.getAllPlayers()
         for item in players:
             if item.playerid == playerid:
                 return item.name
-                print(item.name)
 
     def ByQualityPoints(player_summary: PlayerSummary):
         return player_summary.QPs

@@ -134,7 +134,7 @@ class OrganizerUI():
         id_is_valid = False
         while not id_is_valid:
             id_number = Menu_functions.getSSN("o    Kennitala: ")
-            id_is_valid = LL_API.checkIfPlayerIsRegistered(self, id_number)
+            id_is_valid = LL_API.checkIfPlayerIsRegistered(id_number)
             if id_is_valid:
                 break
             print("\n⛔ Leikmaður með þessa kennitölu er þegar skráður! Reynið aftur.\n")

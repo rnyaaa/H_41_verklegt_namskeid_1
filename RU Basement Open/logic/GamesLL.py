@@ -1,6 +1,7 @@
 from IO.IO_API import IO_API
 from models.game import Game
 
+
 class GamesLL():
 
     def __init__(self, ioapi: IO_API):
@@ -16,10 +17,12 @@ class GamesLL():
         self.ioapi.create_model(game)
 
     def getGameFromId(self, gameid):
+        """Returns a game from a given gameID."""
         games = self.getAllGames()
         for game in games:
             if game.gameid == gameid:
                 return game
 
     def changeDateGame(self, updated_info):
+        "Returns the game with updated dates."
         self.ioapi.update(updated_info)

@@ -141,7 +141,7 @@ class LL_API:
         self.tournamentsLL.changeTournamentInfo(updated_info)
 
     def changeDateGame(self, updated_info):
-        """Change dates of a tournament."""
+        """Change dates of a game."""
         self.gamesLL.changeDateGame(updated_info)
 
     def getTournamentNameFromId(self, tournamentid) -> str:
