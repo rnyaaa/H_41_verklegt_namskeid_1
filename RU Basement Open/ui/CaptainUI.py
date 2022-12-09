@@ -339,11 +339,11 @@ class CaptainUI():
             except:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
 
-    def who_won(self, home_player, away_player, counter):
-        """Ask the user which player won between home player and away player"""
+    def who_won(self, home_player, away_player, round_number):
+        """Ask the user which player won between home player and away player. Takes in player names and the number of the round."""
 
         while True:
-            print(f"Hver vann {counter}. umferð?\n")
+            print(f"Hver vann {round_number}. umferð?\n")
             print(f"a. {home_player}")
             print(f"b. {away_player}")
             user_input = input(
