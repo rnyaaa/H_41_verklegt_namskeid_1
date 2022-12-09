@@ -5,6 +5,7 @@ import datetime
 from time import time
 import os
 
+
 class ShowGamesUI():
 
     def __init__(self, llapi: LL_API):
@@ -24,7 +25,7 @@ class ShowGamesUI():
                 "2.	Listi yfir yfirstaðnar viðureignir\n")
 
             user_input = Menu_functions.menuFooter(False)
-            
+
             if user_input == "1":
                 self.showTournamentDates()
             elif user_input == "2":
@@ -35,26 +36,26 @@ class ShowGamesUI():
                 Menu_functions.menuQuit()
             else:
                 print("⛔ Ekki gildur valmöguleiki, reyndu aftur")
-                
-
 
     def showTournamentDates(self):
+        """Displays a list of upcoming games/tournaments."""
         os.system('cls||clear')
-        games = sorted(self.llapi.getUpcomingGames(), key=lambda x: datetime.datetime.strptime(x.date, '%d.%m.%y'))   
+        games = sorted(self.llapi.getUpcomingGames(
+        ), key=lambda x: datetime.datetime.strptime(x.date, '%d.%m.%y'))
         #games = self.llapi.getUpcomingGames()
         print()
-        print("------------------------LISTI YFIR KOMANDI VIÐUREIGNIR------------------------")
+        print(
+            "------------------------LISTI YFIR KOMANDI VIÐUREIGNIR------------------------")
         print("_"*78)
         for game in games:
             print(f"{self.llapi.getTournamentNameFromId(game.tournament_id):>20} | {game.date} | {game.home_team:>15} vs. {game.away_team:<15}")
-        
+
         Menu_functions.menuFooter(False)
 
     def showGames(self):
+        """Shows a list of past/finished competitions."""
         os.system('cls||clear')
-        """
-        Shows results from finished games from all competitions. 
-        """
+
         games = self.llapi.getGamesFinished()
         print()
         print("-----------------------LISTI YFIR YFIRSTAÐNAR VIÐUREIGNIR----------------------")
