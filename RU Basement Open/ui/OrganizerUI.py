@@ -7,6 +7,7 @@ from models.teamscore import TeamScore
 from models.team import Team
 from models.tournament import Tournament
 from ui.UI import Menu_functions
+from ui.CaptainUI import CaptainUI
 import os
 
 
@@ -134,7 +135,7 @@ class OrganizerUI():
         id_is_valid = False
         while not id_is_valid:
             id_number = Menu_functions.getSSN("o    Kennitala: ")
-            id_is_valid = LL_API.checkIfPlayerIsRegistered(id_number)
+            id_is_valid = self.llapi.checkIfPlayerIsRegistered(id_number)
             if id_is_valid:
                 break
             print("\n⛔ Leikmaður með þessa kennitölu er þegar skráður! Reynið aftur.\n")
@@ -143,7 +144,8 @@ class OrganizerUI():
         phone_number2 = Menu_functions.getPhoneNumber("o    Heimasími: ")
         email = Menu_functions.getEmail("o    Netfang: ")
 
-        the_team = self.select_team_input("\nSkrá leikmann í lið:\n")
+        the_team = self.select_team_input(
+            "\Veldu lið til að skrá leikmanninn í:\n")
 
         # les yfir og telur öll samsvarandi team_id í players og gáir hvort það er einhver skráður í liðið nú þegar. Ef nei:
         all_players = self.llapi.getPlayers()
@@ -273,7 +275,6 @@ class OrganizerUI():
         teams = self.llapi.getTeams()
         command = ""
         while True:
-            os.system('cls||clear')
             for i in range(len(teams)):
                 print(i+1, ". ", teams[i].name)
             try:
@@ -410,15 +411,17 @@ class OrganizerUI():
 
         home_score = 0
         away_score = 0
+        counter = 1
 
         # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Game_Print("501s")
-            new_home_score, new_away_score = self.who_won(
-                home_player.name, away_player.name)
+            new_home_score, new_away_score = CaptainUI.who_won(
+                home_player.name, away_player.name, counter)
             home_score += new_home_score
             away_score += new_away_score
+            counter += 1
 
         return GameResult("501 1v1", [home_player], [away_player], home_score, away_score)
 
@@ -445,15 +448,17 @@ class OrganizerUI():
 
         home_score = 0
         away_score = 0
+        counter = 1
 
         # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Game_Print("301")
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
-                home_team_id), self.llapi.getTeamNameFromId(away_team_id))
+            new_home_score, new_away_score = CaptainUI.who_won(self.llapi.getTeamNameFromId(
+                home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
+            counter += 1
 
         return GameResult("301 2v2", [home_player1, home_player2], [away_player1, away_player2], home_score, away_score)
 
@@ -482,16 +487,18 @@ class OrganizerUI():
 
         home_score = 0
         away_score = 0
+        counter = 1
 
         # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Game_Print("C")
             exclude_ids.append(away_player1.playerid)
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
-                home_team_id), self.llapi.getTeamNameFromId(away_team_id))
+            new_home_score, new_away_score = CaptainUI.who_won(self.llapi.getTeamNameFromId(
+                home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
+            counter += 1
 
         return GameResult("Cricket 2v2", [home_player1, home_player2], [away_player1, away_player2], home_score, away_score)
 
@@ -534,15 +541,17 @@ class OrganizerUI():
 
         home_score = 0
         away_score = 0
+        counter = 1
 
         # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Game_Print("501f")
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
-                home_team_id), self.llapi.getTeamNameFromId(away_team_id))
+            new_home_score, new_away_score = CaptainUI.who_won(self.llapi.getTeamNameFromId(
+                home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
+            counter += 1
 
         return GameResult("501 4v4", [home_player1, home_player2, home_player3, home_player4], [away_player1, away_player2, away_player3, away_player4], home_score, away_score)
 
