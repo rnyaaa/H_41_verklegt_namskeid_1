@@ -78,8 +78,9 @@ class ViewerUI:
         selected_tournment = OrganizerUI.select_tournament_input(self)
         os.system('cls||clear')
         print()
-        
-        scores = self.llapi.getTeamScoreSummariesByTournament(int(selected_tournment.id))
+
+        scores = self.llapi.getTeamScoreSummariesByTournament(
+            int(selected_tournment.id))
         scores = list(set(scores))
         scores = sorted(scores, key=lambda x: -x.games_won and -x.rounds_won)
         print(f"       {team_name:<11}｜{games_won:>12}  ｜  {rounds_won:<14}")
@@ -249,7 +250,7 @@ class ViewerUI:
                 f"\n0. Sýna tölfræði {players[command-1].name} eftir dagsetningu")
         except:
             print(
-                "!!! Leikmaður hefur ekki spilað nógu mikið af leikjum til að birta tölfræði !!!")
+                "\n⚠️ Leikmaður hefur ekki spilað nógu mikið af leikjum til að birta tölfræði !!!\n")
         user_input = Menu_functions.menuFooter(False)
         if user_input == "0":
             self.getPlayerScoreByDate(players[command-1])
