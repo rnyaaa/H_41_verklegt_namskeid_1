@@ -18,4 +18,4 @@ Passwords, usernames or other forms of access codes are not needed either.
 
 ## Video Tutorial
 
-A video tutorial explaining the basics can be found [yt linkur hér]
+A video tutorial explaining the basics can be found [here](https://sigurdur.in/ru_basement_open_tutorial)
