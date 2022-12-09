@@ -3,6 +3,7 @@ from models.tournament import Tournament
 from models.team import Team
 from models.game import Game
 
+
 class TournamentLL():
 
     def __init__(self, ioapi: IO_API):
@@ -17,45 +18,38 @@ class TournamentLL():
         return self.ioapi.create_model(tournament)
 
     def getTournamentNameFromId(self, tournamentid):
+        """Gets a tournament name for a given tourment id."""
         tournaments = self.getAllTournaments()
         for tournament in tournaments:
             if tournament.id == tournamentid:
                 return tournament.name
 
     def getTournamentScore(self):
-        """
-        Returns a list of tuples containing the team name, games won and rounds won.
-        """
+        """Returns a list of tuples containing the team name, games won and rounds won."""
 
         all_games = self.ioapi.return_model(Game)
         teams_rounds_wins = {}
         teams_matches_wins = {}
-        
+
         for game in all_games:
             if game.home_team not in teams_rounds_wins:
                 teams_rounds_wins[game.home_team] = 0
             teams_rounds_wins[game.home_team] += int(self.result.split("-")[0])
-            #########
             if game.home_team not in teams_matches_wins:
                 teams_matches_wins[game.home_team] = 0
             if int(self.result.split("-")[0]) == 2:
                 teams_matches_wins[game.home_team] += 1
-
-            ##############################
-
             if game.away_team not in teams_rounds_wins:
                 teams_rounds_wins[game.away_teams] = 0
-            teams_rounds_wins[game.away_teams] += int(self.result.split("-")[1])
-            #########
+            teams_rounds_wins[game.away_teams] += int(
+                self.result.split("-")[1])
             if game.away_teams not in teams_matches_wins:
                 teams_matches_wins[game.away_teams] = 0
             if int(self.result.split("-")[1]) == 2:
                 teams_matches_wins[game.away_teams] += 1
-        
+
         return teams_matches_wins, teams_rounds_wins
 
     def changeTournamentInfo(self, updated_info: Tournament):
+        """Update tournament info."""
         self.ioapi.update(updated_info)
-
-
-

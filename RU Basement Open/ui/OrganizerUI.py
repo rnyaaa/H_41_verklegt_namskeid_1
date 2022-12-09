@@ -98,8 +98,13 @@ class OrganizerUI():
         tournament_id = len(tournaments) + 1
 
         # No two tournaments can have the same name
-        tournament_name = input("o	Nafn deildar/móts: ")
-        self.llapi.verifyTournament(tournament_name)
+        name_is_valid = False
+        while not name_is_valid:
+            tournament_name = input("o	Nafn deildar/móts: ")
+            name_is_valid = self.llapi.verifyTournamentName(tournament_name)
+            if name_is_valid:
+                break
+            print("\n⛔ Nafn móts er frátekið, veljið annað nafn.\n")
 
         organizer_name = input("o	Nafn Skipuleggjanda: ")
         organizer_phone = Menu_functions.getPhoneNumber(
@@ -124,7 +129,15 @@ class OrganizerUI():
         print("➢   Skrá leikmann\n")
 
         name = input("o    Nafn: ")
-        id_number = Menu_functions.getSSN("o    Kennitala: ")
+
+        # check if kennitala already exists
+        id_is_valid = False
+        while not id_is_valid:
+            id_number = Menu_functions.getSSN("o    Kennitala: ")
+            id_is_valid = LL_API.checkIfPlayerIsRegistered(self, id_number)
+            if id_is_valid:
+                break
+            print("\n⛔ Leikmaður með þessa kennitölu er þegar skráður! Reynið aftur.\n")
         home_address = input("o    Heimilisfang (gata og húsnúmer): ")
         phone_number1 = Menu_functions.getPhoneNumber("o    GSM: ")
         phone_number2 = Menu_functions.getPhoneNumber("o    Heimasími: ")
