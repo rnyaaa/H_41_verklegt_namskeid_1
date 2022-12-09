@@ -350,6 +350,7 @@ class OrganizerUI():
             exclude.append(player.playerid)
         result_501_1v1_4 = self.get_501_1v1_results(
             home_team_id, away_team_id, exclude)
+        # setur niðurstöður í resultlist
         resultlist.append(result_501_1v1_1)
         resultlist.append(result_501_1v1_2)
         resultlist.append(result_501_1v1_3)
@@ -373,6 +374,7 @@ class OrganizerUI():
         result_501_4v4 = self.get_501_4v4_results(home_team_id, away_team_id)
         resultlist.append(result_501_4v4)
 
+        # býr til lista af PlayerScores fyrir hvern player
         playerscores = []
         for player in home_players:
             playerscores.append(PlayerScore(
@@ -384,18 +386,21 @@ class OrganizerUI():
         # Stigagjöf - QPs, Innskot og Útskot
         playerscores = self.getPlayerScores(playerscores)
 
+        # býr til lista af TeamScores fyrir hvert lið
         teams = [TeamScore(home_team_id, tournament.id, game.id), TeamScore(
             away_team_id, tournament.id, game.id)]
         gameslist = self.llapi.getUpcomingGames()
+        # sendir allt saman í add results
         self.llapi.addResults(teams, playerscores, resultlist, game, gameslist)
 
         print("✅ Niðurstöður skráðar!")
 
     def get_501_1v1_results(self, home_team_id, away_team_id, exclude_ids):
         """Asks user for the players and the results from a 501 1v1 player game."""
-
         os.system('cls||clear')
-        self.scoring_Header_Print("501s")
+        self.scoring_Header_Game_Print("501s")
+
+        # velur heimalið og útilið
         home_player = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id, exclude_ids)
         os.system('cls||clear')
@@ -407,6 +412,7 @@ class OrganizerUI():
         away_score = 0
         counter = 1
 
+        # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("501s")
@@ -421,6 +427,7 @@ class OrganizerUI():
     def get_301_results(self, home_team_id, away_team_id):
         """Asks user for the players and the results from a 301 2v2 player game."""
 
+        # velur heimalið og útilið
         os.system('cls||clear')
         self.scoring_Header_Print("301")
         home_player1 = self.select_teamplayer_input(
@@ -442,6 +449,7 @@ class OrganizerUI():
         away_score = 0
         counter = 1
 
+        # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("301")
@@ -456,6 +464,7 @@ class OrganizerUI():
     def get_cricket_results(self, home_team_id, away_team_id, exclude_ids):
         """Asks user for the players and the results from a cricket game."""
 
+        # velur heimalið og útilið
         os.system('cls||clear')
         self.scoring_Header_Print("C")
         home_player1 = self.select_teamplayer_input(
@@ -479,6 +488,7 @@ class OrganizerUI():
         away_score = 0
         counter = 1
 
+        # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("C")
@@ -494,6 +504,7 @@ class OrganizerUI():
     def get_501_4v4_results(self, home_team_id, away_team_id):
         """Asks user for the players and the results from a 501 4v4 player game."""
 
+        # velur heimalið og útilið
         os.system('cls||clear')
         self.scoring_Header_Print("501f")
         home_player1 = self.select_teamplayer_input(
@@ -531,6 +542,7 @@ class OrganizerUI():
         away_score = 0
         counter = 1
 
+        # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("501f")
@@ -563,6 +575,7 @@ class OrganizerUI():
         print(ui_str)
         players = self.llapi.getPlayers()
 
+        # notar "exclude ids" lista af playerids til að útiloka leikmenn úr vali
         filtered_players = [
             player for player in players if player.team_id == team_id and player.playerid not in exclude_ids]
         command = ""
@@ -578,6 +591,22 @@ class OrganizerUI():
                 return filtered_players[command-1]
             except:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
+
+    def who_won(self, home_player, away_player):
+        
+        """Asks user whether home player or away player won."""
+        print("Hver vann 1. umferð?\n")
+        print(f"a. {home_player}")
+        print(f"b. {away_player}")
+
+        while True:
+            user_input = input(
+                f"\nSláðu inn valmöguleika af listanum hér að ofan (sláðu t.d. inn a fyrir {home_player}): ")
+            if user_input == "a":
+                return (1, 0)
+            if user_input == "b":
+                return (0, 1)
+            print('\n⛔ Ekki gildur valmöguleiki, reyndu aftur\n')
 
     def select_game_input_finished(self, tournament_id):
         """Prints a numbered list of all games and asks the user for their selection. The selected game index is returned"""

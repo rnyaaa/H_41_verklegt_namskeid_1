@@ -292,6 +292,7 @@ class CaptainUI():
         home_score = 0
         away_score = 0
         counter = 1
+        # á meðan ekkert lið er með fleiri en 2 í score, þá heldur það áfram að spurja um sigurvegara roundsins
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.scoring_Header_Print("501f")

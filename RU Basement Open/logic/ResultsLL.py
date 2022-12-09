@@ -14,6 +14,7 @@ class ResultsLL:
         games_to_update = self.getAllGames()
         playerscores_to_update = self.getAllPlayerScore()
         teamscores_to_update = self.getTeamScore()
+        # þetta safnar PlayerScores, Games og TeamScores sem voru skráð úr þeim úrslitum sem notandi vill breyta og þurrkar þau út
         for update in games_to_update:
             if update.id == game.id:
                 update.results_hometeam = None
@@ -38,6 +39,7 @@ class ResultsLL:
                 item.games_won = 0
                 item.rounds_won = 0
         self.ioapi.overwrite_model(teamscores_to_update)
+        # síðan sendir fallið nýju niðurstöðurnar til skráningar í AddResults fallinu
         self.addResults(teams, playerscores, resultlist, game, gameslist)
 
     def getTeamScore(self) -> list[TeamScore]:
@@ -58,11 +60,16 @@ class ResultsLL:
         game_away_score = 0
         home_score_rounds = 0
         away_score_rounds = 0
+        # OK. ég veit að þetta lookar slæmt en það var engin auðveld leið sem ég fann til að skipta þessu í minni föll. sorrí
+        # það tekur resultlistann úr niðurstaðaskráningunni, loopar í gegnum það
         for result in resultlist:
+            # nær í stiginn fyrir liðin fyrir hvert rounds
             home_score_rounds += result.home_score
             away_score_rounds += result.away_score
             for playerscore in playerscores:
+                # svo safnar það playerscores fyrir hvern leikmann með því að fá leikmennina úr hverjum leik og bæta vinninginn úr þeim leik í PlayerScore class listann
                 for players in result.home_players:
+                    # en það gerir það fyrst fyrir hvert lið
                     if result.game_type == "501 1v1":
                         if players.playerid == playerscore.playerid:
                             if result.home_score > result.away_score:
@@ -114,21 +121,23 @@ class ResultsLL:
                                 playerscore.result501fours[1] += 1
 
         for result in resultlist:
+            # svo reiknar það hver vann hvern leik með því að finna hver vann fleiri rounds og bætir þannig 1 win fyrir hvern leik sem liðið vann
             if result.home_score > result.away_score:
                 game_score_home += 1
             else:
                 game_away_score += 1
-
+        # svo bætir það þeim niðurstöðum í TeamScore listana
         teams[0].rounds_won = home_score_rounds
         teams[0].games_won = game_score_home
         teams[1].rounds_won = away_score_rounds
         teams[1].games_won = game_away_score
+        # síðan sendir það TeamScores og PlayerScores í skráningu
         for playerscore in playerscores:
             self.ioapi.create_model(playerscore)
 
         self.ioapi.create_model(teams[0])
         self.ioapi.create_model(teams[1])
-
+        # og uppfærir leikina til að geyma úrslit leiksins
         for indexed_game in gameslist:
             if indexed_game.id == game.id:
                 indexed_game.results_hometeam = game_score_home
