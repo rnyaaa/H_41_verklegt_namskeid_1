@@ -78,7 +78,9 @@ class ViewerUI:
         print()
         #all_games = self.llapi.getGames()
         
-        scores = sorted(self.llapi.getTeamScoreSummaries(int(selected_tournment.id)), key=lambda x: -x.games_won and -x.rounds_won)
+        scores = self.llapi.getTeamScoreSummariesByTournament(int(selected_tournment.id))
+        scores = list(set(scores))
+        scores = sorted(scores, key=lambda x: -x.games_won and -x.rounds_won)
         print(f"       {team_name:<11}｜{games_won:>12}  ｜  {rounds_won:<14}")
         print("-"*78)
         
@@ -91,7 +93,9 @@ class ViewerUI:
         os.system('cls||clear')
         '''Shows the high score '''
         print("\nListi yfir leikmenn með flestu afreksstig.\n")
-        scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.QPs)
+        scores = self.llapi.getPlayerScoreSummaries()
+        scores = list(set(scores))
+        scores = sorted(scores, key=lambda x: -x.QPs)
         print("    NAFN LEIKMANNS        AFREKSSTIG")
         print("-"*78)
         for counter, score in enumerate(scores):
@@ -116,9 +120,11 @@ class ViewerUI:
         os.system('cls||clear')
         print(f"\nListi yfir leikmenn með flestu afreksstig í {self.llapi.getTournamentNameFromId(tournamentid)}\n")
         scores = sorted(self.llapi.getPlayerScoreSummariesByTournament(tournamentid), key=lambda x: -x.QPs)
-        print("   NAFN LEIKMANNS           AFREKSSTIG\n")
+        print("   NAFN LEIKMANNS          AFREKSSTIG")
+        print("_"*78)
         for counter, score in enumerate(scores):
-            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
+            print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -  {score.QPs:<4}")
+        print("_"*78)
         print()
         print(
             "1. Stigatafla yfir Innskot\n"
@@ -129,17 +135,7 @@ class ViewerUI:
             self.showPlayerHighscoreInShot(tournamentid)
         if user_input == "2":
             self.showPlayerHighscoreOutShot(tournamentid)
-        
-    def showPlayerHighscoreViewer(self):
-        os.system('cls||clear')
-        print("Listi yfir leikmenn með flestu afreksstig.")
 
-        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: x.QPs)
-        for counter, score in enumerate(scores):
-            print(
-                f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
-
-        print("_"*78)
 
     def showPlayerHighscoreInShot(self, tournamentid=None):
         os.system('cls||clear')
@@ -148,7 +144,9 @@ class ViewerUI:
         print("   NAFN LEIKMANNS          INNSKOT")
         print("-"*78)
         if tournamentid == None:
-            scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.inshots)
+            scores = self.llapi.getPlayerScoreSummaries()
+            scores = list(set(scores))
+            scores = sorted(scores, key=lambda x: -x.inshots)
             for counter, score in enumerate(scores):
                 print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -  {score.inshots:<4}N")
         else: 
@@ -180,7 +178,9 @@ class ViewerUI:
         print("   NAFN LEIKMANNS          ÚTSKOT")
         print("-"*78)
         if tournamentid == None:
-            scores = sorted(self.llapi.getPlayerScoreSummaries(), key=lambda x: -x.outshots)
+            scores = self.llapi.getPlayerScoreSummaries()
+            scores = list(set(scores))
+            scores = sorted(scores, key=lambda x: -x.outshots)
             for counter, score in enumerate(scores):
                 print(f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid):<20}  -  {score.outshots:<4}U")
         else:
@@ -218,11 +218,10 @@ class ViewerUI:
                 print(f"{i+1:>4}.  {players[i].name}")
             print("-"*78)
             command = int(input(f"\nVeldu leikmann af listanum hér fyrir ofan (sláðu t.d. inn 1 fyrir {players[0].name}): "))
-        
+        os.system('cls||clear')
         print(f"\nTölfræði fyrir {players[command-1].name}\n")
         statistics = self.llapi.getSinglePlayerScore(players[command-1].playerid)
         try:
-            print(f"{statistics.playerid}")
             print(f"QPs overall: {statistics.QPs}")
             print(f"Largest inshot: {statistics.inshots}")
             print(f"Largest outshot: {statistics.outshots}")
@@ -245,6 +244,8 @@ class ViewerUI:
             for i in range(len(games)):
                 print(i+1, ". ", games[i].date, games[i].home_team, "vs.", games[i].away_team)
             command = int(input(f"\nVeldu dagsetningu leiks: "))
+
+        os.system('cls||clear')
         print(f"\nTölfræði {player.name} síðan {games[command-1].date}:\n")
         statistics = self.llapi.getPlayerScoreByDate(player.playerid, games[command-1].date)
         print(f"QPs overall: {statistics.QPs}")

@@ -291,7 +291,7 @@ class OrganizerUI():
 
         return teams[command-1]
 
-    def Skraning_Game_Print(self, type: str):
+    def scoring_Header_Print(self, type: str):
         """Prints the game round results registration header for a given game type (ex. 501s (501 singles) or C (cricket)."""
         if type == "501s":
             print("\n****************************")
@@ -395,11 +395,11 @@ class OrganizerUI():
         """Asks user for the players and the results from a 501 1v1 player game."""
 
         os.system('cls||clear')
-        self.Skraning_Game_Print("501s")
+        self.scoring_Header_Game_Print("501s")
         home_player = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id, exclude_ids)
         os.system('cls||clear')
-        self.Skraning_Game_Print("501s")
+        self.scoring_Header_Game_Print("501s")
         away_player = self.select_teamplayer_input(
             "\n🚌👤 Veljið útileikmann\n", away_team_id, exclude_ids)
 
@@ -408,7 +408,7 @@ class OrganizerUI():
 
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
-            self.Skraning_Game_Print("501s")
+            self.scoring_Header_Game_Print("501s")
             new_home_score, new_away_score = self.who_won(
                 home_player.name, away_player.name)
             home_score += new_home_score
@@ -420,19 +420,19 @@ class OrganizerUI():
         """Asks user for the players and the results from a 301 2v2 player game."""
 
         os.system('cls||clear')
-        self.Skraning_Game_Print("301")
+        self.scoring_Header_Game_Print("301")
         home_player1 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id)
         os.system('cls||clear')
-        self.Skraning_Game_Print("301")
+        self.scoring_Header_Game_Print("301")
         home_player2 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id, [home_player1.playerid])
         os.system('cls||clear')
-        self.Skraning_Game_Print("301")
+        self.scoring_Header_Game_Print("301")
         away_player1 = self.select_teamplayer_input(
             "\n🚌👤 Veljið útileikmann\n", away_team_id)
         os.system('cls||clear')
-        self.Skraning_Game_Print("301")
+        self.scoring_Header_Game_Print("301")
         away_player2 = self.select_teamplayer_input(
             "\n🚌👤 Veljið útileikmann\n", away_team_id, [away_player1.playerid])
 
@@ -441,7 +441,7 @@ class OrganizerUI():
 
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
-            self.Skraning_Game_Print("301")
+            self.scoring_Header_Game_Print("301")
             new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
                 home_team_id), self.llapi.getTeamNameFromId(away_team_id))
             home_score += new_home_score
@@ -453,20 +453,20 @@ class OrganizerUI():
         """Asks user for the players and the results from a cricket game."""
 
         os.system('cls||clear')
-        self.Skraning_Game_Print("C")
+        self.scoring_Header_Game_Print("C")
         home_player1 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id, exclude_ids)
         os.system('cls||clear')
-        self.Skraning_Game_Print("C")
+        self.scoring_Header_Game_Print("C")
         exclude_ids.append(home_player1.playerid)
         home_player2 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id, exclude_ids)
         os.system('cls||clear')
-        self.Skraning_Game_Print("C")
+        self.scoring_Header_Game_Print("C")
         away_player1 = self.select_teamplayer_input(
             "\n🚌👤 Veljið útileikmann\n", away_team_id, exclude_ids)
         os.system('cls||clear')
-        self.Skraning_Game_Print("C")
+        self.scoring_Header_Game_Print("C")
         exclude_ids.append(away_player1.playerid)
         away_player2 = self.select_teamplayer_input(
             "\n🚌👤 Veljið útileikmann\n", away_team_id, exclude_ids)
@@ -476,7 +476,7 @@ class OrganizerUI():
 
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
-            self.Skraning_Game_Print("C")
+            self.scoring_Header_Game_Print("C")
             exclude_ids.append(away_player1.playerid)
             new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
                 home_team_id), self.llapi.getTeamNameFromId(away_team_id))
@@ -489,35 +489,35 @@ class OrganizerUI():
         """Asks user for the players and the results from a 501 4v4 player game."""
 
         os.system('cls||clear')
-        self.Skraning_Game_Print("501f")
+        self.scoring_Header_Game_Print("501f")
         home_player1 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id)
         os.system('cls||clear')
-        self.Skraning_Game_Print("501f")
+        self.scoring_Header_Game_Print("501f")
         home_player2 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id, [home_player1.playerid])
         os.system('cls||clear')
-        self.Skraning_Game_Print("501f")
+        self.scoring_Header_Game_Print("501f")
         home_player3 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id, [home_player1.playerid, home_player2.playerid])
         os.system('cls||clear')
-        self.Skraning_Game_Print("501f")
+        self.scoring_Header_Game_Print("501f")
         home_player4 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", home_team_id, [home_player1.playerid, home_player2.playerid, home_player3.playerid])
         os.system('cls||clear')
-        self.Skraning_Game_Print("501f")
+        self.scoring_Header_Game_Print("501f")
         away_player1 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", away_team_id)
         os.system('cls||clear')
-        self.Skraning_Game_Print("501f")
+        self.scoring_Header_Game_Print("501f")
         away_player2 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", away_team_id, [away_player1.playerid])
         os.system('cls||clear')
-        self.Skraning_Game_Print("501f")
+        self.scoring_Header_Game_Print("501f")
         away_player3 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", away_team_id, [away_player1.playerid, away_player2.playerid])
         os.system('cls||clear')
-        self.Skraning_Game_Print("501f")
+        self.scoring_Header_Game_Print("501f")
         away_player4 = self.select_teamplayer_input(
             "\n🏠👤 Veljið heimaleikmann\n", away_team_id, [away_player1.playerid, away_player2.playerid, away_player3.playerid])
 
@@ -526,7 +526,7 @@ class OrganizerUI():
 
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
-            self.Skraning_Game_Print("501f")
+            self.scoring_Header_Game_Print("501f")
             new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
                 home_team_id), self.llapi.getTeamNameFromId(away_team_id))
             home_score += new_home_score
@@ -539,7 +539,7 @@ class OrganizerUI():
 
         for playerscore in playerscores:
             os.system('cls||clear')
-            self.Skraning_Game_Print("score")
+            self.scoring_Header_Game_Print("score")
             print(
                 f"Stigagjöf fyrir {self.llapi.getPlayerNameFromId(playerscore.playerid)}: ")
             playerscore.QPs = input(
