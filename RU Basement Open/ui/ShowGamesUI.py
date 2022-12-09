@@ -40,13 +40,7 @@ class ShowGamesUI():
     def showTournamentDates(self):
         """Displays a list of upcoming games/tournaments."""
         os.system('cls||clear')
-<<<<<<< HEAD
         games = sorted(self.llapi.getUpcomingGames(), key=lambda x: datetime.datetime.strptime(x.date, '%d.%m.%y'))   
-=======
-        games = sorted(self.llapi.getUpcomingGames(
-        ), key=lambda x: datetime.datetime.strptime(x.date, '%d.%m.%y'))
-        #games = self.llapi.getUpcomingGames()
->>>>>>> 1c5470f0d4bcee3ea6b1a3ceaca3a9e96c557582
         print()
         print(
             "------------------------LISTI YFIR KOMANDI VIÐUREIGNIR------------------------")
