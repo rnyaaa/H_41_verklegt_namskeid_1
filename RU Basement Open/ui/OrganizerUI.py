@@ -593,7 +593,6 @@ class OrganizerUI():
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
 
     def who_won(self, home_player, away_player):
-        
         """Asks user whether home player or away player won."""
         print("Hver vann 1. umferð?\n")
         print(f"a. {home_player}")
