@@ -28,6 +28,7 @@ class PlayerScore:
         self.result501fours = [result501fours_wins, result501fours_losses]
 
     def listify(self):
+        """Returns the model on a list form."""
         return [self.playerid, self.id, self.tournamentid, self.QPs, self.inshots, self.outshots, self.result501singles[0], self.result501singles[1], self.result301[0], self.result301[1], self.resultcricket[0], self.resultcricket[1], self.result501fours[0], self.result501fours[1]]
 
     def model(self):

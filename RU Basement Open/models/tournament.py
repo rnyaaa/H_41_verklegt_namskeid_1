@@ -9,6 +9,7 @@ class Tournament:
         self.end_date = end_date
 
     def listify(self):
+        """Returns the model on a list form."""
         return [self.id, self.name, self.organizer_name, self.organizer_phone, self.start_date, self.end_date]
 
     def model(self):

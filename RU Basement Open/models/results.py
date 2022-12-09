@@ -7,6 +7,7 @@ class Results:
         self.losingscore = losingscore
 
     def listify(self):
+        """Returns the model on a list form."""
         return [self.game_id, self.results_id, *self.teams, *self.winningscore, *self.losingscore]
 
     def model(self):

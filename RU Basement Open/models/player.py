@@ -12,6 +12,7 @@ class Player:
 
 
     def listify(self):
+        """Returns the model on a list form."""
         return [self.playerid, self.name, self.mobile, self.home_phone, self.email, self.address, self.team_id, self.is_captain]
 
     def model(self):
