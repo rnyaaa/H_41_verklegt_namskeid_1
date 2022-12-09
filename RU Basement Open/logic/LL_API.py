@@ -36,7 +36,7 @@ class LL_API:
         """Returns a list of all TeamScore instances."""
         return self.teamsLL.getTeamScore()
 
-    def getTeamScoreSummaries(self, tournamentid) -> list[TeamScore]:
+    def getTeamScoreSummariesByTournament(self, tournamentid) -> list[TeamScore]:
         """Returns a list of all TeamScores summaries for a Tournament."""
         return self.teamsLL.getTeamScoreSummariesByTournament(tournamentid)
 

@@ -126,7 +126,7 @@ class PlayersLL:
                 for indexed_game in all_games:
                     if indexed_game.id == score.id:
                         game = indexed_game
-                if datetime.datetime.strptime(game.date, '%d.%m.%y') > datetime.datetime.strptime(date, '%d.%m.%y'):
+                if datetime.datetime.strptime(game.date, '%d.%m.%y') >= datetime.datetime.strptime(date, '%d.%m.%y'):
                     playerscorebydate.append(score)
         PlayerSummaryByDate = PlayerSummary(playerid, 0, 0, 0 , [0, 0], [0, 0], [0, 0], [0, 0])
         for score in playerscorebydate:

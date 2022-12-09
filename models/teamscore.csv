@@ -7,5 +7,3 @@ team_id, tournament_id, id, games_won, rounds_won
 1,2,3,2,8
 1,2,4,6,12
 2,2,4,1,4
-1,2,4,7,14
-2,2,4,0,0

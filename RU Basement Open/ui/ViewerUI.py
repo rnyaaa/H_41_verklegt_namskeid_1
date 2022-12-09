@@ -78,7 +78,9 @@ class ViewerUI:
         print()
         #all_games = self.llapi.getGames()
         
-        scores = sorted(self.llapi.getTeamScoreSummaries(int(selected_tournment.id)), key=lambda x: -x.games_won and -x.rounds_won)
+        scores = self.llapi.getTeamScoreSummariesByTournament(int(selected_tournment.id))
+        scores = list(set(scores))
+        scores = sorted(scores, key=lambda x: -x.games_won and -x.rounds_won)
         print(f"       {team_name:<11}｜{games_won:>12}  ｜  {rounds_won:<14}")
         print("-"*78)
         
@@ -133,17 +135,7 @@ class ViewerUI:
             self.showPlayerHighscoreInShot(tournamentid)
         if user_input == "2":
             self.showPlayerHighscoreOutShot(tournamentid)
-        
-    def showPlayerHighscoreViewer(self):
-        os.system('cls||clear')
-        print("Listi yfir leikmenn með flestu afreksstig.")
 
-        scores = sorted(self.llapi.getPlayerScores(), key=lambda x: x.QPs)
-        for counter, score in enumerate(scores):
-            print(
-                f"{counter+1}. {self.llapi.getPlayerNameFromId(score.playerid)}  -   {score.QPs}")
-
-        print("_"*78)
 
     def showPlayerHighscoreInShot(self, tournamentid=None):
         os.system('cls||clear')

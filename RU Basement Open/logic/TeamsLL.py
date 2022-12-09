@@ -26,7 +26,7 @@ class TeamsLL:
                 teamscores_by_team[item.team_id] = [item]
         team_summaries = []
         for team_id in teamscores_by_team:
-            team_summary = TeamScore(team_id)
+            team_summary = TeamScore(team_id, tournamentid, 0, 0, 0)
             for score in teamscores_by_team[team_id]:
                 team_summary.games_won += score.games_won
                 team_summary.rounds_won += score.rounds_won

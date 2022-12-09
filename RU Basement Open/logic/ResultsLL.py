@@ -32,13 +32,13 @@ class ResultsLL:
                     playerscore.result301 = 0
                     playerscore.resultcricket = 0
                     playerscore.result501fours = 0
-        self.ioapi.overwrite_model(playerscore)
+        self.ioapi.overwrite_model(playerscores_to_update)
         for item in teamscores_to_update:
             if item.game_id == game.id:
                 item.tournament_id = 0
                 item.games_won = 0
                 item.rounds_won = 0
-        self.ioapi.overwrite_model(item)
+        self.ioapi.overwrite_model(teamscores_to_update)
         self.addResults(teams, playerscores, resultlist, game, gameslist)
         
 
