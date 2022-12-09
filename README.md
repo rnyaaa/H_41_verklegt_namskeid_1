@@ -16,7 +16,6 @@ No pip installs nor the installation of other packages are required for the prog
 
 Passwords, usernames or other forms of access codes are not needed either.
 
-### Video Tutorial
+## Video Tutorial
 
-A video tutorial explaining the basics can be found here:
-[yt linkur hér]
+A video tutorial explaining the basics can be found [yt linkur hér]
