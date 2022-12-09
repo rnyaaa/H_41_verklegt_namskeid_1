@@ -136,7 +136,7 @@ class Menu_functions:
                 return True
             print("\n⛔ Ógilt val, reyndu aftur.\n")
 
-    def who_won(self, home_player, away_player, round_number):
+    def who_won(home_player, away_player, round_number):
         """Ask the user which player won between home player and away player. Takes in player names and the number of the round."""
 
         while True:
