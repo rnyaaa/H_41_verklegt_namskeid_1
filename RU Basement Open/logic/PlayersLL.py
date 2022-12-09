@@ -107,15 +107,6 @@ class PlayersLL:
             if item.playerid == playerid:
                 return item.name
 
-    def ByQualityPoints(player_summary: PlayerSummary):
-        return player_summary.QPs
-
-    def ByInshots(player_summary: PlayerSummary):
-        return player_summary.inshots
-
-    def ByOutshots(player_summary: PlayerSummary):
-        return player_summary.outshots
-
     def getPlayerScoreByDate(self, playerid, date):
         """ returns a playersummary for a player from a given date"""
         allplayerscores = self.getAllPlayerScore()

@@ -19,6 +19,7 @@ class PlayerSummary:
         self.result501fours = result501fours
 
     def listify(self):
+        """Returns the model on a list form."""
         return [self.playerid, self.QPs, self.inshots, self.outshots, self._501winlose[0], self._501winlose[1], self._301winlose[0], self._301winlose[1], self.cricketwinlose[0], self.cricketwinlose[1], self._5014winlose[0], self._5014winlose[1]]
 
     def model(self):

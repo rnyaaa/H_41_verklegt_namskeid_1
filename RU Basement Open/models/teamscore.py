@@ -15,6 +15,7 @@ class TeamScore:
 
 
     def listify(self):
+        """Returns the model on a list form."""
         return [self.team_id, self.tournament_id, self.game_id, self.games_won, self.rounds_won]
 
     def model(self):
