@@ -76,7 +76,6 @@ class ViewerUI:
         selected_tournment = OrganizerUI.select_tournament_input(self)
         os.system('cls||clear')
         print()
-        #all_games = self.llapi.getGames()
         
         scores = self.llapi.getTeamScoreSummariesByTournament(int(selected_tournment.id))
         scores = list(set(scores))
