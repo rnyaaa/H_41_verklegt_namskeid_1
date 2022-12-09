@@ -379,6 +379,8 @@ class OrganizerUI():
         print("✅ Niðurstöður skráðar!")
 
     def get_501_1v1_results(self, home_team_id, away_team_id, exclude_ids):
+        """Asks user for the players and the results from a 501 1v1 player game."""
+
         os.system('cls||clear')
         self.Skraning_Game_Print("501s")
         home_player = self.select_teamplayer_input(
@@ -402,6 +404,8 @@ class OrganizerUI():
         return GameResult("501 1v1", [home_player], [away_player], home_score, away_score)
 
     def get_301_results(self, home_team_id, away_team_id):
+        """Asks user for the players and the results from a 301 2v2 player game."""
+
         os.system('cls||clear')
         self.Skraning_Game_Print("301")
         home_player1 = self.select_teamplayer_input(
@@ -433,6 +437,8 @@ class OrganizerUI():
         return GameResult("301 2v2", [home_player1, home_player2], [away_player1, away_player2], home_score, away_score)
 
     def get_cricket_results(self, home_team_id, away_team_id, exclude_ids):
+        """Asks user for the players and the results from a cricket game."""
+
         os.system('cls||clear')
         self.Skraning_Game_Print("C")
         home_player1 = self.select_teamplayer_input(
@@ -467,6 +473,8 @@ class OrganizerUI():
         return GameResult("Cricket 2v2", [home_player1, home_player2], [away_player1, away_player2], home_score, away_score)
 
     def get_501_4v4_results(self, home_team_id, away_team_id):
+        """Asks user for the players and the results from a 501 4v4 player game."""
+
         os.system('cls||clear')
         self.Skraning_Game_Print("501f")
         home_player1 = self.select_teamplayer_input(
@@ -514,6 +522,8 @@ class OrganizerUI():
         return GameResult("501 4v4", [home_player1, home_player2, home_player3, home_player4], [away_player1, away_player2, away_player3, away_player4], home_score, away_score)
 
     def getPlayerScores(self, playerscores):
+        """Asks the user for the playerscores for a given user (QPs, highest inshots/outshots) from a game."""
+
         for playerscore in playerscores:
             os.system('cls||clear')
             self.Skraning_Game_Print("score")
@@ -564,8 +574,8 @@ class OrganizerUI():
             print('\n⛔ Ekki gildur valmöguleiki, reyndu aftur\n')
 
     def select_game_input_finished(self, tournament_id):
-        os.system('cls||clear')
         """Prints a numbered list of all games and asks the user for their selection. The selected game index is returned"""
+        os.system('cls||clear')
 
         print(f"\nBreyta Niðurstöðu\n\nVeljið viðureign:\n")
         games_upcoming = self.llapi.getGamesFinished()
@@ -587,8 +597,8 @@ class OrganizerUI():
         return games_upcoming_in_tournament[command-1]
 
     def select_game_input_upcoming(self, tournament_id):
-        os.system('cls||clear')
         """Prints a numbered list of all games and asks the user for their selection. The selected game index is returned"""
+        os.system('cls||clear')
 
         print(f"\nBreyta Dagsetningu\n\nVeljið viðureign:\n")
         games_upcoming = self.llapi.getUpcomingGames()
