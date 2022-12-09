@@ -88,14 +88,15 @@ class Menu_functions:
         return date_str
 
     def isBetweenDates(check_date, start, end):
-        date = datetime.datetime.strptime(check_date, '%d.%m.%y')        
+        date = datetime.datetime.strptime(check_date, '%d.%m.%y')
         start_date = datetime.datetime.strptime(start, '%d.%m.%y')
         end_date = datetime.datetime.strptime(end, '%d.%m.%y')
 
         if start_date <= date <= end_date:
             return True
         else:
-            print(f"⛔ Dagsetning er ekki í boði. Veldu dagsetningu á milli {start} og {end}.")
+            print(
+                f"⛔ Dagsetning er ekki í boði. Veldu dagsetningu á milli {start} og {end}.")
             return False
 
     def getEventDates():
@@ -135,6 +136,7 @@ class Menu_functions:
             print("\n⛔ Ógilt val, reyndu aftur.\n")
 
     def menuQuit():
+        """Quits the """
         os.system('cls||clear')
         print()
         print("     .--'''''''''--.")
@@ -156,4 +158,7 @@ class Menu_functions:
         print("          Bless!\n")
         quit()
 
-
+    def pressEnterToContinue():
+        """Prompts the user to press enter to continue."""
+        print()
+        input('🕹️ Ýttu á "enter" takkann til að halda áfram ')

@@ -45,7 +45,6 @@ class CaptainUI():
                 Menu_functions.menuQuit()
             else:
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.")
-    
 
     def Skraning_Game_Print(self, type):
         if type == "501s":
@@ -64,7 +63,7 @@ class CaptainUI():
             print("\n****************************")
             print(" Skráning á leik 501 - 4v4:")
             print("****************************")
-        if type == "score":    
+        if type == "score":
             print("\n****************************")
             print(" Skráning á Stigum: ")
             print("****************************\n")
@@ -93,27 +92,30 @@ class CaptainUI():
         resultlist = []
         exclude = []
         # allar 501 1v1 umferðirnar, niðurstöður:
-        result_501_1v1_1 = self.get_501_1v1_results(home_team_id, away_team_id, [])
+        result_501_1v1_1 = self.get_501_1v1_results(
+            home_team_id, away_team_id, [])
         for player in result_501_1v1_1.home_players:
             exclude.append(player.playerid)
         for player in result_501_1v1_1.away_players:
             exclude.append(player.playerid)
-        result_501_1v1_2 = self.get_501_1v1_results(home_team_id, away_team_id, exclude)
+        result_501_1v1_2 = self.get_501_1v1_results(
+            home_team_id, away_team_id, exclude)
         for player in result_501_1v1_2.home_players:
             exclude.append(player.playerid)
         for player in result_501_1v1_2.away_players:
             exclude.append(player.playerid)
-        result_501_1v1_3 = self.get_501_1v1_results(home_team_id, away_team_id, exclude)
+        result_501_1v1_3 = self.get_501_1v1_results(
+            home_team_id, away_team_id, exclude)
         for player in result_501_1v1_3.home_players:
             exclude.append(player.playerid)
         for player in result_501_1v1_3.away_players:
             exclude.append(player.playerid)
-        result_501_1v1_4 = self.get_501_1v1_results(home_team_id, away_team_id, exclude)
+        result_501_1v1_4 = self.get_501_1v1_results(
+            home_team_id, away_team_id, exclude)
         resultlist.append(result_501_1v1_1)
         resultlist.append(result_501_1v1_2)
         resultlist.append(result_501_1v1_3)
         resultlist.append(result_501_1v1_4)
-
 
         # niðurstaða 301 umferðarinnar:
         result_301_2v2 = self.get_301_results(home_team_id, away_team_id)
@@ -125,7 +127,8 @@ class CaptainUI():
             exclude.append(player.playerid)
         for player in result_301_2v2.away_players:
             exclude.append(player.playerid)
-        result_cricket = self.get_cricket_results(home_team_id, away_team_id, exclude)
+        result_cricket = self.get_cricket_results(
+            home_team_id, away_team_id, exclude)
         resultlist.append(result_cricket)
 
         # niðurstaða 501 4v4 umferðarinnar:
@@ -134,22 +137,25 @@ class CaptainUI():
 
         playerscores = []
         for player in home_players:
-            playerscores.append(PlayerScore(player.playerid, game.id, tournament.id))
+            playerscores.append(PlayerScore(
+                player.playerid, game.id, tournament.id))
         for player in away_players:
-            playerscores.append(PlayerScore(player.playerid, game.id, tournament.id))
+            playerscores.append(PlayerScore(
+                player.playerid, game.id, tournament.id))
 
         # Stigagjöf - QPs, Innskot og Útskot
         playerscores = self.getPlayerScores(playerscores)
 
-        teams = [TeamScore(home_team_id, tournament.id, game.id), TeamScore(away_team_id, tournament.id, game.id)]
+        teams = [TeamScore(home_team_id, tournament.id, game.id), TeamScore(
+            away_team_id, tournament.id, game.id)]
         gameslist = self.llapi.getUpcomingGames()
         self.llapi.addResults(teams, playerscores, resultlist, game, gameslist)
 
         os.system('cls||clear')
-        print("√ Niðurstöður skráðar!")
-        
+        print("✅ Niðurstöður skráðar!")
 
     def get_501_1v1_results(self, home_team_id, away_team_id, exclude_ids):
+        """"Gets and returns results from a 1v1 player 510 game."""
         os.system('cls||clear')
         self.Skraning_Game_Print("501s")
         home_player = self.select_teamplayer_input(
@@ -165,7 +171,8 @@ class CaptainUI():
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.Skraning_Game_Print("501s")
-            new_home_score, new_away_score = self.who_won(home_player.name,away_player.name, counter)
+            new_home_score, new_away_score = self.who_won(
+                home_player.name, away_player.name, counter)
             home_score += new_home_score
             away_score += new_away_score
             counter += 1
@@ -173,6 +180,7 @@ class CaptainUI():
         return GameResult("501 1v1", [home_player], [away_player], home_score, away_score)
 
     def get_301_results(self, home_team_id, away_team_id):
+        """"Gets and returns results from a 2v2 player 310 game."""
         os.system('cls||clear')
         self.Skraning_Game_Print("301")
         home_player1 = self.select_teamplayer_input(
@@ -197,7 +205,8 @@ class CaptainUI():
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.Skraning_Game_Print("301")
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
+            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
+                home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
             counter += 1
@@ -205,6 +214,7 @@ class CaptainUI():
         return GameResult("301 2v2", [home_player1, home_player2], [away_player1, away_player2], home_score, away_score)
 
     def get_cricket_results(self, home_team_id, away_team_id, exclude_ids):
+        """"Gets and returns results from a 2v2 player cricket game."""
         os.system('cls||clear')
         self.Skraning_Game_Print("C")
         home_player1 = self.select_teamplayer_input(
@@ -231,7 +241,8 @@ class CaptainUI():
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.Skraning_Game_Print("301")
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
+            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
+                home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
             counter += 1
@@ -239,6 +250,7 @@ class CaptainUI():
         return GameResult("Cricket 2v2", [home_player1, home_player2], [away_player1, away_player2], home_score, away_score)
 
     def get_501_4v4_results(self, home_team_id, away_team_id):
+        """"Gets and returns results from a 4v4 player 510 game."""
         os.system('cls||clear')
         self.Skraning_Game_Print("501f")
         home_player1 = self.select_teamplayer_input(
@@ -274,14 +286,14 @@ class CaptainUI():
         os.system('cls||clear')
         self.Skraning_Game_Print("501f")
 
-
         home_score = 0
         away_score = 0
         counter = 1
         while home_score < 2 and away_score < 2:
             os.system('cls||clear')
             self.Skraning_Game_Print("501f")
-            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
+            new_home_score, new_away_score = self.who_won(self.llapi.getTeamNameFromId(
+                home_team_id), self.llapi.getTeamNameFromId(away_team_id), counter)
             home_score += new_home_score
             away_score += new_away_score
             counter += 1
@@ -289,13 +301,18 @@ class CaptainUI():
         return GameResult("501 4v4", [home_player1, home_player2, home_player3, home_player4], [away_player1, away_player2, away_player3, away_player4], home_score, away_score)
 
     def getPlayerScores(self, playerscores):
+        """Gets QPs inshots and outshots for a given player."""
         for playerscore in playerscores:
             os.system('cls||clear')
             self.Skraning_Game_Print("score")
-            print(f"Stigagjöf fyrir {self.llapi.getPlayerNameFromId(playerscore.playerid)}: \n")
-            playerscore.QPs = input("Hversu mörg Quality Points fékk leikmaðurinn? - 0 ef engin: ")
-            playerscore.inshots = input("Hvað var hæsta innskotið hjá leikmanninum?: ")
-            playerscore.outshots = input("Hvað var hæsta útskot hjá leikmanninum?: ")
+            print(
+                f"Stigagjöf fyrir {self.llapi.getPlayerNameFromId(playerscore.playerid)}: \n")
+            playerscore.QPs = input(
+                "Hversu mörg Quality Points fékk leikmaðurinn? - 0 ef engin: ")
+            playerscore.inshots = input(
+                "Hvað var hæsta innskotið hjá leikmanninum?: ")
+            playerscore.outshots = input(
+                "Hvað var hæsta útskot hjá leikmanninum?: ")
         return playerscores
 
     def select_teamplayer_input(self, ui_str, team_id, exclude_ids=[]):
@@ -320,21 +337,19 @@ class CaptainUI():
                 print("\n⛔ Ekki gildur valmöguleiki, reyndu aftur.\n")
 
     def who_won(self, home_player, away_player, counter):
-        #print("a. heimalið")
-        #print("b. útilið\n")
+        """Ask the user which player won between home player and away player"""
 
         while True:
             print(f"Hver vann {counter}. umferð?\n")
             print(f"a. {home_player}")
             print(f"b. {away_player}")
             user_input = input(
-                "Sláðu inn valmöguleika af listanum hér að ofan: ")
+                f"\nSláðu inn valmöguleika af listanum hér að ofan (t.d. a fyrir {home_player}): ")
             if user_input == "a":
                 return (1, 0)
             if user_input == "b":
                 return (0, 1)
-            print('⛔ Ekki gildur valmöguleiki, reyndu aftur')
-
+            print('\n⛔ Ekki gildur valmöguleiki, reyndu aftur\n')
 
     def select_game_input(self, tournament_id):
         os.system('cls||clear')
