@@ -1,8 +1,6 @@
 from logic.LL_API import LL_API
 from ui.UI import Menu_functions
-from ui.OrganizerUI import OrganizerUI
 import datetime
-from time import time
 import os
 
 
@@ -40,9 +38,7 @@ class ShowGamesUI():
     def showTournamentDates(self):
         """Displays a list of upcoming games/tournaments."""
         os.system('cls||clear')
-        games = sorted(self.llapi.getUpcomingGames(
-        ), key=lambda x: datetime.datetime.strptime(x.date, '%d.%m.%y'))
-        #games = self.llapi.getUpcomingGames()
+        games = sorted(self.llapi.getUpcomingGames(), key=lambda x: datetime.datetime.strptime(x.date, '%d.%m.%y'))   
         print()
         print(
             "------------------------LISTI YFIR KOMANDI VIÐUREIGNIR------------------------")

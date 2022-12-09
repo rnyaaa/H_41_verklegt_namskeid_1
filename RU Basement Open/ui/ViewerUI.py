@@ -78,10 +78,8 @@ class ViewerUI:
         selected_tournment = OrganizerUI.select_tournament_input(self)
         os.system('cls||clear')
         print()
-        #all_games = self.llapi.getGames()
-
-        scores = self.llapi.getTeamScoreSummariesByTournament(
-            int(selected_tournment.id))
+        
+        scores = self.llapi.getTeamScoreSummariesByTournament(int(selected_tournment.id))
         scores = list(set(scores))
         scores = sorted(scores, key=lambda x: -x.games_won and -x.rounds_won)
         print(f"       {team_name:<11}｜{games_won:>12}  ｜  {rounds_won:<14}")

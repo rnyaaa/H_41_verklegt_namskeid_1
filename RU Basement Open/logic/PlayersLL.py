@@ -31,6 +31,7 @@ class PlayersLL:
         playerscores = self.getAllPlayerScore()
         """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """
         playerscores_by_player = {}
+        # rennir í gegnum PlayerScores og safnar þeim í dict lyklað með playerid, þannig playerids geyma öll playerscorein
         for item in playerscores:
             if item.playerid in playerscores_by_player:
                 playerscores_by_player[item.playerid].append(item)
@@ -38,6 +39,7 @@ class PlayersLL:
                 playerscores_by_player[item.playerid] = [item]
         
         player_summaries = []
+        # síðan loopar það í gegnum dictið og býr til PlayerSummary fyrir hvern player úr niðurstöðunum sem leikmaður er skráður með í dictinu
         for player_id in playerscores_by_player:
             """ get PlayerSummary with default values """
             player_summary = PlayerSummary(player_id, 0, 0, 0 , [0, 0], [0, 0], [0, 0], [0, 0])
@@ -58,6 +60,7 @@ class PlayersLL:
         return player_summaries
 
     def getPlayerScoreSummariesByTournament(self, tournamentid) -> list[PlayerSummary]:
+        # þetta sækir playerscores nema filterar út öll playerscores úr öðru tournament
         playerscores = [score for score in self.getAllPlayerScore() if score.tournamentid == tournamentid]
         """ get all PlayerScores in dict with the playerid as a key for each of their respective playerscores """
         playerscores_by_player = {}
@@ -67,6 +70,7 @@ class PlayersLL:
             else:
                 playerscores_by_player[item.playerid] = [item]
         
+        # gerir síðan það sama með þau playerscores og í getPlayerScoreSummaries: loopar í gegnum dictið og býr til PlayerSummary fyrir hvern player úr niðurstöðunum
         player_summaries = []
         for player_id in playerscores_by_player:
             """ get PlayerSummary with default values """
@@ -111,14 +115,19 @@ class PlayersLL:
         """ returns a playersummary for a player from a given date"""
         allplayerscores = self.getAllPlayerScore()
         playerscorebydate = []
+        # finnur öll playerscores fyrir leikmanninn
         for score in allplayerscores:
             if score.playerid == playerid:
+                # fær dagsetningu leikja með því að fá alla leiki
                 all_games = self.ioapi.return_model(Game)
+                # passar að leikmaður sé í þeim leikjum
                 for indexed_game in all_games:
                     if indexed_game.id == score.id:
                         game = indexed_game
+                # filterar út síðan playerscores sem gerðust fyrir gefna dagsetningu
                 if datetime.datetime.strptime(game.date, '%d.%m.%y') >= datetime.datetime.strptime(date, '%d.%m.%y'):
                     playerscorebydate.append(score)
+        # býr til PlayerSummary úr þeim playerscore föllum
         PlayerSummaryByDate = PlayerSummary(playerid, 0, 0, 0 , [0, 0], [0, 0], [0, 0], [0, 0])
         for score in playerscorebydate:
                 PlayerSummaryByDate.QPs += score.QPs
